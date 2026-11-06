@@ -58,3 +58,7 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
 11. **A sidekick reacts.** A pet, a kid or a bystander reacts to each beat (side-eye, shock, laugh). It doubles the emotion for free.
 12. **Recurring motif.** One hero object (a bell, a jar, a button, a car) keeps coming back in every act and pays off in the last shot.
 13. **Pace.** Narration runs 3.5–4 words per second, Shorts are 55–70 s long, and there are 0–5 hard cuts.
+14. **Labels do the teaching.** Key terms appear as big readable words on objects in the world (crates, barrels, signs, bottles, road signs), never as floating text boxes.
+15. **Objects come alive.** Give the key object a face and let it react (a nervous pill, a smug sack). It's an instant character with no extra setup.
+16. **Turn abstract ideas into places.** If the topic is invisible (a body, a system, a law), build it as a location you can walk through: corridors, roads, doors, maps.
+17. **Length.** 36–45 s works as well as 60 s when every second carries a beat. Cut anything that doesn't.
