@@ -66,3 +66,23 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
 19. **Numbers are props.** Big counters, scoreboards, tally boards and price tags with chunky digits that tick up live on screen.
 20. **Wild camera for big moments.** Tilted (Dutch) angles, spinning or upside-down shots for falls, panic and chaos. Keep it calm and level for explanations.
 21. **Visualise the thought.** A character's brain, memory or decision becomes a little character, room or machine you can see.
+
+## Measured look targets (every frame of 22 reference Shorts at 30 fps)
+| Measure | Reference average | Our old render | Rule |
+|---|---|---|---|
+| Mean brightness | 0.43 | 0.67 | Darker, moodier frames: keep mids down |
+| Shadow colour | ~#26213a (deep indigo-brown) | #5e4454 (milky) | Crush shadows deep; tint them indigo |
+| Highlight colour | ~#d5c7b7 (warm, never white) | #f5f2e8 | Cap highlights warm |
+| Saturation | 0.47 | 0.37 | Richer colour |
+| Seconds that are dark | 20 % | 0 % | Use real night and indoor scenes |
+| Brightness range across a video | 0.44 | 0.24 | Big mood swings between acts |
+| Frames with camera panning | 13 % | 50 % | Mostly locked or pushing-in camera; let the characters move |
+| Hard cuts | ~2 per video | — | Keep 0–5 |
+| Visual beats | ~0.5 per second | 0.47 | Something new about every 2 s, at minimum |
+
+## Script shape (measured over 23 transcripts; structure only)
+- 110–280 words (about 195), at 3.5–4 words per second.
+- About 13 sentences. Most are 10–20 words, with 1–2 punchy fragments of four words or fewer.
+- 15 of 23 use "You see". Either it comes right after the hook (in the first 10 %, explaining the setup), or it opens the reveal at 65–90 %.
+- "So" (about 2) and "But" (about 2) drive the turns. About 1 question per script, usually a doubter's line or "How is that possible?".
+- "You" appears about 5 times: put the viewer in the scene.
