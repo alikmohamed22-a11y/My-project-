@@ -62,3 +62,7 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
 15. **Objects come alive.** Give the key object a face and let it react (a nervous pill, a smug sack). It's an instant character with no extra setup.
 16. **Turn abstract ideas into places.** If the topic is invisible (a body, a system, a law), build it as a location you can walk through: corridors, roads, doors, maps.
 17. **Length.** 36–45 s works as well as 60 s when every second carries a beat. Cut anything that doesn't.
+18. **Switch style for ideas.** For a theory, plan or "what if", change the look for a few seconds: a blueprint sketch, an old map, a retro screen, or a simple low-poly world. Then snap back.
+19. **Numbers are props.** Big counters, scoreboards, tally boards and price tags with chunky digits that tick up live on screen.
+20. **Wild camera for big moments.** Tilted (Dutch) angles, spinning or upside-down shots for falls, panic and chaos. Keep it calm and level for explanations.
+21. **Visualise the thought.** A character's brain, memory or decision becomes a little character, room or machine you can see.
