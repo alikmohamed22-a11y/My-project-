@@ -53,3 +53,8 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
    - Warm sunrise for the payoff.
 7. **Big emotions.** Use smug side-eyes, sweat drops, shocked round eyes and tears. Falls are comedy: the hat flies off, dust puffs up and dizzy eyes follow.
 8. **Script.** A paradox hook. Use "you" or "imagine" to put the viewer in the scene where it fits. A doubter asks the question the viewer is thinking. Then 3–5 rising beats, "You see," with an everyday example, and a one-line ironic twist at the end.
+9. **Cutaway diagrams.** Cut the world open to explain how something works: a ground cross-section, inside a machine, a side view of a mechanism. Then push the camera into it.
+10. **One home location, many moods.** Come back to the same place at noon, sunset, night, in snow and at sunrise, so viewers feel time passing without being told.
+11. **A sidekick reacts.** A pet, a kid or a bystander reacts to each beat (side-eye, shock, laugh). It doubles the emotion for free.
+12. **Recurring motif.** One hero object (a bell, a jar, a button, a car) keeps coming back in every act and pays off in the last shot.
+13. **Pace.** Narration runs 3.5–4 words per second, Shorts are 55–70 s long, and there are 0–5 hard cuts.
