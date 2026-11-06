@@ -38,3 +38,18 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
 - `oddverra.js` is the character drawing code (`oddverra(ctx, outfit, opts)` on a 600×1000 canvas, soles at y = 965).
 - `captions.py` is the caption builder (word timings to an ASS subtitle file).
 - `poses.png` and `face_options.png` are reference sheets. Face option 1 (bean eyes) is the official one.
+
+## Craft rules (learned from studying top channels; our own wording, no copied content)
+1. **Flow, not cuts.** Aim for 0 to 4 hard cuts per Short. Move between scenes with push-through-an-object moves, circle (iris) wipes, looking through a window or lens into the next scene, match moves, and quick dissolves.
+2. **Something changes on every word or two.** That can be a new pose, a prop action, an expression, a camera move or an insert. Nothing holds still for more than about 1 second.
+3. **Show every line literally.** Comparisons, numbers and jokes appear on screen exactly as they're said.
+4. **Close-ups on hands and props.** Use extreme close-ups of the key object, with slow motion for the key moment. Put a big blurred foreground at the edge of the frame for depth.
+5. **Scale reveals.** Do a crane or aerial pull-back to show how big the world is (crowds, towns, a fleet). Use a fully dressed world: signs, posters and clutter.
+6. **Light follows the mood:**
+   - Bright noon for the setup.
+   - Golden sunset with long shadows for the escalation.
+   - Warm lamp-lit interiors with dark red and purple shadows.
+   - Deep blue night with window light beams for "You see…".
+   - Warm sunrise for the payoff.
+7. **Big emotions.** Use smug side-eyes, sweat drops, shocked round eyes and tears. Falls are comedy: the hat flies off, dust puffs up and dizzy eyes follow.
+8. **Script.** A paradox hook. Use "you" or "imagine" to put the viewer in the scene where it fits. A doubter asks the question the viewer is thinking. Then 3–5 rising beats, "You see," with an everyday example, and a one-line ironic twist at the end.
