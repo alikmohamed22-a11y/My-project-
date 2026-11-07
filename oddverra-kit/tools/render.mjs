@@ -1,0 +1,25 @@
+// node render.mjs <outdir> "<frames>"   frames: "0-1284" or "5,40,90"; env WORKERS, RESUME=1
+import { chromium } from 'playwright';
+import http from 'http'; import fs from 'fs'; import path from 'path';
+const [out, spec] = process.argv.slice(2);
+const frames = spec.split(',').flatMap((s) => { const [a, b] = s.split('-').map(Number); return b === undefined ? [a] : Array.from({ length: b - a + 1 }, (_, i) => a + i); });
+fs.mkdirSync(out, { recursive: true });
+const root = path.resolve('web'), types = { '.js': 'text/javascript', '.html': 'text/html' };
+const srv = http.createServer((q, r) => { let f = path.join(root, decodeURIComponent(q.url.split('?')[0])); if (q.url.startsWith('/three/')) f = path.resolve('node_modules/three/build', path.basename(f)); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) { r.writeHead(404); r.end(); return; } r.writeHead(200, { 'Content-Type': types[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(r); }).listen(0);
+const port = srv.address().port;
+const todo = frames.filter((f) => !(process.env.RESUME && fs.existsSync(`${out}/f${String(f).padStart(4, '0')}.jpg`)));
+const N = +(process.env.WORKERS || 1);
+const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+let done = 0; const t0 = Date.now();
+await Promise.all(Array.from({ length: N }, async (_, w) => {
+  const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  p.on('pageerror', (e) => console.log('PAGEERROR', e.message)); p.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.log('console:', m.text().slice(0, 300)); });
+  await p.goto(`http://localhost:${port}/index.html${process.env.Q || ''}`); await p.waitForFunction('window.ready', { timeout: 60000 });
+  for (let i = w; i < todo.length; i += N) {
+    const f = todo[i];
+    const url = await p.evaluate((f) => { window.renderFrame(f); return document.querySelector('canvas').toDataURL('image/jpeg', 0.95); }, f);
+    fs.writeFileSync(`${out}/f${String(f).padStart(4, '0')}.jpg`, Buffer.from(url.split(',')[1], 'base64'));
+    done++; if (done % 10 === 0 || done === todo.length) console.log(`progress ${done}/${todo.length} ${((Date.now() - t0) / done / 1000).toFixed(1)}s/f`);
+  }
+}));
+await b.close(); srv.close(); console.log('DONE');
