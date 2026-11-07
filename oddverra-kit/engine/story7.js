@@ -33,7 +33,7 @@ function newCam(k, f) {
   const t = u(f), P = (p, l, k2, tt) => L3(p, l, k2 * tt);
   if (k === 'water') { const tt = sm(0, 130, t); return { p: P([2.5, 1.45, 7.6], [0.6, 1.05, -3], 0.06, tt), l: [0.6, 1.05, -3], fov: 38, fp: [1.2, 1.4, -2.0], cInf: 5, fy: -0.12 }; } // locked wide: runners trudge in to the one barrel
   if (k === 'purpose') { const tt = sm(0, 36, t); return { p: P([-0.3, 1.62, 2.7], [-0.75, 1.45, -1.0], 0.1, tt), l: [-0.75, 1.45, -1.0], fov: 36, fp: [-0.75, 1.45, -1.0], cInf: 9 }; } // "On purpose." close-up
-  if (k === 'dogs') { const r = dogRunner(f); return { p: [0.7, 1.15, 9.0], l: L3([-0.7, 1.0, -2.0], add3(r, [0, 0.9, 0]), 0.3), fov: 40, fp: add3(r, [0, 1.4, -0.6]), cInf: 5, roll: 0.07, fy: -0.1 }; } // low dutch, runner + dogs charge the lens
+  if (k === 'dogs') { const r = dogRunner(f); return { p: [1.3, 1.05, 6.2], l: L3([-0.9, 1.0, -1.0], add3(r, [0.2, 0.8, -0.9]), 0.55), fov: 44, fp: add3(r, [0, 1.4, -0.6]), cInf: 5, roll: 0.07, fy: -0.1 }; } // low dutch, runner + dogs charge the lens
   if (k === 'orchard') { const tt = sm(0, 152, t); return { p: P([0.2, 1.35, 5.8], [2.5, 0.85, -1.8], 0.08, tt), l: [2.5, 0.85, -1.8], fov: 38, fp: [2.1, 1.0, -1.6], cInf: 6 }; } // locked wide of the orchard; he naps in frame
 }
 // camera overrides for reused old shots (segment index -> camera)
@@ -65,7 +65,7 @@ function newFx(k, f) {
   if (k === 'purpose') { F.push({ fx: 'barrel', pos: [-0.1, 0.55, -1.25], size: 1.0 }); }
   if (k === 'dogs') {
     const r = dogRunner(f);
-    for (let i = 0; i < 3; i++) { const lag = 1.25 + i * 0.85, bob = Math.abs(Math.sin((f + i * 3) * 0.6)) * 0.14; F.push({ fx: 'dog', k: Math.floor((f + i * 2) / 3) % 2, v: i, pos: [r[0] + (i - 1) * 0.35, 0.42 + bob, r[2] - lag], size: 1.05 }); }
+    for (let i = 0; i < 3; i++) { const lag = 1.25 + i * 0.85, bob = Math.abs(Math.sin((f + i * 3) * 0.6)) * 0.14; F.push({ fx: 'dog', k: Math.floor((f + i * 2) / 3) % 2, v: i, pos: [r[0] + (i - 1) * 0.4, 0.5 + bob, r[2] - lag], size: 1.3 }); }
     if (t % 16 < 9) F.push({ fx: 'bark', t: (t % 16) / 9, pos: [r[0] + 0.4, 1.35, r[2] - 1.9 - (Math.floor(t / 16) % 2) * 0.9], size: 0.75 });
     for (let i = 0; i < 3; i++) { const tt = ((t / 12) + i / 3) % 1; F.push({ fx: 'puff', t: tt, pos: [r[0], 0.25 + tt * 0.3, r[2] - 1.0 - i * 0.9 - tt * 0.6], size: 0.7 + tt, tint: '#e2cfa8' }); }
   }
