@@ -347,6 +347,13 @@ export function oddverra(g, o, op = {}) {
     const band = new Path2D(); band.rect(cx - HW, bY - 16 * fz, HW * 2, 14 * fz); g.save(); g.clip(dm); g.fillStyle = mixc(hk, '#000000', 0.35); g.fill(band); g.restore();
     taper(g, arcPts(cx - HW * 0.1, bY - 20 * fz, HW * 0.55, Math.PI * 1.15, Math.PI * 1.4, 5, 50 * fz), 4, 'rgba(255,255,255,0.28)', 0.3);
     const br = new Path2D(); br.moveTo(cx - HW * 1.06, bY - 5 * fz); br.quadraticCurveTo(cx - HW * 0.9, bY + 3, cx - HW * 0.6, bY + 4); br.quadraticCurveTo(cx, bY + 10, cx + HW * 0.6, bY + 4); br.quadraticCurveTo(cx + HW * 0.9, bY + 3, cx + HW * 1.06, bY - 5 * fz); br.quadraticCurveTo(cx + HW * 1.0, bY + 16 * fz, cx, bY + 20 * fz); br.quadraticCurveTo(cx - HW * 1.0, bY + 16 * fz, cx - HW * 1.06, bY - 5 * fz); br.closePath(); cel(g, br, hk, 3.2, 6, 3, 3); }
+  if (o.hat === 'fedora') { const hk = o.hatCol || '#4a4038', bY = hy - HH * 0.62;
+    const dm = new Path2D(); dm.moveTo(cx - HW * 0.74, bY); dm.lineTo(cx - HW * 0.66, bY - 96 * fz); dm.quadraticCurveTo(cx - HW * 0.3, bY - 116 * fz, cx, bY - 92 * fz); dm.quadraticCurveTo(cx + HW * 0.3, bY - 116 * fz, cx + HW * 0.66, bY - 96 * fz); dm.lineTo(cx + HW * 0.74, bY); dm.closePath(); cel(g, dm, hk, 3.4, 12, 6, 4);
+    taper(g, [[cx - HW * 0.05, bY - 90 * fz], [cx + HW * 0.05, bY - 58 * fz]], 3, mixc(hk, '#000000', 0.45), 0.6);
+    const band = new Path2D(); band.rect(cx - HW, bY - 22 * fz, HW * 2, 18 * fz); g.save(); g.clip(dm); g.fillStyle = o.bandCol || mixc(hk, '#000000', 0.5); g.fill(band); g.restore();
+    const br = new Path2D(); br.moveTo(cx - HW * 1.22, bY - 2 * fz); br.quadraticCurveTo(cx - HW * 0.9, bY + 8 * fz, cx, bY + 10 * fz); br.quadraticCurveTo(cx + HW * 0.9, bY + 8 * fz, cx + HW * 1.22, bY - 10 * fz); br.quadraticCurveTo(cx + HW * 1.1, bY + 18 * fz, cx, bY + 24 * fz); br.quadraticCurveTo(cx - HW * 1.1, bY + 22 * fz, cx - HW * 1.22, bY - 2 * fz); br.closePath(); cel(g, br, hk, 3.0, 6, 3, 3); }
+  if (o.hat === 'surgcap') { const hk = o.hatCol || '#8ac0b0', bY = hy - HH * 0.6;
+    const dm = new Path2D(); dm.moveTo(cx - HW * 0.92, bY); dm.bezierCurveTo(cx - HW * 1.0, bY - 120 * fz, cx + HW * 1.0, bY - 120 * fz, cx + HW * 0.92, bY); dm.quadraticCurveTo(cx, bY + 14 * fz, cx - HW * 0.92, bY); dm.closePath(); cel(g, dm, hk, 3.0, 10, 5, 3); }
   // ---------- face (local frame: head centre, unit = fz px) ----------
   const E = expr, red = '#e0303a', w = HW / fz;
   const exciteE = E === 'excited', angryE = E === 'angry', meanE = E === 'mean' || E === 'smug', sadE = E === 'sad', shockE = E === 'shock' || E === 'surprised';

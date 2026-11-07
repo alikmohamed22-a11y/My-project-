@@ -2,7 +2,10 @@
 import * as THREE from './three/three.module.js';
 import * as T from './toon.js';
 import { oddverra } from './oddverra_next.js';
-import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER } from './story7.js';
+import { drawCat } from './cat.js'; // [KITTY-cat]
+import { buildRooms } from './rooms.js'; // [KITTY-rooms]
+import { buildDC } from './dc.js'; // [KITTY-dc]
+import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER, roomAt } from './story_kitty.js';
 import { ENV } from './voice_env.js';
 import { makeChar } from './char3d.js';
 import * as PT from './paint.js';
@@ -288,6 +291,9 @@ const docTex = [P.doc(false), P.doc(true)];
   scene.add(g); world.office = g;
 }
 world.docTex = docTex;
+// [KITTY-rooms] 1960s interiors at x=-800: lab z=0, CIA office z=100, living room z=200 (hidden until shown)
+const rooms = buildRooms({ THREE, toon, mkTex, PT, NOND, scene }); world.rooms = rooms;
+world.dc = buildDC({ THREE, toon, rnd, P, mkTex, macro }); scene.add(world.dc); world.dc.visible = false; // [KITTY-dc]
 // ---------- lighting practicals: lanterns hung on the road's telegraph poles, lit only in dark presets ----------
 const LANT = []; // world-space bulb positions per set: { set, p:[x,y,z] }
 { const glassM = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffc477).multiplyScalar(3.2), fog: false }), capM = toon({ color: 0x1d1b22 });
@@ -361,6 +367,13 @@ const ODD = {
   HICKS: { trim: '#f2f0ea', sash: '#f2f0ea', shirt: '#3f6fb5', pants: '#f2f0ea', hair: 'short', hairCol: '#7a4a2a', bib: '20', moustache: '#5a3a22', skin: '#f0c098', head: 'round', noButtons: true },
   DRIVER: { pattern: 'tweed', shirt: '#c9a46a', pants: '#5a4a3a', hat: 'cap', hatCol: '#5a4a3a', hair: 'short', hairCol: '#5a3a22', glasses: true, neck: 'scarf', neckCol: '#c0453a', skin: '#f0b890', head: 'wide' },
   OFFICIAL: { pattern: 'pinstripe', shirt: '#2a2d3a', pants: '#2a2d38', hat: 'top', hair: 'bald', hairCol: '#cfcbc6', moustache: '#e8e4dc', build: 'stout', head: 'wide', neck: 'tie', neckCol: '#8c2a3a', skin: '#f5c9a0', nose: 'round' },
+  AGENT1: { shirt: '#3a4050', pants: '#2e3240', hat: 'fedora', hatCol: '#3a3430', hair: 'short', hairCol: '#2a1e18', neck: 'tie', neckCol: '#1e2a40', build: 'adult', head: 'egg', skin: '#f0c098', glasses: false },
+  AGENT2: { shirt: '#5a5448', pants: '#3a3630', hat: 'fedora', hatCol: '#5a4a38', hair: 'short', hairCol: '#7a5a3a', neck: 'tie', neckCol: '#6a2a2a', build: 'stout', head: 'wide', skin: '#e8b48a', glasses: true },
+  SOV1: { pattern: 'tweed', shirt: '#4a4a52', pants: '#2e2e36', hat: 'fedora', hatCol: '#2a2a30', hair: 'short', hairCol: '#3a3a3a', moustache: '#3a3a3a', neck: 'scarf', neckCol: '#7a2a2a', build: 'stout', head: 'wide', skin: '#f2c8a8' },
+  SOV2: { shirt: '#3a3e46', pants: '#26282e', hat: 'fedora', hatCol: '#1e2024', hair: 'short', hairCol: '#c8c0b0', neck: 'tie', neckCol: '#3a3a3a', build: 'thin', head: 'tall', skin: '#f6d0b0', glasses: true },
+  SURG1: { shirt: '#e8f0ec', pants: '#9ac8b8', hat: 'surgcap', hatCol: '#8ac0b0', hair: 'short', hairCol: '#3a2a20', build: 'adult', head: 'round', skin: '#f0c098', glasses: true, noButtons: true },
+  SURG2: { shirt: '#e8f0ec', pants: '#9ac8b8', hat: 'surgcap', hatCol: '#8ac0b0', hair: 'bun', hairCol: '#6a3a24', build: 'thin', head: 'egg', skin: '#c98a5e', lashes: true, noButtons: true },
+  GRANNY: { pattern: 'dots', dotCol: 'rgba(255,240,250,0.8)', shirt: '#c86a8a', pants: '#5a3a5a', hair: 'bun', hairCol: '#d8d4d0', glasses: true, lashes: true, build: 'stout', head: 'round', skin: '#f6d0b0', neck: 'bow', neckCol: '#f2e8d8' },
   BAAOFF: { pattern: 'tweed', shirt: '#6a4a32', pants: '#3a3040', hat: 'bowler', hair: 'short', hairCol: '#8a6a4a', moustache: '#8a6a4a', build: 'adult', head: 'round', neck: 'bow', neckCol: '#2f4a8a', skin: '#f0c098' },
   KID: { pattern: 'dots', shirt: '#f08a2c', stripe: '#f6c060', pants: '#3b5b9a', hat: 'cap', hatCol: '#e2453c', hair: 'short', hairCol: '#3a2a20', build: 'kid', head: 'round', skin: '#ffe2c2' },
 };
@@ -405,6 +418,8 @@ const FX = {
   bigx: [500, 500, (p) => { for (const [a, b] of [[[80, 80], [420, 420]], [[420, 80], [80, 420]]]) { p.stroke([a, b], 96, '#ffffff'); p.stroke([a, b], 70, '#e0352f'); } }],
   qmark: [200, 260, (p) => { const g = p.g; g.font = 'bold 220px sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 18; g.strokeStyle = '#241726'; g.strokeText('?', 100, 140); g.fillStyle = '#ffd84a'; g.fillText('?', 100, 140); }],
 
+  bpbg: [600, 1000, (p) => { const g = p.g; g.fillStyle = '#1d4a8a'; g.fillRect(0, 0, 600, 1000); g.strokeStyle = 'rgba(200,225,255,0.18)'; g.lineWidth = 1; for (let x = 0; x <= 600; x += 25) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, 1000); g.stroke(); } for (let y = 0; y <= 1000; y += 25) { g.beginPath(); g.moveTo(0, y); g.lineTo(600, y); g.stroke(); }
+    g.strokeStyle = 'rgba(220,235,255,0.75)'; g.lineWidth = 3; g.strokeRect(24, 24, 552, 952); g.strokeRect(330, 860, 246, 116); g.fillStyle = 'rgba(225,238,255,0.9)'; g.font = 'bold 20px monospace'; g.fillText('PROJECT: ACOUSTIC KITTY', 342, 892); g.font = '15px monospace'; g.fillText('SUBJECT: 1 CAT (GREY)', 342, 918); g.fillText('SHEET 1 OF 1', 342, 942); g.font = 'bold 30px monospace'; g.fillText('FIG. 1', 48, 70); }],
   barrel: [300, 420, (p) => { const g = p.g; p.poly([[40, 60], [260, 60], [270, 400], [30, 400]], '#8a5a34', 9); for (const y of [110, 230, 350]) p.band([[34, y], [266, y]], '#4a3a3a', 14, 3); p.ell(150, 60, 112, 26, '#5a3a22', 8); p.ell(150, 60, 90, 16, '#2f3a5a', 3);
     g.fillStyle = '#f2e6c0'; g.fillRect(70, 150, 160, 60); g.strokeStyle = '#2b1d4a'; g.lineWidth = 5; g.strokeRect(70, 150, 160, 60); g.fillStyle = '#2b1d4a'; g.font = 'bold 40px serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('WATER', 150, 182); }],
   board: [420, 380, (p, a) => { const g = p.g; p.stroke([[210, 370], [210, 200]], 20, '#6b4a32'); p.poly([[20, 20], [400, 20], [400, 220], [20, 220]], '#f2e6c0', 9); g.fillStyle = '#2b1d4a'; g.textAlign = 'center'; g.textBaseline = 'middle'; const L = a.lines || []; L.forEach((t, i) => { g.font = (i ? 'bold 52px' : 'bold 56px') + ' serif'; g.fillStyle = i ? '#c0453a' : '#2b1d4a'; g.fillText(t, 210, 80 + i * 80); }); }],
@@ -447,7 +462,7 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
     const k = a.k || 2;
     const qq = (v) => v == null ? v : Math.round(v * 3) / 3;
     const key = isCrowd ? JSON.stringify([a.o, a.opts.seed, a.opts.expr, qq(a.opts.cheer), qq(a.opts.wave), a.opts.mode]) : JSON.stringify([a.o, a.opts]);
-    if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD') {
+    if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD' && a.o !== 'CAT') {
       const op = a.opts, id = a.o + ':' + (op.seed || 0) + ':' + ci;
       let ch = chars3d.get(id); if (!ch) { ch = makeChar({ seed: op.seed || 0, ...oddOf(a.o) }, grad); scene.add(ch); chars3d.set(id, ch); }
       ch.userData.used = f; ch.visible = true; m.visible = false;
@@ -457,7 +472,8 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
       ch.update({ t: f + (op.seed || 0) * 7, expr: act.expr, look: act.look, blink: bl, talk: talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase || 0, drive: a.drive, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 });
       continue;
     }
-    if (a.o === 'HORSE') { m.geometry = HORSEG; m.material.map = canvasFor(key, 1000, 880, k, (p) => T.horseSide(p, a.opts), used); }
+    if (a.o === 'CAT') { m.geometry = BODY; const op = a.opts, fq = f - f % 2; m.material.map = canvasFor('cat|' + fq + key, 600, 1000, k, (p) => drawCat(p.g, { seed: op.seed || 0 }, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...op }), used); } // [KITTY-cat]
+    else if (a.o === 'HORSE') { m.geometry = HORSEG; m.material.map = canvasFor(key, 1000, 880, k, (p) => T.horseSide(p, a.opts), used); }
     else if (a.o === 'BOARD') { m.geometry = BOARDG; m.material.map = canvasFor(key, 600, 800, k, (p) => drawBoard(p, a.opts), used); }
     else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = talking ? f : (a.o.startsWith('PASS') ? f - f % 4 : f - f % 2); m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 }), used); }
     const dark = ['explain', 'night', 'office', 'hall', 'under'].includes(shotAt(f).light); m.material.color.set(L.cardTint).multiplyScalar(dark ? 0.2 : 0.34); m.material.emissiveMap = m.material.map; if (m.customDepthMaterial) { m.customDepthMaterial.map = m.material.map; m.customDepthMaterial.needsUpdate = true; } m.material.emissive.set(dark ? '#ffffff' : L.cardTint); m.material.emissiveIntensity = dark ? 1.0 : 0.86;
@@ -774,10 +790,11 @@ function updateMass(f, cam) { if (location.search.includes('nomass')) { if (MASS
 }
 window.renderFrame = (f) => { const TT0 = performance.now(); try { return renderFrame0(f); } finally { if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF total ' + f + ' ' + Math.round(performance.now() - TT0) + 'ms'); } } };
 const renderFrame0 = (f) => {
-  const sh = shotAt(f), L = lightFor(f), G = gradeAt(f);
+  const sh = shotAt(f), RM = roomAt(f), L = RM ? rooms.lightFor(RM) : lightFor(f), G = gradeAt(f); if (RM) G.over = rooms.gradeFor(RM);
   setGrade(G.look || sh.light, G.over);
   const dir = applyLight(L, f);
-  worldAt(f, world, T);
+  world.dc.visible = false; world.curRoom = null; rooms.show(world, null);
+  worldAt(f, world, T); if (world.dc.visible) world.dc.flag.wave(f / 30);
   { const hm = location.search.match(/hide=([0-9]+)-([0-9]+)/); if (hm && world.stadium.visible) { const a0 = +hm[1], a1 = +hm[2]; world.stadium.children.forEach((c, i) => { if (i >= a0 && i < a1) c.visible = false; }); } }
   if (location.search.includes('listst') && !window.__ls) { window.__ls = 1; world.stadium.children.forEach((c, i) => { let n = 0; c.traverse((o) => { if (o.isMesh) n++; }); }); console.warn('STCOUNT ' + world.stadium.children.length); }
   const c = camAt(f);
@@ -787,7 +804,7 @@ const renderFrame0 = (f) => {
   const tgt = new THREE.Vector3(...(c.shadowAt || c.l));
   sun.target.position.copy(tgt); sun.position.copy(tgt).addScaledVector(dir, 150);
   fitShadow(camera, tgt, dir); fill.position.add(tgt); fill.target.position.copy(tgt);
-  placePracticals(L, tgt);
+  if (world.curRoom) rooms.placeLights(PRACT, world.curRoom); else placePracticals(L, tgt);
   const T0 = performance.now(); placeActors(f, camera, L); updateMass(f, camera); const T1 = performance.now(); if (location.search.includes('prof')) console.warn('PROF actors ' + Math.round(T1 - T0) + 'ms cards=' + cardMeshes.filter((x) => x.visible).length + ' calls');
   // colour
   const T2 = performance.now();  renderer.setRenderTarget(rtC); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, camera); if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF colour ' + Math.round(performance.now() - T2) + 'ms tris=' + renderer.info.render.triangles + ' draws=' + renderer.info.render.calls); }
