@@ -86,3 +86,10 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
 - 15 of 23 use "You see". Either it comes right after the hook (in the first 10 %, explaining the setup), or it opens the reveal at 65–90 %.
 - "So" (about 2) and "But" (about 2) drive the turns. About 1 question per script, usually a doubter's line or "How is that possible?".
 - "You" appears about 5 times: put the viewer in the scene.
+
+## QA rules learned from mistakes
+- **Walking direction:** a walking character or animal must face the way it moves on screen. Never hard-code `flip`. Project the walk direction onto the camera's right vector, as `catWalk()` does in `examples/acoustic_kitty/story_kitty.js`.
+- **Visibility:** a subject must be big enough to read. If the action spans more than the narrow 9:16 frame, split it into a close shot and a long-lens (telephoto) shot rather than going wide.
+- **Hands:** they must actually hold what they drive or carry (steering wheels, props).
+- **Freezes:** QA must report none. If the camera and actors stop for 0.5 s or more, add a slow push-in.
+- **Locations and people:** a new place or event gets its own signs and officials. Don't reuse another city's banner or person by mistake.

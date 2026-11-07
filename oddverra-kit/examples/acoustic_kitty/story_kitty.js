@@ -13,7 +13,8 @@ const SH = [
   [731, 916, 'problem', 'office', 'room', 'lab'],
   [916, 1021, 'van', 'day', 'dc'],
   [1021, 1149, 'release', 'day', 'dc'],
-  [1149, 1259, 'street', 'day', 'dc'],
+  [1149, 1200, 'street', 'day', 'dc'],
+  [1200, 1259, 'street2', 'day', 'dc'],
   [1259, 1384, 'survived', 'day', 'dc'],
   [1384, 1453, 'orders', 'office', 'room', 'lab'],
   [1453, 1608, 'memo', 'office', 'room', 'office'],
@@ -38,7 +39,7 @@ const fz = (f) => (f >= FREEZE[0] && f < FREEZE[1] + 6 ? FREEZE[0] : f);
 function cam(k, f) {
   const t = u(f);
   if (k === 'hook') return { p: L3([-799.2, 1.45, 101.6], [-799.55, 1.2, 100.75], sm(0, 137, f)), l: [-800.35, 0.95, 99.5], fov: 44, fp: [-800.15, 0.95, 99.6], cInf: 7 };
-  if (k === 'estab') { const e = eo(137, 260, f); return { p: L3([6.0, 14.0, 748], [4.4, 6.2, 756], e), l: L3([-4, 2.0, 800], [-6.6, 4.6, 798], e), fov: 54, fp: [-8, 2, 800], cInf: 2 }; }
+  if (k === 'estab') { const e = eo(137, 260, f); return { p: L3([1.2, 14.0, 748], [1.6, 6.0, 757], e), l: L3([-4, 2.0, 800], [-6.6, 4.2, 798], e), fov: 54, fp: [-8, 2, 800], cInf: 2 }; }
   if (k === 'bench' || k === 'suspect') return { p: L3([9.6, 1.35, 800.6], [10.2, 1.3, 801.2], sm(288, 489, f)), l: [13.9, 0.95, 803.2], fov: 44, fp: [13.9, 1.0, 803.2], cInf: 5 };
   if (k === 'surgery') return { p: L3([-798.4, 1.75, 2.2], [-798.75, 1.6, 1.6], sm(489, 545, f)), l: [-800.05, 1.05, -0.5], fov: 52, fp: [-800, 1.0, -0.5], cInf: 5 };
   if (k === 'blueprint') return { p: [-800.03, 0.95, 4.75], l: [-800.03, 0.95, 0], fov: lerp(44, 41, sm(545, 731, f)), fp: [-799.95, 1.0, 1.5], cInf: 0 };
@@ -46,9 +47,10 @@ function cam(k, f) {
   if (k === 'van') return { p: [7.6, 1.2, 779.4], l: [5.0, 0.8, 784.8], fov: 48, fp: [6.0, 0.5, 785.2], cInf: 4 };
   if (k === 'release') return { p: L3([9.3, 1.3, 797.8], [9.7, 1.25, 798.6], sm(1021, 1149, f)), l: [11.4, 0.75, 802.3], fov: 50, fp: [11.0, 0.5, 801.8], cInf: 4 };
   if (k === 'survived') return { p: [1.0, 0.9, 801.5], l: [5.5, 0.55, 807.2], fov: 44, fp: [5.5, 0.5, 807.2], cInf: 5 };
-  if (k === 'street') { const zoom = f >= FREEZE[0] && f < 1259 ? 1 - 0.18 * eo(FREEZE[0], FREEZE[0] + 8, f) : 1; return { p: [-1.2, 0.62, 798.5], l: [2.0, 0.6, 812.0], fov: 50 * zoom, fp: [2.2, 0.4, 806.4], cInf: 4 }; }
+  if (k === 'street') { const zoom = f >= FREEZE[0] && f < 1259 ? 1 - 0.18 * eo(FREEZE[0], FREEZE[0] + 8, f) : 1; return { p: [3.9, 0.5, 801.6], l: [3.9, 0.42, 806.3], fov: 52, fp: [3.9, 0.4, 806.3], cInf: 4 }; }
+  if (k === 'street2') { const zoom = f >= FREEZE[0] && f < 1259 ? 1 - 0.15 * eo(FREEZE[0], FREEZE[0] + 8, f) : 1; return { p: [2.4, 0.8, 788.0], l: [2.3, 0.45, 808.0], fov: 21 * zoom, fp: [2.2, 0.4, 806.4], cInf: 3 }; }
   if (false) { const ff = fz(f), zoom = f >= FREEZE[0] && f < 1259 ? 1 - 0.18 * eo(FREEZE[0], FREEZE[0] + 8, f) : 1; return { p: [-3.4, 1.05, 801.0], l: [2.6, 0.55, 806.6], fov: 44 * zoom, fp: [2.4, 0.4, 806.2], cInf: 4 }; }
-  if (k === 'memo') return { p: L3([-799.96, 1.55, 100.1], [-799.96, 1.38, 99.92], sm(1453, 1560, f)), l: [-800, 0.77, 99.5], fov: 40, fp: [-800, 0.78, 99.52], cInf: 8 };
+  if (k === 'memo') return { p: L3([-799.96, 1.55, 100.1], [-799.96, 1.3, 99.82], sm(1453, 1608, f)), l: [-800, 0.77, 99.5], fov: 40, fp: [-800, 0.78, 99.52], cInf: 8 };
   if (k === 'home') return { p: L3([-799.3, 1.3, 203.6], [-799.55, 1.15, 202.6], sm(1608, 1674, f)), l: [-800.4, 0.75, 199.6], fov: 50, fp: [-800.4, 0.8, 199.8], cInf: 4 };
 }
 const CUTS = SH.slice(1).map((s) => s[0]), FLASH = [1244];
@@ -84,7 +86,11 @@ export function worldAt(f, w) {
 
 // ---------- actors ----------
 const CAT = (pos, opts, extra = {}) => ({ o: 'CAT', k: 2, pos, blobW: extra.blobW || 0.75, blobD: 0.45, s: extra.s || 1, opts: { gear: true, ...opts } });
-const catWalk = (f, a, b, f0, f1, flip) => { const t = clamp((f - f0) / (f1 - f0)); return CAT(L3(a, b, t), { pose: t > 0 && t < 1 ? 'walk' : 'sit', phase: q((f * 0.06) % 1, 0.05), expr: 'smug', flip }, { blobW: 1.0 }); };
+const catWalk = (f, a, b, f0, f1) => { const t = clamp((f - f0) / (f1 - f0)); const c = cam(segAt(f)[2], f);
+  // face the way it moves ON SCREEN: project the walk direction onto the camera's right vector (drawn facing right by default)
+  const fw = [c.l[0] - c.p[0], 0, c.l[2] - c.p[2]], right = [-fw[2], 0, fw[0]], v = [b[0] - a[0], 0, b[2] - a[2]];
+  const flip = -(v[0] * right[0] + v[2] * right[2]) < 0 ? false : true;
+  return CAT(L3(a, b, t), { pose: t > 0 && t < 1 ? 'walk' : 'sit', phase: q((f * 0.06) % 1, 0.05), expr: 'smug', flip }, { blobW: 1.0 }); };
 const clamp = (x) => Math.max(0, Math.min(1, x));
 export function actorsAt(f) {
   const s = segAt(f), k = s[2], A = [], ff = fz(f);
@@ -118,7 +124,7 @@ export function actorsAt(f) {
     A.push(person(f, 'SOV2', 42, BENCH[1], { mode: 'sit', expr: 'grin' }, { blob: false }));
     A.push(catWalk(f, [9.2, 0.15, 800.8], [11.6, 0.15, 802.0], 1030, 1140, false));
   }
-  if (k === 'street') {
+  if (k === 'street' || k === 'street2') {
     const t = clamp((ff - 1152) / (1205 - 1152));
     if (ff < 1206) A.push(catWalk(ff, [5.6, 0.15, 806.2], [2.2, 0, 806.4], 1152, 1205, true));
     else A.push(CAT([2.2, 0, 806.4], { pose: ff >= 1214 ? 'startled' : 'stare', expr: ff >= 1214 ? 'surprised' : 'smug', flip: true }, { blobW: 1.0 }));
@@ -145,7 +151,7 @@ export function fxAt(f) {
   if (k === 'problem' && f >= 835 && f < 852) F.push({ fx: 'qmark', pos: [-799.3, 1.0, 2.1], size: 0.25 });
   if (k === 'problem' && f >= 860) for (let i = 0; i < 3; i++) { const z2 = ((f - 860) / 30 + i / 3) % 1; F.push({ fx: 'zzz', pos: [-798.85 + z2 * 0.3, 0.55 + z2 * 0.6, 1.8], size: 0.14 + z2 * 0.12, op: 1 - z2 }); }
   if (k === 'release' && f > 1024) F.push({ fx: 'board', lines: ['THE FAMOUS', 'VERSION'], pos: [12.0, 2.0, 801.4], size: 1.0 * back(1024, 1036, f) });
-  if (k === 'street' && fz(f) >= 1214) F.push({ fx: 'burst', t: Math.min(1, (fz(f) - 1214) / 14), pos: [2.2, 0.9, 806.4], size: 0.7, col: '#fff3b0', rays: 10 });
+  if ((k === 'street' || k === 'street2') && fz(f) >= 1214) F.push({ fx: 'burst', t: Math.min(1, (fz(f) - 1214) / 14), pos: [2.2, 0.9, 806.4], size: 0.7, col: '#fff3b0', rays: 10 });
   if (k === 'survived' && f < 1300) F.push({ fx: 'puff', t: (f - 1259) / 41, pos: [0.5, 0.6, 806.0], size: 2.0, tint: '#d8d4cc' });
   if (k === 'survived' && f >= 1354) F.push({ fx: 'check', pos: [5.5, 1.1, 807.2], size: 0.5 * back(1354, 1364, f) });
   if (k === 'memo' && f >= 1540) { const down = f < 1560 ? ei(1540, 1560, f) : 1 - eo(1568, 1590, f); F.push({ fx: 'stamp', pos: [-800, 0.779 + 0.12 + (1 - down) * 0.5, 99.52], size: 0.22 }); }
