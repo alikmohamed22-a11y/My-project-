@@ -9,7 +9,7 @@ const srv = http.createServer((q, r) => { let f = path.join(root, decodeURICompo
 const port = srv.address().port;
 const todo = frames.filter((f) => !(process.env.RESUME && fs.existsSync(`${out}/f${String(f).padStart(4, '0')}.jpg`)));
 const N = +(process.env.WORKERS || 1);
-const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--disable-accelerated-2d-canvas', '--disable-gpu-rasterization'] });
 let done = 0; const t0 = Date.now();
 await Promise.all(Array.from({ length: N }, async (_, w) => {
   const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });

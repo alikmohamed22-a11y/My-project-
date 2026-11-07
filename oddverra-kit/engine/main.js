@@ -156,7 +156,7 @@ sky.renderOrder = -10; scene.add(sky); NOND.add(sky);
 // key (sun) + cool sky fill (hemi) + a soft opposing bounce/fill + warm practical lights for night/explain scenes
 const hemi = new THREE.HemisphereLight(0xffffff, 0x445566, 1); scene.add(hemi);
 const fill = new THREE.DirectionalLight(0x8fa8ff, 0.4); scene.add(fill); scene.add(fill.target); // no shadow: shapes the shadow side, cool
-const sun = new THREE.DirectionalLight(0xffffff, 2); sun.castShadow = true;
+const sun = new THREE.DirectionalLight(0xffffff, 2); sun.castShadow = !location.search.includes('noshadow');
 // tight, high-res shadow frustum fitted around the action each frame (see fitShadow); VSM for soft, blurred penumbrae
 sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -14, right: 14, top: 14, bottom: -14, near: 1, far: 400 });
 sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02; sun.shadow.radius = 5; sun.shadow.blurSamples = 10; scene.add(sun); scene.add(sun.target);
@@ -436,15 +436,17 @@ const FX = {
   baby: [300, 200, (p) => { p.ell(150, 110, 120, 60, '#f3ead8', 10, 0, 360, -12); p.ell(70, 95, 42, 40, '#ffe2c2', 8); p.arc(58, 95, 7, 4, 0, 180, 4); p.arc(84, 95, 7, 4, 0, 180, 4); p.ell(84, 70, 30, 24, '#9cc7e8', 6, 180, 380); }],
 };
 
-function placeActors(f, cam, L) {
+function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for (const c of cardMeshes) c.visible = false; for (const c of blobMeshes) c.visible = false; for (const c of fxMeshes) c.visible = false; return; }
   GLOW = ['explain', 'night', 'office'].includes(shotAt(f).light) ? 1 : 0;
   const used = new Set();
   const acts = actorsAt(f), fxs = fxAt(f);
   let ci = 0, bi = 0;
   for (const a of acts) {
     const m = getMesh(cardMeshes, ci++, mkCard);
+    const isCrowd = a.o.startsWith('PASS');
     const k = a.k || 2;
-    const key = JSON.stringify([a.o, a.opts]);
+    const qq = (v) => v == null ? v : Math.round(v * 3) / 3;
+    const key = isCrowd ? JSON.stringify([a.o, a.opts.seed, a.opts.expr, qq(a.opts.cheer), qq(a.opts.wave), a.opts.mode]) : JSON.stringify([a.o, a.opts]);
     if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD') {
       const op = a.opts, id = a.o + ':' + (op.seed || 0) + ':' + ci;
       let ch = chars3d.get(id); if (!ch) { ch = makeChar({ seed: op.seed || 0, ...oddOf(a.o) }, grad); scene.add(ch); chars3d.set(id, ch); }
@@ -457,7 +459,7 @@ function placeActors(f, cam, L) {
     }
     if (a.o === 'HORSE') { m.geometry = HORSEG; m.material.map = canvasFor(key, 1000, 880, k, (p) => T.horseSide(p, a.opts), used); }
     else if (a.o === 'BOARD') { m.geometry = BOARDG; m.material.map = canvasFor(key, 600, 800, k, (p) => drawBoard(p, a.opts), used); }
-    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + f + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: f + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(f * 0.11) + 0.12 * Math.sin(f * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 }), used); }
+    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = talking ? f : (a.o.startsWith('PASS') ? f - f % 4 : f - f % 2); m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 }), used); }
     const dark = ['explain', 'night', 'office', 'hall', 'under'].includes(shotAt(f).light); m.material.color.set(L.cardTint).multiplyScalar(dark ? 0.2 : 0.34); m.material.emissiveMap = m.material.map; if (m.customDepthMaterial) { m.customDepthMaterial.map = m.material.map; m.customDepthMaterial.needsUpdate = true; } m.material.emissive.set(dark ? '#ffffff' : L.cardTint); m.material.emissiveIntensity = dark ? 1.0 : 0.86;
     m.material.needsUpdate = true;
     m.position.set(...a.pos); m.scale.setScalar(a.s || 1);
@@ -765,16 +767,19 @@ function buildMass() {
   MASS = { list, mats };
 }
 const rnd2 = (k) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
-function updateMass(f, cam) {
+function updateMass(f, cam) { if (location.search.includes('nomass')) { if (MASS) for (const x of MASS.list) x.m.visible = false; if (!world.stadium.visible) return; }
   if (!world.stadium.visible) return; if (!MASS) buildMass();
   const shock = f >= 1395 && f < 1540;
   for (const { m, v, k } of MASS.list) { m.material = MASS.mats[v][shock ? 2 : Math.sin(f * 0.35 + k) > 0 ? 0 : 1]; m.rotation.set(0, Math.atan2(cam.position.x - (m.position.x + 400), cam.position.z - m.position.z), 0); m.position.y = Math.round((m.position.y - 0.6) / 0.6) * 0.6 + 0.6 + (shock ? 0 : 0.05 * Math.max(0, Math.sin(f * 0.35 + k))); }
 }
-window.renderFrame = (f) => {
+window.renderFrame = (f) => { const TT0 = performance.now(); try { return renderFrame0(f); } finally { if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF total ' + f + ' ' + Math.round(performance.now() - TT0) + 'ms'); } } };
+const renderFrame0 = (f) => {
   const sh = shotAt(f), L = lightFor(f), G = gradeAt(f);
   setGrade(G.look || sh.light, G.over);
   const dir = applyLight(L, f);
   worldAt(f, world, T);
+  { const hm = location.search.match(/hide=([0-9]+)-([0-9]+)/); if (hm && world.stadium.visible) { const a0 = +hm[1], a1 = +hm[2]; world.stadium.children.forEach((c, i) => { if (i >= a0 && i < a1) c.visible = false; }); } }
+  if (location.search.includes('listst') && !window.__ls) { window.__ls = 1; world.stadium.children.forEach((c, i) => { let n = 0; c.traverse((o) => { if (o.isMesh) n++; }); }); console.warn('STCOUNT ' + world.stadium.children.length); }
   const c = camAt(f);
   camera.position.set(...c.p); camera.up.set(0, 1, 0); camera.lookAt(...c.l); camera.rotateZ(c.roll || 0);
   camera.fov = c.fov; camera.updateProjectionMatrix(); camera.updateMatrixWorld();
@@ -783,9 +788,9 @@ window.renderFrame = (f) => {
   sun.target.position.copy(tgt); sun.position.copy(tgt).addScaledVector(dir, 150);
   fitShadow(camera, tgt, dir); fill.position.add(tgt); fill.target.position.copy(tgt);
   placePracticals(L, tgt);
-  placeActors(f, camera, L); updateMass(f, camera);
+  const T0 = performance.now(); placeActors(f, camera, L); updateMass(f, camera); const T1 = performance.now(); if (location.search.includes('prof')) console.warn('PROF actors ' + Math.round(T1 - T0) + 'ms cards=' + cardMeshes.filter((x) => x.visible).length + ' calls');
   // colour
-  renderer.setRenderTarget(rtC); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, camera);
+  const T2 = performance.now();  renderer.setRenderTarget(rtC); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, camera); if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF colour ' + Math.round(performance.now() - T2) + 'ms tris=' + renderer.info.render.triangles + ' draws=' + renderer.info.render.calls); }
   // normal + depth
   const saved = []; const fog = scene.fog; scene.fog = null; const sc = sun.castShadow; sun.castShadow = false;
   scene.traverse((o) => {
@@ -801,7 +806,7 @@ window.renderFrame = (f) => {
   for (const [o, m, v] of saved) { o.material = m; o.visible = true; }
   scene.fog = fog; sun.castShadow = sc;
   // ink + grade
-  renderAO(camera, L); inkPass.u.tC.value = rtCA.texture;
+  const SK = (k) => location.search.includes('skip' + k); if (!SK('ao')) renderAO(camera, L); inkPass.u.tC.value = SK('ao') ? rtC.texture : rtCA.texture;
   const u = inkPass.u; u.sat.value = 1.0; u.flash.value = G.flash; u.vig.value = 0; u.gain.value.set(1, 1, 1); u.lift.value.set(0, 0, 0);
   u.focus.value = c.focus || 5; u.cInf.value = c.cInf || 0;
   renderer.setRenderTarget(rtA); renderer.render(inkPass.s, quadCam);
@@ -810,7 +815,7 @@ window.renderFrame = (f) => {
   if (dofPass.u.cInf.value >= 0.5) {
     for (const [src, dst, dx, dy] of [[rtA, rtP1, 1, 0], [rtP1, rtP2, 0, 1]]) { blurPass.u.tI.value = src.texture; blurPass.u.dir.value.set(dx / (W / 2), dy / (H / 2)); renderer.setRenderTarget(dst); renderer.render(blurPass.s, quadCam); }
     dofPass.u.tP.value = rtP2.texture; }
-  renderer.setRenderTarget(rtB); renderer.render(dofPass.s, quadCam);
+  if (SK('dof')) dofPass.u.cInf.value = 0; renderer.setRenderTarget(rtB); renderer.render(dofPass.s, quadCam);
   // bloom (quarter res)
   renderer.setRenderTarget(rtQ1); renderer.render(brightPass.s, quadCam);
   for (const [src, dst, dx, dy] of [[rtQ1, rtQ2, 1, 0], [rtQ2, rtQ1, 0, 1], [rtQ1, rtQ2, 1, 0], [rtQ2, rtQ1, 0, 1]]) { blurPass.u.tI.value = src.texture; blurPass.u.dir.value.set(dx / QW, dy / QH); renderer.setRenderTarget(dst); renderer.render(blurPass.s, quadCam); }
@@ -818,7 +823,7 @@ window.renderFrame = (f) => {
   const sp = camera.position.clone().addScaledVector(dir, 1000).project(camera);
   const onScreen = sp.z < 1 && Math.abs(sp.x) < 1.6 && Math.abs(sp.y) < 1.6 && (L.shafts ?? 1) > 0 && dir.y > -0.05;
   rayPass.u.on.value = onScreen ? (L.shafts ?? 1) * (1 - Math.max(0, Math.hypot(sp.x, sp.y) - 0.9) / 0.7) : 0; rayPass.u.sunUV.value.set(sp.x * 0.5 + 0.5, sp.y * 0.5 + 0.5);
-  renderer.setRenderTarget(rtQ3); renderer.render(rayPass.s, quadCam);
+  if (SK('rays')) rayPass.u.on.value = 0; renderer.setRenderTarget(rtQ3); renderer.render(rayPass.s, quadCam);
   // motion blur from the camera move since the last frame + bloom + rays + film finish
   const pc = camAt(Math.max(0, f - 1)); setCam(prevCam, pc);
   const cut = shotAt(Math.max(0, f - 1)).id !== sh.id;
