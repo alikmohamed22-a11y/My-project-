@@ -93,3 +93,4 @@ The look of every Oddverra animated Short. Keep these rules the same in every vi
 - **Hands:** they must actually hold what they drive or carry (steering wheels, props).
 - **Freezes:** QA must report none. If the camera and actors stop for 0.5 s or more, add a slow push-in.
 - **Locations and people:** a new place or event gets its own signs and officials. Don't reuse another city's banner or person by mistake.
+- **Black frames:** at 4K (RS=2), heavy sets with 4 parallel workers can run out of GPU memory and output black frames silently. Use WORKERS=2 at RS=2. `render.mjs` now detects black frames and reloads the page to retry.

@@ -17,7 +17,10 @@ await Promise.all(Array.from({ length: N }, async (_, w) => {
   await p.goto(`http://localhost:${port}/index.html${process.env.Q || ''}${process.env.RS ? ((process.env.Q || '').includes('?') ? '&' : '?') + 'rs=' + process.env.RS : ''}`); await p.waitForFunction('window.ready', { timeout: 60000 });
   for (let i = w; i < todo.length; i += N) {
     const f = todo[i];
-    const url = await p.evaluate((f) => { window.renderFrame(f); return document.querySelector('canvas').toDataURL('image/jpeg', 0.95); }, f);
+    const shot = (f) => p.evaluate((f) => { window.renderFrame(f); const c = document.querySelector('canvas'); const t = document.createElement('canvas'); t.width = 24; t.height = 42; const g = t.getContext('2d'); g.drawImage(c, 0, 0, 24, 42); const d = g.getImageData(0, 0, 24, 42).data; let m = 0; for (let i = 0; i < d.length; i += 4) m += d[i] + d[i + 1] + d[i + 2]; return [c.toDataURL('image/jpeg', 0.95), m / (d.length / 4) / 3]; }, f);
+    let [url, mean] = await shot(f);
+    for (let tries = 0; mean < 4 && tries < 3; tries++) { // black frame = lost GPU context: reload the page and retry
+      console.log(`black frame ${f} (mean ${mean.toFixed(1)}), reloading page, retry ${tries + 1}`); await p.reload(); await p.waitForFunction('window.ready', { timeout: 600000 }); [url, mean] = await shot(f); }
     fs.writeFileSync(`${out}/f${String(f).padStart(4, '0')}.jpg`, Buffer.from(url.split(',')[1], 'base64'));
     done++; if (done % 10 === 0 || done === todo.length) console.log(`progress ${done}/${todo.length} ${((Date.now() - t0) / done / 1000).toFixed(1)}s/f`);
   }
