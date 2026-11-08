@@ -5,7 +5,9 @@ import { oddverra } from './oddverra_next.js';
 import { drawCat } from './cat.js'; // [KITTY-cat]
 import { buildRooms } from './rooms.js'; // [KITTY-rooms]
 import { buildDC } from './dc.js'; // [KITTY-dc]
-import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER, roomAt } from './story_kitty.js';
+import { buildLouvre, drawMona } from './louvre.js'; globalThis.__drawMona = drawMona; // [MONA-louvre]
+import { buildParis } from './paris.js'; // [MONA-paris]
+import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER, roomAt, setAt } from './story_mona.js';
 import { ENV } from './voice_env.js';
 import { makeChar } from './char3d.js';
 import * as PT from './paint.js';
@@ -294,6 +296,10 @@ world.docTex = docTex;
 // [KITTY-rooms] 1960s interiors at x=-800: lab z=0, CIA office z=100, living room z=200 (hidden until shown)
 const rooms = buildRooms({ THREE, toon, mkTex, PT, NOND, scene }); world.rooms = rooms;
 world.dc = buildDC({ THREE, toon, rnd, P, mkTex, macro }); scene.add(world.dc); world.dc.visible = false; // [KITTY-dc]
+// [MONA-louvre] Louvre sets near (0, 0, -1600) (hidden until shown). ?louvreview=N renders test view N (?louvreview=f: view = frame number)
+const louvre = buildLouvre({ THREE, toon, mkTex, PT, NOND, scene }); world.louvre = louvre; const LVQ = (location.search.match(/louvreview=(\d+|f)/) || [])[1]; // [MONA-louvre]
+const paris = buildParis({ THREE, toon, mkTex, PT, NOND, scene, macro, drawMona }); world.paris = paris; // [MONA-paris] Paris 1911 / Florence 1913 sets at x=1600 (hidden until shown)
+const PARISV = (location.search.match(/parisview=(\d+|a)/) || [])[1]; // [MONA-paris] ?parisview=N test view N (?parisview=a: view = frame number)
 // ---------- lighting practicals: lanterns hung on the road's telegraph poles, lit only in dark presets ----------
 const LANT = []; // world-space bulb positions per set: { set, p:[x,y,z] }
 { const glassM = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffc477).multiplyScalar(3.2), fog: false }), capM = toon({ color: 0x1d1b22 });
@@ -796,21 +802,30 @@ function updateMass(f, cam) { if (location.search.includes('nomass')) { if (MASS
 }
 window.renderFrame = (f) => { const TT0 = performance.now(); try { return renderFrame0(f); } finally { if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF total ' + f + ' ' + Math.round(performance.now() - TT0) + 'ms'); } } };
 const renderFrame0 = (f) => {
-  const sh = shotAt(f), RM = roomAt(f), L = RM ? rooms.lightFor(RM) : lightFor(f), G = gradeAt(f); if (RM) G.over = rooms.gradeFor(RM);
+  const LV = LVQ == null ? null : louvre.viewFor(LVQ === 'f' ? f : +LVQ); // [MONA-louvre]
+  const PV = PARISV == null ? null : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris]
+  let L; const sh = shotAt(f), RM = roomAt(f); L = PV ? PV.L : LV ? LV.L : RM ? rooms.lightFor(RM) : lightFor(f); const G = gradeAt(f); if (RM) G.over = rooms.gradeFor(RM); if (LV) Object.assign(G, { look: LV.look, over: LV.grade, flash: 0 }); // [MONA-louvre]
+  if (PV) Object.assign(G, { look: PV.look, over: PV.grade, flash: 0 }); // [MONA-paris]
+  const SA = !PV && !LV && setAt ? setAt(f) : null, SM = SA ? world[SA[0]] : null; // [MONA-sets] timeline-driven set module (louvre / paris)
+  if (SM) { L = SM.lightFor(SA[1]); G.look = SM.lookFor(SA[1]); G.over = SM.gradeFor(SA[1]); }
   setGrade(G.look || sh.light, G.over);
   const dir = applyLight(L, f);
   world.dc.visible = false; world.curRoom = null; rooms.show(world, null);
+  louvre.show(world, null); paris.show(world, null);
   worldAt(f, world, T); if (world.dc.visible) world.dc.flag.wave(f / 30);
+  if (SM) SM.show(world, SA[1]);
+  if (LV) louvre.applyView(world, PRACT, LV.i); // [MONA-louvre]
+  if (PV) paris.apply(world, PV); // [MONA-paris]
   { const hm = location.search.match(/hide=([0-9]+)-([0-9]+)/); if (hm && world.stadium.visible) { const a0 = +hm[1], a1 = +hm[2]; world.stadium.children.forEach((c, i) => { if (i >= a0 && i < a1) c.visible = false; }); } }
   if (location.search.includes('listst') && !window.__ls) { window.__ls = 1; world.stadium.children.forEach((c, i) => { let n = 0; c.traverse((o) => { if (o.isMesh) n++; }); }); console.warn('STCOUNT ' + world.stadium.children.length); }
-  const c = camAt(f);
+  const c = PV ? PV.cam : LV ? LV.cam : camAt(f); // [MONA-louvre] [MONA-paris]
   camera.position.set(...c.p); camera.up.set(0, 1, 0); camera.lookAt(...c.l); camera.rotateZ(c.roll || 0);
   camera.fov = c.fov; camera.updateProjectionMatrix(); camera.updateMatrixWorld();
   sky.position.copy(camera.position);
   const tgt = new THREE.Vector3(...(c.shadowAt || c.l));
   sun.target.position.copy(tgt); sun.position.copy(tgt).addScaledVector(dir, 150);
   fitShadow(camera, tgt, dir); fill.position.add(tgt); fill.target.position.copy(tgt);
-  if (world.curRoom) rooms.placeLights(PRACT, world.curRoom); else placePracticals(L, tgt);
+  if (PV) paris.placeLights(PRACT, PV.set, tgt); else if (SM) SM.placeLights(PRACT, SA[1], tgt); else if (LV) louvre.placeLights(PRACT, LV.set); else if (world.curRoom) rooms.placeLights(PRACT, world.curRoom); else placePracticals(L, tgt); // [MONA-louvre]
   const T0 = performance.now(); placeActors(f, camera, L); updateMass(f, camera); const T1 = performance.now(); if (location.search.includes('prof')) console.warn('PROF actors ' + Math.round(T1 - T0) + 'ms cards=' + cardMeshes.filter((x) => x.visible).length + ' calls');
   // colour
   const T2 = performance.now();  renderer.setRenderTarget(rtC); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, camera); if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF colour ' + Math.round(performance.now() - T2) + 'ms tris=' + renderer.info.render.triangles + ' draws=' + renderer.info.render.calls); }
@@ -848,7 +863,7 @@ const renderFrame0 = (f) => {
   rayPass.u.on.value = onScreen ? (L.shafts ?? 1) * (1 - Math.max(0, Math.hypot(sp.x, sp.y) - 0.9) / 0.7) : 0; rayPass.u.sunUV.value.set(sp.x * 0.5 + 0.5, sp.y * 0.5 + 0.5);
   if (SK('rays')) rayPass.u.on.value = 0; renderer.setRenderTarget(rtQ3); renderer.render(rayPass.s, quadCam);
   // motion blur from the camera move since the last frame + bloom + rays + film finish
-  const pc = camAt(Math.max(0, f - 1)); setCam(prevCam, pc);
+  const pc = PV ? PV.cam : LV ? LV.cam : camAt(Math.max(0, f - 1)); setCam(prevCam, pc); // [MONA-louvre]
   const cut = shotAt(Math.max(0, f - 1)).id !== sh.id;
   finalPass.u.prevVP.value.multiplyMatrices(cut ? camera.projectionMatrix : prevCam.projectionMatrix, cut ? camera.matrixWorldInverse : prevCam.matrixWorldInverse);
   { const d0 = new THREE.Vector3(), d1 = new THREE.Vector3(); camera.getWorldDirection(d0); prevCam.getWorldDirection(d1); const turn = d0.angleTo(d1); finalPass.u.mbK.value = c.whip ? 1 : cut ? 0 : Math.min(1, Math.max(0, (turn - 0.004) / 0.02)); }
