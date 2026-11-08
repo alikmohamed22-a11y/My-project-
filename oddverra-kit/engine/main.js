@@ -13,7 +13,7 @@ import { setStadiumName, initWorld, dressRoad, dressStadium, dressGate, dressOff
 const USE3D = location.search.includes('3d');
 const chars3d = new Map();
 
-const W = 1080, H = 1920, FAR = 2500;
+const RS = +((location.search.match(/rs=([0-9.]+)/) || [])[1] || 1); const W = Math.round(1080 * RS), H = Math.round(1920 * RS), FAR = 2500; window.__RS = RS;
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
 renderer.setPixelRatio(1); renderer.setSize(W, H);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -367,6 +367,12 @@ const ODD = {
   HICKS: { trim: '#f2f0ea', sash: '#f2f0ea', shirt: '#3f6fb5', pants: '#f2f0ea', hair: 'short', hairCol: '#7a4a2a', bib: '20', moustache: '#5a3a22', skin: '#f0c098', head: 'round', noButtons: true },
   DRIVER: { pattern: 'tweed', shirt: '#c9a46a', pants: '#5a4a3a', hat: 'cap', hatCol: '#5a4a3a', hair: 'short', hairCol: '#5a3a22', glasses: true, neck: 'scarf', neckCol: '#c0453a', skin: '#f0b890', head: 'wide' },
   OFFICIAL: { pattern: 'pinstripe', shirt: '#2a2d3a', pants: '#2a2d38', hat: 'top', hair: 'bald', hairCol: '#cfcbc6', moustache: '#e8e4dc', build: 'stout', head: 'wide', neck: 'tie', neckCol: '#8c2a3a', skin: '#f5c9a0', nose: 'round' },
+  PERUGGIA: { shirt: '#f0eee6', pants: '#3a3430', hat: 'cap', hatCol: '#4a4038', hair: 'short', hairCol: '#2a1a12', moustache: '#2a1a12', build: 'thin', head: 'egg', skin: '#e8b48a', noButtons: true, collar: '#f0eee6' },
+  GUARD: { shirt: '#26304a', pants: '#26304a', hat: 'cap', hatCol: '#1e2438', hair: 'short', hairCol: '#5a4a3a', moustache: '#5a4a3a', build: 'stout', head: 'wide', skin: '#f0c098', neck: 'tie', neckCol: '#c8a040', button: '#e0b84a' },
+  PAINTER: { pattern: 'tweed', shirt: '#7a5a3a', pants: '#3a3430', hat: 'cap', hatCol: '#2a2a3a', hair: 'curly', hairCol: '#4a3426', moustache: '#4a3426', neck: 'bow', neckCol: '#3a5a8a', build: 'adult', head: 'round', skin: '#f6c9a4' },
+  NEWSBOY: { pattern: 'plaid', shirt: '#8a6a4a', pants: '#3b3f52', hat: 'cap', hatCol: '#5a4a3a', hair: 'short', hairCol: '#b07a3a', build: 'kid', head: 'round', skin: '#ffe2c2' },
+  DEALER: { pattern: 'pinstripe', shirt: '#3a2e2a', pants: '#2e2a28', hair: 'side', hairCol: '#2a1e18', moustache: '#2a1e18', glasses: true, neck: 'tie', neckCol: '#7a2a3a', build: 'stout', head: 'wide', skin: '#e8b48a' },
+  POLICE: { shirt: '#1e2230', pants: '#1e2230', hat: 'cap', hatCol: '#14161e', hair: 'short', hairCol: '#2a1e18', moustache: '#2a1e18', neck: 'tie', neckCol: '#b0303a', build: 'adult', head: 'egg', skin: '#d8a070', button: '#e0b84a' },
   AGENT1: { shirt: '#3a4050', pants: '#2e3240', hat: 'fedora', hatCol: '#3a3430', hair: 'short', hairCol: '#2a1e18', neck: 'tie', neckCol: '#1e2a40', build: 'adult', head: 'egg', skin: '#f0c098', glasses: false },
   AGENT2: { shirt: '#5a5448', pants: '#3a3630', hat: 'fedora', hatCol: '#5a4a38', hair: 'short', hairCol: '#7a5a3a', neck: 'tie', neckCol: '#6a2a2a', build: 'stout', head: 'wide', skin: '#e8b48a', glasses: true },
   SOV1: { pattern: 'tweed', shirt: '#4a4a52', pants: '#2e2e36', hat: 'fedora', hatCol: '#2a2a30', hair: 'short', hairCol: '#3a3a3a', moustache: '#3a3a3a', neck: 'scarf', neckCol: '#7a2a2a', build: 'stout', head: 'wide', skin: '#f2c8a8' },
@@ -459,7 +465,7 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
   for (const a of acts) {
     const m = getMesh(cardMeshes, ci++, mkCard);
     const isCrowd = a.o.startsWith('PASS');
-    const k = a.k || 2;
+    const k = (a.k || 2) * Math.min(RS, 1.5);
     const qq = (v) => v == null ? v : Math.round(v * 3) / 3;
     const key = isCrowd ? JSON.stringify([a.o, a.opts.seed, a.opts.expr, qq(a.opts.cheer), qq(a.opts.wave), a.opts.mode]) : JSON.stringify([a.o, a.opts]);
     if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD' && a.o !== 'CAT') {
@@ -581,7 +587,7 @@ const inkPass = quad(`uniform sampler2D tC,tN; uniform vec2 px; uniform float in
     c = mix(c, vec3(1.), flash);
     if(dbg > 0.5) c = vec3(1. - ink);
     gl_FragColor = vec4(max(c,0.), 1.); }`,
-  { tC: { value: rtC.texture }, tN: { value: rtN.texture }, px: { value: new THREE.Vector2(1 / W, 1 / H) }, dbg: { value: location.search.includes('inkdbg') ? 1 : 0 }, focus: { value: 5 }, cInf: { value: 0 }, inkR: { value: 2.2 }, sat: { value: 1.1 }, flash: { value: 0 }, vig: { value: 0.25 },
+  { tC: { value: rtC.texture }, tN: { value: rtN.texture }, px: { value: new THREE.Vector2(1 / W, 1 / H) }, dbg: { value: location.search.includes('inkdbg') ? 1 : 0 }, focus: { value: 5 }, cInf: { value: 0 }, inkR: { value: 2.2 * RS }, sat: { value: 1.1 }, flash: { value: 0 }, vig: { value: 0.25 },
     gain: { value: new THREE.Vector3(1, 1, 1) }, lift: { value: new THREE.Vector3(0, 0, 0) }, inkCol: { value: new THREE.Color(0x2b1d4a) } });
 // ---------- SSAO (half res, from the normal/depth buffer) -> blurred -> multiplied into colour before ink ----------
 const AW = W / 2, AH = H / 2;
@@ -642,7 +648,7 @@ const dofPass = quad(`uniform sampler2D tA,tN,tP; uniform vec2 px; uniform float
       vec3 sc = mix(texture2D(tA, uv).rgb, texture2D(tP, uv).rgb, pre); w *= 1. + 0.6*smoothstep(0.85, 1.4, dot(sc, vec3(.2126,.7152,.0722)));
       acc += sc*w; wsum += w; }
     gl_FragColor = vec4(acc/wsum,1.); }`,
-  { tA: { value: rtA.texture }, tN: { value: rtN.texture }, tP: { value: null }, px: { value: new THREE.Vector2(1 / W, 1 / H) }, focus: { value: 5 }, cInf: { value: 0 }, bgK: { value: 3.6 }, fgK: { value: 1.0 }, rMax: { value: 12 } });
+  { tA: { value: rtA.texture }, tN: { value: rtN.texture }, tP: { value: null }, px: { value: new THREE.Vector2(1 / W, 1 / H) }, focus: { value: 5 }, cInf: { value: 0 }, bgK: { value: 3.6 }, fgK: { value: 1.0 }, rMax: { value: 12 * RS } });
 
 // ---------- glow, light shafts, motion blur, film finish ----------
 const rtB = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType });
@@ -828,7 +834,7 @@ const renderFrame0 = (f) => {
   u.focus.value = c.focus || 5; u.cInf.value = c.cInf || 0;
   renderer.setRenderTarget(rtA); renderer.render(inkPass.s, quadCam);
   if (inkPass.u.dbg.value) { renderer.setRenderTarget(null); renderer.render(inkPass.s, quadCam); return sh.id; }
-  dofPass.u.focus.value = c.focus || 5; dofPass.u.cInf.value = c.cInf || 0; dofPass.u.bgK.value = 1.2 * (G.dofK ?? 1);
+  dofPass.u.focus.value = c.focus || 5; dofPass.u.cInf.value = c.cInf || 0; dofPass.u.bgK.value = 1.2 * RS * (G.dofK ?? 1);
   if (dofPass.u.cInf.value >= 0.5) {
     for (const [src, dst, dx, dy] of [[rtA, rtP1, 1, 0], [rtP1, rtP2, 0, 1]]) { blurPass.u.tI.value = src.texture; blurPass.u.dir.value.set(dx / (W / 2), dy / (H / 2)); renderer.setRenderTarget(dst); renderer.render(blurPass.s, quadCam); }
     dofPass.u.tP.value = rtP2.texture; }

@@ -12,9 +12,9 @@ const N = +(process.env.WORKERS || 1);
 const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--disable-accelerated-2d-canvas', '--disable-gpu-rasterization'] });
 let done = 0; const t0 = Date.now();
 await Promise.all(Array.from({ length: N }, async (_, w) => {
-  const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  const RS = +(process.env.RS || 1); const p = await b.newPage({ viewport: { width: Math.round(1080 * RS), height: Math.round(1920 * RS) } });
   p.on('pageerror', (e) => console.log('PAGEERROR', e.message)); p.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.log('console:', m.text().slice(0, 300)); });
-  await p.goto(`http://localhost:${port}/index.html${process.env.Q || ''}`); await p.waitForFunction('window.ready', { timeout: 60000 });
+  await p.goto(`http://localhost:${port}/index.html${process.env.Q || ''}${process.env.RS ? ((process.env.Q || '').includes('?') ? '&' : '?') + 'rs=' + process.env.RS : ''}`); await p.waitForFunction('window.ready', { timeout: 60000 });
   for (let i = w; i < todo.length; i += N) {
     const f = todo[i];
     const url = await p.evaluate((f) => { window.renderFrame(f); return document.querySelector('canvas').toDataURL('image/jpeg', 0.95); }, f);

@@ -57,7 +57,12 @@ On a machine with a graphics card (for example a Mac), remove the SwiftShader fl
    Aim for an overall lookscore of about 0.4 or less. Also look at every still by eye: hands on props, nothing clipping, the right signs for the right place and year.
 7. **Sound.** Copy `audio/audio.py` and write a cue table for the new beats. Then run `python3 audio.py && python3 mix.py voice.wav music.wav sfx.wav`.
 8. **Captions.** Run `CAP_N=1 python3 captions.py work/words.json work/captions.ass "KEY,WORDS" "asr=>fix"`.
-9. **Render and finish.**
+9. **Render and finish (quality settings).** Always render supersampled at 1.5× (`RS=1.5`, which gives 1620×2880 with smoother lines and sharper characters, about 1.4× the time). Then export a **4K** (2160×3840) file with `finish4k.sh`. YouTube gives 4K uploads a much higher-bitrate stream, even for Shorts.
+   ```
+   RS=1.5 WORKERS=4 node render.mjs frames "0-N"
+   bash finish4k.sh "Title" name
+   ```
+   The original 1080p steps are:
    ```
    WORKERS=4 node render.mjs frames "0-N"
    bash finish.sh "Title" name
