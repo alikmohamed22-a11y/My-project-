@@ -463,15 +463,38 @@ const FX = {
   baby: [300, 200, (p) => { p.ell(150, 110, 120, 60, '#f3ead8', 10, 0, 360, -12); p.ell(70, 95, 42, 40, '#ffe2c2', 8); p.arc(58, 95, 7, 4, 0, 180, 4); p.arc(84, 95, 7, 4, 0, 180, 4); p.ell(84, 70, 30, 24, '#9cc7e8', 6, 180, 380); }],
 };
 
+// [CHAR2] facing view from on-screen motion (with hysteresis) + scene light for the 2D cast cards (oddverra_next.js).
+// Velocity: actor pos at f and f-1 (matched by o + opts.seed) projected into the CURRENT camera's view space. Hysteresis is a Schmitt
+// trigger run over a short fixed window (C2.K frames) so the result stays a pure function of the frame (parallel workers agree);
+// actorsAt results are cached per frame, so sequential rendering calls actorsAt(f-1) once per frame.
+const C2 = { K: 8, acts: new Map(), a: new THREE.Vector3(), b: new THREE.Vector3(), L: null };
+const c2acts = (f) => { let r = C2.acts.get(f); if (!r) { r = actorsAt(f); C2.acts.set(f, r); if (C2.acts.size > 40) C2.acts.delete(C2.acts.keys().next().value); } return r; };
+const c2key = (a) => a.o + ':' + (a.opts.seed || 0);
+const c2vel = (cam, f, key) => { const p1 = c2acts(f).find((x) => c2key(x) === key), p0 = c2acts(f - 1).find((x) => c2key(x) === key); if (!p1 || !p0) return null;
+  const A = C2.a.set(...p0.pos).applyMatrix4(cam.matrixWorldInverse), B = C2.b.set(...p1.pos).applyMatrix4(cam.matrixWorldInverse); return [B.x - A.x, B.z - A.z]; }; // view space: x = screen right, z = toward camera
+const c2step = (st, v) => { // Schmitt trigger: st = [kind 0 front | 1 three-quarter | 2 side, dir ±1]
+  if (!v) return st; const sp = Math.hypot(v[0], v[1]), moving = sp > (st[0] ? 0.0035 : 0.007); if (!moving) return [0, st[1]];
+  const ang = Math.abs(Math.atan2(v[0], v[1])) * 180 / Math.PI, m = 8, dir = Math.abs(v[0]) > 0.002 ? Math.sign(v[0]) : st[1];
+  const inSide = (lo, hi) => ang > lo && ang < hi, k = st[0];
+  const side = inSide(62 - (k === 2 ? m : 0), 118 + (k === 2 ? m : 0)), three = !side && inSide(26 - (k ? m : 0), 180);
+  return [side ? 2 : three ? 1 : 0, dir]; };
+function c2view(cam, f, a) { const op = a.opts; if (op.view) return op.view; if (a.drive || op.mode === 'sit' || op.mode === 'fall') return 'front';
+  const key = c2key(a); let st = [0, 1]; for (let j = f - C2.K; j <= f; j++) st = c2step(st, c2vel(cam, j, key));
+  return st[0] === 0 ? 'front' : (st[0] === 1 ? '34' : 'side') + (st[1] > 0 ? 'R' : 'L'); }
+function c2light(cam, L) { // key light: sun direction projected to the camera's screen x; colours from the light preset
+  const el = (L.el ?? 50) * Math.PI / 180, az = (L.az ?? 0) * Math.PI / 180, d = C2.a.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).transformDirection(cam.matrixWorldInverse);
+  return { lightDir: Math.max(-1, Math.min(1, d.x / Math.max(0.25, Math.hypot(d.x, d.z)))), keyCol: L.sunCol, rimCol: L.sky, ambient: (L.hemiI ?? 1) / ((L.hemiI ?? 1) + (L.sunI ?? 1) * 1.5) }; }
+const c2opts = (cam, f, a) => ({ ...C2.L, view: c2view(cam, f, a), gait: a.opts.gait || (a.opts.lift || a.opts.mode === 'run' ? 'run' : 'walk') });
+
 function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for (const c of cardMeshes) c.visible = false; for (const c of blobMeshes) c.visible = false; for (const c of fxMeshes) c.visible = false; return; }
   GLOW = ['explain', 'night', 'office'].includes(shotAt(f).light) ? 1 : 0;
   const used = new Set();
-  const acts = actorsAt(f), fxs = fxAt(f);
+  const acts = c2acts(f), fxs = fxAt(f); C2.L = c2light(cam, L); // [CHAR2] cached actorsAt + per-frame card light
   let ci = 0, bi = 0;
   for (const a of acts) {
     const m = getMesh(cardMeshes, ci++, mkCard);
     const isCrowd = a.o.startsWith('PASS');
-    const k = (a.k || 2) * Math.min(RS, 1.5);
+    const k = (a.k || 2) * Math.min(RS, 2);
     const qq = (v) => v == null ? v : Math.round(v * 3) / 3;
     const key = isCrowd ? JSON.stringify([a.o, a.opts.seed, a.opts.expr, qq(a.opts.cheer), qq(a.opts.wave), a.opts.mode]) : JSON.stringify([a.o, a.opts]);
     if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD' && a.o !== 'CAT') {
@@ -484,10 +507,10 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
       ch.update({ t: f + (op.seed || 0) * 7, expr: act.expr, look: act.look, blink: bl, talk: talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase || 0, drive: a.drive, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 });
       continue;
     }
-    if (a.o === 'CAT') { m.geometry = BODY; const op = a.opts, fq = f - f % 2; m.material.map = canvasFor('cat|' + fq + key, 600, 1000, k, (p) => drawCat(p.g, { seed: op.seed || 0 }, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...op }), used); } // [KITTY-cat]
+    if (a.o === 'CAT') { m.geometry = BODY; const op = a.opts, fq = f; m.material.map = canvasFor('cat|' + fq + key, 600, 1000, k, (p) => drawCat(p.g, { seed: op.seed || 0 }, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...op }), used); } // [KITTY-cat]
     else if (a.o === 'HORSE') { m.geometry = HORSEG; m.material.map = canvasFor(key, 1000, 880, k, (p) => T.horseSide(p, a.opts), used); }
     else if (a.o === 'BOARD') { m.geometry = BOARDG; m.material.map = canvasFor(key, 600, 800, k, (p) => drawBoard(p, a.opts), used); }
-    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = talking ? f : (a.o.startsWith('PASS') ? f - f % 4 : f - f % 2); m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 }), used); }
+    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = f; m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { ...c2opts(cam, f, a) /* [CHAR2] */, t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 }), used); }
     const dark = ['explain', 'night', 'office', 'hall', 'under'].includes(shotAt(f).light); m.material.color.set(L.cardTint).multiplyScalar(dark ? 0.2 : 0.34); m.material.emissiveMap = m.material.map; if (m.customDepthMaterial) { m.customDepthMaterial.map = m.material.map; m.customDepthMaterial.needsUpdate = true; } m.material.emissive.set(dark ? '#ffffff' : L.cardTint); m.material.emissiveIntensity = dark ? 1.0 : 0.86;
     m.material.needsUpdate = true;
     m.position.set(...a.pos); m.scale.setScalar(a.s || 1);

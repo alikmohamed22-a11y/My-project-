@@ -250,128 +250,230 @@ const atlasGeo = (c, w, h) => cached(`atl${c}|${w.toFixed(3)}|${h.toFixed(3)}`, 
   const cw = a >= 1 ? 1 : a, ch = a >= 1 ? 1 / a : 1; for (let i = 0; i < uv.count; i++) uv.setXY(i, cu + (0.5 + (uv.getX(i) - 0.5) * cw) * 0.25 * 0.96 + 0.005, cv + (0.5 + (uv.getY(i) - 0.5) * ch) * 0.25 * 0.96 + 0.005); return g; });
 
 // ================================================================= the Mona Lisa (standalone painter)
-// drawMona(g, w, h[, {seed, age}]): a stylised, painterly rendition of Leonardo's portrait (public domain): dark-haired
-// woman in a dark dress, hands folded, faint smile, hazy blue-green landscape with a winding path and a bridge,
-// old yellowed varnish and fine craquelure. Pure 2D canvas; no other module needed. Design space 530 x 770.
+// drawMona(g, w, h[, {seed, age}]): a painterly rendition of Leonardo's portrait (public domain): a three-quarter
+// half-length sitter turned to our left, soft oval face, ambiguous smile, dark centre-parted hair under a thin veil,
+// dark green-brown dress with embroidered neckline, ochre sleeves, folded hands on the chair arm, and the hazy
+// blue-green landscape (lower horizon left, winding path, bridge right). Sfumato from radial/linear gradients plus a
+// few blurred shadow layers, then old yellowed varnish, vignette and craquelure scaled by o.age (default 1).
+// Pure 2D canvas, deterministic (seeded), standalone. Design space 530 x 770.
 export function drawMona(g, w, h, o = {}) {
   let a = ((o.seed || 1503) * 2654435761) >>> 0; const r = () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-  const K = w / 530, blur = (px) => { g.filter = px > 0 ? `blur(${(px * K).toFixed(2)}px)` : 'none'; };
-  const path = (pts, close = true) => { const p = new Path2D(); p.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) { const q = pts[i]; if (q.length === 4) p.quadraticCurveTo(q[0], q[1], q[2], q[3]); else if (q.length === 6) p.bezierCurveTo(...q); else p.lineTo(q[0], q[1]); } if (close) p.closePath(); return p; };
-  const fill = (p, c, al = 1) => { g.globalAlpha = al; g.fillStyle = c; g.fill(p); g.globalAlpha = 1; };
-  const strokes = (x, y, ww, hh, cols, n, len, ang, al, lw = 2.2, clip) => { g.save(); if (clip) g.clip(clip); g.lineCap = 'round'; for (let i = 0; i < n; i++) { const px = x + r() * ww, py = y + r() * hh, t = ang + (r() - 0.5) * 0.7, L = len * (0.5 + r()); g.strokeStyle = cols[Math.floor(r() * cols.length)]; g.globalAlpha = al * (0.5 + r() * 0.5); g.lineWidth = lw * (0.6 + r() * 0.8); g.beginPath(); g.moveTo(px, py); g.quadraticCurveTo(px + Math.cos(t) * L * 0.5 + (r() - 0.5) * 3, py + Math.sin(t) * L * 0.5 + (r() - 0.5) * 3, px + Math.cos(t) * L, py + Math.sin(t) * L); g.stroke(); } g.restore(); g.globalAlpha = 1; };
-  g.save(); g.scale(w / 530, h / 770);
-  // ---- sky: pale green-blue haze
-  let gr = g.createLinearGradient(0, 0, 0, 330); gr.addColorStop(0, '#6f8270'); gr.addColorStop(0.5, '#9fae92'); gr.addColorStop(1, '#c7c8a4'); g.fillStyle = gr; g.fillRect(0, 0, 530, 770);
-  blur(6); for (let i = 0; i < 9; i++) { g.fillStyle = `rgba(214,214,184,${0.12 + r() * 0.1})`; g.beginPath(); g.ellipse(r() * 530, 30 + r() * 160, 60 + r() * 80, 10 + r() * 12, 0, 0, 7); g.fill(); } blur(0);
-  // ---- distant blue mountains: left range lower, right range higher (the famous mismatched horizon)
-  blur(1.5);
-  const mL = [[0, 300], [0, 196], [22, 178], [40, 192], [58, 160], [80, 176], [104, 150], [126, 182], [150, 170], [176, 200], [196, 226], [210, 300]];
-  const mR = [[320, 300], [326, 210], [350, 176], [372, 190], [396, 140], [418, 160], [440, 124], [466, 150], [488, 132], [512, 158], [530, 150], [530, 300]];
-  fill(path(mL), '#7c958e'); fill(path(mR), '#76918c');
-  fill(path([[0, 300], [0, 226], [40, 214], [90, 222], [140, 214], [200, 238], [210, 300]]), '#94a898', 0.85);
-  fill(path([[320, 300], [326, 236], [380, 208], [430, 200], [480, 210], [530, 196], [530, 300]]), '#90a696', 0.85);
-  blur(0);
-  // lakes / water catching the sky
-  fill(path([[0, 268], [60, 262], [150, 266], [208, 272], [208, 282], [0, 284]]), '#c4c8a6', 0.9);
-  fill(path([[322, 244], [400, 238], [530, 236], [530, 250], [322, 256]]), '#c2c6a4', 0.9);
-  // ---- middle ground: ochre-green valleys with rock outcrops
-  gr = g.createLinearGradient(0, 270, 0, 470); gr.addColorStop(0, '#7e8a5e'); gr.addColorStop(1, '#5a5a36'); g.fillStyle = gr;
-  g.fill(path([[0, 284], [60, 286], [120, 300], [210, 296], [215, 470], [0, 470]])); g.fill(path([[318, 258], [380, 262], [450, 270], [530, 262], [530, 470], [318, 470]]));
-  strokes(0, 290, 215, 180, ['#9a9a62', '#5e6a42', '#a8a070', '#4e5a3a'], 120, 14, 0.2, 0.4, 2.2);
-  strokes(318, 262, 212, 210, ['#9a9a62', '#5e6a42', '#a8a070', '#4e5a3a'], 120, 14, -0.1, 0.4, 2.2);
-  // winding path on the left, snaking down and away
-  g.lineCap = 'round'; g.strokeStyle = '#c0aa74'; g.lineWidth = 7; g.beginPath(); g.moveTo(150, 302); g.bezierCurveTo(110, 318, 170, 336, 120, 352); g.bezierCurveTo(70, 368, 110, 392, 54, 410); g.bezierCurveTo(30, 418, 20, 430, 8, 450); g.stroke();
-  g.strokeStyle = '#8e7a50'; g.lineWidth = 2; g.stroke();
-  // river and arched bridge on the right
-  g.strokeStyle = '#b8bc9a'; g.lineWidth = 6; g.beginPath(); g.moveTo(530, 300); g.bezierCurveTo(480, 320, 470, 340, 430, 372); g.stroke();
-  g.fillStyle = '#8a7a56'; g.fillRect(392, 344, 110, 9); for (let i = 0; i < 4; i++) { g.fillStyle = '#4e4630'; g.beginPath(); g.arc(404 + i * 26, 362, 9, Math.PI, 0); g.lineTo(413 + i * 26, 368); g.lineTo(395 + i * 26, 368); g.fill(); }
-  g.fillStyle = '#6e6444'; for (let i = 0; i < 5; i++) g.fillRect(392 + i * 26, 353, 6, 15);
-  // stone parapet + column bases at the edges (the loggia)
-  gr = g.createLinearGradient(0, 430, 0, 470); gr.addColorStop(0, '#6a5a3e'); gr.addColorStop(1, '#3a3020'); g.fillStyle = gr; g.fillRect(0, 440, 530, 40);
-  g.fillStyle = '#4a3e2a'; g.fillRect(0, 300, 12, 180); g.fillRect(518, 300, 12, 180);
-  // ---- the figure ----------------------------------------------------------------------
-  const HAIR = '#241910', DRESS = '#2a2618', SLEEVE = '#8a6c36', SKIN = '#d6a663', SKIN_L = '#eac381', SKIN_D = '#9a6a38';
-  g.fillStyle = '#2e2416'; g.fillRect(0, 470, 530, 300); // shadow below the parapet
-  // back hair mass + veil over the crown, falling behind the shoulders
-  blur(1.5);
-  fill(path([[265, 74], [200, 76, 184, 150], [168, 230, 166, 300], [160, 360, 150, 404], [190, 420, 222, 404], [214, 330, 226, 250], [265, 200], [304, 250], [316, 330, 310, 404], [344, 422, 382, 404], [366, 360, 362, 300], [360, 230, 346, 150], [330, 76, 265, 74]]), HAIR);
-  blur(0);
-  // body + dark dress, broad sloping shoulders
-  const body = path([[28, 770], [34, 560, 58, 446], [110, 396, 184, 382], [265, 372], [350, 378, 424, 394], [474, 450, 500, 560], [512, 770]]);
-  fill(body, DRESS);
-  strokes(120, 410, 300, 360, ['rgba(92,86,54,0.9)', 'rgba(10,9,6,0.9)'], 80, 60, 1.45, 0.3, 3.2, body);
-  // ochre sleeves: upper arms, then forearms meeting at the hands
-  const slL = path([[58, 446], [96, 420, 128, 450], [150, 520, 156, 610], [120, 650, 74, 652], [48, 600, 44, 520], [50, 470, 58, 446]]);
-  const slR = path([[424, 394], [470, 420, 490, 470], [502, 540, 496, 600], [460, 630, 416, 616], [400, 540, 404, 470], [408, 420, 424, 394]]);
-  const faL = path([[70, 600], [140, 600, 230, 636], [262, 648], [260, 690], [200, 696, 92, 690], [56, 660, 70, 600]]);
-  const faR = path([[492, 560], [470, 620, 400, 640], [372, 644], [368, 680], [430, 682, 490, 650], [508, 610, 492, 560]]);
-  for (const sl of [slL, slR, faL, faR]) { fill(sl, SLEEVE); g.save(); g.clip(sl);
-    gr = g.createLinearGradient(0, 380, 530, 700); gr.addColorStop(0, 'rgba(240,200,120,0.35)'); gr.addColorStop(1, 'rgba(40,24,8,0.35)'); g.fillStyle = gr; g.fillRect(0, 380, 530, 390);
-    for (let i = 0; i < 26; i++) { const x = 30 + i * 18 + r() * 8; g.strokeStyle = i % 2 ? 'rgba(66,44,18,0.2)' : 'rgba(226,186,110,0.15)'; g.lineWidth = 4 + r() * 3; g.beginPath(); g.moveTo(x, 390); g.bezierCurveTo(x + 18, 480, x - 14, 580, x + 10, 700); g.stroke(); }
-    g.restore(); }
-  // chair arm under the left forearm
-  gr = g.createLinearGradient(0, 690, 0, 730); gr.addColorStop(0, '#6e4a28'); gr.addColorStop(1, '#24170c'); g.fillStyle = gr; g.fillRect(14, 694, 300, 30); g.fillStyle = 'rgba(255,220,160,0.25)'; g.fillRect(14, 694, 300, 3);
-  // chest skin + neckline with embroidered trim
-  const chest = path([[168, 378], [222, 366, 238, 334], [292, 334], [308, 366, 362, 376], [336, 408, 265, 410], [194, 408, 168, 378]]);
-  gr = g.createLinearGradient(170, 340, 350, 420); gr.addColorStop(0, SKIN_L); gr.addColorStop(0.55, SKIN); gr.addColorStop(1, SKIN_D); g.fillStyle = gr; g.fill(chest);
-  g.strokeStyle = '#33240f'; g.lineWidth = 6; g.beginPath(); g.moveTo(166, 376); g.bezierCurveTo(198, 414, 332, 416, 364, 374); g.stroke();
-  g.strokeStyle = 'rgba(170,134,76,0.8)'; g.lineWidth = 1.3; g.setLineDash([2.5, 2.5]); g.stroke(); g.setLineDash([]);
-  for (let i = 0; i < 16; i++) { const t = i / 15, x = 166 + t * 198, y = 376 + Math.sin(t * Math.PI) * 30; g.strokeStyle = 'rgba(176,140,80,0.6)'; g.lineWidth = 0.9; g.beginPath(); g.arc(x, y + 4, 2.2, 0, 7); g.stroke(); }
-  // neck, soft shadow under the chin
-  const neck = path([[238, 270], [236, 320, 232, 352], [265, 362], [298, 352], [294, 320, 292, 270]]);
-  gr = g.createLinearGradient(232, 0, 298, 0); gr.addColorStop(0, SKIN_L); gr.addColorStop(0.65, SKIN); gr.addColorStop(1, SKIN_D); g.fillStyle = gr; g.fill(neck);
-  blur(4); fill(path([[238, 290], [265, 312], [294, 288], [294, 304], [265, 326], [238, 306]]), SKIN_D, 0.55); blur(0);
-  // face: a broad soft oval, lit from the viewer's left
-  const face = path([[265, 98], [322, 100, 338, 168], [346, 236, 318, 276], [294, 302, 265, 304], [236, 302, 212, 276], [184, 236, 192, 168], [208, 100, 265, 98]]);
-  gr = g.createRadialGradient(248, 178, 10, 266, 200, 104); gr.addColorStop(0, SKIN_L); gr.addColorStop(0.6, SKIN); gr.addColorStop(1, SKIN_D); g.fillStyle = gr; g.fill(face);
-  g.save(); g.clip(face);
-  blur(7); fill(path([[312, 110], [344, 190], [330, 280], [292, 304], [312, 220]]), SKIN_D, 0.55); // shadow side
-  fill(path([[214, 130], [252, 108], [268, 140], [228, 168]]), SKIN_L, 0.5); fill(path([[214, 222], [240, 216], [244, 256], [222, 254]]), SKIN_L, 0.3);
-  blur(5); for (const [ex, ey] of [[236, 188], [294, 186]]) fill(path([[ex - 24, ey + 2], [ex, ey - 16, ex + 24, ey], [ex, ey + 14, ex - 24, ey + 2]]), SKIN_D, 0.5);
-  blur(0); g.restore();
-  // hair framing the face: soft waves, centre parting, ends curling on the shoulders
-  blur(0.8);
-  fill(path([[265, 92], [214, 90, 196, 150], [178, 220, 184, 290], [180, 340, 168, 396], [192, 404, 210, 384], [208, 330, 202, 280], [192, 210, 212, 150], [236, 106, 265, 106]]), HAIR);
-  fill(path([[265, 92], [316, 90, 334, 150], [352, 220, 346, 290], [350, 340, 362, 396], [338, 404, 320, 384], [322, 330, 328, 280], [338, 210, 318, 150], [294, 106, 265, 106]]), HAIR);
-  blur(0);
-  g.save(); g.lineCap = 'round'; for (let i = 0; i < 26; i++) { const sd = i % 2 ? 1 : -1, k = i >> 1, x0 = 265 + sd * (6 + k * 3.2);
-    g.strokeStyle = `rgba(${110 + (k % 3) * 20},${80 + (k % 3) * 14},44,0.38)`; g.lineWidth = 1.1; g.beginPath(); g.moveTo(x0, 96);
-    g.bezierCurveTo(x0 + sd * 40, 140, x0 + sd * 30, 240, 265 + sd * (66 + k * 1.6), 300); g.bezierCurveTo(265 + sd * (78 + Math.sin(k) * 8), 340, 265 + sd * (70 + k * 2), 370, 265 + sd * (88 + k * 1.5), 396); g.stroke(); }
-  for (const sd of [-1, 1]) for (let k = 0; k < 4; k++) { g.strokeStyle = 'rgba(120,88,48,0.45)'; g.lineWidth = 1.2; g.beginPath(); g.arc(265 + sd * (84 + k * 7), 392 + (k % 2) * 6, 5, 0, Math.PI * 1.5); g.stroke(); }
-  g.restore();
-  g.strokeStyle = 'rgba(20,16,12,0.55)'; g.lineWidth = 1.3; g.beginPath(); g.moveTo(206, 112); g.quadraticCurveTo(265, 92, 324, 112); g.stroke(); // veil edge
-  g.fillStyle = 'rgba(20,16,12,0.18)'; g.beginPath(); g.moveTo(190, 120); g.quadraticCurveTo(265, 70, 340, 120); g.quadraticCurveTo(265, 96, 190, 120); g.fill();
-  // eyes: heavy lids in shadow, dark irises toward the viewer, no eyebrows
-  for (const [ex, ey, sc] of [[236, 189, 1], [294, 187, 0.94]]) {
-    g.fillStyle = 'rgba(214,190,150,0.8)'; g.beginPath(); g.ellipse(ex, ey + 0.5, 11 * sc, 4, 0, 0, 7); g.fill();
-    g.fillStyle = '#2a1c12'; g.beginPath(); g.arc(ex + 2, ey + 0.5, 4.6, 0, 7); g.fill();
-    g.fillStyle = 'rgba(255,236,200,0.6)'; g.beginPath(); g.arc(ex + 0.8, ey - 1, 1, 0, 7); g.fill();
-    g.strokeStyle = '#3e2614'; g.lineWidth = 2.6; g.beginPath(); g.moveTo(ex - 12 * sc, ey + 1); g.quadraticCurveTo(ex, ey - 7, ex + 12 * sc, ey); g.stroke();
-    blur(1); g.strokeStyle = 'rgba(110,66,32,0.55)'; g.lineWidth = 2.4; g.beginPath(); g.moveTo(ex - 13 * sc, ey - 5); g.quadraticCurveTo(ex, ey - 13, ex + 13 * sc, ey - 5); g.stroke();
-    g.strokeStyle = 'rgba(120,76,40,0.4)'; g.lineWidth = 1.6; g.beginPath(); g.moveTo(ex - 10 * sc, ey + 5); g.quadraticCurveTo(ex, ey + 8, ex + 11 * sc, ey + 4); g.stroke(); blur(0);
-  }
-  // nose: soft shadow down the right side, nostrils
-  blur(1.6); g.strokeStyle = 'rgba(140,90,44,0.6)'; g.lineWidth = 4; g.beginPath(); g.moveTo(273, 194); g.quadraticCurveTo(280, 222, 280, 238); g.stroke(); blur(0);
-  g.fillStyle = 'rgba(104,60,28,0.7)'; g.beginPath(); g.ellipse(258, 242, 3.2, 1.8, 0.2, 0, 7); g.fill(); g.beginPath(); g.ellipse(276, 241, 3.2, 1.8, -0.2, 0, 7); g.fill();
-  blur(1); g.strokeStyle = 'rgba(150,96,50,0.5)'; g.lineWidth = 2; g.beginPath(); g.moveTo(252, 238); g.quadraticCurveTo(267, 248, 282, 238); g.stroke(); blur(0);
-  // the faint smile: thin closed lips, corners lifting softly into shadow
-  blur(0.8); g.fillStyle = 'rgba(170,96,66,0.5)'; g.beginPath(); g.moveTo(246, 265); g.quadraticCurveTo(266, 259, 288, 263); g.quadraticCurveTo(266, 276, 246, 265); g.fill(); blur(0);
-  g.strokeStyle = 'rgba(96,52,28,0.85)'; g.lineWidth = 1.6; g.beginPath(); g.moveTo(244, 263); g.bezierCurveTo(254, 268, 276, 268, 290, 261); g.stroke();
-  blur(2); g.strokeStyle = 'rgba(120,70,36,0.5)'; g.lineWidth = 2.6; for (const [x0, y0, x1, y1] of [[240, 259, 245, 266], [294, 256, 289, 264]]) { g.beginPath(); g.moveTo(x0, y0); g.quadraticCurveTo(x0, y1, x1, y1); g.stroke(); }
-  fill(path([[254, 278], [266, 284, 278, 278], [266, 290]]), SKIN_D, 0.35); blur(0);
-  // hands: the left hand curls over the chair arm, the right hand rests across its wrist
-  const hand = (pts, x0) => { const hp = path(pts); gr = g.createLinearGradient(x0, 620, x0 + 130, 720); gr.addColorStop(0, SKIN_L); gr.addColorStop(0.55, SKIN); gr.addColorStop(1, SKIN_D); g.fillStyle = gr; g.fill(hp); return hp; };
-  hand([[254, 642], [300, 640, 330, 660], [346, 690, 330, 712], [300, 720, 262, 706], [248, 680, 254, 642]], 250);
-  const hR = hand([[384, 630], [350, 626, 300, 640], [256, 650, 244, 664], [250, 676, 290, 676], [330, 680, 376, 684], [392, 668, 384, 630]], 240);
-  g.save(); g.clip(hR); g.strokeStyle = 'rgba(120,74,36,0.55)'; g.lineWidth = 1.4; for (let i = 0; i < 3; i++) { g.beginPath(); g.moveTo(330, 650 + i * 9); g.quadraticCurveTo(290, 652 + i * 8, 250 + i * 4, 664 + i * 5); g.stroke(); } g.restore();
-  blur(2); fill(path([[300, 676], [340, 684], [372, 686], [340, 694], [296, 688]]), SKIN_D, 0.4); blur(0);
-  // sfumato: a soft warm haze over everything, then deepen the shadow side of the figure
-  g.globalAlpha = 0.12; g.fillStyle = '#c8b07a'; g.fillRect(0, 0, 530, 770); g.globalAlpha = 1;
-  // ---- old varnish: yellowed, darker toward the edges, plus fine craquelure
-  g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = '#e8d090'; g.fillRect(0, 0, 530, 770);
-  gr = g.createRadialGradient(265, 330, 120, 265, 400, 520); gr.addColorStop(0, '#ffffff'); gr.addColorStop(0.7, '#d8c49a'); gr.addColorStop(1, '#6a5232'); g.fillStyle = gr; g.fillRect(0, 0, 530, 770); g.restore();
-  craquelure(g, 0, 0, 530, 770, r, o.age ?? 1, 9);
-  g.restore();
+  const age = Math.max(0, o.age ?? 1), K = Math.min(w / 530, h / 770), small = w < 200, tiny = w < 100;
+  const blur = (px) => { const b = px * K; g.filter = b > 0.35 ? `blur(${b.toFixed(2)}px)` : 'none'; };
+  const rgb = (c) => { const n = parseInt(c.slice(1), 16); return `${n >> 16},${(n >> 8) & 255},${n & 255}`; };
+  // smooth Catmull-Rom path through points (closed or open)
+  const sm = (pts, close = true, p = new Path2D()) => { const n = pts.length, P = (i) => close ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))]; p.moveTo(pts[0][0], pts[0][1]);
+    for (let i = 0; i < (close ? n : n - 1); i++) { const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2); p.bezierCurveTo(p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6, p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6, p2[0], p2[1]); }
+    if (close) p.closePath(); return p; };
+  const poly = (pts) => { const p = new Path2D(); p.moveTo(pts[0][0], pts[0][1]); for (const q of pts) p.lineTo(q[0], q[1]); p.closePath(); return p; };
+  const lin = (x0, y0, x1, y1, st) => { const q = g.createLinearGradient(x0, y0, x1, y1); for (const [t, c] of st) q.addColorStop(t, c); return q; };
+  const rad = (x0, y0, r0, x1, y1, r1, st) => { const q = g.createRadialGradient(x0, y0, r0, x1, y1, r1); for (const [t, c] of st) q.addColorStop(t, c); return q; };
+  const fill = (p, c, al = 1, bl = 0) => { blur(bl); g.globalAlpha = al; g.fillStyle = c; g.fill(p); g.globalAlpha = 1; blur(0); };
+  // a soft-edged ellipse (sfumato glaze) from a radial gradient: no filter needed
+  const spot = (x, y, rx, ry, c, al = 1, soft = 0.6, rot = 0) => { const q = rgb(c); g.save(); g.translate(x, y); g.rotate(rot); g.scale(rx, ry);
+    g.fillStyle = rad(0, 0, 0, 0, 0, 1, [[0, `rgba(${q},${al})`], [1 - soft, `rgba(${q},${al})`], [1 - soft * 0.55, `rgba(${q},${al * 0.55})`], [1 - soft * 0.2, `rgba(${q},${al * 0.14})`], [1, `rgba(${q},0)`]]);
+    g.beginPath(); g.arc(0, 0, 1, 0, Math.PI * 2); g.fill(); g.restore(); };
+  const ell = (x, y, rx, ry, c, al = 1, rot = 0) => { const p = new Path2D(); p.ellipse(x, y, rx, ry, rot, 0, Math.PI * 2); fill(p, c, al); };
+  // strokes: soft ones are faked with a wide faint pass under a narrow one (no filter)
+  const line = (pts, c, lw, al = 1, soft = 0) => { const p = sm(pts, false); g.strokeStyle = c; g.lineCap = g.lineJoin = 'round';
+    if (soft) { g.globalAlpha = al * 0.25; g.lineWidth = lw + soft * 2.2; g.stroke(p); g.globalAlpha = al * 0.35; g.lineWidth = lw + soft; g.stroke(p); g.globalAlpha = al * 0.45; g.lineWidth = lw; g.stroke(p); }
+    else { g.globalAlpha = al; g.lineWidth = lw; g.stroke(p); } g.globalAlpha = 1; };
+  // many open curves collected into one path, stroked once (optionally through one blur)
+  const bundle = () => { const p = new Path2D(); return { add: (pts) => sm(pts, false, p), draw: (c, lw, al, bl = 0) => { blur(bl); g.globalAlpha = al; g.strokeStyle = c; g.lineWidth = lw; g.lineCap = g.lineJoin = 'round'; g.stroke(p); g.globalAlpha = 1; blur(0); } }; };
+  const clipDo = (p, fn) => { g.save(); g.clip(p); fn(); g.restore(); };
+  // a tube along a centre line: its outline, and points running along it at fraction f across its width
+  const tube = (c, wd) => { const N = c.map((p, i) => { const q = c[Math.min(c.length - 1, i + 1)], s = c[Math.max(0, i - 1)], dx = q[0] - s[0], dy = q[1] - s[1], l = Math.hypot(dx, dy) || 1; return [-dy / l, dx / l]; });
+    const at = (f, wob = 0) => c.map((p, i) => [p[0] + N[i][0] * wd[i] * f + (wob ? (r() - 0.5) * wob : 0), p[1] + N[i][1] * wd[i] * f + (wob ? (r() - 0.5) * wob : 0)]);
+    return { path: sm([...at(0.5), ...at(-0.5).reverse()]), at, N }; };
+  // flowing brush marks inside a clip, batched per colour
+  const brush = (clip, x, y, ww, hh, cols, n, len, ang, al, lw, curl = 0.3) => { if (!n) return; g.save(); if (clip) g.clip(clip); g.lineCap = 'round';
+    for (const col of cols) { const p = new Path2D(); for (let i = 0; i < n / cols.length; i++) { const px = x + r() * ww, py = y + r() * hh, t = ang + (r() - 0.5) * curl * 2, L = len * (0.5 + r()), c = (r() - 0.5) * L * 0.3;
+      p.moveTo(px, py); p.quadraticCurveTo(px + Math.cos(t) * L / 2 - Math.sin(t) * c, py + Math.sin(t) * L / 2 + Math.cos(t) * c, px + Math.cos(t) * L, py + Math.sin(t) * L); }
+      g.strokeStyle = col; g.globalAlpha = al; g.lineWidth = lw; g.stroke(p); }
+    g.restore(); g.globalAlpha = 1; };
+  const jag = (pts, amp) => { const out = []; for (let i = 0; i < pts.length - 1; i++) { const [x0, y0] = pts[i], [x1, y1] = pts[i + 1]; out.push(pts[i]); if (y0 > 320 || y1 > 320) continue; for (let k = 1; k < 4; k++) { const t = k / 4; out.push([x0 + (x1 - x0) * t + (r() - 0.5) * amp * 0.6, y0 + (y1 - y0) * t + (r() - 0.5) * amp * 1.4]); } } out.push(pts[pts.length - 1]); return out; };
+  g.save(); g.scale(w / 530, h / 770); g.lineCap = 'round';
+
+  // ================= background: hazy imaginary landscape in aerial perspective (bluer + paler with distance)
+  g.fillStyle = lin(0, 0, 0, 300, [[0, '#536e60'], [0.35, '#8aa592'], [0.75, '#c6d0b0'], [1, '#dcdbb6']]); g.fillRect(0, 0, 530, 770);
+  for (let i = 0; i < 9; i++) spot(r() * 530, 16 + r() * 140, 80 + r() * 90, 10 + r() * 12, '#e2e6c8', 0.12 + r() * 0.12, 0.9);
+  // craggy ranges: the far right reaches high, the left sits low (Leonardo's mismatched horizon)
+  const lit = new Path2D(), shd = new Path2D();
+  const range = (pts, base, amp) => { const pp = jag(pts, amp); fill(poly(pp), base, 1);
+    for (let i = 1; i < pp.length - 2; i++) { const [x, y] = pp[i]; if (pp[i - 1][1] > y && pp[i + 1][1] > y) { const d = Math.min(80, 330 - y);
+      lit.moveTo(x, y); lit.lineTo(x - d * 0.4, y + d); lit.lineTo(x - d * 0.08, y + d); lit.closePath(); shd.moveTo(x, y); shd.lineTo(x + d * 0.45, y + d); shd.lineTo(x + d * 0.1, y + d); shd.closePath(); } } };
+  range([[318, 330], [326, 196], [346, 158], [366, 172], [388, 118], [410, 150], [432, 128], [458, 92], [482, 136], [504, 106], [530, 118], [530, 330]], '#86a3a0', 12);
+  range([[0, 330], [0, 214], [22, 190], [44, 206], [70, 178], [96, 208], [124, 194], [150, 220], [180, 228], [206, 250], [206, 330]], '#8eaaa4', 9);
+  if (!small) { fill(lit, '#d2dfd2', 0.4, 2); fill(shd, '#5a7878', 0.3, 2); }
+  g.fillStyle = lin(0, 100, 0, 262, [[0, 'rgba(216,226,208,0)'], [1, 'rgba(216,226,208,0.6)']]); g.fillRect(0, 100, 530, 170);
+  range([[320, 330], [326, 236], [352, 210], [378, 226], [404, 196], [436, 220], [470, 202], [500, 214], [530, 206], [530, 330]], '#6d8a80', 10);
+  range([[0, 330], [0, 244], [36, 234], [74, 250], [116, 242], [158, 262], [206, 268], [206, 330]], '#7a9488', 6);
+  // lakes catching the sky: the left one lower than the right
+  fill(sm([[0, 268], [70, 263], [150, 268], [206, 276], [206, 286], [100, 288], [0, 286]]), '#dadcbc', 0.95);
+  fill(sm([[324, 240], [400, 234], [470, 237], [530, 232], [530, 247], [430, 251], [324, 253]]), '#d6dab8', 0.95);
+  // middle ground: warm ochre-green valleys and rock shelves
+  const vL = sm([[0, 290], [60, 288], [130, 298], [206, 302], [214, 440], [0, 440]]), vR = sm([[320, 258], [380, 264], [450, 260], [530, 254], [530, 440], [316, 440]]);
+  fill(vL, lin(0, 288, 0, 440, [[0, '#9c9c6e'], [0.5, '#7a764c'], [1, '#575030']])); fill(vR, lin(0, 254, 0, 440, [[0, '#9ca076'], [0.5, '#78744a'], [1, '#544c30']]));
+  brush(vL, 0, 292, 214, 150, ['#b8b07c', '#5a5c3c', '#8e8c5c', '#454a30'], small ? 0 : 120, 16, 0.15, 0.3, 2.4, 0.4);
+  brush(vR, 316, 258, 214, 184, ['#b8b07c', '#5a5c3c', '#8e8c5c', '#454a30'], small ? 0 : 120, 16, -0.1, 0.3, 2.4, 0.4);
+  spot(486, 306, 56, 30, '#4e5036', 0.55, 0.7); spot(30, 344, 60, 22, '#4e5036', 0.4, 0.7);   // rock shelves
+  // the winding path on the left, narrowing as it recedes into the haze
+  { const road = [[188, 302], [156, 310], [170, 324], [130, 338], [98, 350], [118, 366], [76, 384], [36, 402], [8, 432]], T = tube(road, road.map((_, i) => 1.5 + i * 1.1));
+    fill(T.path, '#4e4a2c', 0.3, 2); fill(T.path, '#cdb882', 0.9); line(T.at(-0.2), '#ecdcaa', 1.2, 0.6); }
+  // the river and the arched bridge on the right
+  line([[530, 300], [500, 322], [474, 348], [456, 380], [446, 420]], '#c6ccaa', 6, 0.8, 2);
+  { const bx = 402, by = 368, bw = 116; fill(sm([[bx, by + 2], [bx + bw / 2, by - 5], [bx + bw, by + 2], [bx + bw, by + 9], [bx, by + 9]]), '#9a8660');
+    fill(poly([[bx, by + 6], [bx + bw, by + 6], [bx + bw, by + 30], [bx, by + 30]]), '#7f7050');
+    for (let i = 0; i < 4; i++) { const x = bx + 4 + (i + 0.5) * (bw - 8) / 4, p = new Path2D(); p.moveTo(x - 11, by + 31); p.lineTo(x - 11, by + 22); p.arc(x, by + 22, 11, Math.PI, 0); p.lineTo(x + 11, by + 31); p.closePath(); fill(p, '#363022', 0.9); }
+    line([[bx, by + 2], [bx + bw / 2, by - 4], [bx + bw, by + 2]], '#d6c8a2', 1.4, 0.7); spot(bx + bw / 2, by + 14, 70, 26, '#c8ccae', 0.25, 0.8); }
+  // aerial haze over the whole landscape (strongest at the horizons)
+  g.fillStyle = lin(0, 60, 0, 440, [[0, 'rgba(206,216,196,0.05)'], [0.45, 'rgba(212,218,192,0.26)'], [1, 'rgba(170,160,120,0)']]); g.fillRect(0, 0, 530, 440);
+  // loggia parapet + column bases at the edges
+  fill(poly([[0, 430], [530, 430], [530, 770], [0, 770]]), lin(0, 430, 0, 480, [[0, '#7c6c4a'], [0.2, '#55482e'], [1, '#2a2216']]));
+  fill(poly([[0, 312], [10, 312], [10, 440], [0, 440]]), '#4e4432', 0.75); fill(poly([[520, 300], [530, 300], [530, 440], [520, 440]]), '#4e4432', 0.75);
+
+  // ================= the figure (light from the upper left)
+  const CX = 260;
+  // back hair mass, falling behind the face and flaring over the shoulders
+  const hair = sm([[CX, 82], [302, 86], [332, 114], [346, 166], [352, 232], [354, 296], [362, 350], [372, 404], [380, 448], [358, 464], [330, 440], [312, 410], [296, 400], [CX, 420], [222, 400], [204, 412], [188, 440], [162, 462], [142, 446], [150, 400], [160, 350], [166, 296], [168, 232], [174, 166], [188, 114], [218, 88]]);
+  fill(hair, '#1c130b', 1, 1.2);
+  // body: dark green-brown dress, gently sloping shoulders, turned slightly to our left
+  const body = sm([[-30, 800], [-20, 620], [6, 520], [38, 470], [94, 430], [168, 400], [226, 370], [296, 368], [354, 386], [428, 406], [484, 442], [522, 502], [550, 620], [560, 800]]);
+  fill(body, lin(120, 380, 440, 720, [[0, '#34331f'], [0.5, '#232214'], [1, '#13120a']]), 1, 1);
+  // gathered bodice: soft pleats radiating from the neckline, fading downward; light on her right side
+  if (!small) clipDo(body, () => { const lo = bundle(), dk = bundle();
+    for (let i = 0; i < 40; i++) { const t = i / 39, x0 = 176 + t * 178, y0 = 398 + Math.sin(t * Math.PI) * 36, x1 = 150 + t * 240 + (r() - 0.5) * 16;
+      (i % 2 ? lo : dk).add([[x0, y0 + 6], [(x0 * 2 + x1) / 3 + (r() - 0.5) * 6, y0 + 30], [(x0 + x1 * 2) / 3, y0 + 54 + r() * 20]]); }
+    lo.draw('#5e5e40', 1.8, 0.35, 1.2); dk.draw('#060604', 1.8, 0.4, 1.2); spot(262, 520, 150, 60, '#232214', 0.75, 0.8);
+    spot(160, 520, 110, 160, '#5a5c3c', 0.3, 0.9); });
+  // ochre-mustard sleeves: one warm light for all of them; crumpled satin folds as soft broken highlights
+  const SLV = lin(20, 440, 520, 760, [[0, '#ae9248'], [0.45, '#8a6e2e'], [1, '#4a3814']]);
+  const sleeve = (c, wd, n, cross = 0, lite = 1) => { const T = tube(c, wd.map((v) => v * (0.94 + r() * 0.12))); fill(T.path, SLV, 1, 0.8);
+    if (!small) clipDo(T.path, () => { const L = bundle(), D = bundle(), m = c.length - 1.001;
+      const pt = (u, f) => { const j = Math.floor(u), t = u - j, p = c[j], q = c[j + 1], N = T.N[j], wv = wd[j] + (wd[j + 1] - wd[j]) * t; return [p[0] + (q[0] - p[0]) * t + N[0] * wv * f, p[1] + (q[1] - p[1]) * t + N[1] * wv * f]; };
+      for (let i = 0; i < n; i++) { const s = r() * m * 0.85, f = (r() - 0.5) * 0.9, len = 0.6 + r() * 1.4, dr = (r() - 0.5) * 0.5, pts = [];
+        for (let k = 0; k <= 4; k++) pts.push(pt(Math.min(m, s + len * k / 4), f + dr * (k / 4) + (r() - 0.5) * 0.06)); (i % 2 ? D : L).add(pts); }
+      const C = bundle(); for (let i = 0; i < cross; i++) { const s0 = r() * m * 0.9, b = (r() - 0.5) * 0.9, f0 = -0.55 + r() * 0.35, f1 = 0.2 + r() * 0.35;
+        C.add([pt(s0, f0), pt(Math.max(0, Math.min(m, s0 + b * 0.5)), (f0 + f1) / 2 + (r() - 0.5) * 0.1), pt(Math.max(0, Math.min(m, s0 + b)), f1)]); }
+      const E = bundle(); E.add(T.at(0.5)); E.add(T.at(-0.52)); E.draw('#2a1a06', 22, 0.55, 8);   // round the tube: dark at both edges
+      const H = bundle(); H.add(T.at(-0.14)); H.draw('#e8c47e', 14, 0.3 * lite, 9);                  // broad sheen toward the light
+      L.draw('#f6d896', 5, 0.34 * lite, 3); D.draw('#36240a', 4.5, 0.42, 3); C.draw('#3a2a0a', 3, 0.3, 2.5); }); return T; };
+  // chair arm at the lower left
+  fill(poly([[0, 722], [300, 722], [306, 770], [0, 770]]), lin(0, 722, 0, 770, [[0, '#86603a'], [0.15, '#5c3c1e'], [1, '#1e1208']]), 1, 0.6);
+  spot(150, 724, 150, 3, '#e8c48a', 0.35, 0.8);
+  sleeve([[136, 414], [84, 488], [54, 580], [34, 670], [22, 770]], [60, 82, 90, 92, 92], 40, 8);
+  spot(126, 426, 56, 46, '#2a2918', 0.6, 0.9);   // the sleeve emerges from the dark bodice
+  sleeve([[-20, 726], [60, 712], [140, 704], [212, 704], [268, 708]], [72, 68, 64, 58, 50], 14, 9);
+  sleeve([[430, 420], [478, 510], [504, 600], [516, 680], [522, 770]], [64, 84, 86, 86, 86], 26, 6, 0.7);
+  sleeve([[560, 726], [510, 706], [466, 692], [430, 682], [400, 678]], [72, 70, 64, 56, 48], 14, 9, 0.85);
+  // dark shawl over her left shoulder (our right), falling down the arm
+  const shawl = sm([[330, 382], [400, 396], [462, 416], [506, 458], [526, 520], [534, 600], [522, 650], [500, 610], [478, 526], [446, 476], [400, 438], [350, 406]]);
+  fill(shawl, '#15130b', 0.86, 2.5); if (!small) brush(shawl, 340, 380, 190, 260, ['#46442e', '#050504'], 24, 50, 1.1, 0.28, 3, 0.4);
+  // neck flowing into the chest: one pale warm skin, lit from the upper left
+  const chest = sm([[232, 268], [290, 268], [294, 320], [300, 352], [318, 374], [356, 394], [332, 420], [298, 436], [262, 440], [226, 436], [196, 422], [174, 400], [210, 378], [226, 352], [230, 320]]);
+  fill(chest, lin(190, 0, 350, 0, [[0, '#e0c490'], [0.45, '#cca870'], [1, '#806040']]), 1, 0.6);
+  clipDo(chest, () => { spot(308, 340, 22, 60, '#5a361a', 0.5, 0.8); spot(328, 398, 44, 32, '#6e4420', 0.45, 0.8); spot(204, 392, 26, 14, '#7a4e28', 0.25, 0.8);
+    spot(238, 404, 54, 26, '#fff2cc', 0.4, 0.9); spot(250, 296, 30, 40, '#7a4e28', 0.3, 0.8); spot(268, 326, 50, 24, '#4e2e14', 0.6, 0.8); spot(246, 360, 12, 6, '#8a5a30', 0.18, 0.8); spot(276, 362, 12, 6, '#8a5a30', 0.18, 0.8); });
+  // neckline: dark band with gold interlace embroidery and a fine pleated edge
+  const nk = [[174, 398], [212, 424], [262, 438], [314, 426], [356, 392]];
+  line(nk, '#17130a', tiny ? 9 : 7, 1);
+  if (!small) { g.save(); g.setLineDash([2.2, 2]); line(nk.map(([x, y]) => [x, y - 1]), '#c4a464', 1.5, 0.8); g.restore();
+    const kn = new Path2D(), pl = bundle(); for (let i = 0; i <= 44; i++) { const t = i / 44, x = 174 + t * 182, y = 398 + Math.sin(t * Math.PI) * 40 - (t - 0.5) * 6 + 2; kn.moveTo(x + 1.8, y); kn.ellipse(x, y, 1.8, 1.4, 0, 0, Math.PI * 2); }
+    g.strokeStyle = 'rgba(190,158,96,0.55)'; g.lineWidth = 0.7; g.stroke(kn);
+    for (let i = 0; i <= 60; i++) { const t = i / 60, x = 174 + t * 182, y = 398 + Math.sin(t * Math.PI) * 40 - (t - 0.5) * 6; pl.add([[x, y + 4], [x + (t - 0.5) * 3, y + 9]]); } pl.draw('#5e5634', 0.8, 0.5); }
+
+  // ================= the head: a gentle oval, widest at the cheeks, soft round chin; turned a little to our left
+  const face = sm([[258, 118], [296, 121], [322, 142], [337, 178], [341, 214], [336, 248], [323, 275], [302, 295], [279, 305], [256, 308], [235, 304], [219, 292], [204, 274], [192, 248], [185, 214], [187, 178], [198, 142], [222, 121]]);
+  const SH = '#4e3a22', SH2 = '#3e2c18';   // Leonardo's shadows: olive-brown, not orange
+  fill(face, rad(232, 196, 8, 248, 212, 132, [[0, '#e6d0a0'], [0.4, '#d4b47e'], [0.8, '#a68256'], [1, '#76603e']]), 1, 0.6);
+  clipDo(face, () => {
+    blur(7); g.strokeStyle = 'rgba(78,58,34,0.5)'; g.lineWidth = 22; g.stroke(face); blur(0);   // soft turning edge all round
+    spot(356, 226, 66, 132, SH, 0.82, 0.8); spot(300, 160, 40, 30, SH, 0.18, 0.9); spot(214, 262, 22, 30, SH, 0.18, 0.9);          // shadow side of the face (our right)
+    spot(256, 326, 92, 40, SH2, 0.7, 0.7);           // under the jaw
+    spot(258, 108, 104, 26, SH2, 0.55, 0.7);         // shade of the veil + hair on the brow
+    spot(180, 214, 16, 80, SH, 0.38, 0.8);           // far temple
+    spot(236, 160, 54, 36, '#fbecc4', 0.45, 0.9);    // high smooth forehead light
+    spot(226, 203, 27, 16, SH, 0.5, 0.8); spot(288, 201, 29, 18, SH, 0.62, 0.8);   // soft eye sockets
+    spot(256, 200, 9, 12, '#fff0cc', 0.3, 0.8);      // light between the brows (no brows)
+    spot(222, 240, 30, 24, '#f8e6b8', 0.42, 0.9);     // lit cheek
+    spot(300, 242, 24, 20, '#c98a66', 0.14, 0.9);    // a little warmth in the near cheek
+    spot(318, 282, 34, 26, SH, 0.45, 0.8);           // the jaw turning away
+    // nose: long and straight; lit ridge, shadow plane on our right, soft round tip, shadow beneath
+    line([[254, 208], [252, 228], [249, 244]], '#fff0c8', 4, 0.55, 3);
+    spot(266, 228, 8, 28, SH, 0.5, 0.9, -0.1); spot(262, 248, 7, 6, SH, 0.35, 0.8);
+    spot(252, 253, 18, 6, SH2, 0.55, 0.8); spot(249, 245, 8, 5, '#fff2cc', 0.42, 0.8);
+    spot(242, 251, 4.2, 2.6, SH2, 0.4, 0.8); spot(261, 251, 4.6, 2.8, SH2, 0.5, 0.8);
+    spot(254, 261, 6, 5, SH, 0.18, 0.8); // philtrum
+    // the smile: thin closed lips, nearly straight; the corners lift faintly into soft shadow (sfumato)
+    fill(sm([[235, 270.6], [244, 268.6], [253, 269.6], [263, 268.4], [275, 269.4], [263, 271.4], [253, 272], [244, 271.8]]), '#a06a4c', 0.36, 1.2);
+    fill(sm([[240, 273], [253, 273.8], [269, 272.8], [262, 278.5], [253, 279.5], [245, 278.5]]), '#c49070', 0.24, 1.5);
+    line([[236, 271], [245, 272], [254, 272.4], [264, 272], [275, 270.6]], '#45281a', 0.9, 0.48, 1.2);
+    line([[275, 270.6], [278.5, 269.2]], '#4e2c1a', 1, 0.3, 1);
+    spot(235, 270, 5, 4, SH2, 0.38, 0.9); spot(278, 268.5, 6, 5, SH2, 0.45, 0.9);   // shadows at the corners
+    spot(282, 262, 10, 8, SH, 0.18, 0.9); spot(232, 264, 8, 7, SH, 0.12, 0.9);       // the cheeks lifting
+    spot(253, 284, 14, 4, SH, 0.38, 0.8); spot(250, 296, 22, 10, '#fbe4b4', 0.35, 0.9);   // under-lip shade, chin light
+    // eyes: heavy lids, dim whites, large dark irises turned to the viewer, no brows or lashes
+    for (const [ex, ey, s, ix] of [[226, 205, 0.9, 2.6], [288, 203, 1, 2]]) {
+      const eye = sm([[ex - 14 * s, ey + 1.2], [ex - 6 * s, ey - 3.8], [ex + 4 * s, ey - 4.2], [ex + 13 * s, ey - 0.4], [ex + 4 * s, ey + 3.6], [ex - 6 * s, ey + 3.8]]);
+      fill(eye, '#ad9470', 0.9, 0.4); clipDo(eye, () => {
+        ell(ex + ix, ey + 0.6, 6, 6, rad(ex + ix - 1, ey - 1, 0.5, ex + ix, ey, 6, [[0, '#1c1008'], [0.55, '#33200f'], [1, '#4e341c']]));
+        ell(ex + ix, ey + 0.6, 2.4, 2.4, '#0c0703', 0.85); spot(ex, ey - 5, 18, 6, SH2, 0.8, 0.7); spot(ex - 11 * s, ey + 1, 4, 4, SH, 0.4, 0.8); });
+      spot(ex + ix - 1.6, ey - 1, 1.2, 1.1, '#f4e6c8', 0.7, 0.5);
+      line([[ex - 14 * s, ey + 1.2], [ex - 6 * s, ey - 3.8], [ex + 4 * s, ey - 4.2], [ex + 13 * s, ey - 0.4]], '#2a1a0c', 1.6, 0.55, 1.8);
+      line([[ex - 13 * s, ey - 4], [ex - 3 * s, ey - 9.5], [ex + 8 * s, ey - 8.5], [ex + 14 * s, ey - 3.6]], '#6a4a2a', 1.6, 0.4, 2);
+      line([[ex - 10 * s, ey + 4.2], [ex, ey + 6], [ex + 10 * s, ey + 3.4]], '#6a4a2a', 1.1, 0.3, 1.4); spot(ex, ey + 10, 13, 4, '#fde8bc', 0.3, 0.8); }
+  });
+  // hair over the edges of the face: centre parting, smooth bands down the cheeks, ringlets onto the shoulders
+  const lockL = sm([[CX - 3, 114], [226, 121], [207, 138], [195, 172], [189, 214], [186, 252], [186, 290], [192, 330], [200, 376], [190, 430], [164, 456], [148, 440], [158, 396], [164, 340], [166, 280], [166, 210], [174, 146], [202, 104], [236, 92]]);
+  const lockR = sm([[CX - 1, 114], [294, 120], [316, 138], [331, 172], [339, 214], [342, 252], [342, 290], [336, 330], [328, 380], [344, 432], [374, 454], [380, 436], [366, 396], [356, 340], [352, 280], [352, 210], [344, 148], [318, 104], [284, 92]]);
+  fill(lockL, '#22170d', 1, 1.6); fill(lockR, '#1c130a', 1, 1.6);
+  if (!small) for (const [lk, sd] of [[lockL, -1], [lockR, 1]]) clipDo(lk, () => {
+    spot(CX + sd * 50, 146, 18, 46, sd < 0 ? '#6e4e2c' : '#4a3420', 0.4, 0.8, sd * -0.4);  // soft sheen on the crown
+    spot(CX + sd * 76, 300, 14, 60, '#5a3e22', 0.3, 0.8, sd * 0.1);
+    const L = bundle(), D = bundle(); for (let i = 0; i < 24; i++) { const k = i / 23, wv = Math.sin(i * 1.7) * 3;
+      (i % 3 ? D : L).add([[CX + sd * 2, 112], [CX + sd * (36 + k * 18), 124 + k * 6], [CX + sd * (60 + k * 18), 178], [CX + sd * (66 + k * 22) + wv, 240], [CX + sd * (66 + k * 26) - wv, 300], [CX + sd * (74 + k * 34) + wv, 360], [CX + sd * (90 + k * 34), 420], [CX + sd * (100 + k * 26), 466]]); }
+    D.draw('#4a3220', 1.2, 0.25); L.draw('#80603a', 1.1, 0.22); });
+  // ringlets: soft wavy strands curling at the ends onto the shoulders
+  if (!small) { const L = bundle(), D = bundle(); for (const [x0, sd] of [[176, -1], [346, 1]]) for (let k = 0; k < 12; k++) { const x = x0 + sd * (k * 2.2 - 8) + (r() - 0.5) * 6, y0 = 330 + r() * 30, ph = r() * 6, pts = [];
+    for (let j = 0; j <= 8; j++) { const y = y0 + j * (120 + r() * 10) / 8; pts.push([x + sd * j * 2.4 + Math.sin(ph + j * 1.3) * 5, y]); } (k % 3 ? D : L).add(pts); }
+    D.draw('#120c06', 2.2, 0.5, 0.6); L.draw('#7e5c36', 1.4, 0.4, 0.6); }
+  // the veil: a fine dark gauze over the crown, its hem crossing the brow, its edge just beyond the hair
+  { const v = [[140, 450], [148, 400], [158, 350], [164, 296], [166, 232], [172, 166], [186, 112], [216, 86], [CX, 79], [304, 84], [334, 112], [348, 166], [354, 232], [356, 296], [364, 350], [374, 404], [384, 452]];
+    line(v, '#0e0b06', 3, 0.16, 1.2); fill(lockL, '#0e0b06', 0.08); fill(lockR, '#0e0b06', 0.08); }
+  line([[200, 136], [224, 123], [CX, 119], [296, 123], [322, 136]], '#1a120a', 1.1, 0.5, 0.6);
+  fill(sm([[200, 135], [CX, 116], [322, 135], [CX, 124]]), '#2a1c10', 0.12);
+  // hands: the right hand lies over the left wrist; the left curls over the end of the chair arm
+  const SK = (x0, y0, x1, y1) => lin(x0, y0, x1, y1, [[0, '#ecd6a4'], [0.5, '#cca670'], [1, '#7e5c38']]);
+  const finger = (c, wd, lite = 1) => { const T = tube(c, wd); fill(T.path, SK(c[0][0], c[0][1] - 10, c[c.length - 1][0], c[c.length - 1][1] + 10), 1, 0.4);
+    if (!tiny) { line(T.at(0.2), '#fff0c8', wd[1] * 0.35, 0.35 * lite, 1.5); line(T.at(-0.44), '#7a4622', 1.2, 0.32, 1.2); } return T; };
+  // lower (left) hand: back of the hand under the right hand, fingers curling down over the chair arm
+  fill(sm([[262, 692], [296, 696], [324, 704], [338, 716], [312, 720], [282, 716], [264, 712]]), SK(262, 692, 338, 720), 1, 0.5);
+  { const cf = sm([[298, 708], [326, 708], [344, 716], [346, 730], [340, 742], [328, 748], [314, 748], [302, 742], [296, 726]]); fill(cf, SK(300, 708, 344, 748), 1, 0.5);
+    clipDo(cf, () => { const G = bundle(); for (const x of [311, 322, 333]) G.add([[x - 2, 712], [x + 1, 730], [x, 750]]); G.draw('#7a4622', 1.2, 0.45, 1);
+      spot(306, 724, 8, 16, '#fff0c8', 0.35, 0.8); spot(342, 730, 8, 18, '#6e3e1c', 0.4, 0.8); spot(320, 748, 30, 6, '#6e3e1c', 0.4, 0.8); }); }
+  spot(306, 712, 40, 12, '#5e3418', 0.6, 0.8);    // the right hand's shadow across it
+  // upper (right) hand: back of the hand from the cuff, four fingers lying together, draped over the left wrist
+  const back = sm([[410, 650], [382, 651], [354, 657], [338, 664], [333, 680], [337, 698], [360, 701], [388, 695], [410, 690]]);
+  fill(back, SK(400, 650, 334, 700), 1, 0.5);
+  clipDo(back, () => { spot(374, 662, 36, 11, '#fff2cc', 0.5, 0.8); spot(372, 698, 52, 10, '#7a4a26', 0.45, 0.8); });
+  finger([[340, 690], [320, 696], [305, 705], [297, 712]], [10, 9.5, 8.5, 7], 0.5);
+  finger([[341, 682], [316, 688], [295, 698], [285, 707]], [12, 11, 10, 8], 0.7);
+  finger([[341, 673], [314, 678], [291, 687], [278, 697]], [12.5, 11.5, 10.5, 8.5], 0.85);
+  finger([[342, 664], [316, 667], [294, 674], [280, 684]], [12, 11, 10, 8], 1);
+  spot(310, 716, 34, 6, '#4e2a12', 0.35, 0.8);   // contact shadow under the fingers
+  spot(338, 674, 8, 22, '#fff0c8', 0.3, 0.8);    // knuckle light
+  spot(406, 670, 12, 24, '#5a3e16', 0.6, 0.7, 0.3); spot(266, 702, 10, 20, '#5a3e16', 0.5, 0.7);   // cuffs
+
+  // ================= sfumato + glaze: deepen the figure's shadow side, then a warm amber glaze
+  g.save(); g.globalCompositeOperation = 'multiply';
+  g.fillStyle = lin(150, 0, 530, 0, [[0, 'rgba(255,255,255,0)'], [0.55, 'rgba(255,255,255,0)'], [1, 'rgba(130,104,74,0.45)']]); g.fillRect(0, 300, 530, 470);
+  g.fillStyle = 'rgba(244,220,160,0.28)'; g.fillRect(0, 0, 530, 770); g.restore();
+  if (!small) brush(null, 0, 0, 530, 770, ['rgba(255,244,208,0.5)', 'rgba(42,26,10,0.5)'], 240, 9, 0.8, 0.1, 1.6, 1.2); // fine painterly texture
+  // ================= old varnish: yellowed, darker toward the edges, plus fine craquelure (all scaled by age)
+  g.save(); g.globalCompositeOperation = 'multiply'; g.globalAlpha = Math.min(1, 0.15 + 0.35 * age); g.fillStyle = '#ecd08c'; g.fillRect(0, 0, 530, 770);
+  g.globalAlpha = Math.min(1, 0.3 + 0.6 * age); g.fillStyle = rad(262, 320, 150, 265, 380, 500, [[0, '#ffffff'], [0.6, '#e6d4aa'], [1, '#5e4428']]); g.fillRect(0, 0, 530, 770); g.restore();
+  g.filter = 'none'; g.globalAlpha = 1; g.restore();
+  if (age > 0 && w >= 120) craquelure(g, 0, 0, w, h, r, 0.75 * age * Math.min(1, w / 520), Math.max(7, Math.min(13, w / 64)));
 }
 
 // ================================================================= materials
