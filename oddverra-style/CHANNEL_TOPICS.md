@@ -17,7 +17,7 @@ Checked 2026-11-08 from the channel's Shorts page. Views at time of check.
 Also made (check whether posted):
 - Clever Hans
 - Dancing Plague of 1518
-- Acoustic Kitty (CIA spy cat)
+- Acoustic Kitty (CIA spy cat): posted 2026-11-08
 
 In production: the Mona Lisa theft of 1911.
 
