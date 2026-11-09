@@ -7,6 +7,8 @@ import { buildRooms } from './rooms.js'; // [KITTY-rooms]
 import { buildDC } from './dc.js'; // [KITTY-dc]
 import { buildLouvre, drawMona } from './louvre.js'; globalThis.__drawMona = drawMona; // [MONA-louvre]
 import { buildParis } from './paris.js'; // [MONA-paris]
+import { buildStation } from './station.js'; // [BOOTH-station]
+import { buildTheatre } from './theatre.js'; // [BOOTH-theatre]
 import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER, roomAt, setAt } from './story_mona.js';
 import { ENV } from './voice_env.js';
 import { makeChar } from './char3d.js';
@@ -300,6 +302,8 @@ world.dc = buildDC({ THREE, toon, rnd, P, mkTex, macro }); scene.add(world.dc); 
 const louvre = buildLouvre({ THREE, toon, mkTex, PT, NOND, scene }); world.louvre = louvre; const LVQ = (location.search.match(/louvreview=(\d+|f)/) || [])[1]; // [MONA-louvre]
 const paris = buildParis({ THREE, toon, mkTex, PT, NOND, scene, macro, drawMona }); world.paris = paris; // [MONA-paris] Paris 1911 / Florence 1913 sets at x=1600 (hidden until shown)
 const PARISV = (location.search.match(/parisview=(\d+|a)/) || [])[1]; // [MONA-paris] ?parisview=N test view N (?parisview=a: view = frame number)
+const station = buildStation({ THREE, toon, mkTex, PT, NOND, scene, macro }); world.station = station; const STV = (location.search.match(/stationview=(\d+|a)/) || [])[1]; // [BOOTH-station] 1864 Jersey City platform + 1881 B&P waiting room at x=-1600 (hidden until shown); ?stationview=N test view
+const theatre = buildTheatre({ THREE, toon, mkTex, PT, NOND, scene, macro }); world.theatre = theatre; const THV = (location.search.match(/theatreview=(\d+|a)/) || [])[1]; // [BOOTH-theatre] Ford's 1865 / Booth's dressing room / 1901 expo / study at x=-1600, z 400..1000 (hidden until shown); ?theatreview=N test view (a: view = frame)
 // ---------- lighting practicals: lanterns hung on the road's telegraph poles, lit only in dark presets ----------
 const LANT = []; // world-space bulb positions per set: { set, p:[x,y,z] }
 { const glassM = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffc477).multiplyScalar(3.2), fog: false }), capM = toon({ color: 0x1d1b22 });
@@ -373,6 +377,11 @@ const ODD = {
   HICKS: { trim: '#f2f0ea', sash: '#f2f0ea', shirt: '#3f6fb5', pants: '#f2f0ea', hair: 'short', hairCol: '#7a4a2a', bib: '20', moustache: '#5a3a22', skin: '#f0c098', head: 'round', noButtons: true },
   DRIVER: { pattern: 'tweed', shirt: '#c9a46a', pants: '#5a4a3a', hat: 'cap', hatCol: '#5a4a3a', hair: 'short', hairCol: '#5a3a22', glasses: true, neck: 'scarf', neckCol: '#c0453a', skin: '#f0b890', head: 'wide' },
   OFFICIAL: { pattern: 'pinstripe', shirt: '#2a2d3a', pants: '#2a2d38', hat: 'top', hair: 'bald', hairCol: '#cfcbc6', moustache: '#e8e4dc', build: 'stout', head: 'wide', neck: 'tie', neckCol: '#8c2a3a', skin: '#f5c9a0', nose: 'round' },
+  ROBERT: { shirt: '#2a2a36', pants: '#2a2a32', hat: 'top', hair: 'side', hairCol: '#2a1e18', neck: 'bow', neckCol: '#1e1e26', build: 'thin', head: 'egg', skin: '#f2c8a0', collar: '#f4f2ea' },
+  ROBERT_OLD: { pattern: 'pinstripe', shirt: '#2e2c34', pants: '#2a2a30', hat: 'top', hair: 'side', hairCol: '#5a4a40', moustache: '#4a3a30', neck: 'tie', neckCol: '#5a2a30', build: 'stout', head: 'wide', skin: '#f0c098', glasses: false },
+  EDWIN: { shirt: '#1e1a22', pants: '#1e1a22', hair: 'curly', hairCol: '#1a1414', moustache: '#1a1414', neck: 'scarf', neckCol: '#5a1e24', build: 'thin', head: 'tall', skin: '#f2c8a4' },
+  JWB: { shirt: '#141218', pants: '#141218', hat: 'fedora', hatCol: '#141218', hair: 'curly', hairCol: '#141012', moustache: '#141012', build: 'adult', head: 'egg', skin: '#d8b090' },
+  CONDUCTOR: { shirt: '#24325a', pants: '#24325a', hat: 'cap', hatCol: '#1a2442', hair: 'short', hairCol: '#8a6a4a', moustache: '#8a6a4a', neck: 'tie', neckCol: '#1a1a22', build: 'stout', head: 'round', skin: '#f0c098', button: '#e0b84a' },
   PERUGGIA: { shirt: '#f0eee6', pants: '#3a3430', hat: 'cap', hatCol: '#4a4038', hair: 'short', hairCol: '#2a1a12', moustache: '#2a1a12', build: 'thin', head: 'egg', skin: '#e8b48a', noButtons: true, collar: '#f0eee6' },
   GUARD: { shirt: '#26304a', pants: '#26304a', hat: 'cap', hatCol: '#1e2438', hair: 'short', hairCol: '#5a4a3a', moustache: '#5a4a3a', build: 'stout', head: 'wide', skin: '#f0c098', neck: 'tie', neckCol: '#c8a040', button: '#e0b84a' },
   PAINTER: { pattern: 'tweed', shirt: '#7a5a3a', pants: '#3a3430', hat: 'cap', hatCol: '#2a2a3a', hair: 'curly', hairCol: '#4a3426', moustache: '#4a3426', neck: 'bow', neckCol: '#3a5a8a', build: 'adult', head: 'round', skin: '#f6c9a4' },
@@ -463,28 +472,42 @@ const FX = {
   baby: [300, 200, (p) => { p.ell(150, 110, 120, 60, '#f3ead8', 10, 0, 360, -12); p.ell(70, 95, 42, 40, '#ffe2c2', 8); p.arc(58, 95, 7, 4, 0, 180, 4); p.arc(84, 95, 7, 4, 0, 180, 4); p.ell(84, 70, 30, 24, '#9cc7e8', 6, 180, 380); }],
 };
 
-// [CHAR2] facing view from on-screen motion (with hysteresis) + scene light for the 2D cast cards (oddverra_next.js).
-// Velocity: actor pos at f and f-1 (matched by o + opts.seed) projected into the CURRENT camera's view space. Hysteresis is a Schmitt
-// trigger run over a short fixed window (C2.K frames) so the result stays a pure function of the frame (parallel workers agree);
-// actorsAt results are cached per frame, so sequential rendering calls actorsAt(f-1) once per frame.
-const C2 = { K: 8, acts: new Map(), a: new THREE.Vector3(), b: new THREE.Vector3(), L: null };
-const c2acts = (f) => { let r = C2.acts.get(f); if (!r) { r = actorsAt(f); C2.acts.set(f, r); if (C2.acts.size > 40) C2.acts.delete(C2.acts.keys().next().value); } return r; };
+// [CHAR2] 2D cast cards (oddverra_next.js): facing view from motion relative to the camera (with hysteresis), walk phase from the
+// distance actually travelled (planted feet), scene light, and no narrator lip-sync (mouths move only for op.say / op.sayEnv).
+// All of it is a pure function of the frame: actorsAt results are cached per frame, hysteresis runs over a fixed window (C2.K),
+// and travelled distance is integrated from the actor's first frame in its current run of frames (memoized).
+const C2 = { K: 8, acts: new Map(), D: new Map(), a: new THREE.Vector3(), b: new THREE.Vector3(), L: null,
+  STRIDE: { walk: 0.8, run: 1.3 } }; // metres per full cycle (2 steps) at card scale 1 = what the rig's planted foot covers
+const c2acts = (f) => { let r = C2.acts.get(f); if (!r) { r = actorsAt(f); C2.acts.set(f, r); if (C2.acts.size > 400) C2.acts.delete(C2.acts.keys().next().value); } return r; };
 const c2key = (a) => a.o + ':' + (a.opts.seed || 0);
-const c2vel = (cam, f, key) => { const p1 = c2acts(f).find((x) => c2key(x) === key), p0 = c2acts(f - 1).find((x) => c2key(x) === key); if (!p1 || !p0) return null;
-  const A = C2.a.set(...p0.pos).applyMatrix4(cam.matrixWorldInverse), B = C2.b.set(...p1.pos).applyMatrix4(cam.matrixWorldInverse); return [B.x - A.x, B.z - A.z]; }; // view space: x = screen right, z = toward camera
-const c2step = (st, v) => { // Schmitt trigger: st = [kind 0 front | 1 three-quarter | 2 side, dir ±1]
+const c2pos = (f, key) => { const r = c2acts(f).find((x) => c2key(x) === key); return r ? r.pos : null; };
+const c2vel = (cam, f, key) => { const p1 = c2pos(f, key), p0 = c2pos(f - 1, key); if (!p1 || !p0) return null;
+  const A = C2.a.set(...p0).applyMatrix4(cam.matrixWorldInverse), B = C2.b.set(...p1).applyMatrix4(cam.matrixWorldInverse); return [B.x - A.x, B.z - A.z]; }; // view space: x = screen right, z = toward camera
+const C2B = [26, 62, 118, 154]; // |angle| from "toward the camera": front | 3/4 | side | 3/4 from behind | back
+const c2step = (st, v) => { // Schmitt trigger: st = [kind 0 front | 1 34 | 2 side | 3 34B | 4 back, dir ±1]
   if (!v) return st; const sp = Math.hypot(v[0], v[1]), moving = sp > (st[0] ? 0.0035 : 0.007); if (!moving) return [0, st[1]];
-  const ang = Math.abs(Math.atan2(v[0], v[1])) * 180 / Math.PI, m = 8, dir = Math.abs(v[0]) > 0.002 ? Math.sign(v[0]) : st[1];
-  const inSide = (lo, hi) => ang > lo && ang < hi, k = st[0];
-  const side = inSide(62 - (k === 2 ? m : 0), 118 + (k === 2 ? m : 0)), three = !side && inSide(26 - (k ? m : 0), 180);
-  return [side ? 2 : three ? 1 : 0, dir]; };
+  const ang = Math.abs(Math.atan2(v[0], v[1])) * 180 / Math.PI, m = 8, dir = Math.abs(v[0]) > 0.002 ? Math.sign(v[0]) : st[1], k = st[0];
+  let n = 0; while (n < 4 && ang > C2B[n]) n++;
+  if (n !== k && (k === 0 ? ang < C2B[0] + m : k === 4 ? ang > C2B[3] - m : ang > C2B[k - 1] - m && ang < C2B[k] + m)) n = k; // stay unless clearly past the band edge
+  return [n, dir]; };
 function c2view(cam, f, a) { const op = a.opts; if (op.view) return op.view; if (a.drive || op.mode === 'sit' || op.mode === 'fall') return 'front';
   const key = c2key(a); let st = [0, 1]; for (let j = f - C2.K; j <= f; j++) st = c2step(st, c2vel(cam, j, key));
-  return st[0] === 0 ? 'front' : (st[0] === 1 ? '34' : 'side') + (st[1] > 0 ? 'R' : 'L'); }
+  return ['front', '34', 'side', '34B', 'back'][st[0]] + (st[0] && st[0] < 4 ? (st[1] > 0 ? 'R' : 'L') : ''); }
+function c2dist(key, f) { // horizontal distance travelled since the actor's current run of frames began (memoized)
+  const mk = (j) => key + '|' + j; if (C2.D.has(mk(f))) return C2.D.get(mk(f));
+  const todo = []; let j = f; while (j > f - 1500 && !C2.D.has(mk(j)) && c2pos(j, key)) { todo.push(j); j--; }
+  let d = C2.D.get(mk(j)) ?? 0; for (let i = todo.length - 1; i >= 0; i--) { const jj = todo[i], p0 = c2pos(jj - 1, key), p1 = c2pos(jj, key); if (p0 && p1) d += Math.hypot(p1[0] - p0[0], p1[2] - p0[2]); C2.D.set(mk(jj), d); }
+  if (C2.D.size > 50000) C2.D.clear(); return d; }
+function c2gait(f, a) { // planted feet: phase = distance / stride; stride amplitude eases in/out over ~6 frames at starts and stops
+  const op = a.opts, gait = op.gait || (op.lift || op.mode === 'run' ? 'run' : 'walk'), story = op.mode === 'march' || op.mode === 'run';
+  if (a.drive || op.mode === 'sit' || op.mode === 'fall') return { gait };
+  const key = c2key(a), d = c2dist(key, f), v = (d - c2dist(key, f - 6)) / 6, amt = Math.max(0, Math.min(1, v / 0.008)), e = amt * amt * (3 - 2 * amt);
+  if (e < 0.02) return { gait }; // not travelling: keep the story's own mode/phase (e.g. marching on the spot)
+  return { gait, mode: 'run', gaitAmt: story ? Math.max(e, 0.5) : e, phase: ((d / (C2.STRIDE[gait] * (a.s || 1)) + (op.seed || 0) * 0.37) % 1 + 1) % 1 }; }
 function c2light(cam, L) { // key light: sun direction projected to the camera's screen x; colours from the light preset
   const el = (L.el ?? 50) * Math.PI / 180, az = (L.az ?? 0) * Math.PI / 180, d = C2.a.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).transformDirection(cam.matrixWorldInverse);
   return { lightDir: Math.max(-1, Math.min(1, d.x / Math.max(0.25, Math.hypot(d.x, d.z)))), keyCol: L.sunCol, rimCol: L.sky, ambient: (L.hemiI ?? 1) / ((L.hemiI ?? 1) + (L.sunI ?? 1) * 1.5) }; }
-const c2opts = (cam, f, a) => ({ ...C2.L, view: c2view(cam, f, a), gait: a.opts.gait || (a.opts.lift || a.opts.mode === 'run' ? 'run' : 'walk') });
+const c2opts = (cam, f, a) => ({ ...C2.L, view: c2view(cam, f, a), ...c2gait(f, a), talk: null, say: a.opts.say, sayEnv: a.opts.sayEnv, frame: f }); // talk: null = no narrator lip-sync
 
 function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for (const c of cardMeshes) c.visible = false; for (const c of blobMeshes) c.visible = false; for (const c of fxMeshes) c.visible = false; return; }
   GLOW = ['explain', 'night', 'office'].includes(shotAt(f).light) ? 1 : 0;
@@ -510,7 +533,7 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
     if (a.o === 'CAT') { m.geometry = BODY; const op = a.opts, fq = f; m.material.map = canvasFor('cat|' + fq + key, 600, 1000, k, (p) => drawCat(p.g, { seed: op.seed || 0 }, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...op }), used); } // [KITTY-cat]
     else if (a.o === 'HORSE') { m.geometry = HORSEG; m.material.map = canvasFor(key, 1000, 880, k, (p) => T.horseSide(p, a.opts), used); }
     else if (a.o === 'BOARD') { m.geometry = BOARDG; m.material.map = canvasFor(key, 600, 800, k, (p) => drawBoard(p, a.opts), used); }
-    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = f; m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { ...c2opts(cam, f, a) /* [CHAR2] */, t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 }), used); }
+    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = f; m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8, ...c2opts(cam, f, a) /* [CHAR2] overrides mode/phase/talk */ }), used); }
     const dark = ['explain', 'night', 'office', 'hall', 'under'].includes(shotAt(f).light); m.material.color.set(L.cardTint).multiplyScalar(dark ? 0.2 : 0.34); m.material.emissiveMap = m.material.map; if (m.customDepthMaterial) { m.customDepthMaterial.map = m.material.map; m.customDepthMaterial.needsUpdate = true; } m.material.emissive.set(dark ? '#ffffff' : L.cardTint); m.material.emissiveIntensity = dark ? 1.0 : 0.86;
     m.material.needsUpdate = true;
     m.position.set(...a.pos); m.scale.setScalar(a.s || 1);
@@ -826,7 +849,7 @@ function updateMass(f, cam) { if (location.search.includes('nomass')) { if (MASS
 window.renderFrame = (f) => { const TT0 = performance.now(); try { return renderFrame0(f); } finally { if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF total ' + f + ' ' + Math.round(performance.now() - TT0) + 'ms'); } } };
 const renderFrame0 = (f) => {
   const LV = LVQ == null ? null : louvre.viewFor(LVQ === 'f' ? f : +LVQ); // [MONA-louvre]
-  const PV = PARISV == null ? null : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris]
+  const PV = PARISV == null ? (STV == null ? (THV == null ? null : theatre.viewFor(THV === 'a' ? f : +THV)) : station.view(STV === 'a' ? f : +STV)) : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris] [BOOTH-station] [BOOTH-theatre] (station / theatre views carry mod)
   let L; const sh = shotAt(f), RM = roomAt(f); L = PV ? PV.L : LV ? LV.L : RM ? rooms.lightFor(RM) : lightFor(f); const G = gradeAt(f); if (RM) G.over = rooms.gradeFor(RM); if (LV) Object.assign(G, { look: LV.look, over: LV.grade, flash: 0 }); // [MONA-louvre]
   if (PV) Object.assign(G, { look: PV.look, over: PV.grade, flash: 0 }); // [MONA-paris]
   const SA = !PV && !LV && setAt ? setAt(f) : null, SM = SA ? world[SA[0]] : null; // [MONA-sets] timeline-driven set module (louvre / paris)
@@ -834,11 +857,11 @@ const renderFrame0 = (f) => {
   setGrade(G.look || sh.light, G.over);
   const dir = applyLight(L, f);
   world.dc.visible = false; world.curRoom = null; rooms.show(world, null);
-  louvre.show(world, null); paris.show(world, null);
+  louvre.show(world, null); paris.show(world, null); station.show(world, null); theatre.show(world, null); // [BOOTH-station] [BOOTH-theatre]
   worldAt(f, world, T); if (world.dc.visible) world.dc.flag.wave(f / 30);
   if (SM) SM.show(world, SA[1]);
   if (LV) louvre.applyView(world, PRACT, LV.i); // [MONA-louvre]
-  if (PV) paris.apply(world, PV); // [MONA-paris]
+  if (PV) (PV.mod || paris).apply(world, PV); // [MONA-paris] [BOOTH-station]
   { const hm = location.search.match(/hide=([0-9]+)-([0-9]+)/); if (hm && world.stadium.visible) { const a0 = +hm[1], a1 = +hm[2]; world.stadium.children.forEach((c, i) => { if (i >= a0 && i < a1) c.visible = false; }); } }
   if (location.search.includes('listst') && !window.__ls) { window.__ls = 1; world.stadium.children.forEach((c, i) => { let n = 0; c.traverse((o) => { if (o.isMesh) n++; }); }); console.warn('STCOUNT ' + world.stadium.children.length); }
   const c = PV ? PV.cam : LV ? LV.cam : camAt(f); // [MONA-louvre] [MONA-paris]
@@ -848,7 +871,7 @@ const renderFrame0 = (f) => {
   const tgt = new THREE.Vector3(...(c.shadowAt || c.l));
   sun.target.position.copy(tgt); sun.position.copy(tgt).addScaledVector(dir, 150);
   fitShadow(camera, tgt, dir); fill.position.add(tgt); fill.target.position.copy(tgt);
-  if (PV) paris.placeLights(PRACT, PV.set, tgt); else if (SM) SM.placeLights(PRACT, SA[1], tgt); else if (LV) louvre.placeLights(PRACT, LV.set); else if (world.curRoom) rooms.placeLights(PRACT, world.curRoom); else placePracticals(L, tgt); // [MONA-louvre]
+  if (PV) (PV.mod || paris).placeLights(PRACT, PV.set, tgt); /* [BOOTH-station] */ else if (SM) SM.placeLights(PRACT, SA[1], tgt); else if (LV) louvre.placeLights(PRACT, LV.set); else if (world.curRoom) rooms.placeLights(PRACT, world.curRoom); else placePracticals(L, tgt); // [MONA-louvre]
   const T0 = performance.now(); placeActors(f, camera, L); updateMass(f, camera); const T1 = performance.now(); if (location.search.includes('prof')) console.warn('PROF actors ' + Math.round(T1 - T0) + 'ms cards=' + cardMeshes.filter((x) => x.visible).length + ' calls');
   // colour
   const T2 = performance.now();  renderer.setRenderTarget(rtC); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, camera); if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF colour ' + Math.round(performance.now() - T2) + 'ms tris=' + renderer.info.render.triangles + ' draws=' + renderer.info.render.calls); }

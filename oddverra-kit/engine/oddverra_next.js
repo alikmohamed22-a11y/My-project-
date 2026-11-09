@@ -25,6 +25,8 @@ const bump = (p, a, b) => (p > a && p < b ? Math.sin(Math.PI * (p - a) / (b - a)
 const tab = (T, p) => { for (let i = 0; i < T.length - 1; i++) { const [a, va] = T[i], [b, vb] = T[i + 1]; if (p >= a && p <= b) return va + (vb - va) * (p - a) / (b - a); } return T[T.length - 1][1]; };
 const hsh = (a, b) => { const x = Math.sin(a * 91.7 + b * 47.3) * 43758.5453; return x - Math.floor(x); };
 const fr1 = (p) => ((p % 1) + 1) % 1;
+const wrapA = (t) => Math.atan2(Math.sin(t), Math.cos(t));
+
 // fine diagonal twill: crisp hairlines a touch darker (light cloth) or lighter (dark cloth) than the base
 const twill = (base) => (h) => { h.save(); h.strokeStyle = lum(base) > 0.45 ? 'rgba(60,40,90,0.07)' : 'rgba(255,245,230,0.06)'; h.lineWidth = 1; h.beginPath(); for (let x = -1000; x < 700; x += 5) { h.moveTo(x, 0); h.lineTo(x + 1000, 1000); } h.stroke(); h.restore(); };
 // cel tones: shadow = multiply by a purple-leaning tint, rim = screen with blue-violet (scene rim colour mixed in)
@@ -103,7 +105,7 @@ const HEADS = {
 };
 const BUILD = { adult: { w: 1, h: 1, leg: 1, hs: 1, arm: 1 }, thin: { w: 0.86, h: 1.05, leg: 1.07, hs: 0.98, arm: 1.04 }, stout: { w: 1.24, h: 0.96, leg: 0.9, hs: 1.04, arm: 0.97, belly: 1 }, kid: { w: 0.86, h: 0.74, leg: 0.7, hs: 0.9, arm: 0.74 }, old: { w: 1.04, h: 0.95, leg: 0.9, hs: 1, arm: 0.95 } };
 // views: [facing sign (+1 = toward screen right), turn amount 0..1]
-const VIEWS = { front: [0, 0], '34L': [-1, 0.55], '34R': [1, 0.55], sideL: [-1, 1], sideR: [1, 1] };
+const VIEWS = { front: [0, 0, 0], '34L': [-1, 0.55, 0], '34R': [1, 0.55, 0], sideL: [-1, 1, 0], sideR: [1, 1, 0], back: [0, 0, 1], '34BL': [-1, 0.55, 1], '34BR': [1, 0.55, 1] }; // [facing sign, turn, from behind]
 // brows per expression: [inner dy, mid dy, outer dy, width k] (dy in face units, + = down); asymmetric ones handled in code
 const BROWS = { smile: [3, -4, 3, 0.85], happy: [1, -7, 1, 0.85], laugh: [0, -8, 1, 0.85], grin: [1, -7, 0, 0.85], excited: [2, -9, -1, 0.85], angry: [15, 8, -1, 1],
   sad: [-8, -2, 7, 0.9], worried: [-7, -3, 6, 0.9], nervous: [-6, -3, 5, 0.9], shock: [3, -8, -1, 0.85], surprised: [3, -8, -1, 0.85], pained: [9, -2, 4, 1],
@@ -144,11 +146,14 @@ export function oddverra(g, o, op = {}) {
   const B = BUILD[o.build || 'adult'] || BUILD.adult, HD = HEADS[o.head || 'round'] || HEADS.round;
   const skin = o.skin || '#f6c9a4', cx = 300, sole = 965, mode = op.mode || 'stand', ph = op.phase || 0, TT = op.t || 0;
   // ---------- view ----------
-  let [dv, av] = VIEWS[op.view] || [0, 0];
-  if (typeof op.view === 'number') { dv = Math.sign(op.view); av = Math.min(1, Math.abs(op.view)); }
-  if (op.drive) av *= 0.3;
-  const PHI = dv * (av <= 0.55 ? av / 0.55 * 0.62 : 0.62 + (av - 0.55) / 0.45 * (HP_ - 0.62)), SN = Math.sin(PHI), CS = Math.cos(PHI), AS = Math.abs(SN);
-  const HY = dv * (av <= 0.55 ? av / 0.55 * 0.5 : 0.5 + (av - 0.55) / 0.45 * (HP_ - 0.5)), AH = Math.abs(Math.sin(HY));
+  let [dv, av, bk] = VIEWS[op.view] || [0, 0, 0];
+  if (typeof op.view === 'number') { dv = Math.sign(op.view); av = Math.min(1, Math.abs(op.view)); bk = 0; }
+  if (op.drive) { av *= 0.3; bk = 0; }
+  // yaw: 0 = facing the camera, ±π/2 = profile, π = seen from behind ('back', '34BL', '34BR')
+  const yb = av <= 0.55 ? av / 0.55 * 0.62 : 0.62 + (av - 0.55) / 0.45 * (HP_ - 0.62), hb = av <= 0.55 ? av / 0.55 * 0.5 : 0.5 + (av - 0.55) / 0.45 * (HP_ - 0.5);
+  const PHI = bk ? (dv ? dv * (Math.PI - yb) : Math.PI) : dv * yb, SN = Math.sin(PHI), CS = Math.cos(PHI), AS = Math.abs(SN);
+  const HY = bk ? (dv ? dv * (Math.PI - hb) : Math.PI) : dv * hb, AH = Math.abs(Math.sin(HY));
+  const BACKB = CS < -0.15, BACKH = Math.cos(HY) < -0.05, BAL = Math.PI - Math.abs(HY); // body / head seen from behind; BAL: head turn away from the back
   const turned = AS > 0.2, PK = 0.09, wk = Math.sqrt(CS * CS + 0.64 * SN * SN);
   const P3 = (x, y, z) => [cx + x * CS + z * SN, y + (-x * SN + z * CS) * PK];
   const dep = (x, z) => -x * SN + z * CS;
@@ -157,7 +162,8 @@ export function oddverra(g, o, op = {}) {
   const MV = gaitOn ? 1 : (op.drive || mode === 'sit') ? 0.6 : 0.3;
   const ank = sole - 26, legL = 250 * B.leg, L1 = (legL + 6) * 0.5;
   const LK = o.lashes && !o.bib ? 0.55 : 1; // long skirts: shorter, lower steps
-  const legAng = (p) => { p = fr1(p); const A = (RUN ? 0.6 : 0.36) * LK; return [A * Math.cos(TAU * p) + (RUN ? 0.1 : 0), 0.05 + (RUN ? 0.3 : 0.14) * bump(p, 0, 0.3) + (RUN ? 1.75 * bump(p, 0.4, 0.97) : (0.22 * sstep(0.34, 0.5, p) * (p < 0.5 ? 1 : 0) + 0.95 * bump(p, 0.46, 1.0)) * LK)]; };
+  const GA = gaitOn ? clamp(op.gaitAmt ?? 1, 0, 1) : 0; // stride amplitude (eases to standing when an actor stops)
+  const legAng = (p) => { p = fr1(p); const A = (RUN ? 0.6 : 0.36) * LK * GA; return [A * Math.cos(TAU * p) + (RUN ? 0.1 : 0) * GA, 0.05 + GA * ((RUN ? 0.3 : 0.14) * bump(p, 0, 0.3) + (RUN ? 1.75 * bump(p, 0.4, 0.97) : (0.22 * sstep(0.34, 0.5, p) * (p < 0.5 ? 1 : 0) + 0.95 * bump(p, 0.46, 1.0)) * LK))]; };
   const legOff = (p) => { const [th, ka] = legAng(p); return [L1 * Math.cos(th) + L1 * Math.cos(th - ka), L1 * Math.sin(th) + L1 * Math.sin(th - ka)]; }; // [down, forward]
   const bobAt = (p) => gaitOn ? (legL + 6 - Math.max(legOff(p)[0], legOff(p + 0.5)[0])) * (RUN ? 0.6 : 1) - (RUN ? 6 * Math.max(0, Math.sin(TAU * 2 * (p + 0.2))) : 0) : 0;
   const bob = bobAt(ph), headBob = gaitOn ? bobAt(ph - 0.07) - bob + (RUN ? 2 : 1.2) : 0;
@@ -170,22 +176,24 @@ export function oddverra(g, o, op = {}) {
   const shortSleeve = runner || kidT;
   const hemY = runner ? hipY - 28 : jacket ? hipY + 34 : lady ? waistY + 14 : hipY - 4;
   const hs = op.stance === 'relaxed' && !gaitOn ? 10 : 0;
-  const lean = gaitOn ? (RUN ? 0.15 : 0.055) : 0;
+  const lean = gaitOn ? (RUN ? 0.15 : 0.055) * GA : 0;
   const upper = () => { if (lean && SN) g.transform(1, 0, -lean * SN, 1, lean * SN * hipY, 0); };
-  const flap = gaitOn ? Math.sin(TAU * 2 * (ph - 0.12)) : 0; // secondary lag (twice per stride)
-  const trail = gaitOn ? -SN * (RUN ? 1 : 0.55) : 0; // clothes/hair trail opposite to facing
+  const flap = gaitOn ? Math.sin(TAU * 2 * (ph - 0.12)) * GA : 0; // secondary lag (twice per stride)
+  const trail = gaitOn ? -SN * (RUN ? 1 : 0.55) * GA : 0; // clothes/hair trail opposite to facing
   // ---------- torso surface map (elliptic cylinder, depth 0.62 × width) ----------
   const Wat = (y) => y < waistY ? TW + (WW - TW) * clamp((y - shY - 40) / (waistY - shY - 40), 0, 1) : WW + (HPW - WW) * clamp((y - waistY) / Math.max(1, hipY - waistY), 0, 1);
   const tX = (x, y) => { if (!turned && !SN) return x; const W = Wat(y), D = W * 0.8 + (B.belly && y > shY + 60 ? TW * 0.12 : 0), u = (x - cx) / W, e = Math.abs(u) > 1 ? (Math.abs(x - cx) - W) * Math.sign(u) : 0, a = Math.asin(clamp(u, -1, 1));
     return cx + W * Math.sin(a) * CS + D * Math.cos(a) * SN + e * CS; };
   const tV = (x, y) => { const W = Wat(y), a = Math.asin(clamp((x - cx) / W, -1, 1)); return -W * Math.sin(a) * SN + W * 0.8 * Math.cos(a) * CS; };
   const TP = (pts) => pts.map(([x, y]) => [tX(x, y), y]);
+  const tXb = (x, y) => { const W = Wat(y), D = W * 0.8 + (B.belly && y > shY + 60 ? TW * 0.12 : 0), u = (x - cx) / W, a = Math.asin(clamp(u, -1, 1)); return cx - W * Math.sin(a) * CS - D * Math.cos(a) * SN; };
+  const TPb = (pts) => pts.map(([x, y]) => [tXb(x, y), y]);
   const decal = (x0, y0, fn) => { if (tV(x0, y0) < -2) return; const X = tX(x0, y0), sx = clamp((tX(x0 + 2, y0) - tX(x0 - 2, y0)) / 4, 0.18, 1.2); g.save(); g.translate(X, 0); g.scale(sx, 1); g.translate(-x0, 0); fn(); g.restore(); };
   const fcx = tX(cx, shY + 60); // front centre line
   // ---------- head geometry ----------
   const hcx = cx + SN * 8, ncx = cx - SN * 6;
   const rH = (yf) => { const A = HD.a; if (yf <= A[0][1]) return 0.05; for (let i = 0; i < A.length - 1; i++) if (yf <= A[i + 1][1]) { const t = (yf - A[i][1]) / (A[i + 1][1] - A[i][1]); return A[i][0] + (A[i + 1][0] - A[i][0]) * t; } return 0.05; };
-  const hmapPt = ([px, py]) => { if (!HY) return [px, py]; const yf = (py - hy) / HH, r = Math.max(0.14, rH(clamp(yf, -1, 1))) * HW, xr = px - hcx; let u = xr / r, e = 0;
+  const hmapPt = ([px, py]) => { if (!HY || BACKH) return [px, py]; const yf = (py - hy) / HH, r = Math.max(0.14, rH(clamp(yf, -1, 1))) * HW, xr = px - hcx; let u = xr / r, e = 0;
     if (Math.abs(u) > 1) { e = xr - Math.sign(u) * r; u = Math.sign(u); } const t = Math.asin(u) + HY, tc = clamp(t, -HP_, HP_); return [hcx + r * Math.sin(tc) + e * Math.abs(Math.sin(tc)), py]; };
   const HMP = (pts) => pts.map(hmapPt);
   // ---------- shared pattern painter (clothes) ----------
@@ -211,8 +219,8 @@ export function oddverra(g, o, op = {}) {
   const sway = (k) => Math.sin(TT * 0.45 + k * 1.3) * 3 * MV + flap * 2.2 + trail * 3;
   // ---------- back hair (behind everything) ----------
   g.save(); upper();
-  if (o.hair === 'bun') { const bx = hcx + 4 - SN * HW * 0.62, by = hy - HH * (1.02 - 0.22 * AH); cel(g, ellP(bx, by, HW * 0.38 * (1 - 0.15 * AH), HH * 0.34), hc, 3.4, 8, 7, 3); taper(g, arcPts(bx, by, HW * 0.24, 3.6, 5.4, 8, HH * 0.2), 2.2, mixc(hc, INK, 0.4)); }
-  if (o.hair === 'long') { const sw = Math.sin(TT * 0.4) * 4 * MV + trail * 8 + flap * 3, by = shY + 70, kx = 1 - 0.25 * AS, ox = -SN * HW * 0.3;
+  if (o.hair === 'bun' && !BACKH) { const bx = hcx + 4 - SN * HW * 0.62, by = hy - HH * (1.02 - 0.22 * AH); cel(g, ellP(bx, by, HW * 0.38 * (1 - 0.15 * AH), HH * 0.34), hc, 3.4, 8, 7, 3); taper(g, arcPts(bx, by, HW * 0.24, 3.6, 5.4, 8, HH * 0.2), 2.2, mixc(hc, INK, 0.4)); }
+  if (o.hair === 'long' && !BACKH) { const sw = Math.sin(TT * 0.4) * 4 * MV + trail * 8 + flap * 3, by = shY + 70, kx = 1 - 0.25 * AS, ox = -SN * HW * 0.3;
     const X = (x) => hcx + ox + (x - hcx) * kx;
     const lp = smooth([[X(hcx - HW * 1.04), hy - HH * 0.2], [X(hcx - HW * 1.12), hy + HH * 0.6], [X(hcx - HW * 1.08) + sw, by - 20], [X(hcx - HW * 0.8) + sw, by], [X(hcx - HW * 0.45) + sw, by - 12], [X(hcx), by - 4], [X(hcx + HW * 0.45) + sw, by - 12], [X(hcx + HW * 0.8) + sw, by], [X(hcx + HW * 1.08) + sw, by - 20], [X(hcx + HW * 1.12), hy + HH * 0.6], [X(hcx + HW * 1.04), hy - HH * 0.2], [X(hcx), hy - HH * 1.1]], 8);
     cel(g, lp, dk(hc, 0.9), 3.6, 10, 6, 4); g.save(); g.clip(lp); for (let k = -2; k <= 2; k++) taper(g, [[X(hcx + k * HW * 0.3), hy + HH * 0.4], [X(hcx + k * HW * 0.34) + sw * 0.8, by - 18]], 1.8, mixc(hc, INK, 0.5), 0.1); g.restore(); }
@@ -224,7 +232,7 @@ export function oddverra(g, o, op = {}) {
     else if (mode === 'fall') { K3 = [s * HPW * 1.25, hipY + legL * 0.36, 0]; A3 = [s * HPW * 1.85, ank - 44, 0]; }
     else if (gaitOn) { const [th, ka] = legAng(p), kl = lat + s * 3, al = s * (HPW * 0.5 + 4);
       K3 = [kl, hj3[1] + L1 * Math.cos(th), L1 * Math.sin(th)]; A3 = [al, K3[1] + L1 * Math.cos(th - ka), K3[2] + L1 * Math.sin(th - ka)];
-      pitch = tab(RUN ? [[0, 0.2], [0.1, 0], [0.3, -0.1], [0.5, -0.9], [0.65, -0.6], [0.88, 0.1], [1, 0.2]] : [[0, 0.38], [0.1, 0], [0.32, 0], [0.5, -0.75], [0.62, -0.5], [0.86, 0.06], [1, 0.38]], fr1(p));
+      pitch = tab(RUN ? [[0, 0.2], [0.1, 0], [0.3, -0.1], [0.5, -0.9], [0.65, -0.6], [0.88, 0.1], [1, 0.2]] : [[0, 0.38], [0.1, 0], [0.32, 0], [0.5, -0.75], [0.62, -0.5], [0.86, 0.06], [1, 0.38]], fr1(p)) * GA;
       Ls = clamp(K3[2] / (L1 * 0.8), 0, 1) * 0.5 * CS; }
     else { const bent = hs && s === -1; K3 = [lat + (bent ? s * -8 : s * 2), hipY + legL * 0.5, 0]; A3 = [s * (HPW * 0.5 + 4) + hs * 0.5 + (bent ? s * 10 : 0), ank, 0]; }
     const hj = P3(...hj3), K = P3(...K3), A = P3(...A3);
@@ -241,7 +249,11 @@ export function oddverra(g, o, op = {}) {
     if (bend > 0.25 || mode === 'sit') { const bx = turned ? -dv * rl * 0.35 : 0; taper(g, [[L.K[0] - rl * 0.5 + bx, L.K[1] + 6], [L.K[0] + bx, L.K[1] + 2], [L.K[0] + rl * 0.5 + bx, L.K[1] + 6]], 2.4, crc, 0.2); }
     else taper(g, [[L.K[0] - s * rl * 0.62 * CS, L.K[1] - 4], [L.K[0] - s * rl * 0.3 * CS, L.K[1] + 6]], 2, crc, 0.2);
     taper(g, [[L.A[0] - rl * 0.62, L.A[1] - 8], [L.A[0] + rl * 0.62, L.A[1] - 8]], 1.8, crc, 0.4); };
-  const shoe = (L) => { const s = L.s, toe = turned ? dv : s, kL = turned ? 0.9 + 0.15 * AS : 1, fx = L.A[0] + toe * 9 * kL, fy = L.fy + (!gaitOn && mode === 'run' ? -4 : 0);
+  const heelShoe = (L) => { const fx = L.A[0], up = Math.max(0, -L.pitch), fy = L.fy - up * 10, sh = o.shoes || '#3a2a2a';
+    if (up > 0.05) { const so = ellP(fx, fy + 12, 16, 3 + up * 16); cel(g, so, '#2a1e1e', 2.4, 0, 0, 0); g.save(); g.clip(so); g.fillStyle = 'rgba(120,90,80,0.5)'; for (let k = -1; k <= 1; k++) g.fillRect(fx - 14, fy + 8 + k * 5 + up * 6, 28, 1.6); g.restore(); }
+    const hp = smooth([[fx - 17, fy - 14], [fx + 17, fy - 14], [fx + 18, fy + 6], [fx + 12, fy + 13], [fx - 12, fy + 13], [fx - 18, fy + 6]], 5); cel(g, hp, sh, 3.4, 6, 5, 3);
+    g.save(); g.clip(hp); g.fillStyle = '#1d1426'; g.fillRect(fx - 30, fy + 7, 60, 8); g.fillStyle = '#3a2418'; g.fillRect(fx - 12, fy + 4, 24, 10); g.restore(); taper(g, [[fx - 10, fy - 12], [fx, fy - 9], [fx + 10, fy - 12]], 1.6, mixc(sh, INK, 0.4), 0.2); };
+  const shoe = (L) => { if (BACKB && !turned) return heelShoe(L); const s = L.s, toe = turned ? dv : s, kL = turned ? 0.9 + 0.15 * AS : 1, fx = L.A[0] + toe * 9 * kL, fy = L.fy + (!gaitOn && mode === 'run' ? -4 : 0);
     const sp = smooth([[fx - toe * 22 * kL, fy - 12], [fx + toe * 6 * kL, fy - 17], [fx + toe * 30 * kL, fy - 8], [fx + toe * 37 * kL, fy + 5], [fx + toe * 28 * kL, fy + 13], [fx - toe * 4 * kL, fy + 14], [fx - toe * 27 * kL, fy + 9], [fx - toe * 28 * kL, fy - 2]], 6);
     g.save(); if (L.pitch) { const pv = L.pitch > 0 ? [fx - toe * 26 * kL, fy + 12] : [fx + toe * 32 * kL, fy + 12]; g.translate(pv[0], pv[1]); g.rotate(-toe * L.pitch); g.translate(-pv[0], -pv[1]); }
     cel(g, sp, o.shoes || '#3a2a2a', 3.4, 6, 5, 3);
@@ -261,13 +273,13 @@ export function oddverra(g, o, op = {}) {
     if (cheer) { const E = ad(S, s * AL * 0.55, -AL * (0.62 - 0.1 * AS), AL * (0.15 + 0.5 * AS)); return [S, E, ad(E, s * AL * 0.12, -AL * (0.92 - 0.25 * AS), AL * (0.1 + 0.6 * AS))]; }
     if (s === PA && wave !== undefined) { const E = ad(S, s * AL * 0.82, AL * 0.12, AL * (0.1 + 0.4 * AS)); return [S, E, ad(E, s * (-10 + 22 * (wave || 0)), -AL * 0.95, AL * (0.1 + 0.25 * AS))]; }
     if (op.hip && s === -PA) { const E = ad(S, s * AL * 0.62, AL * 0.58, -AL * 0.2); return [S, E, [s * (WW + 8), waistY + 6, -6]]; }
-    if (gaitOn) { const p = ph + (s > 0 ? 0.5 : 0), Bq = RUN ? 0.75 : 0.44, psi = -Bq * Math.cos(TAU * p - 0.35), be = RUN ? 1.45 : 0.22 + 0.42 * Math.max(0, psi / Bq);
+    if (gaitOn) { const p = ph + (s > 0 ? 0.5 : 0), Bq = (RUN ? 0.75 : 0.44) * GA + 1e-6, psi = -Bq * Math.cos(TAU * p - 0.35), be = (RUN ? 1.45 * GA : 0.22 + 0.42 * Math.max(0, psi / Bq)) + 0.06 * (1 - GA);
       const E = ad(S, s * 12, AL * 0.98 * Math.cos(psi), AL * 0.98 * Math.sin(psi)); return [S, E, ad(E, s * 3, AL * 0.95 * Math.cos(psi + be), AL * 0.95 * Math.sin(psi + be))]; }
     const E = ad(S, s * 17, AL * 0.98); return [S, E, ad(E, s * 2, AL * 0.95)]; };
   const SA = op.steer || 0, WC = [cx + SN * 40, shY + AL * 1.3], WR = 80 * Math.min(1.15, B.w), rimP = (s) => [WC[0] + Math.cos(SA) * s * (WR - 6) * Math.max(0.3, CS) - Math.sin(SA) * -5, WC[1] + Math.sin(SA) * s * (WR - 6) * 0.4 + Math.cos(SA) * -5];
   const arms = [-1, 1].map((s) => { if (op.drive) { const S = P3(s * (TW - 10), shY + 24, 0); return [s, [S, [S[0] + s * 30 * CS, S[1] + AL * 0.82], rimP(s)], 0]; }
     const A = arm3(s); return [s, A.map((p) => P3(...p)), dep(A[0][0], 0) + 0.3 * dep(A[2][0], A[2][2])]; });
-  const farArm = (a) => turned && a[2] < -8 && !op.drive;
+  const farArm = (a) => (turned || BACKB) && a[2] < -8 && !op.drive;
   const hand = (Hp, ang, s, grip) => { // mitten hand + thumb, one outline
     const hp = ellP(Hp[0], Hp[1], 12.5 * Math.sqrt(B.w) * (o.build === 'kid' ? 0.85 : 1), 11.5 * (o.build === 'kid' ? 0.85 : 1), ang);
     const tx = Hp[0] + Math.cos(ang) * -3 + Math.cos(ang + s * Math.PI / 2) * -10, ty = Hp[1] + Math.sin(ang) * -3 + Math.sin(ang + s * Math.PI / 2) * -10;
@@ -299,13 +311,15 @@ export function oddverra(g, o, op = {}) {
     }
     hand(H, ang, s, grip); FAR = 0; };
   // far arm: behind everything on the body
-  g.save(); upper(); for (const a of arms) if (farArm(a)) drawArm(a); g.restore();
+  g.save(); upper(); for (const a of arms) if (farArm(a)) drawArm(a); if (BACKB) drawProps(); g.restore();
   // ---------- legs, pants, shoes ----------
   if (showPants) {
     if (!turned) { const pantsP = polyPath(hipBlock()); for (const L of legs) legPath(L, pantsP); cel(g, pantsP, pantsCol, 3.6, rl * 0.5, 4, 6, twill(pantsCol)); for (const L of legs) legLines(L); }
     else { const [Lf, Ln] = legOrder; FAR = 0.14; cel(g, legPath(Lf), pantsCol, 3.6, rl * 0.5, 4, 6, twill(pantsCol)); legLines(Lf); FAR = 0;
       const pantsP = polyPath(hipBlock()); legPath(Ln, pantsP); cel(g, pantsP, pantsCol, 3.6, rl * 0.5, 4, 6, twill(pantsCol)); legLines(Ln);
       taper(g, [[cx - dv * HPW * 0.5 * wk, hipY - 30], [cx - dv * HPW * 0.75 * wk, hipY - 4]], 2, crc, 0.2); }
+  if (BACKB && showPants && !lady) { g.save(); g.clip(polyPath(hipBlock())); const pc = mixc(pantsCol, INK, 0.5); taper(g, [[cx, waistY + 20], [cx, hipY + 10]], 2, pc, 0.1);
+      for (const s of [-1, 1]) { const px = tXb(cx + s * HPW * 0.48, hipY - 30); if (!jacket || hemY < hipY - 30) { const kq = clamp(-CS, 0.3, 1), pp = new Path2D(); pp.roundRect(px - 14 * kq, hipY - 40, 28 * kq, 20, 4); g.lineWidth = 1.8; g.strokeStyle = pc; g.stroke(pp); line(g, [[px - 11 * kq, hipY - 34], [px + 11 * kq, hipY - 34]], 1.4, pc); } } g.restore(); }
     if (o.belt || runner || kidT) { const pantsP = polyPath(hipBlock()); for (const L of legs) legPath(L, pantsP);
       const bt = o.belt || '#6a4428', bY0 = runner ? hemY + 1 : kidT ? hemY - 6 : waistY + 8, bp = new Path2D(); bp.rect(cx - HPW * 1.2, bY0, HPW * 2.4, 13); g.save(); g.clip(pantsP); cel(g, bp, bt, 0, 8, 0, 0); g.fillStyle = 'rgba(255,230,190,0.35)'; for (let x = cx - HPW; x < cx + HPW; x += 9) g.fillRect(x, bY0 + 2, 3, 1.2); g.restore();
       line(g, [[cx - HPW * 1.02 * wk, bY0 + 13], [cx + HPW * 1.02 * wk, bY0 + 13]], 1.6); decal(cx, bY0, () => { const bk = new Path2D(); bk.roundRect(cx - 9, bY0 - 2, 18, 17, 3); cel(g, bk, '#d9b04a', 2, 3, 2, 0); g.lineWidth = 1.6; g.strokeStyle = '#8a6420'; g.strokeRect(cx - 4.5, bY0 + 2.5, 9, 8); }); }
@@ -343,7 +357,7 @@ export function oddverra(g, o, op = {}) {
       h.strokeStyle = mixc(o.sash, INK, 0.35); h.lineWidth = 1.6; h.beginPath(); h.moveTo(...sp[0]); h.lineTo(...sp[3]); h.moveTo(...sp[1]); h.lineTo(...sp[2]); h.stroke(); }
     if (o.trim) { h.strokeStyle = o.trim; h.lineWidth = 9; h.beginPath(); neck.forEach(([x, y], i) => h[i ? 'lineTo' : 'moveTo'](x, y + 3)); h.stroke(); h.beginPath(); [[cx + HPW, hemY - 4], ...hem.map(([x, y]) => [x, y - 4]), [cx - HPW, hemY - 4]].forEach(([x, y], i) => h[i ? 'lineTo' : 'moveTo'](x, y)); h.stroke();
       h.strokeStyle = mixc(o.trim, INK, 0.4); h.lineWidth = 1.4; h.beginPath(); neck.forEach(([x, y], i) => h[i ? 'lineTo' : 'moveTo'](x, y + 7.5)); h.stroke(); }
-    if (o.vest) { h.fillStyle = o.vest; for (const s of [-1, 1]) { const vp = TP([[cx + s * TW * 1.2, shY], [cx + s * 20, shY + 40], [cx + s * 16, hipY + 40], [cx + s * TW * 1.3, hipY + 40]]); h.beginPath(); vp.forEach(([x, y], i) => h[i ? 'lineTo' : 'moveTo'](x, y)); h.fill(); } }
+    if (o.vest && !BACKB) { h.fillStyle = o.vest; for (const s of [-1, 1]) { const vp = TP([[cx + s * TW * 1.2, shY], [cx + s * 20, shY + 40], [cx + s * 16, hipY + 40], [cx + s * TW * 1.3, hipY + 40]]); h.beginPath(); vp.forEach(([x, y], i) => h[i ? 'lineTo' : 'moveTo'](x, y)); h.fill(); } }
   };
   cel(g, torsoP, o.shirt, 3.8, TW * 0.3 * wk, 6, 7, tpat);
   { // structure lines: side seams / waist pull folds, crisp
@@ -353,7 +367,7 @@ export function oddverra(g, o, op = {}) {
     if (turned && gaitOn) taper(g, [[cx - dv * TW * 0.3 * wk, waistY - 30], [cx + dv * TW * 0.1 * wk, waistY - 10 + 4 * flap]], 1.6, fc, 0.1); // stride pull
   }
   // jacket: shirt V, lapels, buttons, pocket flaps
-  if (jacket) {
+  if (jacket && !BACKB) {
     const vB = shY + torsoH * 0.42; cel(g, polyPath(TP([[cx - NW - 2, shY - 3], [cx + NW + 2, shY - 3], [cx, vB]])), o.collar || '#f4f1e8', 0, 6, 4, 0);
     for (const s of [-1, 1]) { if (tV(cx + s * TW * 0.45, shY + 40) < -6) continue; const lp = polyPath(TP([[cx + s * (NW + 3), shY - 5], [cx + s * TW * 0.5, shY + 28], [cx + s * TW * 0.36, shY + 40], [cx + s * TW * 0.46, shY + 56], [cx + s * 4, vB + 6], [cx + s * NW * 0.6, shY + 30]]));
       cel(g, lp, mixc(o.shirt, '#000000', 0.08), 2.6, s * SG > 0 ? 5 : 0, 3, 0, fabric()); }
@@ -364,35 +378,55 @@ export function oddverra(g, o, op = {}) {
     if (o.hat === 'top' && o.build === 'stout') { const fx0 = cx + TW * 0.44, fy0 = shY + 42; if (tV(fx0, fy0) > -2) decal(fx0, fy0, () => { const fp = new Path2D(); for (let k = 0; k < 5; k++) ellP(fx0 + Math.cos(k * 1.256) * 5, fy0 + Math.sin(k * 1.256) * 5, 4.5, 4.5, 0, fp); cel(g, fp, '#d03a44', 1.8, 2, 2, 0); g.beginPath(); g.arc(fx0, fy0, 2.4, 0, TAU); g.fillStyle = '#f2cf5a'; g.fill(); }); }
     for (const s of [-1, 1]) if (tV(cx + s * WW * 0.6, hipY - 4) > -3) taper(g, TP([[cx + s * WW * 0.36, hipY - 4], [cx + s * WW * 0.9, hipY - 6]]), 2.2, mixc(o.shirt, INK, 0.55), 0.2);
   }
-  if (!jacket && !o.noButtons && !runner && !kidT) for (let i = 0; i < 3; i++) decal(cx, shY + 40 + i * 40, () => cel(g, ellP(cx, shY + 40 + i * 40, 4, 4), o.button || dk(o.shirt, 0.6), 2, 1, 1, 0));
-  if (o.bib) { const bw = 68, bh = 52, bx = cx - bw / 2 + 4, byy = shY + torsoH * 0.34; decal(cx + 4, byy, () => { const bp = new Path2D(); bp.roundRect(bx, byy, bw, bh, 4); cel(g, bp, '#fffdf6', 2.6, 6, 4, 0);
+  if (!BACKB && !jacket && !o.noButtons && !runner && !kidT) for (let i = 0; i < 3; i++) decal(cx, shY + 40 + i * 40, () => cel(g, ellP(cx, shY + 40 + i * 40, 4, 4), o.button || dk(o.shirt, 0.6), 2, 1, 1, 0));
+  if (o.bib && !BACKB) { const bw = 68, bh = 52, bx = cx - bw / 2 + 4, byy = shY + torsoH * 0.34; decal(cx + 4, byy, () => { const bp = new Path2D(); bp.roundRect(bx, byy, bw, bh, 4); cel(g, bp, '#fffdf6', 2.6, 6, 4, 0);
     g.fillStyle = INK; g.font = `bold ${bh * 0.72}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(o.bib, bx + bw / 2, byy + bh / 2 + 2);
     for (const [px, py] of [[bx + 5, byy + 5], [bx + bw - 5, byy + 5], [bx + 5, byy + bh - 5], [bx + bw - 5, byy + bh - 5]]) { g.beginPath(); g.arc(px, py, 2.2, 0, TAU); g.fillStyle = '#9aa0b4'; g.fill(); } }); }
-  if (kidT) for (const s of [-1, 1]) { if (tV(cx + s * WW * 0.5, hemY - 10) < -4) continue; const st = polyPath(TP([[cx + s * TW * 0.46, shY + 2], [cx + s * TW * 0.62, shY + 6], [cx + s * WW * 0.6, hemY], [cx + s * WW * 0.42, hemY]])); g.save(); g.clip(torsoP); cel(g, st, '#5a3a28', 1.6, 3, 0, 0); g.restore(); cel(g, ellP(tX(cx + s * WW * 0.51, hemY - 10), hemY - 10, 3.6, 3.6), '#d9b04a', 1.4, 1, 1, 0); }
+  if (kidT && !BACKB) for (const s of [-1, 1]) { if (tV(cx + s * WW * 0.5, hemY - 10) < -4) continue; const st = polyPath(TP([[cx + s * TW * 0.46, shY + 2], [cx + s * TW * 0.62, shY + 6], [cx + s * WW * 0.6, hemY], [cx + s * WW * 0.42, hemY]])); g.save(); g.clip(torsoP); cel(g, st, '#5a3a28', 1.6, 3, 0, 0); g.restore(); cel(g, ellP(tX(cx + s * WW * 0.51, hemY - 10), hemY - 10, 3.6, 3.6), '#d9b04a', 1.4, 1, 1, 0); }
   if (lady) { const wb = new Path2D(); wb.rect(cx - WW * 1.05, waistY + 4, WW * 2.1, 12); g.save(); g.clip(torsoP); cel(g, wb, mixc(pantsCol, INK, 0.25), 0, 6, 0, 0); g.restore(); line(g, [[cx - WW * wk, waistY + 16], [cx + WW * wk, waistY + 16]], 1.6); }
-  if (o.pocket) decal(cx + TW * 0.3 + 17, shY + 72, () => { const pp = new Path2D(); pp.roundRect(cx + TW * 0.3, shY + 58, 34, 28, 4); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(pp); g.fillStyle = o.pocket; g.fillRect(cx + TW * 0.3 + 6, shY + 50, 9, 11); });
+  if (o.pocket && !BACKB) decal(cx + TW * 0.3 + 17, shY + 72, () => { const pp = new Path2D(); pp.roundRect(cx + TW * 0.3, shY + 58, 34, 28, 4); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(pp); g.fillStyle = o.pocket; g.fillRect(cx + TW * 0.3 + 6, shY + 50, 9, 11); });
   // neck (sits in shadow under the chin) + collars + neckwear
   const np = polyPath([[ncx - NW, hy + HH * 0.6], [ncx + NW, hy + HH * 0.6], [ncx + NW + 1, shY + 8], [ncx, shY + (runner || kidT || lady ? 14 : 4)], [ncx - NW - 1, shY + 8]]);
   { g.lineWidth = 5; g.strokeStyle = INK; g.stroke(np); cel(g, np, skin, 0, 0, 0, 0); g.save(); g.clip(np); g.globalCompositeOperation = 'multiply'; g.fillStyle = SHS_; g.fill(np); g.globalCompositeOperation = 'source-over'; g.restore();
     if (o.trim) { const nb = new Path2D(); neck.forEach(([x, y], i) => nb[i ? 'lineTo' : 'moveTo'](x, y)); g.lineWidth = 3.2; g.strokeStyle = INK; g.stroke(nb); } }
-  if (jacket || lady) for (const s of [-1, 1]) { if (tV(cx + s * (NW + 8), shY) < -8) continue; cel(g, polyPath(TP([[cx + s * 2, shY + 12], [cx + s * (NW + 8), shY - 6], [cx + s * (NW + 12), shY + 10], [cx + s * 12, shY + 26]])), o.collar || '#ffffff', 2.4, s * SG > 0 ? 4 : 0, 2, 0); }
-  if (lady && o.neck !== 'bow') decal(cx, shY + 14, () => { cel(g, ellP(cx, shY + 14, 5.5, 6.5), '#e8b830', 1.8, 2, 2, 0); g.beginPath(); g.arc(cx, shY + 14, 2.4, 0, TAU); g.fillStyle = '#8c2a5a'; g.fill(); });
+  if ((jacket || lady) && !BACKB) for (const s of [-1, 1]) { if (tV(cx + s * (NW + 8), shY) < -8) continue; cel(g, polyPath(TP([[cx + s * 2, shY + 12], [cx + s * (NW + 8), shY - 6], [cx + s * (NW + 12), shY + 10], [cx + s * 12, shY + 26]])), o.collar || '#ffffff', 2.4, s * SG > 0 ? 4 : 0, 2, 0); }
+  if (lady && o.neck !== 'bow' && !BACKB) decal(cx, shY + 14, () => { cel(g, ellP(cx, shY + 14, 5.5, 6.5), '#e8b830', 1.8, 2, 2, 0); g.beginPath(); g.arc(cx, shY + 14, 2.4, 0, TAU); g.fillStyle = '#8c2a5a'; g.fill(); });
+  // seen from behind: centre-back seam, yoke, vents, half-belt, back collar, seat pockets, back bib, crossed braces, blouse buttons
+  if (BACKB) { const fc = mixc(o.shirt, INK, 0.5), ks = clamp(-CS, 0.3, 1);
+    const bd = (x0, y0, fn) => { const X = tXb(x0, y0), sx = clamp((tXb(x0 + 2, y0) - tXb(x0 - 2, y0)) / 4, 0.18, 1.2); g.save(); g.translate(X, 0); g.scale(sx, 1); g.translate(-x0, 0); fn(); g.restore(); };
+    g.save(); g.clip(torsoP);
+    taper(g, TPb([[cx - TW * 0.8, shY + 36], [cx, shY + 46], [cx + TW * 0.8, shY + 36]]), 1.8, fc, 0.1); // yoke
+    if (jacket || !runner && !kidT && !lady) taper(g, TPb([[cx, shY + 46], [cx + 1, waistY], [cx, hemY - (jacket ? 52 : 4)]]), 2, fc, 0.1); // centre-back seam
+    if (jacket) { const vb = tXb(cx, hemY - 50); taper(g, [[vb, hemY - 52], [vb + 1, hemY + 2]], 2.4, mixc(o.shirt, INK, 0.65), 0.2); // vent
+      const hb = new Path2D(); polyPath(TPb([[cx - WW * 0.62, waistY + 6], [cx + WW * 0.62, waistY + 6], [cx + WW * 0.62, waistY + 22], [cx - WW * 0.62, waistY + 22]]), hb); cel(g, hb, mixc(o.shirt, '#000000', 0.08), 2.2, 0, 4, 0, fabric());
+      for (const s of [-1, 1]) bd(cx + s * WW * 0.52, waistY + 14, () => cel(g, ellP(cx + s * WW * 0.52, waistY + 14, 4, 4), o.button || dk(o.shirt, 0.6), 1.8, 1, 1, 0)); }
+    if (lady) for (let i = 0; i < 5; i++) bd(cx, shY + 30 + i * 22, () => cel(g, ellP(cx, shY + 30 + i * 22, 3.4, 3.4), o.button || '#f2ead8', 1.4, 1, 1, 0));
+    if (kidT) for (const s of [-1, 1]) { const st = polyPath(TPb([[cx + s * TW * 0.5, shY + 2], [cx + s * TW * 0.64, shY + 6], [cx - s * WW * 0.42, hemY], [cx - s * WW * 0.6, hemY]])); cel(g, st, '#5a3a28', 1.6, 3, 0, 0); }
+    if (o.bib) { const bw = 68, bh = 52, byy = shY + torsoH * 0.3; bd(cx, byy, () => { const bp = new Path2D(); bp.roundRect(cx - bw / 2, byy, bw, bh, 4); cel(g, bp, '#fffdf6', 2.6, 6, 4, 0); g.fillStyle = INK; g.font = `bold ${bh * 0.72}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(o.bib, cx, byy + bh / 2 + 2); }); }
+    g.restore();
+    // collar seen from behind: shirt collar edge above the jacket collar band
+    const nb = (dy, w) => TPb(arcPts(cx, shY - 4 + dy, (NW + 6) * w, Math.PI * 1.05, -0.05 * Math.PI, 10, 6)).map(([x, y]) => [x, y]);
+    if (jacket || lady || o.collar) { const cb = [...nb(-6, 1.05), ...nb(12, 1.35).reverse()]; if (jacket) cel(g, polyPath(nb(-12, 0.95).concat(nb(-2, 1.0).reverse())), o.collar || '#f4f1e8', 2, 0, 0, 0); cel(g, polyPath(cb), jacket ? mixc(o.shirt, '#000000', 0.1) : (o.collar || '#ffffff'), 2.4, 3, 2, 0, jacket ? fabric() : null); }
+  }
   // ambient occlusion under the chin (soft, purple)
-  { const ay = shY + 4, ax = ncx + SN * 6; g.save(); g.clip(polyPath([...R, ...hem, ...Lf], polyPath([[ncx - NW - 2, hy + HH * 0.5], [ncx + NW + 2, hy + HH * 0.5], [ncx + NW + 2, shY + 30], [ncx - NW - 2, shY + 30]])));
+  if (!BACKB) { const ay = shY + 4, ax = ncx + SN * 6; g.save(); g.clip(polyPath([...R, ...hem, ...Lf], polyPath([[ncx - NW - 2, hy + HH * 0.5], [ncx + NW + 2, hy + HH * 0.5], [ncx + NW + 2, shY + 30], [ncx - NW - 2, shY + 30]])));
     g.translate(ax, ay); g.scale(1, 0.42); const gr = g.createRadialGradient(0, 0, 0, 0, 0, NW * 2.8); gr.addColorStop(0, 'rgba(105,75,160,0.5)'); gr.addColorStop(0.55, 'rgba(120,90,170,0.22)'); gr.addColorStop(1, 'rgba(120,90,170,0)');
     g.globalCompositeOperation = 'multiply'; g.fillStyle = gr; g.fillRect(-NW * 3, -NW * 3, NW * 6, NW * 6); g.restore(); }
   const swing = Math.sin(TT * 0.45) * 0.18 * MV + flap * 0.07 * CS - trail * 0.18;
   const ncol = o.neckCol || '#c0453a';
-  { const tx0 = tX(cx, shY + 40); g.save(); g.translate(tx0, shY + 14); g.rotate(swing); g.translate(-tx0, -(shY + 14)); const ks = turned ? 0.55 + 0.45 * CS : 1, T = (pts) => pts.map(([x, y]) => [tx0 + (x - cx) * ks, y]);
+  if (!BACKB) { const tx0 = tX(cx, shY + 40); g.save(); g.translate(tx0, shY + 14); g.rotate(swing); g.translate(-tx0, -(shY + 14)); const ks = turned ? 0.55 + 0.45 * CS : 1, T = (pts) => pts.map(([x, y]) => [tx0 + (x - cx) * ks, y]);
     if (o.neck === 'tie') { cel(g, polyPath(T([[cx - 7, shY + 14], [cx + 7, shY + 14], [cx + 13, shY + 104], [cx, shY + 120], [cx - 13, shY + 104]])), ncol, 2.6, 4, 3, 0); cel(g, polyPath(T([[cx - 9, shY + 4], [cx + 9, shY + 4], [cx + 7, shY + 18], [cx - 7, shY + 18]])), dk(ncol, 0.9), 2.4, 2, 2, 0); taper(g, T([[cx + 2, shY + 22], [cx + 4, shY + 100]]), 1.4, mixc(ncol, INK, 0.4), 0.1); }
     if (o.neck === 'bow') { const bp = new Path2D(); for (const s of [-1, 1]) polyPath(T([[cx, shY + 10], [cx + s * 26, shY - 2], [cx + s * 28, shY + 24]]), bp); cel(g, bp, ncol, 2.6, 4, 3, 0); cel(g, ellP(tx0, shY + 11, 7 * ks, 8), dk(ncol, 0.85), 2.2, 2, 2, 0); }
     g.restore(); }
   if (o.neck === 'scarf') { const sc = o.neckCol || '#d9a441', fl = Math.sin(TT * 0.8) * 5 * MV + trail * 14 + flap * 4, tx = turned ? tX(cx + 33, shY + 30) : cx + 33;
-    const tail = polyPath([[tx - 11, shY + 12], [tx + 11, shY + 12], [tx + 17 + fl, shY + 96], [tx - 7 + fl, shY + 94]]); cel(g, tail, sc, 3, 5, 3, 0);
-    for (let k = 0; k < 4; k++) line(g, [[tx - 5 + k * 6 + fl, shY + 95], [tx - 5 + k * 6 + fl * 1.3, shY + 106]], 2.6, dk(sc, 0.8));
+    if (!BACKB) { const tail = polyPath([[tx - 11, shY + 12], [tx + 11, shY + 12], [tx + 17 + fl, shY + 96], [tx - 7 + fl, shY + 94]]); cel(g, tail, sc, 3, 5, 3, 0); }
+    if (!BACKB) for (let k = 0; k < 4; k++) line(g, [[tx - 5 + k * 6 + fl, shY + 95], [tx - 5 + k * 6 + fl * 1.3, shY + 106]], 2.6, dk(sc, 0.8));
     const X = (x) => nkx + (x - cx) * wk;
     cel(g, smooth([[X(cx - TW * 0.72), shY + 4], [X(cx - NW), shY - 14], [X(cx + NW), shY - 14], [X(cx + TW * 0.72), shY + 4], [X(cx + TW * 0.5), shY + 24], [X(cx), shY + 30], [X(cx - TW * 0.5), shY + 24]], 6), sc, 3.2, 8, 5, 3);
     taper(g, [[X(cx - TW * 0.4), shY + 8], [X(cx), shY + 16], [X(cx + TW * 0.4), shY + 8]], 1.8, dk(sc, 0.7), 0.1); }
+  if (BACKH && o.hair === 'long') { const sw = Math.sin(TT * 0.4) * 4 * MV + trail * 8 + flap * 3, by = shY + 78, d = Math.sign(HY) || 0, X = (x) => hcx + (x - hcx) * (1 - 0.15 * AS) + d * HW * 0.05;
+    const lp = smooth([[X(hcx - HW * 1.02), hy], [X(hcx - HW * 1.1), hy + HH * 0.6], [X(hcx - HW * 1.0) + sw, by - 24], [X(hcx - HW * 0.6) + sw, by], [X(hcx) + sw, by - 8], [X(hcx + HW * 0.6) + sw, by], [X(hcx + HW * 1.0) + sw, by - 24], [X(hcx + HW * 1.1), hy + HH * 0.6], [X(hcx + HW * 1.02), hy]], 8);
+    cel(g, lp, hc, 3.6, 10, 6, 4); g.save(); g.clip(lp); for (let k = -3; k <= 3; k++) taper(g, [[X(hcx + k * HW * 0.22), hy + HH * 0.3], [X(hcx + k * HW * 0.26) + sw * 0.8, by - 14]], 1.8, mixc(hc, INK, 0.45), 0.1); taper(g, [[X(hcx - HW * 0.5), hy + HH * 0.5], [X(hcx - HW * 0.55) + sw * 0.5, by - 40]], 4, lt(hc, 0.25), 0.2); g.restore(); }
   // ---------- near arms ----------
   const raisedLate = (a) => AS > 0.8 && !op.drive && a[1][2][1] < shY - 10; // profile: raised hands pass in front of the face
   const near = arms.filter((a) => !farArm(a) && !raisedLate(a));
@@ -407,13 +441,15 @@ export function oddverra(g, o, op = {}) {
     cel(g, ellP(WC[0], WC[1], 13, 9), '#e0b450', 2.6, 3, 2, 0);
     for (const a of arms) drawArm(a, true);
   }
+  function drawProps() { // props are held in front: seen from behind they are drawn behind the body and only peek out
   const PS = 0.74 * B.hs, pa = arms.find((a) => a[0] === PA);
-  if (HOLD[op.prop]) { const h = pa[1][2]; g.save(); g.translate(h[0] + 6, h[1] - 4); g.scale(PS, PS); HOLD[op.prop](g); g.restore(); hand([h[0] + 3, h[1] + 4], -Math.PI / 2, PA, true); }
-  if (op.prop === 'stick') { const h = pa[1][2], sd = PA; line(g, [[h[0] - 6 * sd, h[1] + 20], [h[0] + 52 * sd, h[1] - 96]], 12, INK); line(g, [[h[0] - 6 * sd, h[1] + 20], [h[0] + 52 * sd, h[1] - 96]], 6.5, '#8a5a34'); taper(g, [[h[0] + 10 * sd, h[1] - 10], [h[0] + 40 * sd, h[1] - 72]], 2, '#b07a4a', 0.3); hand([h[0] + 3, h[1] + 6], -Math.PI / 2, PA, true); }
+    if (HOLD[op.prop]) { const h = pa[1][2]; g.save(); g.translate(h[0] + 6, h[1] - 4); g.scale(PS, PS); HOLD[op.prop](g); g.restore(); hand([h[0] + 3, h[1] + 4], -Math.PI / 2, PA, true); }
+    if (op.prop === 'stick') { const h = pa[1][2], sd = PA; line(g, [[h[0] - 6 * sd, h[1] + 20], [h[0] + 52 * sd, h[1] - 96]], 12, INK); line(g, [[h[0] - 6 * sd, h[1] + 20], [h[0] + 52 * sd, h[1] - 96]], 6.5, '#8a5a34'); taper(g, [[h[0] + 10 * sd, h[1] - 10], [h[0] + 40 * sd, h[1] - 72]], 2, '#b07a4a', 0.3); hand([h[0] + 3, h[1] + 6], -Math.PI / 2, PA, true); } };
+  if (!BACKB) drawProps();
   // ---------- head ----------
   const tilt = ((op.tilt ?? ((o.seed || 0) % 3 - 1) * 3) + (gaitOn ? (RUN ? 2.5 : 1.4) * Math.sin(TAU * 2 * (ph - 0.1)) * (turned ? dv : 1) : 0)) * Math.PI / 180;
   g.translate(cx, shY); g.rotate(tilt); g.translate(-cx, -shY);
-  const earAt = (s) => { const [X] = hmapPt([hcx + s * HW * 0.95, hy + HH * 0.1]); return { X: X - (AH > 0.8 ? dv * 11 * fz : 0), vis: !HY ? 1 : Math.cos(Math.asin(s) + HY) }; };
+  const earAt = (s) => { const t = wrapA(Math.asin(s) + HY), X = hcx + HW * 0.95 * Math.sin(clamp(t, -HP_, HP_)); return { X: X - (AH > 0.8 ? dv * 11 * fz : 0), vis: !HY ? 1 : Math.cos(t) }; };
   const drawEar = (s, front) => { const { X } = earAt(s), ey0 = hy + HH * 0.1, rx = 12 * fz * (front ? 1 : 0.95), ry = 18 * fz, fl = front ? s : -dv; // fl: which way the cup opens (toward the face)
     cel(g, ellP(X, ey0, rx, ry, front ? s * 0.15 : -dv * 0.12), skin, 3, 3, 3, 0, null, SHADE_SKIN);
     g.save(); g.clip(ellP(X, ey0, rx, ry, 0)); g.globalCompositeOperation = 'multiply'; g.fillStyle = 'rgba(214,150,170,0.55)'; g.beginPath(); g.ellipse(X - fl * 2 * fz, ey0 + 2 * fz, rx * 0.55, ry * 0.62, 0, 0, TAU); g.fill(); g.restore(); g.globalCompositeOperation = 'source-over';
@@ -421,17 +457,25 @@ export function oddverra(g, o, op = {}) {
     taper(g, [[X - fl * 2 * fz, ey0 + 5 * fz], [X - fl * 4 * fz, ey0 + 10 * fz]], 1.4, mixc(skin, INK, 0.5), 0.2);
     if (o.earring) { g.beginPath(); g.arc(X, ey0 + 19 * fz, 5, 0, TAU); g.fillStyle = o.earring; g.fill(); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(); } };
   const earsHidden = o.hair === 'long' || (o.hair === 'curly' && AH > 0.3);
-  if (!turned) for (const s of [-1, 1]) drawEar(s, true);
+  if (!turned && !BACKH) for (const s of [-1, 1]) drawEar(s, true);
+  if (BACKH && o.hat === 'cap') capVisor(o.hatCol || '#5a4a3a', -0.36); // the peak is in front of the face: behind the head from here
+  function capVisor(hk, cut) {
+    const vy = hy + HH * (cut + 0.03), Rr = HW * 0.88, pv = 0.1 * Math.cos(HY) + 0.1, VY = clamp(HY * 1.4, -HP_, HP_), hs2 = Math.sin(VY), hc2 = Math.cos(VY), Pv = (lat, fw) => [hcx - SN * 4 * fz + lat * hc2 + fw * hs2, vy + (-lat * hs2 + fw * hc2) * pv];
+      const vp = []; for (let k = 0; k <= 12; k++) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * (0.62 + 0.45 * AH) * Math.sin(a) + HW * (0.42 + 0.06 * AH) * Math.sin(a))); }
+      for (let k = 12; k >= 0; k--) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * (0.62 + 0.45 * AH) * Math.sin(a))); }
+      cel(g, polyPath(vp), dk(hk, 0.82), 3.2, 6, 4, 3); taper(g, vp.slice(2, 11), 2, rgba(lt(hk, 0.35), 0.5), 0.1);
+  }
+
   cel(g, headSil, skin, 3.8, HW * 0.16, HH * 0.1, 5, null, SHADE_SKIN);
   // jaw/cheek accent: tiny crisp ink tick on the shadow side (front-ish views)
-  if (AH < 0.8) taper(g, [[hcx + SG * HW * 0.62, hy + HH * 0.7], [hcx + SG * HW * 0.4, hy + HH * 0.86]], 1.6, mixc(skin, INK, 0.5), 0.1);
+  if (AH < 0.8 && !BACKH) taper(g, [[hcx + SG * HW * 0.62, hy + HH * 0.7], [hcx + SG * HW * 0.4, hy + HH * 0.86]], 1.6, mixc(skin, INK, 0.5), 0.1);
   // ---------- hair ----------
   const HS = HP.map(([x, y]) => [hcx + (x - hcx) * 1.06, hy + HH * 0.05 + (y - hy - HH * 0.05) * 1.09]);
   const capPts = (cut) => { const yc = hy + cut * HH, idx = HS.map((p, i) => [p, i]).filter(([p]) => p[1] <= yc); const right = idx.filter(([, i]) => i < HS.length / 2).map(([p]) => p), left = idx.filter(([, i]) => i >= HS.length / 2).map(([p]) => p); return [...left, ...right]; };
   const rel = (pts) => pts.map(([x, y]) => [hcx + x * HW, hy + y * HH]);
   const bnc = gaitOn ? 0.012 * flap : 0;
   // back of the skull (turned views): hair from the back silhouette to the terminator, down to the nape
-  const backCap = (P, yn0 = o.hat === 'cap' ? 0.04 : 0.14, map = (q) => q) => { if (!HY) return P; const b = -Math.sign(HY), yn = -0.25 + (yn0 + 0.25) * AH, out = [], inn = [];
+  const backCap = (P, yn0 = o.hat === 'cap' ? 0.04 : 0.14, map = (q) => q) => { if (!HY || BACKH) return P; const b = -Math.sign(HY), yn = -0.25 + (yn0 + 0.25) * AH, out = [], inn = [];
     const ty = (yf) => hy + HH * 0.05 + (yf * HH - HH * 0.05) * 1.06, ch = Math.cos(HY) - 0.22 * AH * AH, fi = (yf) => { const lo = sstep(-0.3, yn, yf); return Math.max(ch, -0.12) * (1 - lo) + Math.max(ch + 0.3 * AH, Math.min(ch, 0.3)) * lo; };
     for (let k = 0; k <= 14; k++) { const yf = -1.0 + (yn - 0.08 + 1.0) * k / 14; out.push([hcx + b * 1.07 * Math.max(0.12, rH(yf)) * HW, ty(yf)]); }
     const rn = Math.max(0.3, rH(yn)) * HW; { const fe = fi(yn - 0.26); for (const t of [0.2, 0.45, 0.7, 0.9]) out.push([hcx + b * rn * (1 - (1 - fe) * t) * (1 - 0.25 * Math.sin(Math.PI * t) * AH), ty(yn - 0.26 * t * t + 0.03 * Math.sin(Math.PI * t))]); }
@@ -447,7 +491,7 @@ export function oddverra(g, o, op = {}) {
     const sh = HMP(rel([[-0.66 * SG, -0.6], [-0.36 * SG, -0.84], [0.0, -0.92], [0.22 * SG, -0.9]]));
     taper(g, sh, 5.5, lt(hc, 0.3), 0.15); taper(g, sh.map(([x, y]) => [x + 3 * SG, y + 9]), 2.4, lt(hc, 0.18), 0.1);
     g.restore(); };
-  if (hairOn) {
+  if (hairOn && !BACKH) {
     if (o.hair === 'short') { const fr = [[1.0, -0.22], [0.86, -0.46], [0.72, -0.36], [0.6, -0.56], [0.42, -0.44], [0.3, -0.64], [0.1, -0.5], [-0.04, -0.66], [-0.24, -0.52], [-0.38, -0.66], [-0.58, -0.5], [-0.74, -0.58], [-0.88, -0.4], [-1.0, -0.22]].map(([x, y], k) => [x + sway(k) / HW, y + bnc]);
       hairPaint(backCap(polyPath(HMP([...capPts(-0.22), ...cr(rel(fr), false, 3)]))), [[[0.5, -0.9], [0.5, -0.62]], [[-0.1, -0.95], [-0.2, -0.66]], [[-0.6, -0.84], [-0.7, -0.6]], [[0.2, -0.98], [0.15, -0.72]]]); }
     if (o.hair === 'side') { const fr = [[1.02, -0.04], [0.9, -0.14], [0.8, -0.04], [0.72, -0.3], [0.5, -0.38], [0.36, -0.3], [0.2, -0.46], [-0.06, -0.58], [-0.26, -0.72], [-0.4, -0.8], [-0.54, -0.62], [-0.74, -0.56], [-0.9, -0.36], [-1.02, -0.14]].map(([x, y], k) => [x + sway(k) / HW, y + bnc]);
@@ -474,13 +518,47 @@ export function oddverra(g, o, op = {}) {
         const X = (x) => ex + (x - (hcx + s * HW * 0.98)) * (HY ? 0.8 : 1);
         cel(g, smooth([[X(hcx + s * HW * 0.98), hy - HH * 0.3], [X(hcx + s * HW * 1.1), hy + HH * 0.4], [X(hcx + s * HW * 1.06) + sw, hy + HH * 1.25], [X(hcx + s * HW * 0.9) + sw, hy + HH * 1.36], [X(hcx + s * HW * 0.88), hy + HH * 0.5], [X(hcx + s * HW * 0.84), hy - HH * 0.1]], 6), hc, 3.2, 6, 4, 3); } }
   }
-  if (o.hair === 'bald') { const P = new Path2D(); for (const s of [-1, 1]) for (const [dx, dy, rr] of [[0.97, -0.12, 0.12], [1.0, 0.04, 0.1], [0.9, -0.26, 0.1], [0.84, -0.4, 0.08]]) { if (HY && (Math.abs(Math.asin(s * 0.97) + HY) > HP_ + 0.1 || AH > 0.8)) continue; const [x0] = hmapPt([hcx + s * HW * dx, hy + HH * dy]), x = x0 - Math.sign(HY) * AH * HW * 0.24, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
+  if (o.hair === 'bald' && !BACKH) { const P = new Path2D(); for (const s of [-1, 1]) for (const [dx, dy, rr] of [[0.97, -0.12, 0.12], [1.0, 0.04, 0.1], [0.9, -0.26, 0.1], [0.84, -0.4, 0.08]]) { if (HY && (Math.abs(Math.asin(s * 0.97) + HY) > HP_ + 0.1 || AH > 0.8)) continue; const [x0] = hmapPt([hcx + s * HW * dx, hy + HH * dy]), x = x0 - Math.sign(HY) * AH * HW * 0.24, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
     if (AH > 0.8) for (const [dy, rr] of [[-0.22, 0.11], [-0.04, 0.12]]) { const x = hcx - Math.sign(HY) * HW * 0.3, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
     if (HY) for (const [dy, rr] of [[-0.3, 0.13], [-0.1, 0.13], [0.1, 0.12], [0.25, 0.1]]) { const x = hcx - Math.sign(HY) * rH(dy) * HW * 0.9, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
     g.save(); g.clip(headP); cel(g, P, hc, 3, 4, 3, 0); g.restore();
     if (!o.hat) taper(g, arcPts(hcx - HW * 0.1 * SG, hy - HH * 0.2, HW * 0.62, Math.PI * 1.25, Math.PI * 1.45, 6, HH * 0.66), 4, lt(skin, 0.5), 0.2); }
+  // ---------- head seen from behind: hair covers the back of the skull, ears at the sides, a cheek sliver on the turned side ----------
+  if (BACKH) { const d = Math.sign(HY) || 0, ca = Math.cos(BAL), yn = o.hair === 'long' ? 0.98 : o.hair === 'bun' ? 0.56 : 0.6;
+    const sh = (yf, sg, k = 1.06) => [hcx + sg * k * Math.max(0.1, rH(yf)) * HW, hy + HH * 0.05 + (yf * HH - HH * 0.05) * 1.06];
+    const L = d ? -d : -1, Rt = -L, yT = d ? -0.32 : yn;
+    if (hairOn) { const pts = [];
+      const ys = o.hair === 'long' ? 0.9 : Math.min(yn, 0.16), yR = d ? yT : ys; // hair reaches ear level at the sides, the nape in the middle
+      for (let k = 0; k <= 12; k++) pts.push(sh(ys - (ys + 1) * k / 12, L));
+      for (let k = 1; k <= 12; k++) pts.push(sh(-1 + (yR + 1) * k / 12, Rt));
+      if (d) for (let k = 1; k <= 4; k++) { const yf = yT + (ys - yT) * k / 4; pts.push([hcx + Rt * Math.max(0.2, rH(yf)) * HW * ca * (0.98 - 0.08 * k / 4), hy + yf * HH]); }
+      const xr = (sg) => hcx + sg * Math.max(0.3, rH(ys)) * HW * (d && sg === Rt ? ca * 0.9 : 1.04);
+      for (const [t, yy] of [[0.12, ys + 0.2], [0.3, yn - 0.06], [0.5, yn + 0.03], [0.7, yn - 0.06], [0.88, ys + 0.2]]) { const xa = xr(Rt), xb = xr(L); pts.push([xa + (xb - xa) * t, hy + HH * (yy + 0.02 * Math.sin(t * 23))]); }
+      const P = polyPath(pts);
+      if (o.hair === 'curly') for (let k = 0; k <= 12; k++) { const an = Math.PI * (0.95 + 1.1 * k / 12) + (d ? d * 0.15 : 0), x = hcx + Math.cos(an) * HW * 1.02, y = hy + Math.sin(an) * HH * 1.04; P.moveTo(x + HW * 0.2, y); P.arc(x, y, HW * 0.2, 0, TAU); }
+      if (o.hair === 'curly') for (let k = 0; k < 5; k++) { const x = hcx + (L + (Rt - L) * (k + 0.5) / 5) * HW * 0.78 * (d && k > 2 ? ca : 1), y = hy + HH * (yn + 0.02); P.moveTo(x + HW * 0.17, y); P.arc(x, y, HW * 0.17, 0, TAU); }
+      if (o.hair === 'spiky') for (let k = 0; k < 8; k++) { const an = Math.PI * (1.05 + 0.9 * k / 7); if (o.hat && Math.abs(Math.cos(an)) < 0.6) continue; const E2 = (a2, kk) => [hcx + Math.cos(a2) * HW * kk, hy - HH * 0.05 + Math.sin(a2) * HH * kk * 1.02], t = E2(an, 1.3); polyPath([E2(an - 0.15, 0.98), [t[0] + sway(k) - trail * 6, t[1]], E2(an + 0.15, 0.98), E2(an, 0.8)], P); }
+      { g.save(); g.clip(headP); g.translate(hcx, hy + HH * (yn + 0.05)); g.scale(1, 0.45); const gr = g.createRadialGradient(0, 0, 0, 0, 0, HW * 1.1); gr.addColorStop(0, 'rgba(110,80,160,0.42)'); gr.addColorStop(0.6, 'rgba(120,90,170,0.16)'); gr.addColorStop(1, 'rgba(120,90,170,0)'); g.globalCompositeOperation = 'multiply'; g.fillStyle = gr; g.fillRect(-HW * 1.2, -HW * 1.2, HW * 2.4, HW * 2.4); g.restore();
+        if (o.hair !== 'long') for (const s2 of [-1, 1]) taper(g, [[hcx + s2 * HW * 0.16 + d * HW * 0.1, hy + HH * (yn + 0.12)], [hcx + s2 * HW * 0.2 + d * HW * 0.1, hy + HH * 0.92]], 1.6, mixc(skin, INK, 0.35), 0.2); } // soft shadow under the hairline + nape tendons
+      cel(g, P, hc, 3.6, HW * 0.16, HH * 0.08, 7);
+      g.save(); g.clip(P); const sc = mixc(hc, INK, 0.4), cw0 = [hcx + d * HW * 0.1, hy - HH * 0.62];
+      for (let k = 0; k < 7; k++) { const an = -0.5 + k * 0.62 + (TT * 0.0); taper(g, [cw0, [cw0[0] + Math.cos(an) * HW * 0.35, cw0[1] + Math.abs(Math.sin(an)) * HH * 0.25 + HH * 0.1], [cw0[0] + Math.cos(an) * HW * 0.7, hy + HH * (yn - 0.05)]], 1.8, sc, 0.1); }
+      taper(g, arcPts(cw0[0], cw0[1], HW * 0.08, 0, Math.PI * 1.6, 8), 1.6, sc, 0.2); // crown whorl
+      const shn = [[hcx - SG * HW * 0.62, hy - HH * 0.58], [hcx - SG * HW * 0.3, hy - HH * 0.84], [hcx + SG * HW * 0.05, hy - HH * 0.9]]; taper(g, shn, 5.5, lt(hc, 0.3), 0.15);
+      g.restore(); }
+    if (o.hair === 'bald') { const P = new Path2D(), pts = [];
+      for (let k = 0; k <= 8; k++) pts.push(sh(-0.3 + 0.55 * k / 8, L, 1.02));
+      for (let k = 0; k <= 10; k++) { const t = k / 10; pts.push([hcx + (L + (Rt - L) * t) * HW * 0.9 * (d && t > 0.6 ? ca : 1), hy + HH * (0.28 + 0.06 * Math.sin(Math.PI * t))]); }
+      for (let k = 8; k >= 0; k--) { const yf = -0.3 + 0.55 * k / 8; pts.push(d ? [hcx + Rt * rH(yf) * HW * ca, hy + yf * HH] : sh(yf, Rt, 1.02)); }
+      for (let k = 10; k >= 0; k--) { const t = k / 10; pts.push([hcx + (L + (Rt - L) * t) * HW * 0.8 * (d && t > 0.6 ? ca : 1), hy + HH * (-0.12 + 0.18 * Math.sin(Math.PI * t))]); }
+      polyPath(pts, P); g.save(); g.clip(headP); cel(g, P, hc, 3, 4, 3, 0); g.restore();
+      if (!o.hat) taper(g, arcPts(hcx - HW * 0.1 * SG, hy - HH * 0.2, HW * 0.62, Math.PI * 1.25, Math.PI * 1.45, 6, HH * 0.66), 4, lt(skin, 0.5), 0.2); }
+    if (o.hair === 'bun') { const bx = hcx + d * HW * 0.12, by = hy - HH * 0.6; cel(g, ellP(bx, by, HW * 0.36, HH * 0.32), hc, 3.4, 8, 7, 3); taper(g, arcPts(bx, by, HW * 0.22, 3.4, 6.0, 8, HH * 0.18), 2.2, mixc(hc, INK, 0.4)); taper(g, [[bx - HW * 0.3, by + HH * 0.22], [bx + HW * 0.3, by + HH * 0.22]], 3, mixc(hc, '#c04a5a', 0.6), 0.3); }
+    // ears from behind: the back of the ear, cup hidden
+    if (o.hair !== 'long') for (const s of [-1, 1]) { const { X, vis } = earAt(s); if (vis < -0.05) continue; const ey0 = hy + HH * 0.1, out = Math.sign(X - hcx) || s;
+      cel(g, ellP(X + out * 2 * fz, ey0, 10 * fz * clamp(0.5 + vis, 0.55, 1), 17 * fz, out * 0.2), skin, 3, 3, 3, 0, null, SHADE_SKIN); taper(g, arcPts(X + out * 1 * fz, ey0, 5 * fz, out > 0 ? -1.2 : 4.3, out > 0 ? 1.2 : 1.9, 5, 10 * fz), 1.6, mixc(skin, INK, 0.45), 0.2); } }
   // near ear (turned views): on top of hair, behind the face features
-  if (turned && !earsHidden) drawEar(-Math.sign(HY || dv), false);
+  if (turned && !BACKH && !earsHidden) drawEar(-Math.sign(HY || dv), false);
   // hats
   // hats: crowns are solids of revolution (silhouette unchanged by yaw); brims are horizontal discs projected with the head yaw,
   // with per-angle curl/snap (so they turn), plus a band bow at the wearer's side and front creases that rotate with the head.
@@ -510,11 +588,8 @@ export function oddverra(g, o, op = {}) {
     taper(g, CL(HMP(rel([[-0.6 * SG, -0.86], [-0.2 * SG, -1.0], [0.15 * SG, -0.98]]))), 4, rgba(lt(hk, 0.4), 0.55), 0.2); g.restore();
     { const [bx] = cLean([hcx + Math.sin(HY) * HW * 0.12, hy - HH * 1.12]); cel(g, ellP(bx, hy - HH * 1.12, 7 * fz, 5 * fz), hk, 2.4, 2, 2, 0); }
     // visor: a half-disc in the horizontal plane at the brow, projected with the head yaw (+ a slight look-down)
-    { const vy = hy + HH * (cut + 0.03), Rr = HW * 0.88, pv = 0.1 * Math.cos(HY) + 0.1, VY = clamp(HY * 1.4, -HP_, HP_), hs2 = Math.sin(VY), hc2 = Math.cos(VY), Pv = (lat, fw) => [hx + lat * hc2 + fw * hs2, vy + (-lat * hs2 + fw * hc2) * pv];
-      const vp = []; for (let k = 0; k <= 12; k++) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * (0.62 + 0.45 * AH) * Math.sin(a) + HW * (0.42 + 0.06 * AH) * Math.sin(a))); }
-      for (let k = 12; k >= 0; k--) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * (0.62 + 0.45 * AH) * Math.sin(a))); }
-      cel(g, polyPath(vp), dk(hk, 0.82), 3.2, 6, 4, 3); taper(g, vp.slice(2, 11), 2, rgba(lt(hk, 0.35), 0.5), 0.1); }
-    if (o.neck === 'scarf') { const gy = hy + HH * (cut - 0.12); const G = (x) => hmapPt([hcx + x * HW, gy])[0]; line(g, [[G(-0.98), gy + 4], [G(0.98), gy + 4]], 7, INK); line(g, [[G(-0.96), gy + 4], [G(0.96), gy + 4]], 4, '#6a4428');
+    if (!BACKH) capVisor(hk, cut);
+    if (o.neck === 'scarf' && !BACKH) { const gy = hy + HH * (cut - 0.12); const G = (x) => hmapPt([hcx + x * HW, gy])[0]; line(g, [[G(-0.98), gy + 4], [G(0.98), gy + 4]], 7, INK); line(g, [[G(-0.96), gy + 4], [G(0.96), gy + 4]], 4, '#6a4428');
       for (const s of [-1, 1]) { if (HY && Math.cos(Math.asin(s * 0.3) + HY) < 0.25) continue; const gx = G(s * 0.3), k2 = HY ? Math.max(0.5, Math.cos(Math.asin(s * 0.3) + HY)) : 1; cel(g, ellP(gx, gy, 17 * fz * k2, 13 * fz), '#b08a4a', 3, 3, 2, 0); cel(g, ellP(gx, gy, 11 * fz * k2, 8 * fz), '#9cc8e0', 1.6, 4, 3, 0); g.beginPath(); g.arc(gx - 4 * fz * k2, gy - 3 * fz, 2.6 * fz, 0, TAU); g.fillStyle = '#fff'; g.fill(); } } }
   if (o.hat === 'bowler') { const hk = o.hatCol || '#2a2630', bY = hy - HH * 0.66;
     const crown = () => { const dm = new Path2D(); dm.moveTo(hx - HW * 0.8, bY); dm.bezierCurveTo(hx - HW * 0.86, bY - 118 * fz, hx + HW * 0.86, bY - 118 * fz, hx + HW * 0.8, bY); dm.closePath(); return dm; };
@@ -538,8 +613,8 @@ export function oddverra(g, o, op = {}) {
     for (const a0 of [-0.9, -0.3, 0.3, 0.9]) { const a = a0 + HY; if (Math.cos(a) < 0.05) continue; const X = hx + HW * 0.9 * Math.sin(a); taper(g, [[hx + (X - hx) * 0.3, bY - 104 * fz], [X, bY - 50 * fz], [X, bY + 4]], 1.6, fc, 0.1); }
     g.restore();
     // ties at the back: visible once the head turns
-    { const a = Math.PI + HY, d = Math.cos(a); if (d > -0.6) { const X = hx + HW * 0.92 * Math.sin(a), y = bY + 2; if (Math.abs(Math.sin(a)) > 0.4) { const sd = Math.sign(Math.sin(a)); cel(g, polyPath([[X, y - 4], [X + sd * 18 * fz, y + 26 * fz], [X + sd * 6 * fz, y + 30 * fz]]), hk, 2, 2, 2, 0); cel(g, polyPath([[X, y - 4], [X + sd * 26 * fz, y + 14 * fz], [X + sd * 20 * fz, y + 22 * fz]]), dk(hk, 0.9), 2, 2, 2, 0); } } } }
-  // ---------- face (local frame: head centre, unit = fz px) ----------
+    { const a = Math.PI + HY, d = Math.cos(a); if (d > -0.6) { const X = hx + HW * 0.92 * Math.sin(a), y = bY + 2; if (Math.abs(Math.sin(a)) <= 0.4 && d > 0.6) for (const sd of [-1, 1]) cel(g, polyPath([[X, y - 2], [X + sd * 10 * fz, y + 34 * fz], [X + sd * 2 * fz, y + 36 * fz]]), dk(hk, 0.92), 2, 2, 2, 0); if (Math.abs(Math.sin(a)) > 0.4) { const sd = Math.sign(Math.sin(a)); cel(g, polyPath([[X, y - 4], [X + sd * 18 * fz, y + 26 * fz], [X + sd * 6 * fz, y + 30 * fz]]), hk, 2, 2, 2, 0); cel(g, polyPath([[X, y - 4], [X + sd * 26 * fz, y + 14 * fz], [X + sd * 20 * fz, y + 22 * fz]]), dk(hk, 0.9), 2, 2, 2, 0); } } } }
+  if (!BACKH) { // ---------- face (local frame: head centre, unit = fz px) ----------
   const E = expr, red = '#e0303a', w = HW / fz;
   const exciteE = E === 'excited', angryE = E === 'angry', meanE = E === 'mean' || E === 'smug', sadE = E === 'sad', shockE = E === 'shock' || E === 'surprised';
   const smileK = SMILEY[E] || 0;
@@ -626,8 +701,16 @@ export function oddverra(g, o, op = {}) {
     taper(g, arcPts(0, my + mh + 7, mw * 0.4, Math.PI * 0.2, Math.PI * 0.8, 5, 3), 1.6, mixc(skin, INK, 0.4), 0.2); }
   const oval = (mw, mh, dy = 4, tongue = true) => { g.beginPath(); g.ellipse(0, my + dy, mw, mh, 0, 0, TAU); g.fillStyle = MC; g.fill(); if (tongue) { g.save(); g.clip(); g.fillStyle = TG; g.beginPath(); g.ellipse(0, my + dy + mh * 0.85, mw * 0.65, mh * 0.5, 0, 0, TAU); g.fill(); g.restore(); } g.beginPath(); g.ellipse(0, my + dy, mw, mh, 0, 0, TAU); g.lineWidth = 2.6; g.strokeStyle = INK; g.stroke(); };
   const cheekTicks = (mw) => { for (const s of [-1, 1]) taper(g, arcPts(s * (mw + 8), my - 9, 5, s > 0 ? -0.4 : Math.PI - 1.0, s > 0 ? 1.0 : Math.PI + 0.4, 5), 1.6, mixc(skin, INK, 0.45), 0.2); };
-  if (op.talk != null && E !== 'angry' && E !== 'pained') { const k = op.talk, vis = ['A', 'E', 'O', 'A', 'E', 'M'][Math.floor(hsh(Math.floor(TT / 3), 11) * 6)], up = smileK ? 1 : 0.4;
-    if (k < 0.08 || vis === 'M') { taper(g, [[-11, my - 3 * up], [0, my + 1], [11, my - 3 * up]], 3.4, INK, 0.3); if (k >= 0.08) taper(g, [[-6, my + 6], [6, my + 6]], 1.4, mixc(skin, INK, 0.35), 0.3); }
+  // speech: op.say = { text, t0, t1 } (frames) maps letters to visemes across [t0, t1]; op.sayEnv (per-frame RMS) is the fallback;
+  // op.talk (0..1) still works for direct callers. No narrator lip-sync: main.js passes talk: null.
+  let tk = op.talk, vz = null;
+  if (op.say && op.say.text && op.frame != null) { const { text, t0, t1 } = op.say; if (op.frame >= t0 && op.frame <= t1 && text.length) { const ch = text[Math.min(text.length - 1, Math.floor((op.frame - t0) / Math.max(1, t1 - t0) * text.length))].toLowerCase();
+      vz = /[aáàâh]/.test(ch) ? 'A' : /[eéèêiíy]/.test(ch) ? 'E' : /[oóôuúwq]/.test(ch) ? 'O' : /[mbp]/.test(ch) ? 'M' : /[fv]/.test(ch) ? 'F' : /[a-z]/.test(ch) ? 'D' : 'R';
+      tk = { A: 0.75, E: 0.5, O: 0.6, M: 0.3, F: 0.3, D: 0.32, R: 0 }[vz]; if (vz === 'D') vz = 'E'; } else tk = null; }
+  else if (op.sayEnv && op.frame != null) tk = op.sayEnv[Math.min(op.sayEnv.length - 1, Math.max(0, op.frame))] ?? null;
+  if (tk != null && E !== 'angry' && E !== 'pained') { const k = tk, vis = vz || ['A', 'E', 'O', 'A', 'E', 'M'][Math.floor(hsh(Math.floor(TT / 3), 11) * 6)], up = smileK ? 1 : 0.4;
+    if (vis === 'F') { taper(g, [[-11, my - 2 * up], [0, my + 1], [11, my - 2 * up]], 3.2, INK, 0.3); g.beginPath(); g.ellipse(0, my + 4, 8, 3, 0, 0, Math.PI); g.fillStyle = '#c25a6a'; g.fill(); taper(g, arcPts(0, my + 4, 8, 0.1, Math.PI - 0.1, 6, 3), 1.6, mixc(skin, INK, 0.4), 0.2); }
+    else if (k < 0.08 || vis === 'M' || vis === 'R') { taper(g, [[-11, my - 3 * up], [0, my + 1], [11, my - 3 * up]], 3.4, INK, 0.3); if (k >= 0.08) taper(g, [[-6, my + 6], [6, my + 6]], 1.4, mixc(skin, INK, 0.35), 0.3); }
     else if (vis === 'O') oval(6 + 5 * k, 5 + 10 * k, 4);
     else if (vis === 'E') openMouth(13 + 8 * k, 3 + 8 * k, up, false);
     else openMouth(9 + 9 * k, 4 + 14 * k, up, true);
@@ -654,6 +737,7 @@ export function oddverra(g, o, op = {}) {
   if (E === 'nervous' || E === 'shock' || E === 'worried') { const x = (turned ? -dv : 1) * w * 0.8 + mo, y = -42; g.beginPath(); g.moveTo(x, y - 14); g.quadraticCurveTo(x + 10, y + 4, x, y + 8); g.quadraticCurveTo(x - 10, y + 4, x, y - 14); g.fillStyle = '#9fd8ff'; g.fill(); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(); g.beginPath(); g.arc(x - 2.5, y + 1, 2, 0, TAU); g.fillStyle = '#fff'; g.fill(); }
   if (exciteE) for (const [sx, sy, rr0] of [[-w - 14, -66, 10], [w + 10, -84, 8], [w + 20, -22, 6]]) { g.beginPath(); for (let k = 0; k < 8; k++) { const rr = k % 2 ? rr0 * 0.32 : rr0, an = k * Math.PI / 4; g.lineTo(sx + rr * Math.cos(an), sy + rr * Math.sin(an)); } g.closePath(); g.fillStyle = '#ffe14a'; g.fill(); g.lineWidth = 1.8; g.strokeStyle = INK; g.stroke(); }
   g.restore();
+  } // face
   g.translate(cx, shY); g.rotate(-tilt); g.translate(-cx, -shY);
   for (const a of arms) if (!farArm(a) && raisedLate(a)) drawArm(a);
   g.restore(); // upper (lean) + head tilt
