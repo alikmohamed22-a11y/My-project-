@@ -9,6 +9,8 @@ const Q = new URLSearchParams(location.search);
 const RS = +(Q.get('rs') || 1), NOCAP = Q.get('nocap') === '1', SAFE = Q.get('safe') === '1', STORY = Q.get('story');
 const story = await import(STORY ? `./story_${STORY}.js` : './story.js');
 const { SHOTS, LEN } = story;
+const SLEN = story.STORYLEN || LEN, TM = story.TMAP || null; // optional output->story time map (slowed voice)
+function tmap(f) { if (!TM) return f; let i = 0; while (i < TM.length - 2 && f > TM[i + 1][0]) i++; const [a0, b0] = TM[i], [a1, b1] = TM[i + 1]; return b0 + (b1 - b0) * (f - a0) / (a1 - a0); }
 const cv = document.createElement('canvas'); cv.width = Math.round(W * RS); cv.height = Math.round(H * RS);
 cv.style.cssText = 'display:block;width:100vw;height:auto'; document.body.appendChild(cv);
 const ctx = cv.getContext('2d');
@@ -61,9 +63,10 @@ function drawShot(sh, f, idx) {
   return x;
 }
 const WHIP = 7;
-function frame(f) {
-  f = clamp(Math.round(f), 0, LEN - 1);
+function frame(fo) {
+  fo = clamp(Math.round(fo), 0, LEN - 1); let f = TM ? clamp(tmap(fo), 0, SLEN - 1) : fo;
   ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'; ctx.filter = 'none'; ctx.fillStyle = '#111'; ctx.fillRect(0, 0, W, H);
+  if (TM) { const j = SHOTS.findIndex((s) => f >= s.a && f < s.b); if (j > 0 && f - SHOTS[j].a < 1) f = SHOTS[j].a; } // land exactly on cut frames
   const i = SHOTS.findIndex((s) => f >= s.a && f < s.b); const idx = i < 0 ? SHOTS.length - 1 : i; const sh = SHOTS[idx];
   const lf = f - sh.a, c = sh.cam || {};
   if (sh.whip && lf < WHIP && idx > 0) { // whip-pan: old shot flies out, new flies in, with directional motion blur
@@ -86,7 +89,7 @@ function frame(f) {
   if (sh.flash) flash(ctx, 1 - lf / sh.flash);
   for (const fl of sh.flashes || []) if (lf >= fl[0]) flash(ctx, (1 - (lf - fl[0]) / (fl[1] || 4)) * (fl[2] || 1), fl[3]);
   paper(0.08); grain(ctx, 0.06);
-  if (!NOCAP && story.CAPTIONS !== false) drawCaptions(ctx, f);
+  if (!NOCAP && story.CAPTIONS !== false) drawCaptions(ctx, fo);
   if (SAFE) { ctx.save(); ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.fillStyle = 'rgba(255,0,80,0.28)'; ctx.fillRect(0, H * 0.78, W, H * 0.22); ctx.fillStyle = 'rgba(255,0,80,0.15)'; ctx.fillRect(W * 0.86, H * 0.45, W * 0.14, H * 0.33); ctx.fillStyle = '#fff'; ctx.font = '700 30px Inter'; ctx.fillText('IG UI ZONE', 30, H * 0.78 + 40); ctx.restore(); }
 }
 
