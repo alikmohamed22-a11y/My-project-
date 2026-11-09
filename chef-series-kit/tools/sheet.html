@@ -1,0 +1,86 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#222}</style></head><body><canvas id="c"></canvas>
+<script type="module">
+import { drawChar, CAST, REL_H, bounds, EXPRS, POSES } from './cast2d.js';
+const q = new URLSearchParams(location.search), sheet = q.get('s') || '1';
+const c = document.getElementById('c'), g = c.getContext('2d');
+const BG = ['#2b3a6b', '#1f7a7a', '#c4622d', '#5b3a72', '#d9a628'];
+function grid(cols, rows, cw, ch, cells) {
+  c.width = cols * cw; c.height = rows * ch;
+  cells.forEach((cell, i) => {
+    const x = (i % cols) * cw, y = Math.floor(i / cols) * ch;
+    g.save(); g.beginPath(); g.rect(x, y, cw, ch); g.clip();
+    g.fillStyle = cell.bg || BG[(i + Math.floor(i / cols)) % 3]; g.fillRect(x, y, cw, ch);
+    g.translate(x, y); cell.draw(g, cw, ch);
+    g.fillStyle = '#fff'; g.font = '600 20px sans-serif'; g.fillText(cell.label || '', 8, 24);
+    g.restore();
+  });
+}
+const lerp = (a, b, t) => a + (b - a) * t;
+const views = ['front', '34R', 'sideR', '34L', 'sideL', 'back'];
+const full = (name, o, dc = drawChar) => (g, w, h) => { const H = (o.hh || 0.78) * h * (REL_H[name] || 1) / 1.12; dc(g, name, { x: w / 2, y: h - 30, h: H, t: 0, view: 'front', pose: 'stand', seed: 3, ...o }); };
+const bust = (name, o, H = 900, dc = drawChar) => (g, w, h) => { dc(g, name, { x: w / 2, y: h / 2 + 0.82 * H * (REL_H[name] || 1) - 15, h: H * (REL_H[name] || 1), t: 5, seed: 3, ...o }); };
+const easeIO = (u) => u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+// 60-frame acting test: head turn L->R, anticipation squash, cheer + jump
+function animOpts(f) {
+  const o = { t: f, pose: 'stand', expr: 'neutral', rig: {} };
+  if (f < 26) o.rig.headTurn = lerp(-0.9, 0.9, easeIO(Math.min(1, Math.max(0, f) / 22)));
+  else {
+    o.rig.headTurn = 0.9 * (1 - easeIO(Math.min(1, (f - 26) / 8)));
+    const a = f - 30;
+    if (a >= 0) { o.exprPrev = 'neutral'; o.expr = 'excited'; o.exprT = a; }
+    o.rig.squash = a < 0 ? 0 : a < 6 ? 0.22 * Math.sin(a / 6 * Math.PI / 2) : a < 9 ? lerp(0.22, -0.2, (a - 6) / 3) : a < 22 ? lerp(-0.2, 0, (a - 9) / 13) : a < 26 ? 0.18 * Math.sin((a - 22) / 4 * Math.PI) : 0;
+    o.rig.jump = a < 6 || a > 22 ? 0 : 160 * Math.sin((a - 6) / 16 * Math.PI);
+    o.pose2 = 'cheer'; o.mix = easeIO(Math.min(1, Math.max(0, (a - 4) / 7)));
+  }
+  return o;
+}
+let cells = [];
+if (sheet === '1') { for (const n of CAST) for (const v of views) cells.push({ label: n + ' ' + v, draw: full(n, { view: v }) }); grid(6, 6, 300, 480, cells); }
+if (sheet === '2') { for (const e of EXPRS) cells.push({ label: e, draw: bust('SAM', { expr: e, view: e === 'smug' || e === 'smirk' ? '34R' : 'front', saccade: false }) }); grid(7, 3, 340, 340, cells); }
+if (sheet === '2b') { for (const n of ['HEADCHEF', 'ROOMMATE', 'MOM']) for (const e of ['neutral', 'smirk', 'wince', 'dreamy', 'determined', 'mortified', 'blank']) cells.push({ label: n.slice(0, 4) + ' ' + e, draw: bust(n, { expr: e, saccade: false }, 820) }); grid(7, 3, 300, 320, cells); }
+if (sheet === '3') { POSES.forEach((p) => cells.push({ label: p, draw: full('SAM', { pose: p, t: ['walk', 'stir', 'fanSmoke', 'fall', 'typing'].includes(p) ? 4 : 6, view: ['walk', 'point', 'hold', 'bow', 'tiptoe'].includes(p) ? '34R' : 'front', prop: p === 'hold' || p === 'holdUp' ? 'egg' : p === 'phone' ? 'phone' : p === 'fanSmoke' ? 'towel' : null, expr: { cheer: 'excited', facepalm: 'mortified', shrug: 'confused', holdUp: 'proud', point: 'happy', lookUp: 'dreamy', salute: 'determined', bow: 'happy', tiptoe: 'nervous', crackEgg: 'determined', stir: 'determined', fanSmoke: 'wince', typing: 'neutral', fall: 'panic', proudChest: 'proud' }[p] || 'neutral', phoneGlow: p === 'phone' ? 1 : 0 }) })); grid(8, 3, 270, 480, cells); }
+if (sheet === '3b') { for (const p of ['bow', 'tiptoe', 'stir', 'fanSmoke', 'fall', 'salute']) for (const v of ['sideR', '34L']) cells.push({ label: p + ' ' + v, draw: full('SAM', { pose: p, view: v, t: 8, prop: p === 'fanSmoke' ? 'towel' : null, expr: 'neutral' }) }); grid(6, 2, 270, 480, cells); }
+if (sheet === '4') {
+  const L = [['HEADCHEF', 'stand', 'stern', 'front'], ['HEADCHEF', 'point', 'stern', '34L'], ['HEADCHEF', 'nod', 'smug', 'front'], ['HEADCHEF', 'proudChest', 'smirk', '34R'],
+    ['ROOMMATE', 'hold', 'deadpan', '34R', 'grocerybag'], ['ROOMMATE', 'shrug', 'confused', 'front'], ['ROOMMATE', 'walk', 'deadpan', 'sideR', 'grocerybag'], ['ROOMMATE', 'stand', 'blank', 'front'],
+    ['MOM', 'stand', 'neutral', 'front'], ['MOM', 'typing', 'stern', 'front', 'phone'], ['MOM', 'facepalm', 'mortified', 'front'], ['SAM_CHEF', 'holdUp', 'proud', '34R', 'spatula'],
+    ['SAM_SOOT', 'fanSmoke', 'wince', 'front', 'towel'], ['SAM_SOOT', 'shrug', 'grin', '34L'], ['SAM_CHEF', 'proudChest', 'proud', 'front'], ['SAM_CHEF', 'salute', 'determined', 'front']];
+  for (const [n, p, e, v, pr] of L) cells.push({ label: `${n} ${p}`, draw: full(n, { pose: p, expr: e, view: v, prop: pr || null, t: 7 }) });
+  grid(8, 2, 270, 480, cells);
+}
+if (sheet === '4b') {
+  const L = [['MOM', 'neutral'], ['MOM', 'stern'], ['MOM', 'shock'], ['MOM', 'happy'], ['HEADCHEF', 'stern'], ['HEADCHEF', 'smug'], ['ROOMMATE', 'deadpan'], ['ROOMMATE', 'confused'], ['SAM_CHEF', 'proud'], ['SAM_SOOT', 'nervous']];
+  for (const [n, e] of L) cells.push({ label: n + ' ' + e, draw: (g, w, h) => { const b0 = bounds(n, { x: 0, y: 0, h: 1000, view: 'front', pose: 'stand', t: 0 }); const H = 1000 * (w * 0.5) / (b0.head.r * 2.4); drawChar(g, n, { x: w / 2, y: h * 0.52 - (b0.head.y / 1000) * H, h: H, expr: e, view: n === 'ROOMMATE' && e === 'confused' ? '34L' : 'front', t: 0, seed: 3, saccade: false }); } });
+  grid(5, 2, 340, 400, cells);
+}
+if (sheet === '5') { for (let i = 0; i < 8; i++) cells.push({ label: 'walk ' + i, draw: full('SAM', { pose: 'walk', view: 'sideR', t: i * 2.5 }) }); for (let i = 0; i < 4; i++) cells.push({ label: 'walk34L ' + i, draw: full('SAM', { pose: 'walk', view: '34L', t: i * 5 }) }); grid(6, 2, 300, 480, cells); }
+if (sheet === '6') { for (const p of ['phone', 'egg', 'pot', 'noodlecup', 'grocerybag', 'spatula']) cells.push({ label: p, draw: full('SAM', { pose: 'hold', view: '34R', prop: p, expr: 'happy' }) }); cells.push({ label: 'micro sparks light', draw: full('SAM', { pose: 'hold', view: '34L', prop: 'noodlecup', expr: 'shock', light: { col: '#ffb04a', amt: 1, dir: -1 } }) }); cells.push({ label: 'night phone glow', bg: '#141a33', draw: full('SAM', { pose: 'phone', view: 'front', prop: 'phone', phoneGlow: 1, expr: 'neutral' }) }); cells.push({ label: 'rim cool', bg: '#141a33', draw: full('SAM', { pose: 'stand', view: '34R', rim: 'cool', expr: 'determined' }) }); grid(9, 1, 260, 480, cells); }
+if (sheet === '7') { const text = "I'm a chef now."; for (let i = 0; i < 16; i++) { const t = i * 2; cells.push({ label: 't' + t, draw: bust('SAM_CHEF', { expr: 'proud', t, say: { text, t0: 0, t1: 30 }, saccade: false }, 800) }); } grid(8, 2, 260, 300, cells); }
+if (sheet === '8') { c.width = 1080; c.height = 1350; g.fillStyle = q.get('bg') || '#1f7a7a'; g.fillRect(0, 0, 1080, 1350); const H = +(q.get('h') || 4000); drawChar(g, q.get('n') || 'SAM', { x: 540, y: 560 + H * 0.82, h: H, expr: q.get('e') || 'excited', t: 0, seed: 3, saccade: false, view: q.get('v') || 'front', pose: q.get('p') || 'stand', prop: q.get('pr'), light: q.get('l') ? { col: '#ffb04a', amt: 1, dir: -1 } : null, phoneGlow: +(q.get('g') || 0) }); }
+if (sheet === '8h') { c.width = 1080; c.height = 1350; g.fillStyle = '#5b3a72'; g.fillRect(0, 0, 1080, 1350); const H = 3600; drawChar(g, q.get('n') || 'SAM', { x: 380, y: 1350 + H * 0.3, h: H, expr: 'happy', t: 0, seed: 3, pose: q.get('p') || 'point', view: '34R', saccade: false }); }
+if (sheet === '9') { for (const n of ['SAM', 'HEADCHEF', 'MOM']) for (let i = 0; i < 9; i++) { const ht = -1 + i / 4; cells.push({ label: n.slice(0, 4) + ' ' + ht.toFixed(2), draw: bust(n, { expr: 'happy', rig: { headTurn: ht }, saccade: false, secondary: false }, 760) }); } grid(9, 3, 240, 280, cells); }
+if (sheet === '10') { for (const p2 of ['point', 'cheer', 'lookUp', 'bow']) for (let i = 0; i < 6; i++) { const mix = i / 5; cells.push({ label: `→${p2} ${mix.toFixed(1)}`, draw: full('SAM', { pose: 'stand', pose2: p2, mix, view: p2 === 'bow' ? 'sideR' : p2 === 'point' ? '34R' : 'front', expr: 'neutral', expr2: { point: 'happy', cheer: 'excited', lookUp: 'dreamy', bow: 'happy' }[p2], exprMix: mix, saccade: false }) }); } grid(6, 4, 240, 440, cells); }
+if (sheet === '11') { const L = [[0, 0], [0.15, 0], [0.3, 0], [-0.15, 0], [-0.3, 60], [0, 120], [0, 200], [0.3, 0]]; for (const [sq, j] of L) cells.push({ label: `sq ${sq} jump ${j}`, draw: full('SAM_CHEF', { expr: 'excited', rig: { squash: sq, jump: j }, pose: 'cheer', t: 0 }) }); for (const r of [{ bodyLean: 15 }, { bodyLean: -15, headTilt: 12 }, { hipShift: 3 }, { shoulderL: 60, shoulderR: 100, elbowR: 60 }, { shoulderR: 150, elbowR: 30, wristR: 40 }, { headNod: 1 }, { headNod: -1 }, { headTurn: 0.5, headTilt: -10 }]) cells.push({ label: JSON.stringify(r).replace(/[{}"]/g, ''), draw: full('SAM', { rig: r, expr: 'neutral', saccade: false }) }); grid(8, 2, 260, 480, cells); }
+if (sheet === '12') {
+  const v1 = await import('./cast2d_v1.js');
+  for (const [n, e, p, v] of [['SAM', 'happy', 'stand', 'front'], ['HEADCHEF', 'stern', 'stand', '34R'], ['ROOMMATE', 'deadpan', 'hold', '34R']]) {
+    const pr = n === 'ROOMMATE' ? 'grocerybag' : null;
+    cells.push({ label: n + ' v1', draw: full(n, { expr: e, pose: p, view: v, prop: pr }, v1.drawChar) });
+    cells.push({ label: n + ' v2', draw: full(n, { expr: e, pose: p, view: v, prop: pr, saccade: false }) });
+    cells.push({ label: n + ' v1 bust', draw: bust(n, { expr: e, view: v }, 820, v1.drawChar) });
+    cells.push({ label: n + ' v2 bust', draw: bust(n, { expr: e, view: v, saccade: false }, 820) });
+  }
+  grid(4, 3, 340, 470, cells);
+}
+if (sheet === '13') { for (const [a, b] of [['neutral', 'shock'], ['happy', 'mortified']]) for (let i = 0; i < 8; i++) cells.push({ label: `${a}→${b} T${i}`, draw: bust('SAM', { exprPrev: a, expr: b, exprT: i, saccade: false }, 760) }); grid(8, 2, 240, 280, cells); }
+if (sheet === '14') { // secondary motion: SAM_CHEF hop (toque lag) + MOM fast head whip (curls/chain)
+  const hop = (t) => ({ t, rig: { jump: t < 4 || t > 20 ? 0 : 140 * Math.sin((t - 4) / 16 * Math.PI), squash: t < 4 ? 0.2 * t / 4 : t < 7 ? lerp(0.2, -0.2, (t - 4) / 3) : t > 20 && t < 25 ? 0.22 * Math.sin((t - 20) / 5 * Math.PI) : 0 } });
+  const whip = (t) => ({ t, rig: { headTurn: t < 6 ? -0.8 : t < 12 ? lerp(-0.8, 0.8, easeIO((t - 6) / 6)) : 0.8, headTilt: t < 6 ? 0 : t < 12 ? 10 * (t - 6) / 6 : 10 } });
+  for (let i = 0; i < 10; i++) { const t = i * 3; cells.push({ label: 'hop t' + t, draw: (g, w, h) => { g.scale(0.5, 0.5); drawChar(g, 'SAM_CHEF', { x: w, y: h * 2 - 40, h: 460, seed: 3, expr: 'excited', pose: 'stand', ...hop(t), track: hop }); } }); }
+  for (let i = 0; i < 10; i++) { const t = 4 + i * 1.5; cells.push({ label: 'whip t' + t, draw: bust('MOM', { expr: 'shock', ...whip(t), track: whip }, 700) }); }
+  grid(10, 2, 200, 300, cells);
+}
+if (sheet === 'anim') { const f = +(q.get('f') || 0); c.width = 540; c.height = 760; g.fillStyle = '#1f7a7a'; g.fillRect(0, 0, 540, 760); g.fillStyle = '#18605f'; g.fillRect(0, 640, 540, 120); drawChar(g, 'SAM', { x: 270, y: 690, h: 520, seed: 3, ...animOpts(f), track: (t) => animOpts(t) }); }
+if (sheet === 'animStrip') { for (let i = 0; i < 20; i++) { const f = i * 3; cells.push({ label: 'f' + f, draw: (g, w, h) => { g.scale(0.4, 0.4); drawChar(g, 'SAM', { x: w * 1.25, y: h * 2.5 - 40, h: 480, seed: 3, ...animOpts(f), track: (t) => animOpts(t) }); } }); } grid(10, 2, 200, 340, cells); }
+window.done = true;
+</script></body></html>
