@@ -19,6 +19,11 @@ Also made (check whether posted):
 - Dancing Plague of 1518
 - Acoustic Kitty (CIA spy cat): posted 2026-11-08
 
-In production: the Mona Lisa theft of 1911.
+- Mona Lisa theft of 1911: posted
+- Edwin Booth saved Lincoln's son (Robert Lincoln at three assassinations): delivered 2026-11-10
+
+In production: CIA plots against Castro (beard thallium, cigars, seashell, diving suit). New sets only; no reuse of the Acoustic Kitty CIA lab.
+
+Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
 
 **Lesson:** the best performer pairs a famous subject (Titanic) with a surprising personal twist. Prefer famous hooks.
