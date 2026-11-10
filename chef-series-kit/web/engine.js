@@ -9,7 +9,8 @@ const Q = new URLSearchParams(location.search);
 const RS = +(Q.get('rs') || 1), NOCAP = Q.get('nocap') === '1', SAFE = Q.get('safe') === '1', STORY = Q.get('story');
 const story = await import(STORY ? `./story_${STORY}.js` : './story.js');
 const { SHOTS, LEN } = story;
-const SLEN = story.STORYLEN || LEN, TM = story.TMAP || null; // optional output->story time map (slowed voice)
+const SLEN = story.STORYLEN || LEN, TM = story.TMAP || null, SEG = story.SEGMAP || null; // SEGMAP: [[out0,out1,src0],...] maps output frames to source(output-time) frames before TMAP
+function segmap(f) { if (!SEG) return f; for (const [a, b, s0] of SEG) if (f >= a && f < b) return s0 + (f - a); const l = SEG[SEG.length - 1]; return l[2] + (l[1] - l[0]) - 1; } // optional output->story time map (slowed voice)
 function tmap(f) { if (!TM) return f; let i = 0; while (i < TM.length - 2 && f > TM[i + 1][0]) i++; const [a0, b0] = TM[i], [a1, b1] = TM[i + 1]; return b0 + (b1 - b0) * (f - a0) / (a1 - a0); }
 const cv = document.createElement('canvas'); cv.width = Math.round(W * RS); cv.height = Math.round(H * RS);
 cv.style.cssText = 'display:block;width:100vw;height:auto'; document.body.appendChild(cv);
@@ -58,13 +59,14 @@ function paper(a = 0.07) {
 function drawShot(sh, f, idx) {
   const lf = f - sh.a, len = sh.b - sh.a, c = sh.cam || {};
   ctx.save(); const x = camXform(c, lf, len); applyCamX(ctx, x);
+  if (sh.breathe !== false) { const u = lf / Math.max(1, len), k = 1 + 0.028 * u, dx = Math.sin(lf * 0.045 + sh.a) * 3.2, dy = Math.cos(lf * 0.037 + sh.a * 0.7) * 2.4; ctx.translate(W / 2 + dx, H * 0.45 + dy); ctx.scale(k, k); ctx.translate(-W / 2, -H * 0.45); } // always-on slow push + drift (no frozen holds)
   CAM.cur = { spec: c, lf, len, x, x0: camXform(c, 0, len), base: ctx.getTransform(), id: `${idx}:${sh.a}`, rs: RS, focus: focusAt(c, lf) };
   try { sh.draw(ctx, lf, f, lf / FPS, len); } finally { CAM.cur = null; ctx.restore(); }
   return x;
 }
 const WHIP = 7;
 function frame(fo) {
-  fo = clamp(Math.round(fo), 0, LEN - 1); let f = TM ? clamp(tmap(fo), 0, SLEN - 1) : fo;
+  fo = clamp(Math.round(fo), 0, LEN - 1); let f = TM ? clamp(tmap(segmap(fo)), 0, SLEN - 1) : fo;
   ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'; ctx.filter = 'none'; ctx.fillStyle = '#111'; ctx.fillRect(0, 0, W, H);
   if (TM) { const j = SHOTS.findIndex((s) => f >= s.a && f < s.b); if (j > 0 && f - SHOTS[j].a < 1) f = SHOTS[j].a; } // land exactly on cut frames
   const i = SHOTS.findIndex((s) => f >= s.a && f < s.b); const idx = i < 0 ? SHOTS.length - 1 : i; const sh = SHOTS[idx];
