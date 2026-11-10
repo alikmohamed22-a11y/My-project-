@@ -132,11 +132,58 @@ const HOLD = {
   mona: (g) => { const W = 110, H = 150; g.save(); g.translate(-W / 2, -H - 6); if (globalThis.__drawMona) { g.save(); g.beginPath(); g.rect(0, 0, W, H); g.clip(); globalThis.__drawMona(g, W, H); g.restore(); } else { g.fillStyle = '#5a6a4a'; g.fillRect(0, 0, W, H); g.fillStyle = '#2a2018'; g.beginPath(); g.ellipse(W / 2, H * 0.62, 34, 50, 0, 0, 7); g.fill(); g.fillStyle = '#e8c49a'; g.beginPath(); g.ellipse(W / 2, H * 0.36, 17, 22, 0, 0, 7); g.fill(); }
     g.lineWidth = 4; g.strokeStyle = '#2b1d4a'; g.strokeRect(0, 0, W, H); g.restore(); },
   framed: (g) => { const W = 150, H = 196; g.save(); g.translate(-W / 2, -H - 4); g.fillStyle = '#b8862a'; g.fillRect(0, 0, W, H); g.lineWidth = 4; g.strokeStyle = '#2b1d4a'; g.strokeRect(0, 0, W, H); g.fillStyle = '#e0b84a'; g.fillRect(8, 8, W - 16, 6); g.save(); g.translate(20, 20); if (globalThis.__drawMona) { g.beginPath(); g.rect(0, 0, W - 40, H - 40); g.clip(); globalThis.__drawMona(g, W - 40, H - 40); } else { g.fillStyle = '#5a6a4a'; g.fillRect(0, 0, W - 40, H - 40); } g.restore(); g.strokeRect(20, 20, W - 40, H - 40); g.restore(); },
+  // [BOOTH-story] a folded letter held up to read, and Hamlet's prop skull
+  letter: (g) => { const p = polyPath([[-46, -150], [46, -146], [44, -4], [-44, -8]]); cel(g, p, '#f2e8d2', 4, 8, 5, 3); g.strokeStyle = 'rgba(42,36,64,0.65)'; g.lineWidth = 3; for (let i = 0; i < 7; i++) { g.beginPath(); g.moveTo(-32, -128 + i * 16); g.lineTo(i === 6 ? 2 : 30, -127 + i * 16); g.stroke(); } g.strokeStyle = 'rgba(120,100,80,0.35)'; g.beginPath(); g.moveTo(-45, -78); g.lineTo(45, -76); g.stroke(); },
+  skull: (g) => { const p = new Path2D(); p.moveTo(-34, -40); p.bezierCurveTo(-40, -110, 40, -110, 34, -40); p.quadraticCurveTo(30, -18, 18, -14); p.lineTo(16, 0); p.lineTo(-16, 0); p.lineTo(-18, -14); p.quadraticCurveTo(-30, -18, -34, -40); p.closePath(); cel(g, p, '#ece2c8', 4.5, 10, 7, 4);
+    g.fillStyle = INK; for (const s of [-1, 1]) { g.beginPath(); g.ellipse(s * 14, -46, 10, 12, 0, 0, TAU); g.fill(); } g.beginPath(); g.moveTo(0, -32); g.lineTo(-5, -22); g.lineTo(5, -22); g.closePath(); g.fill(); g.lineWidth = 2.5; g.strokeStyle = INK; for (let i = -2; i <= 2; i++) { g.beginPath(); g.moveTo(i * 6, -12); g.lineTo(i * 6, -2); g.stroke(); } },
   megaphone: (g) => { cel(g, polyPath([[-10, -20], [-40, -150], [60, -150], [20, -20]]), '#e8e4dc', 4.5, 14, 6, 5); cel(g, ((p) => { p.rect(-46, -160, 112, 15); return p; })(new Path2D()), '#c0453a', 4, 6, 3, 0); },
 };
+// [CASTRO-cast] props: cigar (lit tip, op.smoke wisp), cigarbox, giftbox, shoe (op.dust powder), seashell (pink conch; op.painted = bright bands)
+// HOLD fns get (g, op); HSIDE = which way the holding hand points (+1 screen right) so long props point away from the body
+let HSIDE = 1;
+const smokeWisp = (g, x, y, t, k = 1) => { g.save(); g.lineCap = 'round'; for (let j = 0; j < 3; j++) { const ph = t * 0.09 + j * 2.1, pts = [];
+  for (let i = 0; i <= 12; i++) { const u = i / 12; pts.push([x + Math.sin(ph + u * 5.5) * (6 + 16 * u) * k + j * 5 * k, y - u * 150 * k - j * 8]); }
+  g.globalAlpha = 0.8 - j * 0.2; taper(g, pts, (11 - j * 3) * k, j ? '#f2eefa' : '#d6cce8', 0.1); } g.restore(); };
+const cigarAt = (g, x0, y0, ang, L, R, lit, t, smoke) => { g.save(); g.translate(x0, y0); g.rotate(ang);
+  const b = new Path2D(); b.moveTo(0, -R); b.lineTo(L - 4, -R); b.quadraticCurveTo(L, -R, L, 0); b.quadraticCurveTo(L, R, L - 4, R); b.lineTo(0, R * 0.9); b.quadraticCurveTo(-R * 1.6, 0, 0, -R); b.closePath();
+  cel(g, b, '#8a5232', 2.6, 0, R * 0.7, 2); g.save(); g.clip(b); g.strokeStyle = 'rgba(60,30,20,0.35)'; g.lineWidth = 1.2; for (let i = 0; i < 6; i++) { g.beginPath(); g.moveTo(L * 0.12 + i * L * 0.16, -R); g.lineTo(L * 0.2 + i * L * 0.16, R); g.stroke(); }
+  g.fillStyle = 'rgba(255,220,170,0.35)'; g.fillRect(0, -R * 0.75, L, R * 0.3); g.restore();
+  const bd = new Path2D(); bd.rect(L * 0.1, -R * 1.02, L * 0.11, R * 2.04); cel(g, bd, '#c8302c', 1.6, 0, 0, 0); g.fillStyle = '#e8c050'; g.fillRect(L * 0.1, -R * 0.25, L * 0.11, R * 0.5); // plain band, no lettering
+  if (lit) { const ash = new Path2D(); ash.rect(L - 2, -R * 0.95, R * 0.9, R * 1.9); cel(g, ash, '#b8b4c0', 1.6, 0, R * 0.5, 0);
+    const gl = g.createRadialGradient(L + R, 0, 0, L + R, 0, R * 3); gl.addColorStop(0, 'rgba(255,170,60,0.85)'); gl.addColorStop(1, 'rgba(255,120,40,0)'); g.fillStyle = gl; g.beginPath(); g.arc(L + R, 0, R * 3, 0, TAU); g.fill();
+    g.beginPath(); g.ellipse(L + R * 0.95, 0, R * 0.45, R * 0.9, 0, 0, TAU); g.fillStyle = '#ff7a2a'; g.fill(); g.beginPath(); g.ellipse(L + R * 1.05, 0, R * 0.22, R * 0.5, 0, 0, TAU); g.fillStyle = '#ffe08a'; g.fill(); }
+  g.restore(); if (lit && smoke) smokeWisp(g, x0 + Math.cos(ang) * (L + R), y0 + Math.sin(ang) * (L + R), t, R / 8); };
+Object.assign(HOLD, {
+  cigar: (g, op = {}) => cigarAt(g, -14 * HSIDE, 6, HSIDE > 0 ? -0.55 : Math.PI + 0.55, 104, 8, op.lit !== false, op.t || 0, !!op.smoke),
+  cigarbox: (g) => { const W = 78; const lid = polyPath([[-W, -64], [-W + 10, -150], [W + 10, -150], [W, -64]]); cel(g, lid, '#9a5a30', 3.6, 8, 5, 3);
+    const art = polyPath([[-W + 10, -72], [-W + 18, -142], [W + 2, -142], [W - 8, -72]]); cel(g, art, '#f2e2b8', 1.8, 4, 3, 0); g.lineWidth = 2; g.strokeStyle = '#c8a040'; g.stroke(polyPath([[-W + 18, -80], [-W + 24, -134], [W - 4, -134], [W - 14, -80]]));
+    cel(g, ellP(2, -107, 26, 20), '#c0453a', 1.8, 3, 2, 0); cel(g, ellP(2, -107, 15, 11), '#e8c050', 1.4, 2, 1, 0);
+    for (let i = 0; i < 7; i++) cel(g, ellP(-W + 14 + i * 22, -66, 11, 7), '#7a4428', 1.8, 2, 2, 0);
+    const bx = new Path2D(); bx.rect(-W, -64, 2 * W, 64); cel(g, bx, '#a8683a', 3.8, 10, 6, 4, (h) => { h.strokeStyle = 'rgba(70,35,15,0.25)'; h.lineWidth = 1.2; for (let y = -60; y < 0; y += 7) { h.beginPath(); h.moveTo(-W, y); h.bezierCurveTo(-20, y + 3, 20, y - 3, W, y + 1); h.stroke(); } });
+    const lb = new Path2D(); lb.rect(-W, -44, 2 * W, 18); cel(g, lb, '#f2e2b8', 1.6, 0, 0, 0); g.fillStyle = '#c0453a'; g.fillRect(-W, -44, 2 * W, 3); g.fillRect(-W, -29, 2 * W, 3); cel(g, ellP(0, -35, 12, 8), '#e8c050', 1.4, 0, 0, 0); },
+  giftbox: (g, op = {}) => { const W = 66, H = 84, bc = op.giftCol || '#4a7ac0', rc = op.ribbonCol || '#e0b84a';
+    const bx = new Path2D(); bx.rect(-W, -H, 2 * W, H); cel(g, bx, bc, 3.8, 10, 6, 4, (h) => { h.fillStyle = 'rgba(255,255,255,0.16)'; for (let x = -W; x < W; x += 22) for (let y = -H + 8; y < 0; y += 22) { h.beginPath(); h.arc(x + ((y / 22) & 1) * 11 + 6, y, 3.4, 0, TAU); h.fill(); } });
+    const ld = new Path2D(); ld.rect(-W - 7, -H - 22, 2 * W + 14, 24); cel(g, ld, mixc(bc, '#ffffff', 0.08), 3.4, 6, 4, 3);
+    g.save(); g.clip(bx); g.fillStyle = rc; g.fillRect(-9, -H, 18, H); g.restore(); g.save(); g.clip(ld); g.fillStyle = rc; g.fillRect(-9, -H - 22, 18, 24); g.restore(); line(g, [[-9, -H - 22], [-9, 0]], 1.4, mixc(rc, INK, 0.4)); line(g, [[9, -H - 22], [9, 0]], 1.4, mixc(rc, INK, 0.4));
+    const bw = new Path2D(); for (const s of [-1, 1]) smooth([[0, -H - 24], [s * 30, -H - 52], [s * 40, -H - 36], [s * 10, -H - 22]], 5, bw); cel(g, bw, rc, 2.6, 4, 3, 0);
+    for (const s of [-1, 1]) cel(g, polyPath([[s * 2, -H - 24], [s * 22, -H - 2], [s * 12, -H + 4], [s * 6, -H - 18]]), dk(rc, 0.9), 2, 2, 2, 0); cel(g, ellP(0, -H - 24, 9, 8), dk(rc, 0.88), 2, 2, 2, 0); },
+  shoe: (g, op = {}) => { const s = HSIDE; g.save(); g.scale(s, 1); const sp = smooth([[-36, -40], [-6, -52], [24, -44], [62, -30], [74, -14], [66, 0], [-40, 0], [-46, -18]], 6); cel(g, sp, op.shoeCol || '#3a2420', 3.6, 8, 6, 3);
+    g.save(); g.clip(sp); g.fillStyle = '#1d1426'; g.fillRect(-60, -7, 150, 10); g.restore(); cel(g, smooth([[-30, -40], [-6, -48], [10, -44], [-4, -34], [-28, -32]], 4), '#2a1a18', 1.8, 0, 0, 0);
+    for (let k = 0; k < 3; k++) line(g, [[2 + k * 7, -45 + k * 2], [10 + k * 7, -38 + k * 2]], 1.8, '#d8c8a8'); taper(g, [[30, -38], [60, -24]], 3, 'rgba(255,255,255,0.45)', 0.3); g.restore();
+    if (op.dust) { const t = op.t || 0; for (let i = 0; i < 22; i++) { const a = hsh(i, 1.1), b = hsh(i, 2.2), y = -40 - ((t * 1.3 + b * 90) % 90); g.globalAlpha = clamp(1 - (-40 - y) / 90, 0, 1) * 0.9; g.beginPath(); g.arc(-40 + a * 110 + Math.sin(t * 0.1 + i) * 6, y, 2 + b * 2.4, 0, TAU); g.fillStyle = i % 3 ? '#e8f4d8' : '#b8f0c8'; g.fill(); } g.globalAlpha = 1; } },
+  seashell: (g, op = {}) => { g.save(); g.scale(HSIDE, 1); const pc = op.shellCol || '#f2a0b4';
+    const body = smooth([[-6, -112], [10, -96], [24, -86], [38, -70], [44, -48], [36, -22], [16, -6], [-6, 0], [-26, -14], [-34, -40], [-30, -66], [-18, -86]], 6); cel(g, body, pc, 3.6, 8, 6, 4);
+    g.save(); g.clip(body); if (op.painted) for (const [y, c] of [[-92, '#3ac8c0'], [-70, '#f6d040'], [-48, '#7a5ae0'], [-26, '#3ac8c0']]) { g.fillStyle = c; g.beginPath(); g.moveTo(-60, y); g.quadraticCurveTo(0, y + 12, 60, y - 4); g.lineTo(60, y + 8); g.quadraticCurveTo(0, y + 24, -60, y + 12); g.fill(); }
+    g.strokeStyle = mixc(pc, INK, 0.4); g.lineWidth = 1.8; for (const y of [-96, -82, -64]) { g.beginPath(); g.moveTo(-26, y + 10); g.quadraticCurveTo(4, y + 18, 34, y + 4); g.stroke(); } g.restore();
+    for (const [x, y] of [[-24, -60], [-10, -86], [30, -78], [42, -54]]) cel(g, polyPath([[x - 6, y + 4], [x + (x > 0 ? 10 : -10), y - 8], [x + 6, y + 6]]), lt(pc, 0.2), 1.8, 2, 1, 0);
+    const lip = smooth([[6, -70], [26, -54], [30, -28], [14, -12], [0, -24], [-2, -50]], 5); cel(g, lip, '#ffd8e0', 2.2, 3, 2, 0); g.save(); g.clip(lip); g.fillStyle = 'rgba(230,110,140,0.5)'; g.beginPath(); g.ellipse(12, -40, 9, 20, 0.2, 0, TAU); g.fill(); g.restore();
+    taper(g, [[-20, -76], [-24, -40]], 4, 'rgba(255,255,255,0.6)', 0.3); g.restore(); },
+});
+BUILD.tall = { w: 1.02, h: 1.07, leg: 1.1, hs: 1, arm: 1.07 }; // [CASTRO-cast] tall build (CASTRO)
 
 export function oddverra(g, o, op = {}) {
   const { expr = 'smile', blink = 0, wave, cheer } = op;
+  if (op.scuba && !o.scuba) o = { ...o, scuba: true, shirt: o.suitCol || '#1f2a3c', pants: o.suitCol || '#1f2a3c', hat: undefined, fatigue: false, boots: false, belt: undefined, noButtons: true, cuff: o.suitCol || '#1f2a3c', neck: undefined, pattern: undefined }; // [CASTRO-cast] diver mode
   // ---------- scene light ----------
   { const ld = op.lightDir == null ? -1 : clamp(+op.lightDir || 0, -1, 1); let sx = -ld; if (Math.abs(sx) < 0.35) sx = sx >= 0 ? 0.35 : -0.35; SX = sx; SG = sx >= 0 ? 1 : -1;
     const amb = typeof op.ambient === 'number' ? clamp(op.ambient, 0, 1) : typeof op.ambient === 'string' ? lum(op.ambient) : 0.5, ak = clamp(1.25 - amb * 0.5, 0.75, 1.25);
@@ -173,8 +220,8 @@ export function oddverra(g, o, op = {}) {
   const NW = 21 * Math.sqrt(B.w) * B.hs, AL = 100 * B.arm, ra = 14.5 * Math.sqrt(B.w) * (o.build === 'kid' ? 0.9 : 1);
   const runner = !!o.bib, lady = !!o.lashes && !runner, kidT = o.build === 'kid' || (!!o.stripe && !runner);
   const jacket = !runner && !lady && !kidT && (o.neck === 'tie' || o.neck === 'scarf' || o.pattern === 'tweed' || o.pattern === 'pinstripe' || o.pattern === 'plaid');
-  const shortSleeve = runner || kidT;
-  const hemY = runner ? hipY - 28 : jacket ? hipY + 34 : lady ? waistY + 14 : hipY - 4;
+  const shortSleeve = runner || kidT || !!o.short;
+  const hemY = o.coat ? hipY + 128 : o.fatigue ? waistY + 24 : o.guayabera ? hipY + 10 : o.track ? hipY - 6 : runner ? hipY - 28 : jacket ? hipY + 34 : lady ? waistY + 14 : hipY - 4; // [CASTRO-cast] coat / fatigues / guayabera / track hems
   const hs = op.stance === 'relaxed' && !gaitOn ? 10 : 0;
   const lean = gaitOn ? (RUN ? 0.15 : 0.055) * GA : 0;
   const upper = () => { if (lean && SN) g.transform(1, 0, -lean * SN, 1, lean * SN * hipY, 0); };
@@ -196,6 +243,99 @@ export function oddverra(g, o, op = {}) {
   const hmapPt = ([px, py]) => { if (!HY || BACKH) return [px, py]; const yf = (py - hy) / HH, r = Math.max(0.14, rH(clamp(yf, -1, 1))) * HW, xr = px - hcx; let u = xr / r, e = 0;
     if (Math.abs(u) > 1) { e = xr - Math.sign(u) * r; u = Math.sign(u); } const t = Math.asin(u) + HY, tc = clamp(t, -HP_, HP_); return [hcx + r * Math.sin(tc) + e * Math.abs(Math.sin(tc)), py]; };
   const HMP = (pts) => pts.map(hmapPt);
+  // ---------- [CASTRO-cast] new features: beard (full / patchy / none + op.beardLoss), boots, fins, patrol cap, straw hat, headphones,
+  // fatigues / guayabera / track / wetsuit / lab-coat details, goggles, dive mask, mouth cigar. Called from the hooks marked [CASTRO-cast].
+  const BRD = op.beard ?? o.beard, BRDC = o.beardCol || o.moustache || o.hairCol || '#2a201c';
+  const BLOSS = clamp(op.beardLoss ?? o.beardLoss ?? (BRD === 'patchy' ? 0.55 : 0), 0, 1);
+  // beard = union of tufts on a shell around the jaw: [face-y (head units, 100 = chin), |angle| from, to (rad from the face centre), tuft radius]
+  const BLV = [[16, 1.12, 1.42, 10], [30, 1.0, 1.48, 12.5], [44, 0.82, 1.5, 14.5], [58, 0.6, 1.72, 15.5], [72, 0, 1.9, 16.5], [87, 0, 2.0, 17.5], [102, 0, 1.5, 17.5], [116, 0, 0.8, 15.5], [127, 0, 0.36, 12.5]];
+  const beardBlobs = (back) => { const w = HW / fz, out = []; let i = 0;
+    const R = (Y) => Y <= 80 ? Math.max(0.3, rH(Y / 100)) * w : rH(0.8) * w + (0.3 * w - rH(0.8) * w) * clamp((Y - 80) / 48, 0, 1);
+    for (const [Y, t0, t1, rad] of BLV) { const ths = [];
+      if (!t0) { const m = Math.max(1, Math.round(t1 / 0.27)); for (let k = -m; k <= m; k++) ths.push(t1 * k / m); }
+      else { const n = Math.max(1, Math.round((t1 - t0) / 0.24)); for (const s of [-1, 1]) for (let k = 0; k <= n; k++) ths.push(s * (t0 + (t1 - t0) * k / n)); }
+      for (const th of ths) { i++; const j = hsh(i, 2.3) - 0.5, t = th + HY, c = Math.cos(t);
+        if (back ? (Math.abs(th) < 0.8 || Y > 100) : c < -0.12) continue;
+        out.push({ i, x: hcx + (R(Y) + 4 + 3 * Math.cos(th)) * Math.sin(t) * fz, y: hy + (Y + j * 4) * fz, r: rad * (o.beardK || 1) * (1 + j * 0.22) * fz, c, Y, th }); } }
+    return out; };
+  const drawBeard = (back) => { if (!BRD || BRD === 'none') return; const pk = BLOSS > 0.01;
+    const bl = beardBlobs(back).filter((b) => hsh(b.i, 7.1) >= BLOSS * (b.Y > 64 ? 1.05 : 0.85)).map((b) => pk ? { ...b, r: b.r * (0.72 + 0.2 * hsh(b.i, 4.4)) } : b); if (!bl.length) return;
+    const P = new Path2D(); for (const b of bl) ellP(b.x, b.y, b.r * 1.06, b.r, 0, P);
+    cel(g, P, BRDC, 3.0, HW * 0.1, HH * 0.07, 5);
+    g.save(); g.clip(P); const sc = mixc(BRDC, INK, lum(BRDC) > 0.6 ? 0.3 : 0.45), hl = lt(BRDC, lum(BRDC) > 0.6 ? 0.5 : 0.3);
+    for (const b of bl) { if (b.c < 0.05 && !back) continue; const a0 = 0.3 + hsh(b.i, 5) * 0.6; taper(g, arcPts(b.x - SG * b.r * 0.12, b.y + b.r * 0.05, b.r * 0.58, a0, a0 + 2.1, 6), 1.5, sc, 0.2); }
+    for (const b of bl) if ((b.x - hcx) * SG < HW * 0.2 && b.Y < 104) taper(g, arcPts(b.x + SG * b.r * 0.1, b.y - b.r * 0.05, b.r * 0.62, 3.7, 4.7, 4), 2.2, rgba(hl, 0.55), 0.2);
+    g.restore();
+    if (pk && !back && op.falling !== false) for (let k = 0; k < 4; k++) { const fy = ((TT * 1.6 + k * 47) % 190) / 190, x = hcx + (hsh(k, 3.3) - 0.5) * HW * 1.3 + Math.sin(TT * 0.12 + k * 2) * 10 * fz, y = hy + HH * (1.15 + fy * 1.4);
+      g.save(); g.globalAlpha = Math.min(1, (1 - fy) * 3); g.translate(x, y); g.rotate(Math.sin(TT * 0.1 + k) * 0.8); const tp = new Path2D(); for (const [dx, dy, rr] of [[-5, 0, 6], [3, -3, 5], [5, 4, 4.5]]) ellP(dx * fz, dy * fz, rr * fz, rr * fz * 0.85, 0, tp); cel(g, tp, BRDC, 2, 2, 2, 0); g.restore(); } };
+  const drawStubble = () => { if (!BRD || (BRD !== 'none' && BLOSS < 0.01)) return; const P = new Path2D(); for (const b of beardBlobs(false)) if (b.Y < 110) ellP(b.x, b.y, b.r * 0.95, b.r * 0.9, 0, P);
+    for (const s of [-1, 1]) { const [X] = hmapPt([hcx + s * HW * 0.16, hy + HH * 0.42]); ellP(X, hy + HH * 0.42, HW * 0.18 * (1 - 0.4 * AH), HH * 0.07, 0, P); }
+    g.save(); g.clip(headSil); g.clip(P); g.globalCompositeOperation = 'multiply'; g.fillStyle = 'rgba(176,160,206,0.55)'; g.fill(P); g.globalCompositeOperation = 'source-over';
+    g.fillStyle = 'rgba(60,44,90,0.32)'; for (let i = 0; i < 160; i++) { const x = hcx + (hsh(i, 8.1) - 0.5) * HW * 2.1, y = hy + HH * (0.1 + hsh(i, 9.3) * 1.0); g.fillRect(x, y, 1.8, 1.8); } g.restore(); };
+  const bootShaft = (L) => { const top = lerp(L.K, L.A, 0.4), bc = o.shoes || '#221c22', bp = limb([top, lerp(top, L.A, 0.5), [L.A[0], L.A[1] + 4]], [rl * 0.74, rl * 0.7, rl * 0.7]);
+    cel(g, bp, bc, 2.6, 5, 4, 2); taper(g, [lerp(top, L.A, 0.15), lerp(top, L.A, 0.85)], 2.5, 'rgba(255,255,255,0.22)', 0.2);
+    for (let k = 1; k <= 3; k++) { const q = lerp(top, L.A, 0.2 + k * 0.18); line(g, [[q[0] - rl * 0.3, q[1] - 2], [q[0] + rl * 0.3, q[1] + 2]], 1.4, '#6a5a52'); }
+    cel(g, smooth([[top[0] - rl * 0.95, top[1] - 12], [top[0] + rl * 0.95, top[1] - 12], [top[0] + rl * 0.88, top[1] + 5], [top[0], top[1] + 9], [top[0] - rl * 0.88, top[1] + 5]], 4), pantsCol, 2.4, 4, 3, 0, twill(pantsCol)); // bloused trouser over the boot top
+    taper(g, [[top[0] - rl * 0.5, top[1] - 4], [top[0] - rl * 0.3, top[1] + 4]], 1.4, crc, 0.2); taper(g, [[top[0] + rl * 0.4, top[1] - 6], [top[0] + rl * 0.2, top[1] + 4]], 1.4, crc, 0.2); };
+  const fin = (L) => { const s = L.s, toe = turned ? dv : s, fx = L.A[0], fy = L.fy, fc = o.finCol || '#2a8a9a', len = turned ? 34 + 92 * AS : 74, wd = turned ? 36 - 14 * AS : 40;
+    const fp = turned ? smooth([[fx - toe * 20, fy - 14], [fx + toe * 14, fy - 12], [fx + toe * (14 + len), fy + 4], [fx + toe * (18 + len), fy + 14], [fx + toe * 6, fy + 14], [fx - toe * 22, fy + 8]], 5)
+      : smooth([[fx - 17, fy - 12], [fx + 17, fy - 12], [fx + wd, fy + len * 0.5], [fx + wd * 0.8, fy + len * 0.62], [fx, fy + len * 0.5], [fx - wd * 0.8, fy + len * 0.62], [fx - wd, fy + len * 0.5]], 5);
+    cel(g, fp, fc, 3.0, 6, 5, 3); g.save(); g.clip(fp); g.strokeStyle = 'rgba(20,50,60,0.4)'; g.lineWidth = 1.6; for (const k of [-0.5, 0.5]) { g.beginPath(); if (turned) { g.moveTo(fx + toe * 14, fy + k * 6); g.lineTo(fx + toe * (14 + len), fy + 8 + k * 8); } else { g.moveTo(fx + k * 14, fy); g.lineTo(fx + k * wd * 1.4, fy + len * 0.5); } g.stroke(); } g.restore();
+    cel(g, smooth([[fx - 17, fy - 16], [fx + 17, fy - 16], [fx + 18, fy + 2], [fx - 18, fy + 2]], 4), '#1a1e26', 2.6, 4, 3, 0); };
+  // generic visor (half disc at the brow, turns with the head): ext = forward reach (× HW), droop = downward pitch
+  const visorAt = (hk, vy, Rr, ext, droop) => { const pv = 0.1 * Math.cos(HY) + 0.1, VY = clamp(HY * 1.4, -HP_, HP_), hs2 = Math.sin(VY), hc2 = Math.cos(VY), Pv = (lat, fw) => [hcx - SN * 4 * fz + lat * hc2 + fw * hs2, vy + (-lat * hs2 + fw * hc2) * pv + fw * droop];
+    const vp = []; for (let k = 0; k <= 12; k++) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * 0.7 * Math.sin(a) + HW * ext * Math.sin(a) ** 0.7)); }
+    for (let k = 12; k >= 0; k--) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * 0.7 * Math.sin(a))); }
+    cel(g, polyPath(vp), dk(hk, 0.8), 3.0, 5, 4, 2); taper(g, vp.slice(2, 11), 1.8, rgba(lt(hk, 0.35), 0.5), 0.1); };
+  const PCUT = -0.38; // patrol cap brow line (head units)
+  const patrolVisor = (hk) => visorAt(hk, hy + HH * (PCUT + 0.02), HW * 0.9, 0.3, 0.2);
+  const patrolCap = () => { const hk = o.hatCol || '#4e5a32', bY = hy + HH * PCUT, Rc = HW * 1.06, Rt = HW * 0.98, ch = 70 * fz, pvb = 0.12, hx0 = hcx - SN * 4 * fz;
+    const ring = (R, y, pv, p0, p1, n = 20) => Array.from({ length: n + 1 }, (_, i) => { const ps = p0 + (p1 - p0) * i / n; return [hx0 + R * Math.sin(ps), y + R * Math.cos(ps) * pv]; });
+    const cp = polyPath([[hx0 - Rt, bY - ch], [hx0 + Rt, bY - ch], [hx0 + Rc, bY], ...ring(Rc, bY, pvb, HP_, -HP_), [hx0 - Rc, bY]]);
+    cel(g, cp, hk, 3.6, HW * 0.16, 4, 5, twill(hk));
+    const fc = mixc(hk, INK, 0.5); g.save(); g.clip(cp);
+    taper(g, ring(Rc * 0.99, bY - 16 * fz, pvb, HP_ * 0.98, -HP_ * 0.98), 1.8, fc, 0.1); // band seam
+    for (const a0 of [-1.15, 0, 1.15]) { const a = a0 + HY; if (Math.cos(a) < 0.08) continue; const X0 = hx0 + Rc * Math.sin(a), X1 = hx0 + Rt * Math.sin(a); taper(g, [[X1, bY - ch + 4], [X0, bY + Math.cos(a) * Rc * pvb - 2]], a0 ? 1.8 : 2.2, fc, 0.1); } // front + side seams
+    taper(g, [[hx0 - SG * Rt * 0.72, bY - ch + 10], [hx0 - SG * Rc * 0.8, bY - 18 * fz]], 5, rgba(lt(hk, 0.4), 0.45), 0.3);
+    g.restore();
+    cel(g, polyPath(ring(Rt, bY - ch, 0.14, -Math.PI, Math.PI, 28)), mixc(hk, '#fff8ec', 0.1), 2.6, 0, 0, 0); // flat top
+    if (!BACKH) patrolVisor(hk); };
+  const strawHat = () => { const hk = o.hatCol || '#dcbc74', bY = hy - HH * 0.6, Rb = HW * 1.5, Rc = HW * 0.76, ch = 62 * fz, pv = 18 * fz / Rb, hx0 = hcx - SN * 4 * fz;
+    const ring = (R, y, p, hf, p0, p1, n = 32) => Array.from({ length: n + 1 }, (_, i) => { const ps = p0 + (p1 - p0) * i / n; return [hx0 + R * Math.sin(ps), y + R * Math.cos(ps) * p + hf(ps - HY)]; });
+    const curl = (q) => -6 * fz * Math.sin(q) ** 2 + 4 * fz * Math.cos(q) ** 2;
+    const weave = (base) => (h) => { h.strokeStyle = 'rgba(120,80,20,0.28)'; h.lineWidth = 1.4; h.beginPath(); for (let x = -600; x < 1200; x += 8) { h.moveTo(x, 0); h.lineTo(x + 600, 600); h.moveTo(x + 600, 0); h.lineTo(x, 600); } h.stroke(); };
+    const brim = polyPath(ring(Rb, bY, pv, curl, -Math.PI, Math.PI)); cel(g, brim, dk(hk, 0.9), 3.2, 6, 3, 3, weave(hk));
+    const crown = polyPath([[hx0 - Rc, bY + 4], [hx0 - Rc * 0.9, bY - ch], [hx0 + Rc * 0.9, bY - ch], [hx0 + Rc, bY + 4]]); cel(g, crown, hk, 3.4, 10, 4, 4, weave(hk));
+    cel(g, polyPath(ring(Rc * 0.9, bY - ch, 0.18, () => 0, -Math.PI, Math.PI, 20)), lt(hk, 0.12), 2.4, 0, 0, 0, weave(hk));
+    const band = new Path2D(); band.rect(hx0 - Rc, bY - 20 * fz, Rc * 2, 14 * fz); g.save(); g.clip(crown); g.fillStyle = o.bandCol || '#3a2a24'; g.fill(band); g.restore();
+    cel(g, polyPath([...ring(Rb, bY, pv, curl, -HP_, HP_), ...ring(Rc, bY, pv, () => 0, HP_, -HP_)]), hk, 3.0, 6, 3, 3, weave(hk)); taper(g, ring(Rb * 0.96, bY - 2, pv, curl, -HP_ * 0.8, HP_ * 0.8, 16), 1.6, rgba(lt(hk, 0.5), 0.5), 0.1); };
+  const headphones = () => { const bc = o.phonesCol || '#2a2a32', ch2 = Math.cos(HY), top = hy - HH * 1.1;
+    const band = Array.from({ length: 17 }, (_, i) => { const a = Math.PI * i / 16; return [hcx + HW * 1.06 * Math.cos(a) * ch2 - SN * 6 * fz, hy + HH * 0.02 - (hy + HH * 0.02 - top) * Math.sin(a) ** 0.8]; });
+    line(g, band, 11, INK); line(g, band, 6.5, bc); line(g, band.slice(3, 9), 2, 'rgba(255,255,255,0.3)');
+    for (const s of [-1, 1]) { const t = Math.asin(s) + HY, vis = Math.cos(t); if (vis < -0.25 && !BACKH) continue; const X = hcx + HW * 1.0 * Math.sin(clamp(t, -HP_, HP_)) - (AH > 0.8 ? dv * 8 * fz : 0), Y = hy + HH * 0.1, kx = 0.42 + 0.58 * Math.abs(Math.sin(t));
+      cel(g, ellP(X, Y, 24 * fz * kx, 28 * fz), bc, 3, 4, 3, 2); cel(g, ellP(X + Math.sign(Math.sin(t) || s) * 3 * fz * kx, Y, 14 * fz * kx, 17 * fz), mixc(bc, '#6a6a7a', 0.4), 1.6, 2, 2, 0); } };
+  const torsoExtras = () => { const fc = mixc(o.shirt, INK, 0.5);
+    if (o.fatigue) { // tucked shirt + web belt (all views), chest pockets with pointed button flaps
+      const by0 = hemY - 15; g.save(); g.clip(torsoP); const bp = new Path2D(); bp.rect(0, by0, 600, 16); cel(g, bp, o.belt || '#2e2a22', 0, 8, 0, 0); g.restore(); taper(g, TP([[cx - WW, by0], [cx, by0 + 1], [cx + WW, by0]]), 1.6, INK, 0.3);
+      for (const k of [-0.6, -0.2, 0.3, 0.7]) taper(g, TP([[cx + k * WW, by0 - 14], [cx + (k + 0.05) * WW, by0 - 2]]), 1.6, fc, 0.1);
+      if (!BACKB) { decal(cx + 4, by0, () => { const bk = new Path2D(); bk.roundRect(cx - 10, by0 - 1, 20, 17, 3); cel(g, bk, '#b8b0a0', 2, 3, 2, 0); g.lineWidth = 1.6; g.strokeStyle = '#5a5248'; g.strokeRect(cx - 5, by0 + 3, 10, 8); });
+        for (const s of [-1, 1]) { const px = cx + s * TW * 0.46, py = shY + 48; if (tV(px, py) < -2) continue; decal(px, py, () => {
+          const pp = new Path2D(); pp.roundRect(px - 19, py, 38, 44, 5); cel(g, pp, mixc(o.shirt, '#000000', 0.05), 1.8, 4, 3, 0, twill(o.shirt)); taper(g, [[px, py + 16], [px, py + 42]], 1.4, fc, 0.1);
+          cel(g, polyPath([[px - 21, py - 4], [px + 21, py - 4], [px + 21, py + 10], [px, py + 17], [px - 21, py + 10]]), o.shirt, 2.2, 3, 3, 0, twill(o.shirt)); cel(g, ellP(px, py + 9, 3.6, 3.6), dk(o.shirt, 0.7), 1.4, 1, 1, 0); }); } } }
+    if (o.guayabera && !BACKB) { // vertical pin-tuck pleats + four pockets
+      for (const s of [-1, 1]) for (const k of [0.3, 0.38, 0.66, 0.74]) if (tV(cx + s * TW * k, shY + 80) > -3) taper(g, TP([[cx + s * TW * k, shY + 14], [cx + s * WW * k * 1.02, waistY], [cx + s * HPW * k, hemY - 4]]), 1.4, fc, 0.05);
+      for (const s of [-1, 1]) for (const [py, ph] of [[shY + 62, 30], [hipY - 34, 34]]) { const px = cx + s * TW * 0.52; if (tV(px, py) < -2) continue; decal(px, py, () => { const pp = new Path2D(); pp.roundRect(px - 16, py, 32, ph, 3); g.lineWidth = 1.8; g.strokeStyle = fc; g.stroke(pp); line(g, [[px - 16, py + 7], [px + 16, py + 7]], 1.4, fc); cel(g, ellP(px, py + 11, 2.6, 2.6), '#f2ecdc', 1.2, 0, 0, 0); }); } }
+    if (o.track) { // tracksuit jacket: centre zip, ribbed hem band (plain, no logos)
+      g.save(); g.clip(torsoP); const hb = new Path2D(); hb.rect(0, hemY - 15, 600, 16); cel(g, hb, dk(o.shirt, 0.9), 0, 6, 0, 0); g.restore();
+      if (!BACKB) { taper(g, TP([[cx, shY + 4], [cx, waistY], [cx, hemY]]), 2.6, mixc(o.shirt, '#d8d8e0', 0.55), 0.6); decal(cx, shY + 30, () => cel(g, polyPath([[cx - 3, shY + 22], [cx + 3, shY + 22], [cx + 4, shY + 40], [cx - 4, shY + 40]]), '#c8c8d0', 1.4, 0, 0, 0)); } }
+    if (o.scuba) { // wetsuit: centre zip, side panels, knee pads are skipped
+      for (const s of [-1, 1]) if (tV(cx + s * TW * 0.8, shY + 80) > -3) taper(g, TP([[cx + s * TW * 0.9, shY + 26], [cx + s * WW * 0.9, waistY], [cx + s * HPW * 0.9, hemY]]), 4, o.trimCol || '#3a8ac0', 0.6);
+      if (!BACKB) taper(g, TP([[cx, shY + 4], [cx, waistY + 40]]), 2.4, '#8a92a8', 0.6); else taper(g, TPb([[cx, shY + 6], [cx, waistY + 30]]), 2.4, '#8a92a8', 0.6); }
+    if (o.coat && !BACKB) { for (const s of [-1, 1]) { const px = cx + s * HPW * 0.62, py = hipY + 16; if (tV(px, py) > -2) decal(px, py, () => { const pp = new Path2D(); pp.roundRect(px - 20, py, 40, 38, 4); g.lineWidth = 2; g.strokeStyle = mixc(o.shirt, INK, 0.4); g.stroke(pp); }); }
+      const px = cx + TW * 0.5, py = shY + 70; if (tV(px, py) > -2) decal(px, py, () => { for (const [dx, c] of [[-6, '#3a5ab0'], [4, '#c0453a']]) { line(g, [[px + dx, py - 16], [px + dx, py + 6]], 4.5, INK); line(g, [[px + dx, py - 16], [px + dx, py + 6]], 2.5, c); } const pp = new Path2D(); pp.roundRect(px - 16, py - 2, 32, 30, 3); g.fillStyle = o.shirt; g.fill(pp); g.lineWidth = 1.8; g.strokeStyle = mixc(o.shirt, INK, 0.4); g.stroke(pp); }); } };
+  const collarExtras = () => { if (BACKB) return;
+    if (o.fatigue || o.guayabera) for (const s of [-1, 1]) { if (tV(cx + s * (NW + 8), shY) < -8) continue; cel(g, polyPath(TP([[cx + s * 2, shY + 14], [cx + s * (NW + 10), shY - 8], [cx + s * (NW + 18), shY + 12], [cx + s * 16, shY + 34]])), o.collarCol || mixc(o.shirt, '#fff8ec', o.guayabera ? 0.1 : 0.04), 2.4, s * SG > 0 ? 4 : 0, 2, 0, twill(o.shirt)); }
+    if (o.track || o.scuba) { const nb = (dy, w) => TP(arcPts(cx, shY - 2 + dy, (NW + 8) * w, Math.PI * 1.02, -0.02 * Math.PI, 10, 9)); cel(g, polyPath([...nb(-14, 1.0), ...nb(4, 1.12).reverse()]), dk(o.shirt, 0.9), 2.4, 3, 2, 0); } };
   // ---------- shared pattern painter (clothes) ----------
   const fabric = (clipW = 600) => (h) => {
     const P = o.pattern, y0 = shY - 40, y1 = hipY + 80;
@@ -239,11 +379,11 @@ export function oddverra(g, o, op = {}) {
     return { s, hj, K, A, fy: A[1], Ls, pitch, depth: dep(hj3[0], 0) + dep(A3[0], A3[2]) * 0.5 };
   });
   const rl = HPW * 0.5;
-  const pantsCol = o.pants || '#3b3f52', crc = mixc(pantsCol, INK, 0.5);
+  const pantsCol = o.dress ? skin : o.pants || '#3b3f52', crc = mixc(pantsCol, INK, 0.5), skirtCol = o.pants || '#3b3f52'; // [CASTRO-cast] dress: bare legs
   const hipBlock = () => { const bx = (x, y, s) => cx + (x - cx) * wk + lean * SN * Math.max(0, hipY - y) + (turned && s === -dv ? -dv * AS * 6 * (y > waistY + 20 ? 1 : 0) : 0) + (turned && s === dv && B.belly ? dv * AS * TW * 0.1 : 0);
     return [[bx(cx - WW * 0.97, waistY, -1), waistY], [bx(cx + WW * 0.97, waistY, 1), waistY], [bx(cx + HPW, hipY - 18, 1), hipY - 18], [bx(cx + HPW * 0.5, hipY + 8, 1), hipY + 8], [cx, hipY + 12], [bx(cx - HPW * 0.5, hipY + 8, -1), hipY + 8], [bx(cx - HPW, hipY - 18, -1), hipY - 18]]; };
   const legPath = (L, P) => { const near = mode === 'sit' ? 1.08 : 1 + 0.22 * L.Ls; return limb([L.hj, lerp(L.hj, L.K, 0.5), L.K, lerp(L.K, L.A, 0.55), L.A], [rl, rl * 0.9, rl * 0.76 * near, rl * 0.74, rl * 0.7], P); };
-  const legLines = (L) => { const s = L.s;
+  const legLines = (L) => { const s = L.s; if (o.boots) bootShaft(L); if (o.dress) return; /* [CASTRO-cast] */
     if (mode !== 'sit') taper(g, [lerp(L.hj, L.K, 0.25), [L.K[0] - s * rl * 0.15 * CS + SN * rl * 0.2, L.K[1]], lerp(L.K, L.A, 0.85)], 2.2, crc, 0.1);
     const bend = Math.abs(Math.atan2(L.K[0] - L.hj[0], L.K[1] - L.hj[1]) - Math.atan2(L.A[0] - L.K[0], L.A[1] - L.K[1]));
     if (bend > 0.25 || mode === 'sit') { const bx = turned ? -dv * rl * 0.35 : 0; taper(g, [[L.K[0] - rl * 0.5 + bx, L.K[1] + 6], [L.K[0] + bx, L.K[1] + 2], [L.K[0] + rl * 0.5 + bx, L.K[1] + 6]], 2.4, crc, 0.2); }
@@ -253,7 +393,7 @@ export function oddverra(g, o, op = {}) {
     if (up > 0.05) { const so = ellP(fx, fy + 12, 16, 3 + up * 16); cel(g, so, '#2a1e1e', 2.4, 0, 0, 0); g.save(); g.clip(so); g.fillStyle = 'rgba(120,90,80,0.5)'; for (let k = -1; k <= 1; k++) g.fillRect(fx - 14, fy + 8 + k * 5 + up * 6, 28, 1.6); g.restore(); }
     const hp = smooth([[fx - 17, fy - 14], [fx + 17, fy - 14], [fx + 18, fy + 6], [fx + 12, fy + 13], [fx - 12, fy + 13], [fx - 18, fy + 6]], 5); cel(g, hp, sh, 3.4, 6, 5, 3);
     g.save(); g.clip(hp); g.fillStyle = '#1d1426'; g.fillRect(fx - 30, fy + 7, 60, 8); g.fillStyle = '#3a2418'; g.fillRect(fx - 12, fy + 4, 24, 10); g.restore(); taper(g, [[fx - 10, fy - 12], [fx, fy - 9], [fx + 10, fy - 12]], 1.6, mixc(sh, INK, 0.4), 0.2); };
-  const shoe = (L) => { if (BACKB && !turned) return heelShoe(L); const s = L.s, toe = turned ? dv : s, kL = turned ? 0.9 + 0.15 * AS : 1, fx = L.A[0] + toe * 9 * kL, fy = L.fy + (!gaitOn && mode === 'run' ? -4 : 0);
+  const shoe = (L) => { if (o.scuba) return fin(L); if (BACKB && !turned) return heelShoe(L); /* [CASTRO-cast] fins */ const s = L.s, toe = turned ? dv : s, kL = turned ? 0.9 + 0.15 * AS : 1, fx = L.A[0] + toe * 9 * kL, fy = L.fy + (!gaitOn && mode === 'run' ? -4 : 0);
     const sp = smooth([[fx - toe * 22 * kL, fy - 12], [fx + toe * 6 * kL, fy - 17], [fx + toe * 30 * kL, fy - 8], [fx + toe * 37 * kL, fy + 5], [fx + toe * 28 * kL, fy + 13], [fx - toe * 4 * kL, fy + 14], [fx - toe * 27 * kL, fy + 9], [fx - toe * 28 * kL, fy - 2]], 6);
     g.save(); if (L.pitch) { const pv = L.pitch > 0 ? [fx - toe * 26 * kL, fy + 12] : [fx + toe * 32 * kL, fy + 12]; g.translate(pv[0], pv[1]); g.rotate(-toe * L.pitch); g.translate(-pv[0], -pv[1]); }
     cel(g, sp, o.shoes || '#3a2a2a', 3.4, 6, 5, 3);
@@ -261,7 +401,7 @@ export function oddverra(g, o, op = {}) {
     taper(g, [[fx - toe * 8, fy - 12], [fx + toe * 12, fy - 9]], 3, 'rgba(255,255,255,0.55)', 0.4);
     if (runner) for (let k = 0; k < 2; k++) line(g, [[fx + toe * (-2 + k * 8), fy - 15], [fx + toe * (4 + k * 8), fy - 9]], 2, '#e8e4dc');
     g.restore(); };
-  const showPants = !lady || mode === 'sit' || mode === 'fall' || (mode === 'run' && !gaitOn);
+  const showPants = !lady || !!o.dress || mode === 'sit' || mode === 'fall' || (mode === 'run' && !gaitOn);
   const legOrder = turned ? legs.slice().sort((a, b) => a.depth - b.depth) : legs;
   // ---------- arms: rig ----------
   const PA = turned && dv > 0 ? -1 : 1; // the arm that holds props / waves (the near one when turned)
@@ -269,6 +409,7 @@ export function oddverra(g, o, op = {}) {
   const arm3 = (s) => { const S = [s * (TW - 10), shY + 24, -9 * AS], ad = (p, x, y, z = 0) => [p[0] + x, p[1] + y, p[2] + z];
     if (mode === 'fall') { const E = ad(S, s * AL * 0.72, -AL * 0.36); return [S, E, ad(E, s * AL * 0.4, -AL * 0.78)]; }
     if (op.prop === 'stick' && s === PA) { const E = ad(S, s * AL * 0.72, AL * 0.3, AL * 0.2); return [S, E, ad(E, s * 4, -AL * 0.88, AL * 0.1)]; }
+    if (op.grab != null && s === PA) { const k = op.grab; const E = ad(S, s * AL * (0.74 - 0.2 * k), AL * (0.6 - 0.48 * k), AL * 0.25); return [S, E, ad(E, s * AL * (0.86 - 0.3 * k), AL * (0.56 - 0.86 * k), AL * 0.25)]; } // [BOOTH-story] reach down-and-out to grab (0), then haul up (1)
     if (HOLD[op.prop] && s === PA) { const E = ad(S, s * AL * 0.5, AL * 0.78 - AL * 0.4 * r * (1 - 0.5 * AS), AL * (0.3 + 0.2 * AS)); return [S, E, ad(E, s * AL * (0.42 + 0.25 * r), -AL * (0.62 + 0.3 * r) * (1 - 0.55 * AS), AL * (0.35 + 0.3 * AS))]; }
     if (cheer) { const E = ad(S, s * AL * 0.55, -AL * (0.62 - 0.1 * AS), AL * (0.15 + 0.5 * AS)); return [S, E, ad(E, s * AL * 0.12, -AL * (0.92 - 0.25 * AS), AL * (0.1 + 0.6 * AS))]; }
     if (s === PA && wave !== undefined) { const E = ad(S, s * AL * 0.82, AL * 0.12, AL * (0.1 + 0.4 * AS)); return [S, E, ad(E, s * (-10 + 22 * (wave || 0)), -AL * 0.95, AL * (0.1 + 0.25 * AS))]; }
@@ -326,14 +467,14 @@ export function oddverra(g, o, op = {}) {
     if (kidT && mode !== 'sit') { const L = legOrder[legOrder.length - 1], pp = ellP(L.K[0] + 2, L.K[1] + 4, rl * 0.5 * (turned ? 0.8 : 1), rl * 0.46, 0.2); cel(g, pp, '#a8865a', 2, 3, 3, 0); g.setLineDash([3, 3]); g.lineWidth = 1.2; g.strokeStyle = '#f2e6c0'; g.beginPath(); g.ellipse(L.K[0] + 2, L.K[1] + 4, rl * 0.38 * (turned ? 0.8 : 1), rl * 0.34, 0.2, 0, TAU); g.stroke(); g.setLineDash([]); }
   }
   for (const L of legOrder) { if (turned && L === legOrder[0]) FAR = 0.14; shoe(L); FAR = 0; }
-  if (lady && !showPants) { // long skirt (1900s), sways a little; swings with the stride
-    const sw = Math.sin(TT * 0.5) * 5 * MV + trail * 6 + flap * 3, short = mode !== 'stand' && !gaitOn, sb = short ? hipY + legL * 0.45 : ank - 12, fl = HPW * (short ? 1.35 : 1.55) * (turned ? 0.82 + 0.18 * CS : 1);
+  if (lady && (!showPants || o.dress)) { // long skirt (1900s), sways a little; swings with the stride  [CASTRO-cast] o.dress = knee-length 1960 skirt
+    const sw = Math.sin(TT * 0.5) * 5 * MV + trail * 6 + flap * 3, short = mode !== 'stand' && !gaitOn, sb = o.dress ? hipY + legL * (short ? 0.36 : 0.5) : short ? hipY + legL * 0.45 : ank - 12, fl = HPW * (short ? 1.35 : 1.55) * (turned ? 0.82 + 0.18 * CS : 1);
     const kick = gaitOn ? Math.sin(TAU * ph) * 7 * CS : 0, X = (x) => cx + (x - cx) * wk;
     const sk = [[X(cx - WW * 0.98), waistY + 8], [X(cx + WW * 0.98), waistY + 8], [X(cx + HPW * 1.08), hipY - 10], [cx + fl + sw + kick, sb]];
     for (let k = 6; k >= 0; k--) sk.push([cx - fl + (2 * fl) * k / 6 + sw + kick * (k / 6 * 2 - 1), sb + (k % 2 ? 7 : 0) + (gaitOn ? 3 * Math.sin(TAU * ph + k) : 0)]);
     sk.push([cx - fl + sw - kick, sb], [X(cx - HPW * 1.08), hipY - 10]);
-    const skP = polyPath(sk); cel(g, skP, pantsCol, 3.6, fl * 0.32, 4, 6, twill(pantsCol));
-    const fc = mixc(pantsCol, INK, 0.5); for (const k of [-0.5, 0, 0.5]) taper(g, [[cx + k * HPW * 0.9 * wk, hipY + 10], [cx + k * fl * 0.96 + sw * 0.8, sb - 6]], 2, fc, 0.1);
+    const skP = polyPath(sk); cel(g, skP, skirtCol, 3.6, fl * 0.32, 4, 6, o.pattern === 'dots' ? fabric() : twill(skirtCol));
+    const fc = mixc(skirtCol, INK, 0.5); for (const k of [-0.5, 0, 0.5]) taper(g, [[cx + k * HPW * 0.9 * wk, hipY + 10], [cx + k * fl * 0.96 + sw * 0.8, sb - 6]], 2, fc, 0.1);
   }
   // ---------- torso ----------
   g.save(); upper();
@@ -383,13 +524,15 @@ export function oddverra(g, o, op = {}) {
     g.fillStyle = INK; g.font = `bold ${bh * 0.72}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(o.bib, bx + bw / 2, byy + bh / 2 + 2);
     for (const [px, py] of [[bx + 5, byy + 5], [bx + bw - 5, byy + 5], [bx + 5, byy + bh - 5], [bx + bw - 5, byy + bh - 5]]) { g.beginPath(); g.arc(px, py, 2.2, 0, TAU); g.fillStyle = '#9aa0b4'; g.fill(); } }); }
   if (kidT && !BACKB) for (const s of [-1, 1]) { if (tV(cx + s * WW * 0.5, hemY - 10) < -4) continue; const st = polyPath(TP([[cx + s * TW * 0.46, shY + 2], [cx + s * TW * 0.62, shY + 6], [cx + s * WW * 0.6, hemY], [cx + s * WW * 0.42, hemY]])); g.save(); g.clip(torsoP); cel(g, st, '#5a3a28', 1.6, 3, 0, 0); g.restore(); cel(g, ellP(tX(cx + s * WW * 0.51, hemY - 10), hemY - 10, 3.6, 3.6), '#d9b04a', 1.4, 1, 1, 0); }
-  if (lady) { const wb = new Path2D(); wb.rect(cx - WW * 1.05, waistY + 4, WW * 2.1, 12); g.save(); g.clip(torsoP); cel(g, wb, mixc(pantsCol, INK, 0.25), 0, 6, 0, 0); g.restore(); line(g, [[cx - WW * wk, waistY + 16], [cx + WW * wk, waistY + 16]], 1.6); }
+  if (lady) { const wb = new Path2D(); wb.rect(cx - WW * 1.05, waistY + 4, WW * 2.1, 12); g.save(); g.clip(torsoP); cel(g, wb, mixc(skirtCol, INK, 0.25), 0, 6, 0, 0); g.restore(); line(g, [[cx - WW * wk, waistY + 16], [cx + WW * wk, waistY + 16]], 1.6); }
   if (o.pocket && !BACKB) decal(cx + TW * 0.3 + 17, shY + 72, () => { const pp = new Path2D(); pp.roundRect(cx + TW * 0.3, shY + 58, 34, 28, 4); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(pp); g.fillStyle = o.pocket; g.fillRect(cx + TW * 0.3 + 6, shY + 50, 9, 11); });
+  torsoExtras(); // [CASTRO-cast]
   // neck (sits in shadow under the chin) + collars + neckwear
   const np = polyPath([[ncx - NW, hy + HH * 0.6], [ncx + NW, hy + HH * 0.6], [ncx + NW + 1, shY + 8], [ncx, shY + (runner || kidT || lady ? 14 : 4)], [ncx - NW - 1, shY + 8]]);
   { g.lineWidth = 5; g.strokeStyle = INK; g.stroke(np); cel(g, np, skin, 0, 0, 0, 0); g.save(); g.clip(np); g.globalCompositeOperation = 'multiply'; g.fillStyle = SHS_; g.fill(np); g.globalCompositeOperation = 'source-over'; g.restore();
     if (o.trim) { const nb = new Path2D(); neck.forEach(([x, y], i) => nb[i ? 'lineTo' : 'moveTo'](x, y)); g.lineWidth = 3.2; g.strokeStyle = INK; g.stroke(nb); } }
   if ((jacket || lady) && !BACKB) for (const s of [-1, 1]) { if (tV(cx + s * (NW + 8), shY) < -8) continue; cel(g, polyPath(TP([[cx + s * 2, shY + 12], [cx + s * (NW + 8), shY - 6], [cx + s * (NW + 12), shY + 10], [cx + s * 12, shY + 26]])), o.collar || '#ffffff', 2.4, s * SG > 0 ? 4 : 0, 2, 0); }
+  collarExtras(); // [CASTRO-cast]
   if (lady && o.neck !== 'bow' && !BACKB) decal(cx, shY + 14, () => { cel(g, ellP(cx, shY + 14, 5.5, 6.5), '#e8b830', 1.8, 2, 2, 0); g.beginPath(); g.arc(cx, shY + 14, 2.4, 0, TAU); g.fillStyle = '#8c2a5a'; g.fill(); });
   // seen from behind: centre-back seam, yoke, vents, half-belt, back collar, seat pockets, back bib, crossed braces, blouse buttons
   if (BACKB) { const fc = mixc(o.shirt, INK, 0.5), ks = clamp(-CS, 0.3, 1);
@@ -415,7 +558,7 @@ export function oddverra(g, o, op = {}) {
   const swing = Math.sin(TT * 0.45) * 0.18 * MV + flap * 0.07 * CS - trail * 0.18;
   const ncol = o.neckCol || '#c0453a';
   if (!BACKB) { const tx0 = tX(cx, shY + 40); g.save(); g.translate(tx0, shY + 14); g.rotate(swing); g.translate(-tx0, -(shY + 14)); const ks = turned ? 0.55 + 0.45 * CS : 1, T = (pts) => pts.map(([x, y]) => [tx0 + (x - cx) * ks, y]);
-    if (o.neck === 'tie') { cel(g, polyPath(T([[cx - 7, shY + 14], [cx + 7, shY + 14], [cx + 13, shY + 104], [cx, shY + 120], [cx - 13, shY + 104]])), ncol, 2.6, 4, 3, 0); cel(g, polyPath(T([[cx - 9, shY + 4], [cx + 9, shY + 4], [cx + 7, shY + 18], [cx - 7, shY + 18]])), dk(ncol, 0.9), 2.4, 2, 2, 0); taper(g, T([[cx + 2, shY + 22], [cx + 4, shY + 100]]), 1.4, mixc(ncol, INK, 0.4), 0.1); }
+    if (o.neck === 'tie') { const tk = o.tieK || 1; /* [CASTRO-cast] tie width */ cel(g, polyPath(T([[cx - 7 * tk, shY + 14], [cx + 7 * tk, shY + 14], [cx + 13 * tk, shY + 104], [cx, shY + 104 + 16 * Math.min(1, tk)], [cx - 13 * tk, shY + 104]])), ncol, 2.6, 4, 3, 0); cel(g, polyPath(T([[cx - 9, shY + 4], [cx + 9, shY + 4], [cx + 7, shY + 18], [cx - 7, shY + 18]])), dk(ncol, 0.9), 2.4, 2, 2, 0); taper(g, T([[cx + 2, shY + 22], [cx + 4, shY + 100]]), 1.4, mixc(ncol, INK, 0.4), 0.1); }
     if (o.neck === 'bow') { const bp = new Path2D(); for (const s of [-1, 1]) polyPath(T([[cx, shY + 10], [cx + s * 26, shY - 2], [cx + s * 28, shY + 24]]), bp); cel(g, bp, ncol, 2.6, 4, 3, 0); cel(g, ellP(tx0, shY + 11, 7 * ks, 8), dk(ncol, 0.85), 2.2, 2, 2, 0); }
     g.restore(); }
   if (o.neck === 'scarf') { const sc = o.neckCol || '#d9a441', fl = Math.sin(TT * 0.8) * 5 * MV + trail * 14 + flap * 4, tx = turned ? tX(cx + 33, shY + 30) : cx + 33;
@@ -443,7 +586,7 @@ export function oddverra(g, o, op = {}) {
   }
   function drawProps() { // props are held in front: seen from behind they are drawn behind the body and only peek out
   const PS = 0.74 * B.hs, pa = arms.find((a) => a[0] === PA);
-    if (HOLD[op.prop]) { const h = pa[1][2]; g.save(); g.translate(h[0] + 6, h[1] - 4); g.scale(PS, PS); HOLD[op.prop](g); g.restore(); hand([h[0] + 3, h[1] + 4], -Math.PI / 2, PA, true); }
+    if (HOLD[op.prop]) { const h = pa[1][2]; g.save(); g.translate(h[0] + 6, h[1] - 4); g.scale(PS, PS); HSIDE = Math.sign(h[0] - cx) || PA; HOLD[op.prop](g, op); g.restore(); /* [CASTRO-cast] op + side for props */ hand([h[0] + 3, h[1] + 4], -Math.PI / 2, PA, true); }
     if (op.prop === 'stick') { const h = pa[1][2], sd = PA; line(g, [[h[0] - 6 * sd, h[1] + 20], [h[0] + 52 * sd, h[1] - 96]], 12, INK); line(g, [[h[0] - 6 * sd, h[1] + 20], [h[0] + 52 * sd, h[1] - 96]], 6.5, '#8a5a34'); taper(g, [[h[0] + 10 * sd, h[1] - 10], [h[0] + 40 * sd, h[1] - 72]], 2, '#b07a4a', 0.3); hand([h[0] + 3, h[1] + 6], -Math.PI / 2, PA, true); } };
   if (!BACKB) drawProps();
   // ---------- head ----------
@@ -458,7 +601,8 @@ export function oddverra(g, o, op = {}) {
     if (o.earring) { g.beginPath(); g.arc(X, ey0 + 19 * fz, 5, 0, TAU); g.fillStyle = o.earring; g.fill(); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(); } };
   const earsHidden = o.hair === 'long' || (o.hair === 'curly' && AH > 0.3);
   if (!turned && !BACKH) for (const s of [-1, 1]) drawEar(s, true);
-  if (BACKH && o.hat === 'cap') capVisor(o.hatCol || '#5a4a3a', -0.36); // the peak is in front of the face: behind the head from here
+  if (BACKH && o.hat === 'cap') capVisor(o.hatCol || '#5a4a3a', -0.36);
+  if (BACKH && o.hat === 'patrol') patrolVisor(o.hatCol || '#4e5a32'); if (BACKH) drawBeard(true); // [CASTRO-cast] behind the head from here; (cap) the peak is in front of the face: behind the head from here
   function capVisor(hk, cut) {
     const vy = hy + HH * (cut + 0.03), Rr = HW * 0.88, pv = 0.1 * Math.cos(HY) + 0.1, VY = clamp(HY * 1.4, -HP_, HP_), hs2 = Math.sin(VY), hc2 = Math.cos(VY), Pv = (lat, fw) => [hcx - SN * 4 * fz + lat * hc2 + fw * hs2, vy + (-lat * hs2 + fw * hc2) * pv];
       const vp = []; for (let k = 0; k <= 12; k++) { const a = Math.PI * k / 12; vp.push(Pv(Rr * Math.cos(a), Rr * (0.62 + 0.45 * AH) * Math.sin(a) + HW * (0.42 + 0.06 * AH) * Math.sin(a))); }
@@ -467,6 +611,7 @@ export function oddverra(g, o, op = {}) {
   }
 
   cel(g, headSil, skin, 3.8, HW * 0.16, HH * 0.1, 5, null, SHADE_SKIN);
+  drawStubble(); // [CASTRO-cast]
   // jaw/cheek accent: tiny crisp ink tick on the shadow side (front-ish views)
   if (AH < 0.8 && !BACKH) taper(g, [[hcx + SG * HW * 0.62, hy + HH * 0.7], [hcx + SG * HW * 0.4, hy + HH * 0.86]], 1.6, mixc(skin, INK, 0.5), 0.1);
   // ---------- hair ----------
@@ -518,6 +663,11 @@ export function oddverra(g, o, op = {}) {
         const X = (x) => ex + (x - (hcx + s * HW * 0.98)) * (HY ? 0.8 : 1);
         cel(g, smooth([[X(hcx + s * HW * 0.98), hy - HH * 0.3], [X(hcx + s * HW * 1.1), hy + HH * 0.4], [X(hcx + s * HW * 1.06) + sw, hy + HH * 1.25], [X(hcx + s * HW * 0.9) + sw, hy + HH * 1.36], [X(hcx + s * HW * 0.88), hy + HH * 0.5], [X(hcx + s * HW * 0.84), hy - HH * 0.1]], 6), hc, 3.2, 6, 4, 3); } }
   }
+  if (o.hair === 'receding' && !BACKH) { const fr = [[1.0, -0.12], [0.9, -0.3], [0.74, -0.52], [0.56, -0.7], [0.4, -0.74], [0.2, -0.72], [0, -0.76], [-0.2, -0.72], [-0.4, -0.74], [-0.56, -0.7], [-0.74, -0.52], [-0.9, -0.3], [-1.0, -0.12]].map(([x, y], k) => [x + sway(k) * 0.4 / HW, y + bnc]); // [CASTRO-cast] high hairline, receding temples
+    hairPaint(backCap(polyPath(HMP([...capPts(-0.12), ...cr(rel(fr), false, 4)]))), [[[-0.3, -0.98], [0.3, -0.86], [0.7, -0.62]], [[0.1, -1.0], [0.6, -0.84], [0.9, -0.4]], [[-0.6, -0.9], [-0.86, -0.5]]]); }
+  if (o.hair === 'crew' && !BACKH) { const fr = [[1.0, -0.36], [0.7, -0.56], [0.35, -0.64], [0, -0.66], [-0.35, -0.64], [-0.7, -0.56], [-1.0, -0.36]]; // [CASTRO-cast] 1960s crew cut: close, flat-topped
+    const P = backCap(polyPath(HMP([...capPts(-0.36).map(([x, y]) => [x, Math.max(y, hy - HH * 1.03)]), ...cr(rel(fr), false, 4)])), 0.0); hairPaint(P, []);
+    g.save(); g.clip(P); g.fillStyle = rgba(mixc(hc, INK, 0.35), 0.5); for (let i = 0; i < 90; i++) { const [X] = hmapPt([hcx + (hsh(i, 1.7) - 0.5) * HW * 1.9, hy]); g.fillRect(X, hy - HH * (0.45 + hsh(i, 2.9) * 0.6), 1.6, 3.2); } g.restore(); }
   if (o.hair === 'bald' && !BACKH) { const P = new Path2D(); for (const s of [-1, 1]) for (const [dx, dy, rr] of [[0.97, -0.12, 0.12], [1.0, 0.04, 0.1], [0.9, -0.26, 0.1], [0.84, -0.4, 0.08]]) { if (HY && (Math.abs(Math.asin(s * 0.97) + HY) > HP_ + 0.1 || AH > 0.8)) continue; const [x0] = hmapPt([hcx + s * HW * dx, hy + HH * dy]), x = x0 - Math.sign(HY) * AH * HW * 0.24, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
     if (AH > 0.8) for (const [dy, rr] of [[-0.22, 0.11], [-0.04, 0.12]]) { const x = hcx - Math.sign(HY) * HW * 0.3, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
     if (HY) for (const [dy, rr] of [[-0.3, 0.13], [-0.1, 0.13], [0.1, 0.12], [0.25, 0.1]]) { const x = hcx - Math.sign(HY) * rH(dy) * HW * 0.9, y = hy + HH * dy; P.moveTo(x + HW * rr, y); P.arc(x, y, HW * rr, 0, TAU); }
@@ -558,6 +708,7 @@ export function oddverra(g, o, op = {}) {
     if (o.hair !== 'long') for (const s of [-1, 1]) { const { X, vis } = earAt(s); if (vis < -0.05) continue; const ey0 = hy + HH * 0.1, out = Math.sign(X - hcx) || s;
       cel(g, ellP(X + out * 2 * fz, ey0, 10 * fz * clamp(0.5 + vis, 0.55, 1), 17 * fz, out * 0.2), skin, 3, 3, 3, 0, null, SHADE_SKIN); taper(g, arcPts(X + out * 1 * fz, ey0, 5 * fz, out > 0 ? -1.2 : 4.3, out > 0 ? 1.2 : 1.9, 5, 10 * fz), 1.6, mixc(skin, INK, 0.45), 0.2); } }
   // near ear (turned views): on top of hair, behind the face features
+  if (!BACKH) drawBeard(false); // [CASTRO-cast]
   if (turned && !BACKH && !earsHidden) drawEar(-Math.sign(HY || dv), false);
   // hats
   // hats: crowns are solids of revolution (silhouette unchanged by yaw); brims are horizontal discs projected with the head yaw,
@@ -614,6 +765,7 @@ export function oddverra(g, o, op = {}) {
     g.restore();
     // ties at the back: visible once the head turns
     { const a = Math.PI + HY, d = Math.cos(a); if (d > -0.6) { const X = hx + HW * 0.92 * Math.sin(a), y = bY + 2; if (Math.abs(Math.sin(a)) <= 0.4 && d > 0.6) for (const sd of [-1, 1]) cel(g, polyPath([[X, y - 2], [X + sd * 10 * fz, y + 34 * fz], [X + sd * 2 * fz, y + 36 * fz]]), dk(hk, 0.92), 2, 2, 2, 0); if (Math.abs(Math.sin(a)) > 0.4) { const sd = Math.sign(Math.sin(a)); cel(g, polyPath([[X, y - 4], [X + sd * 18 * fz, y + 26 * fz], [X + sd * 6 * fz, y + 30 * fz]]), hk, 2, 2, 2, 0); cel(g, polyPath([[X, y - 4], [X + sd * 26 * fz, y + 14 * fz], [X + sd * 20 * fz, y + 22 * fz]]), dk(hk, 0.9), 2, 2, 2, 0); } } } }
+  if (o.hat === 'patrol') patrolCap(); if (o.hat === 'straw') strawHat(); if (o.headphones) headphones(); // [CASTRO-cast]
   if (!BACKH) { // ---------- face (local frame: head centre, unit = fz px) ----------
   const E = expr, red = '#e0303a', w = HW / fz;
   const exciteE = E === 'excited', angryE = E === 'angry', meanE = E === 'mean' || E === 'smug', sadE = E === 'sad', shockE = E === 'shock' || E === 'surprised';
@@ -631,8 +783,8 @@ export function oddverra(g, o, op = {}) {
   const dartX = dOn ? (hsh(dk_, 5) - 0.5) * 3.6 : 0, dartY = dOn ? (hsh(dk_, 7) - 0.5) * 1.6 : 0;
   const look = op.look || 0;
   // blush (cheeks rise + grow when smiling)
-  for (const s of [-1, 1]) { const m = fm(s * w * 0.6, 36, 1.35); if (m.c < 0.15) continue; const bx = m.x, by = 36 - smileK * 3;
-    g.beginPath(); g.ellipse(bx, by, (exciteE ? 15 : 12.5 + smileK * 1.5) * m.sx, exciteE ? 8 : 6.6 + smileK, 0, 0, TAU); g.fillStyle = angryE ? 'rgba(230,60,70,0.5)' : 'rgba(240,100,130,0.42)'; g.fill();
+  for (const s of [-1, 1]) { const BB = BRD && BRD !== 'none', m = fm(s * w * (BB ? 0.55 : 0.6), BB ? 25 : 36, 1.35); if (m.c < 0.15) continue; const bx = m.x, by = (BB ? 25 : 36) - smileK * 3; /* [CASTRO-cast] blush sits higher above a beard */
+    const bk = BB ? 0.72 : 1; g.beginPath(); g.ellipse(bx, by, (exciteE ? 15 : 12.5 + smileK * 1.5) * m.sx * bk, (exciteE ? 8 : 6.6 + smileK) * bk, 0, 0, TAU); g.fillStyle = angryE ? 'rgba(230,60,70,0.5)' : 'rgba(240,100,130,0.42)'; g.fill();
     if (E === 'happy' || E === 'laugh' || E === 'grin') for (let k = -1; k <= 1; k++) line(g, [[bx + (k * 6 - 2) * m.sx, by + 3], [bx + (k * 6 + 2) * m.sx, by - 3]], 1.4, 'rgba(200,60,90,0.7)'); }
   // nose (front / three-quarter; in profile it is part of the silhouette)
   const nm = fm(2, 26);
@@ -683,11 +835,18 @@ export function oddverra(g, o, op = {}) {
     g.restore();
   }
   if (o.glasses) { const rims = [-1, 1].map((s) => { const m = fm(s * w * 0.38, ey, kF); return { s, m }; }).filter((q) => q.m.c > 0.18);
-    for (const { s, m } of rims) { g.beginPath(); g.ellipse(m.x, ey, 19 * m.sx, 19, 0, 0, TAU); g.lineWidth = 2.8; g.strokeStyle = INK; g.stroke(); g.beginPath(); g.ellipse(m.x - 6 * m.sx, ey - 7, 11 * m.sx, 11, 0, Math.PI * 1.05, Math.PI * 1.45); g.lineWidth = 2; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.stroke(); }
+    const HRN = o.glasses === 'horn'; // [CASTRO-cast] horn-rimmed
+    for (const { s, m } of rims) { if (HRN) { g.beginPath(); g.ellipse(m.x, ey, 19 * m.sx, 17, 0, 0, TAU); g.fillStyle = 'rgba(200,220,255,0.12)'; g.fill(); g.lineWidth = 6.5; g.strokeStyle = INK; g.stroke(); g.lineWidth = 3.6; g.strokeStyle = '#4a2a1c'; g.stroke(); g.beginPath(); g.ellipse(m.x, ey, 19 * m.sx, 17, 0, Math.PI * 1.08, Math.PI * 1.92); g.lineWidth = 7; g.strokeStyle = '#3a2016'; g.stroke(); continue; }
+      g.beginPath(); g.ellipse(m.x, ey, 19 * m.sx, 19, 0, 0, TAU); g.lineWidth = 2.8; g.strokeStyle = INK; g.stroke(); g.beginPath(); g.ellipse(m.x - 6 * m.sx, ey - 7, 11 * m.sx, 11, 0, Math.PI * 1.05, Math.PI * 1.45); g.lineWidth = 2; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.stroke(); }
     if (rims.length === 2) { const [a, b] = rims; taper(g, [[a.m.x + 19 * a.m.sx, ey - 2], [(a.m.x + b.m.x) / 2, ey - 5], [b.m.x - 19 * b.m.sx, ey - 2]], 2.6, INK, 0.8); }
     else if (rims.length === 1) { const { m } = rims[0]; taper(g, [[m.x + dv * 19 * m.sx, ey - 2], [m.x + dv * 26 * m.sx, ey - 4]], 2.4, INK, 0.8); }
     for (const { s, m } of rims) { if (!turned) line(g, [[s * (w * 0.38 + 19), ey - 2], [s * w * 0.92, ey - 6]], 2.4); else if (s === -Math.sign(HY)) { const ear = (earAt(s).X - hcx) / fz; line(g, [[m.x - dv * 19 * m.sx, ey - 2], [ear + dv * 6, ey - 4]], 2.4); } } }
-  if (o.moustache) { const mp = new Path2D(); for (const s of [-1, 1]) { const m = fm(s * 13, 41, AH > 0.8 ? 1.3 : 1); if (m.c < 0.15) continue; ellP(m.x + (AH > 0.8 ? dv * 4 : 0), 41, 15 * Math.max(0.6, m.sx), 6.4, s * (angryE ? 0.5 : 0.25) * (turned ? 0.6 : 1), mp); } cel(g, mp, o.moustache, 2.4, 3, 2, 0);
+  if (o.goggles) { const rims = [-1, 1].map((s) => ({ s, m: fm(s * w * 0.38, ey, kF) })).filter((q) => q.m.c > 0.1), gc = o.gogglesCol || '#5a7a6a'; // [CASTRO-cast] lab goggles
+    if (rims.length === 2) line(g, [[rims[0].m.x, ey], [rims[1].m.x, ey]], 8, INK);
+    for (const { m } of rims) { const gp = ellP(m.x, ey, 22 * m.sx, 19); g.fillStyle = 'rgba(190,235,225,0.28)'; g.fill(gp); g.lineWidth = 9; g.strokeStyle = INK; g.stroke(gp); g.lineWidth = 5.5; g.strokeStyle = gc; g.stroke(gp); g.beginPath(); g.ellipse(m.x - 7 * m.sx, ey - 6, 9 * m.sx, 7, 0, Math.PI * 1.05, Math.PI * 1.5); g.lineWidth = 2.4; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.stroke(); }
+    for (const s of [-1, 1]) { const ex = fm(s * w * 0.98, ey); if (ex.c > -0.2 && Math.abs(ex.x) > 30) line(g, [[s * w * 0.6 * Math.max(0.2, Math.cos(HY)) + Math.sin(HY) * w * 0.4 * (s === Math.sign(HY) ? 1 : 0.6), ey - 2], [ex.x, ey - 6]], 6, mixc(gc, INK, 0.4)); } }
+  if (BRD && BRD !== 'none') { const wx = fm(0, 50).x + (AH > 0.8 ? -dv * 6 : 0), wsx = AH > 0.8 ? 0.8 : clamp(0.55 + 0.45 * Math.cos(HY), 0.55, 1); g.beginPath(); g.ellipse(wx, 53, 21 * wsx, 15, 0, 0, TAU); g.fillStyle = skin; g.fill(); taper(g, arcPts(wx, 53, 21 * wsx, Math.PI * 0.1, Math.PI * 0.9, 8, 15), 2, mixc(BRDC, INK, 0.3), 0.3); } // [CASTRO-cast] lips window in the beard
+  if (o.moustache && BRD !== 'none') { const mp = new Path2D(); for (const s of [-1, 1]) { const m = fm(s * 13, 41, AH > 0.8 ? 1.3 : 1); if (m.c < 0.15) continue; ellP(m.x + (AH > 0.8 ? dv * 4 : 0), 41, 15 * Math.max(0.6, m.sx), 6.4, s * (angryE ? 0.5 : 0.25) * (turned ? 0.6 : 1), mp); } cel(g, mp, o.moustache, 2.4, 3, 2, 0);
     g.save(); g.clip(mp); for (const s of [-1, 1]) { const m = fm(s * 13, 41); taper(g, [[m.x - 5, 38], [m.x + 5, 43]], 1.2, mixc(o.moustache, INK, 0.35), 0.2); } g.restore(); }
   // ---------- mouth (soft shapes, no teeth) ----------
   const my = 50, mm = fm(0, my, AH > 0.8 ? 1 : 1), msx = AH > 0.8 ? 0.8 : clamp(0.55 + 0.45 * Math.cos(HY), 0.55, 1);
@@ -731,6 +890,15 @@ export function oddverra(g, o, op = {}) {
   else { taper(g, arcPts(0, my - 9, 12, Math.PI * 0.22, Math.PI * 0.78, 10), 3.6, INK, 0.3); taper(g, arcPts(0, my + 9, 5, Math.PI * 0.25, Math.PI * 0.75, 4), 1.5, mixc(skin, INK, 0.35), 0.2); }
   g.restore();
   g.restore();
+  // [CASTRO-cast] dive mask (op.mask / o.mask: 'face' | 'forehead') and a cigar in the mouth corner (op.cigarMouth, op.smoke)
+  { const SP = (x, y) => [hcx + x * fz, hy + y * fz];
+    if (o.scuba && (op.mask ?? o.mask ?? 'face') !== 'none') { const face = (op.mask ?? o.mask ?? 'face') === 'face', y0 = face ? 12 : -60, mc = o.maskCol || '#24303e', hh = face ? 25 : 19;
+      const ends = [-1, 1].map((s2) => fm(s2 * w * (face ? 0.7 : 0.6), y0, kF)), xl = Math.min(ends[0].x, ends[1].x), xr = Math.max(ends[0].x, ends[1].x), [Xl, Y0] = SP(xl, y0), [Xr] = SP(xr, y0);
+      const ed = [-1, 1].map((s2) => fm(s2 * w * 0.99, y0 + 4).x); line(g, [SP(ed[0], y0 + 4), SP(xl, y0 + 2)], 8, INK); line(g, [SP(xr, y0 + 2), SP(ed[1], y0 + 4)], 8, INK); line(g, [SP(ed[0], y0 + 4), SP(xl, y0 + 2)], 4.5, mc); line(g, [SP(xr, y0 + 2), SP(ed[1], y0 + 4)], 4.5, mc);
+      const lp = new Path2D(); lp.roundRect(Xl - 8 * fz, Y0 - hh * fz, Xr - Xl + 16 * fz, hh * 2 * fz, 13 * fz); if (face) { const [nx] = SP(fm(2, 30).x, 30); ellP(nx, hy + 33 * fz, 15 * fz, 14 * fz, 0, lp); }
+      g.lineWidth = 11 * fz; g.strokeStyle = INK; g.stroke(lp); g.lineWidth = 7 * fz; g.strokeStyle = mc; g.stroke(lp); g.fillStyle = face ? 'rgba(170,220,245,0.32)' : 'rgba(170,220,245,0.7)'; g.fill(lp);
+      g.save(); g.clip(lp); taper(g, [[Xl + 4 * fz, Y0 - 4 * fz], [Xl + 22 * fz, Y0 - 16 * fz]], 5 * fz, 'rgba(255,255,255,0.85)', 0.3); taper(g, [[Xl + 20 * fz, Y0 + 2 * fz], [Xl + 34 * fz, Y0 - 8 * fz]], 2.4 * fz, 'rgba(255,255,255,0.7)', 0.3); g.restore(); }
+    if (op.cigarMouth) { const s2 = turned ? dv : (op.cigarSide || -SG), m = fm(s2 * 13, 54), [X, Y] = SP(m.x, 54); if (m.c > -0.1) cigarAt(g, X, Y, s2 > 0 ? 0.32 : Math.PI - 0.32, 62 * fz * (0.6 + 0.4 * AH), 6.8 * fz, op.lit !== false, TT, !!op.smoke); } }
   // emotion marks (outside the head clip)
   g.save(); g.translate(hcx, hy); g.scale(fz, fz); const mo = Math.sin(HY) * w * 0.25;
   if (angryE) { const vx = w * 0.56 + mo, vy = -64; g.lineWidth = 3.2; g.strokeStyle = red; g.lineCap = 'round'; for (const [a1, a2, dx, dy] of [[0, 1.6, -5, -5], [1.6, 3.2, 5, -5], [3.2, 4.8, 5, 5], [4.8, 6.3, -5, 5]]) { g.beginPath(); g.arc(vx + dx, vy + dy, 4.5, a1, a2); g.stroke(); } }
