@@ -489,10 +489,10 @@ function buildTalks(root) {
   for (const wx of wins) { const m = mesh(root, plane(ww + 0.4, wy1 - wy0 + 0.4), M.skyView, wx, (wy0 + wy1) / 2, bz - 1.2, 0, 0, 0, false); m.receiveShadow = false; }
   // fan blades (rotating group)
   FAN = new THREE.Group(); FAN.position.set(0, h - 0.68, 0.2); root.add(FAN); { const FK = new Kit(); for (let k = 0; k < 4; k++) FK.at(0, 0, 0, k * Math.PI / 2, () => { FK.box(M.wood, 0.1, 0.72, -0.01, 0.01, -0.07, 0.07, 0x7a4a30, 0.005); FK.box(M.brass, 0.05, 0.16, -0.015, 0.0, -0.02, 0.02, 0x8a6a3a, 0.005); }); FK.put(M.brass, sph(0.06, 10, 6), 0, -0.04, 0, 0, 0, 0, 1, 0.6, 1, 0x8a6a3a); buildK(FK, FAN); }
-  // the gift box: base (with wetsuit + mask inside) and a hinged lid
-  GIFT = new THREE.Group(); GIFT.position.set(...TK.gift); root.add(GIFT); const bw = 0.5, bd = 0.36, bh = 0.13, wc = 0xf2ece0;
+  // the gift box ([CASTRO-story] teal paper + red ribbon: a white lid with a blue (or red) cross read as a Finnish / English flag): base (with wetsuit + mask inside) and a hinged lid
+  GIFT = new THREE.Group(); GIFT.position.set(...TK.gift); root.add(GIFT); const bw = 0.5, bd = 0.36, bh = 0.13, wc = 0x4aa8a4;
   { const GK = new Kit(); GK.box(M.paint, -bw / 2, bw / 2, 0, 0.012, -bd / 2, bd / 2, wc, 0.004); for (const [a, b, c, d] of [[-bw / 2, bw / 2, -bd / 2, -bd / 2 + 0.01], [-bw / 2, bw / 2, bd / 2 - 0.01, bd / 2], [-bw / 2, -bw / 2 + 0.01, -bd / 2, bd / 2], [bw / 2 - 0.01, bw / 2, -bd / 2, bd / 2]]) GK.box(M.paint, a, b, 0, bh, c, d, wc, 0.003);
-    GK.box(M.paint, -bw / 2 - 0.002, bw / 2 + 0.002, 0.02, bh - 0.02, bd / 2 - 0.004, bd / 2 + 0.002, 0x2a5aa0, 0.002); // blue band on the front
+    GK.box(M.paint, -bw / 2 - 0.002, bw / 2 + 0.002, 0.02, bh - 0.02, bd / 2 - 0.004, bd / 2 + 0.002, 0xc8302c, 0.002); // blue band on the front
     // tissue paper
     // folded wetsuit: stacked black rubber layers with rolled sleeve + seams
     const rb = 0x1c1a24; GK.box(M.rubber, -0.2, 0.2, 0.012, 0.055, -0.14, 0.14, rb, 0.02, 2, 2); GK.box(M.rubber, -0.19, 0.18, 0.055, 0.09, -0.13, 0.12, 0x24222e, 0.018, 2, 2); GK.box(M.rubber, -0.17, 0.12, 0.09, 0.112, -0.12, 0.1, rb, 0.012, 2, 2);
@@ -503,9 +503,9 @@ function buildTalks(root) {
     GK.put(M.rubber, cyl(0.011, 0.011, 0.3, 10), 0.03, 0.124, -0.115, 0, 0, Math.PI / 2, 1, 1, 1, 0x1a1a22); GK.put(M.paint, cyl(0.013, 0.013, 0.04, 10), 0.165, 0.124, -0.115, 0, 0, Math.PI / 2, 1, 1, 1, 0xe85a2a); GK.put(M.rubber, tor(0.03, 0.011, 6, 12, Math.PI / 2), -0.12, 0.124, -0.085, -Math.PI / 2, 0, Math.PI, 1, 1, 1, 0x1a1a22);
     buildK(GK, GIFT); }
   const lid = new THREE.Group(); lid.position.set(0, bh, -bd / 2); GIFT.add(lid); GIFT.userData.lid = lid;
-  { const LK = new Kit(); LK.box(M.paint, -bw / 2 - 0.01, bw / 2 + 0.01, 0, 0.03, 0, bd + 0.01, wc, 0.006); LK.box(M.paint, -0.03, 0.03, -0.002, 0.034, 0, bd + 0.012, 0x2a5aa0, 0.002); LK.box(M.paint, -bw / 2 - 0.012, bw / 2 + 0.012, -0.002, 0.034, bd / 2 - 0.025, bd / 2 + 0.025, 0x2a5aa0, 0.002);
-    for (const s of [-1, 1]) LK.put(M.paint, tor(0.045, 0.012, 5, 14), s * 0.04, 0.05, bd / 2, 0, s * 0.5, s * 0.5, 1, 0.7, 1, 0x2a5aa0); LK.put(M.paint, sph(0.018, 8, 6), 0, 0.045, bd / 2, 0, 0, 0, 1, 0.8, 1, 0x2a5aa0);
-    LK.beam(M.paint, [0.01, 0.04, bd / 2 + 0.01], [0.05, 0.035, bd / 2 + 0.09], 0.01, 0x2a5aa0); LK.beam(M.paint, [-0.01, 0.04, bd / 2 + 0.01], [-0.06, 0.035, bd / 2 + 0.08], 0.01, 0x2a5aa0); buildK(LK, lid); }
+  { const LK = new Kit(); LK.box(M.paint, -bw / 2 - 0.01, bw / 2 + 0.01, 0, 0.03, 0, bd + 0.01, wc, 0.006); LK.box(M.paint, -0.03, 0.03, -0.002, 0.034, 0, bd + 0.012, 0xc8302c, 0.002); LK.box(M.paint, -bw / 2 - 0.012, bw / 2 + 0.012, -0.002, 0.034, bd / 2 - 0.025, bd / 2 + 0.025, 0xc8302c, 0.002);
+    for (const s of [-1, 1]) LK.put(M.paint, tor(0.045, 0.012, 5, 14), s * 0.04, 0.05, bd / 2, 0, s * 0.5, s * 0.5, 1, 0.7, 1, 0xc8302c); LK.put(M.paint, sph(0.018, 8, 6), 0, 0.045, bd / 2, 0, 0, 0, 1, 0.8, 1, 0xc8302c);
+    LK.beam(M.paint, [0.01, 0.04, bd / 2 + 0.01], [0.05, 0.035, bd / 2 + 0.09], 0.01, 0xc8302c); LK.beam(M.paint, [-0.01, 0.04, bd / 2 + 0.01], [-0.06, 0.035, bd / 2 + 0.08], 0.01, 0xc8302c); buildK(LK, lid); }
   // dust in the sun beams (no ink)
   for (const wx of wins) { const m = noink(mesh(root, plane(1.0, 3.4), M.beam, wx, 1.5, -1.2, -1.1, 0, 0, false)); m.renderOrder = 3; }
 }

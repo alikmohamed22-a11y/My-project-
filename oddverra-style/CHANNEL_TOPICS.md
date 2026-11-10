@@ -22,7 +22,7 @@ Also made (check whether posted):
 - Mona Lisa theft of 1911: posted
 - Edwin Booth saved Lincoln's son (Robert Lincoln at three assassinations): delivered 2026-11-10
 
-In production: CIA plots against Castro (beard thallium, cigars, seashell, diving suit). New sets only; no reuse of the Acoustic Kitty CIA lab.
+- CIA plots against Castro's beard (thallium, cigars, seashell, diving suit): delivered 2026-11-10
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
 

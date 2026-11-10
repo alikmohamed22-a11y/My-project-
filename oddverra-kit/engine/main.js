@@ -9,7 +9,9 @@ import { buildLouvre, drawMona } from './louvre.js'; globalThis.__drawMona = dra
 import { buildParis } from './paris.js'; // [MONA-paris]
 import { buildStation } from './station.js'; // [BOOTH-station]
 import { buildTheatre } from './theatre.js'; // [BOOTH-theatre]
-import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER, roomAt, setAt } from './story_mona.js';
+import { buildHavana } from './havana.js'; // [CASTRO-havana]
+import { buildReef } from './reef.js'; // [CASTRO-reef]
+import { shotAt, camAt, lightFor, worldAt, actorsAt, fxAt, gradeAt, TALKER, roomAt, setAt } from './story_castro.js'; // [CASTRO-story] (was story_booth.js)
 import { ENV } from './voice_env.js';
 import { makeChar } from './char3d.js';
 import * as PT from './paint.js';
@@ -303,7 +305,9 @@ const louvre = buildLouvre({ THREE, toon, mkTex, PT, NOND, scene }); world.louvr
 const paris = buildParis({ THREE, toon, mkTex, PT, NOND, scene, macro, drawMona }); world.paris = paris; // [MONA-paris] Paris 1911 / Florence 1913 sets at x=1600 (hidden until shown)
 const PARISV = (location.search.match(/parisview=(\d+|a)/) || [])[1]; // [MONA-paris] ?parisview=N test view N (?parisview=a: view = frame number)
 const station = buildStation({ THREE, toon, mkTex, PT, NOND, scene, macro }); world.station = station; const STV = (location.search.match(/stationview=(\d+|a)/) || [])[1]; // [BOOTH-station] 1864 Jersey City platform + 1881 B&P waiting room at x=-1600 (hidden until shown); ?stationview=N test view
-const theatre = buildTheatre({ THREE, toon, mkTex, PT, NOND, scene, macro }); world.theatre = theatre; const THV = (location.search.match(/theatreview=(\d+|a)/) || [])[1]; // [BOOTH-theatre] Ford's 1865 / Booth's dressing room / 1901 expo / study at x=-1600, z 400..1000 (hidden until shown); ?theatreview=N test view (a: view = frame)
+const theatre = buildTheatre({ THREE, toon, mkTex, PT, NOND, scene, macro }); world.theatre = theatre; globalThis.__theatre = theatre; /* [BOOTH-story] setAt drives setDim before lightFor */ const THV = (location.search.match(/theatreview=(\d+|a)/) || [])[1]; // [BOOTH-theatre] Ford's 1865 / Booth's dressing room / 1901 expo / study at x=-1600, z 400..1000 (hidden until shown); ?theatreview=N test view (a: view = frame)
+const reef = buildReef({ THREE, toon, mkTex, PT, NOND, scene }); world.reef = reef; const RFV = (location.search.match(/reefview=(\d+|a)/) || [])[1]; // [CASTRO-reef] beach / underwater / senate / shoes at z=3200 (hidden until shown); ?reefview=N test view (a: view = frame)
+const havana = buildHavana({ THREE, toon, mkTex, PT, NOND, scene, macro }); world.havana = havana; const HVQ = (location.search.match(/havanaview=(\d+|a)/) || [])[1]; // [CASTRO-havana] 1960-63 Havana sets at x=3200 (plaza/radio/talks/cigar, hidden until shown); ?havanaview=N test view
 // ---------- lighting practicals: lanterns hung on the road's telegraph poles, lit only in dark presets ----------
 const LANT = []; // world-space bulb positions per set: { set, p:[x,y,z] }
 { const glassM = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffc477).multiplyScalar(3.2), fog: false }), capM = toon({ color: 0x1d1b22 });
@@ -398,6 +402,61 @@ const ODD = {
   BAAOFF: { pattern: 'tweed', shirt: '#6a4a32', pants: '#3a3040', hat: 'bowler', hair: 'short', hairCol: '#8a6a4a', moustache: '#8a6a4a', build: 'adult', head: 'round', neck: 'bow', neckCol: '#2f4a8a', skin: '#f0c098' },
   KID: { pattern: 'dots', shirt: '#f08a2c', stripe: '#f6c060', pants: '#3b5b9a', hat: 'cap', hatCol: '#e2453c', hair: 'short', hairCol: '#3a2a20', build: 'kid', head: 'round', skin: '#ffe2c2' },
 };
+// [BOOTH-story] period crowds: C64_* Jersey City 1864, AUD* New York theatre 1864, C81_* Washington 1881, C01_* Buffalo 1901 (no extra is reused across times/places)
+Object.assign(ODD, {
+  C64_0: { shirt: '#2c3d6e', pants: '#4a5a8a', hat: 'cap', hatCol: '#2c3d6e', hair: 'short', hairCol: '#6a4a2a', moustache: '#6a4a2a', build: 'adult', head: 'round', skin: '#f0c098', button: '#e0b84a', neck: 'tie', neckCol: '#1e2440' },
+  C64_1: { shirt: '#5a2a4a', pants: '#3a2a3a', hair: 'bun', hairCol: '#3a2418', lashes: true, head: 'egg', skin: '#f2c8a8', neck: 'bow', neckCol: '#e8dcc8' },
+  C64_2: { pattern: 'tweed', shirt: '#5a4a3a', pants: '#3a3430', hat: 'bowler', hatCol: '#2a2420', hair: 'short', hairCol: '#5a3a22', moustache: '#5a3a22', build: 'stout', head: 'wide', skin: '#e8b48a', neck: 'tie', neckCol: '#6a2a2a' },
+  C64_3: { shirt: '#2a4a5a', pants: '#2a3a44', hair: 'long', hairCol: '#7a4a24', lashes: true, head: 'round', skin: '#f6d0b0' },
+  C64_4: { shirt: '#2a2a30', pants: '#4a4440', hat: 'top', hair: 'short', hairCol: '#8a8078', moustache: '#c8c0b0', build: 'adult', head: 'tall', skin: '#f0c8a8', neck: 'tie', neckCol: '#3a3a5a' },
+  C64_5: { shirt: '#3a3a40', pants: '#2a2a30', hat: 'cap', hatCol: '#2a2a30', hair: 'short', hairCol: '#1a1410', build: 'adult', head: 'egg', skin: '#8a5a3e', neck: 'scarf', neckCol: '#8a6a3a' },
+  C64_6: { shirt: '#2c3d6e', pants: '#4a5a8a', hat: 'cap', hatCol: '#2c3d6e', hair: 'side', hairCol: '#b07a3a', build: 'thin', head: 'egg', skin: '#f6c9a4', button: '#e0b84a', neck: 'tie', neckCol: '#1e2440' },
+  C64_7: { shirt: '#6a4a2a', pants: '#4a3020', hair: 'curly', hairCol: '#2a1a12', lashes: true, head: 'wide', skin: '#c98a5e', neck: 'bow', neckCol: '#f2e8d8' },
+  C64_8: { pattern: 'plaid', shirt: '#4a5a3a', pants: '#3a3430', hat: 'cap', hatCol: '#3a3020', hair: 'short', hairCol: '#3a2a20', build: 'thin', head: 'round', skin: '#f0c098', neck: 'scarf', neckCol: '#7a2a2a' },
+  C64_9: { shirt: '#3a2a24', pants: '#2a2420', hat: 'bowler', hair: 'short', hairCol: '#2a1a12', moustache: '#2a1a12', build: 'adult', head: 'egg', skin: '#d8a070', neck: 'bow', neckCol: '#1e1e26' },
+  AUD0: { shirt: '#4a2a3a', pants: '#2a2028', hair: 'bun', hairCol: '#5a3a22', lashes: true, head: 'round', skin: '#f6d0b0', neck: 'bow', neckCol: '#f0e0c8' },
+  AUD1: { pattern: 'pinstripe', shirt: '#26242c', pants: '#26242c', hair: 'side', hairCol: '#3a2a20', moustache: '#3a2a20', build: 'adult', head: 'wide', skin: '#f0c098', neck: 'bow', neckCol: '#f2f0ea' },
+  AUD2: { shirt: '#2a3a2a', pants: '#2a2a24', hair: 'long', hairCol: '#2a1a12', lashes: true, head: 'egg', skin: '#e8b48a' },
+  AUD3: { shirt: '#30283a', pants: '#2a2430', hair: 'curly', hairCol: '#9a7a5a', moustache: '#9a7a5a', build: 'stout', head: 'round', skin: '#f2c8a8', neck: 'tie', neckCol: '#8a2a2a' },
+  AUD4: { shirt: '#5a3a2a', pants: '#3a2a20', hair: 'side', hairCol: '#1a1410', build: 'thin', head: 'tall', skin: '#c98a5e', neck: 'bow', neckCol: '#1e1e26' },
+  C81_0: { pattern: 'tweed', shirt: '#6a5a44', pants: '#4a4034', hat: 'bowler', hatCol: '#3a3028', hair: 'short', hairCol: '#7a5a3a', moustache: '#7a5a3a', build: 'adult', head: 'round', skin: '#f0c098', neck: 'tie', neckCol: '#2a4a6a' },
+  C81_1: { shirt: '#7a3a3a', pants: '#4a2a2a', hair: 'bun', hairCol: '#b07a3a', lashes: true, head: 'egg', skin: '#f6d0b0', neck: 'bow', neckCol: '#f2e8d8' },
+  C81_2: { shirt: '#2a3440', pants: '#2a2e36', hat: 'top', hair: 'short', hairCol: '#c8c0b0', moustache: '#e0dcd4', build: 'stout', head: 'wide', skin: '#f2c8a8', neck: 'tie', neckCol: '#5a2a3a' },
+  C81_3: { shirt: '#3a5a4a', pants: '#2a3a34', hair: 'curly', hairCol: '#3a2418', lashes: true, head: 'round', skin: '#e8b48a' },
+  C81_4: { pattern: 'plaid', shirt: '#5a4a6a', pants: '#34303a', hat: 'cap', hatCol: '#3a3440', hair: 'short', hairCol: '#2a1a12', build: 'thin', head: 'tall', skin: '#8a5a3e', neck: 'scarf', neckCol: '#a07a3a' },
+  C81_5: { shirt: '#44322a', pants: '#2e2620', hat: 'bowler', hair: 'side', hairCol: '#5a3a22', moustache: '#5a3a22', build: 'adult', head: 'egg', skin: '#f0c098', neck: 'bow', neckCol: '#2a2a3a' },
+  C01_0: { shirt: '#e8e0cc', pants: '#3a3a44', hat: 'bowler', hatCol: '#2a2622', hair: 'short', hairCol: '#5a3a22', moustache: '#5a3a22', build: 'adult', head: 'wide', skin: '#f0c098', neck: 'tie', neckCol: '#2a3a6a' },
+  C01_1: { shirt: '#c8a0b8', pants: '#5a4a5a', hair: 'bun', hairCol: '#7a4a24', lashes: true, head: 'egg', skin: '#f6d0b0', neck: 'bow', neckCol: '#f2f0ea' },
+  C01_2: { pattern: 'pinstripe', shirt: '#4a4a5a', pants: '#3a3a44', hat: 'fedora', hatCol: '#4a3a30', hair: 'short', hairCol: '#2a1a12', build: 'thin', head: 'round', skin: '#e8b48a', neck: 'tie', neckCol: '#7a2a2a' },
+  C01_3: { shirt: '#9ab0c8', pants: '#3a4a5a', hair: 'long', hairCol: '#d8a040', lashes: true, head: 'round', skin: '#f6d0b0' },
+  C01_4: { pattern: 'tweed', shirt: '#7a6a4a', pants: '#4a4034', hat: 'cap', hatCol: '#5a4a38', hair: 'short', hairCol: '#b07a3a', build: 'stout', head: 'egg', skin: '#f2c8a8', neck: 'scarf', neckCol: '#3a5a3a' },
+  C01_5: { shirt: '#2a2a32', pants: '#2a2a32', hat: 'top', hair: 'side', hairCol: '#3a2a20', moustache: '#3a2a20', build: 'adult', head: 'tall', skin: '#c98a5e', neck: 'bow', neckCol: '#c8a040' },
+});
+// [CASTRO-cast] 1960-63 Havana / 1963 Donovan / 1960s CIA / 1975 Senate / 2016 cast (oddverra_next.js features: beard, patrol cap, fatigues, boots, scuba, ...)
+{ const CASTRO = { fatigue: true, shirt: '#5e6a3c', pants: '#59643a', belt: '#2e2a22', hat: 'patrol', hatCol: '#545e38', hair: 'short', hairCol: '#221814', beard: 'full', beardCol: '#2a1e1a', moustache: '#2a1e1a', boots: true, shoes: '#1e1a1e', build: 'tall', head: 'tall', skin: '#ecb88e', nose: 'long', cuff: '#5e6a3c' };
+  Object.assign(ODD, {
+    CASTRO, CASTRO_PATCHY: { ...CASTRO, beard: 'patchy' }, CASTRO_SHAVED: { ...CASTRO, beard: 'none' },
+    CASTRO_DIVER: { ...CASTRO, scuba: true, shirt: '#1f2a3c', pants: '#1f2a3c', cuff: '#1f2a3c', hat: undefined, fatigue: false, boots: false, belt: undefined, noButtons: true },
+    CASTRO_OLD: { track: true, shirt: '#22305a', pants: '#22305a', cuff: '#1a2448', noButtons: true, hair: 'receding', hairCol: '#cdc8c0', beard: 'full', beardCol: '#ece8e2', moustache: '#ece8e2', beardK: 0.82, build: 'thin', head: 'tall', skin: '#f0c4a4', nose: 'long', shoes: '#2a2a32' },
+    CASTRO_OLD_GLASSES: { track: true, shirt: '#22305a', pants: '#22305a', cuff: '#1a2448', noButtons: true, hair: 'receding', hairCol: '#cdc8c0', beard: 'full', beardCol: '#ece8e2', moustache: '#ece8e2', beardK: 0.82, build: 'thin', head: 'tall', skin: '#f0c4a4', nose: 'long', shoes: '#2a2a32', glasses: true },
+    DONOVAN: { shirt: '#7c8088', pants: '#73777f', neck: 'tie', neckCol: '#2a3a6a', collar: '#f4f2ea', glasses: true, hair: 'receding', hairCol: '#bcb8b2', build: 'adult', head: 'round', skin: '#f2c8a6', vest: '#7c8088' },
+    CIA1: { shirt: '#2a2e3a', pants: '#262a34', neck: 'tie', neckCol: '#1c2232', tieK: 0.62, collar: '#f2f2ee', vest: '#2a2e3a', hair: 'crew', hairCol: '#5a4030', glasses: 'horn', build: 'adult', head: 'wide', skin: '#f0c098' },
+    CIA2: { shirt: '#33353e', pants: '#2c2e35', neck: 'tie', neckCol: '#5a2a2e', tieK: 0.62, collar: '#f2f2ee', vest: '#33353e', hat: 'fedora', hatCol: '#2e2c30', hair: 'short', hairCol: '#2a1e18', build: 'thin', head: 'egg', skin: '#e8b48a' },
+    CIA_LAB: { coat: true, shirt: '#f0f0ec', pants: '#3a3e4a', neck: 'tie', neckCol: '#2a3a5a', tieK: 0.7, collar: '#ffffff', cuff: '#f0f0ec', vest: '#f0f0ec', goggles: true, hair: 'side', hairCol: '#6a4a30', build: 'adult', head: 'round', skin: '#f2c8a6' },
+    ENGINEER: { short: true, shirt: '#d2d8c6', pants: '#5a4a3a', pocket: '#3a5ab0', headphones: true, hair: 'short', hairCol: '#1e1612', moustache: '#1e1612', build: 'adult', head: 'round', skin: '#d8a070' },
+    SENATOR: { shirt: '#3c3a44', pants: '#36343d', neck: 'tie', neckCol: '#8a5a2a', tieK: 1.3, collar: '#e8ecf2', vest: '#3c3a44', hair: 'side', hairCol: '#d4d0ca', glasses: true, build: 'old', head: 'wide', skin: '#f2c8a8' },
+    CUBA0: { guayabera: true, short: true, shirt: '#f4f0e2', pants: '#c4b088', hat: 'straw', hair: 'short', hairCol: '#1a1410', moustache: '#1a1410', build: 'adult', head: 'round', skin: '#c98a5e', shoes: '#5a3a28' },
+    CUBA1: { lashes: true, dress: true, short: true, pattern: 'dots', shirt: '#e0607a', pants: '#e0607a', hair: 'curly', hairCol: '#1a1210', head: 'egg', skin: '#e0a878', earring: '#f2cf5a', shoes: '#7a2a3a' },
+    CUBA2: { guayabera: true, shirt: '#bcd4e6', pants: '#3a3a44', hair: 'side', hairCol: '#140e0c', build: 'thin', head: 'egg', skin: '#8a5a3e' },
+    CUBA3: { lashes: true, dress: true, short: true, shirt: '#f0c850', pants: '#f0c850', hair: 'bun', hairCol: '#3a2418', head: 'round', skin: '#c98a5e', shoes: '#f2ece0' },
+    CUBA4: { guayabera: true, short: true, shirt: '#ece2c8', pants: '#5a5040', hat: 'straw', hatCol: '#d0b068', hair: 'short', hairCol: '#c8c4bc', moustache: '#d8d4cc', build: 'stout', head: 'wide', skin: '#e0a878', shoes: '#3a2a20' },
+    CUBA5: { lashes: true, dress: true, short: true, shirt: '#4ab0b0', pants: '#4ab0b0', hair: 'long', hairCol: '#2a1a12', head: 'egg', skin: '#f0c098', shoes: '#f2ece0' },
+  }); }
+// [CASTRO-story] six more 1960 Havana rally-goers (recoloured from CUBA0..5) so the plaza crowd does not repeat outfits side by side
+Object.assign(ODD, { CUBA6: { ...ODD.CUBA0, shirt: '#e8c86a', pants: '#3a3440', hat: undefined, hair: 'curly', hairCol: '#140e0c', skin: '#8a5a3e', moustache: undefined },
+  CUBA7: { ...ODD.CUBA1, shirt: '#5a8fc2', pants: '#5a8fc2', pattern: undefined, hair: 'long', skin: '#c98a5e' }, CUBA8: { ...ODD.CUBA2, shirt: '#f4f0e2', pants: '#5a5040', hat: 'straw', skin: '#e0a878' },
+  CUBA9: { ...ODD.CUBA3, shirt: '#c84a3a', pants: '#c84a3a', hair: 'curly', hairCol: '#1a1210', skin: '#8a5a3e' }, CUBA10: { ...ODD.CUBA4, shirt: '#9ac8a0', hat: undefined, hair: 'short', hairCol: '#2a1e18', moustache: '#2a1e18', skin: '#c98a5e', build: 'adult' },
+  CUBA11: { ...ODD.CUBA5, shirt: '#f0f0e8', pants: '#f0f0e8', pattern: 'dots', hair: 'bun', hairCol: '#3a2418', skin: '#e0a878' } });
 const oddOf = (n) => {
   if (ODD[n]) return ODD[n];
   const v = +(n.replace(/\D/g, '')) || 0;
@@ -417,6 +476,8 @@ const acting = (base, f, seed) => { const fam = FAM[base]; if (!fam) return { ex
   return { expr: fam[k], look, beat, since: (f + seed * 13) % len }; };
 let GLOW = 0;
 const EX = { grin: 'grin', smile: 'smile', laugh: 'laugh', relief: 'happy', smile_closed: 'happy', shock: 'shock', nervous: 'nervous', pained: 'pained', stern: 'angry', dazed: 'dazed', whistle: 'whistle', neutral: 'smile' };
+Object.assign(EX, { sad: 'sad', worried: 'worried', surprised: 'surprised', calm: 'calm' }); FAM.calm = ['smile', 'happy', 'smile']; // [BOOTH-story] constant sad / worried / surprised faces + a quiet smile family
+Object.assign(EX, { angry: 'angry', smug: 'smug', mean: 'mean', excited: 'excited', happy: 'happy', bored: 'bored' }); // [CASTRO-story] keep these faces as written (were falling back to the smile family)
 const outfit = (n) => OUT[n] || (n.startsWith('RUN') ? T.RUNNER(+n.slice(3)) : n.startsWith('TRN') ? T.TRAINER(+n.slice(3)) : T.PASS(+n.slice(4)));
 const FX = {
   speed: [400, 600, (p, a) => { const g = p.g; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.lineCap = 'round'; for (let i = 0; i < 9; i++) { const x = 30 + i * 42, y0 = 40 + ((i * 97 + a.k * 61) % 260), l = 140 + (i * 53 % 160); g.lineWidth = 5 + (i % 3) * 3; g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y0 + l); g.stroke(); } }],
@@ -443,7 +504,7 @@ const FX = {
     g.strokeStyle = 'rgba(220,235,255,0.75)'; g.lineWidth = 3; g.strokeRect(24, 24, 552, 952); g.strokeRect(330, 860, 246, 116); g.fillStyle = 'rgba(225,238,255,0.9)'; g.font = 'bold 20px monospace'; g.fillText('PROJECT: ACOUSTIC KITTY', 342, 892); g.font = '15px monospace'; g.fillText('SUBJECT: 1 CAT (GREY)', 342, 918); g.fillText('SHEET 1 OF 1', 342, 942); g.font = 'bold 30px monospace'; g.fillText('FIG. 1', 48, 70); }],
   barrel: [300, 420, (p) => { const g = p.g; p.poly([[40, 60], [260, 60], [270, 400], [30, 400]], '#8a5a34', 9); for (const y of [110, 230, 350]) p.band([[34, y], [266, y]], '#4a3a3a', 14, 3); p.ell(150, 60, 112, 26, '#5a3a22', 8); p.ell(150, 60, 90, 16, '#2f3a5a', 3);
     g.fillStyle = '#f2e6c0'; g.fillRect(70, 150, 160, 60); g.strokeStyle = '#2b1d4a'; g.lineWidth = 5; g.strokeRect(70, 150, 160, 60); g.fillStyle = '#2b1d4a'; g.font = 'bold 40px serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('WATER', 150, 182); }],
-  board: [420, 380, (p, a) => { const g = p.g; p.stroke([[210, 370], [210, 200]], 20, '#6b4a32'); p.poly([[20, 20], [400, 20], [400, 220], [20, 220]], '#f2e6c0', 9); g.fillStyle = '#2b1d4a'; g.textAlign = 'center'; g.textBaseline = 'middle'; const L = a.lines || []; L.forEach((t, i) => { g.font = (i ? 'bold 52px' : 'bold 56px') + ' serif'; g.fillStyle = i ? '#c0453a' : '#2b1d4a'; g.fillText(t, 210, 80 + i * 80); }); }],
+  board: [420, 380, (p, a) => { const g = p.g; p.stroke([[210, 370], [210, 200]], 20, '#6b4a32'); p.poly([[20, 20], [400, 20], [400, 220], [20, 220]], '#f2e6c0', 9); g.fillStyle = '#2b1d4a'; g.textAlign = 'center'; g.textBaseline = 'middle'; const L = a.lines || []; L.forEach((t, i) => { let fs = i ? 52 : 56; g.font = 'bold ' + fs + 'px serif'; while (g.measureText(t).width > 350 && fs > 24) { fs -= 2; g.font = 'bold ' + fs + 'px serif'; } /* [CASTRO-story] shrink long lines to fit the board */ g.fillStyle = i ? '#c0453a' : '#2b1d4a'; g.fillText(t, 210, 80 + i * 80); }); }],
   dog: [360, 260, (p, a) => { const col = ['#c98a4e', '#5a4a3e', '#e8dcc0'][a.v % 3], dk = ['#8a5a2e', '#2f2620', '#b8a888'][a.v % 3], k = a.k ? 1 : 0;
     // side view running left: legs stretched (k=0) or tucked (k=1)
     const legs = k ? [[[120, 160], [150, 230]], [[140, 160], [110, 232]], [[240, 160], [210, 232]], [[260, 160], [290, 230]]] : [[[120, 160], [50, 210]], [[140, 160], [80, 222]], [[240, 160], [310, 215]], [[260, 160], [330, 205]]];
@@ -464,6 +525,11 @@ const FX = {
   cal: [360, 420, (p, a) => { const g = p.g, M = ['AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'MAR', 'APR']; p.poly([[20, 40], [340, 40], [340, 400], [20, 400]], '#fffdf6', 9); p.poly([[20, 40], [340, 40], [340, 140], [20, 140]], '#c0453a', 9); for (const x of [90, 270]) p.stroke([[x, 20], [x, 70]], 16, '#2b1d4a');
     g.fillStyle = '#ffffff'; g.font = 'bold 72px sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(M[a.m || 0], 180, 92); g.fillStyle = '#2b1d4a'; g.font = 'bold 96px sans-serif'; g.fillText((a.m || 0) >= 5 ? '1905' : '1904', 180, 270); }],
   burst: [500, 500, (p, a) => T.fxBurst(p, a.t, a.col || '#fff3b0', a.rays || 10)],
+  // [CASTRO-story] red rubber stamp: a.lines (1-2 lines), slight tilt, double border, ink speckle (no rotation here: roll via a.roll)
+  rstamp: [640, 300, (p, a) => { const g = p.g, L = a.lines || ['NEVER']; g.save(); g.translate(320, 150); g.rotate(-0.12); const col = '#d0262c';
+    g.fillStyle = 'rgba(255,246,236,0.92)'; g.fillRect(-292, -118, 584, 236); g.lineWidth = 16; g.strokeStyle = col; g.strokeRect(-280, -106, 560, 212); g.lineWidth = 5; g.strokeRect(-258, -84, 516, 168);
+    g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; const n = L.length; L.forEach((t, i) => { let fs = n > 1 ? 70 : 96; g.font = 'bold ' + fs + 'px "DejaVu Sans", sans-serif'; while (g.measureText(t).width > 480 && fs > 30) { fs -= 4; g.font = 'bold ' + fs + 'px "DejaVu Sans", sans-serif'; } g.fillText(t, 0, n > 1 ? (i - 0.5) * 76 + 4 : 6); });
+    g.globalCompositeOperation = 'destination-out'; for (let i = 0; i < 90; i++) { const x = Math.abs(Math.sin(i * 12.9898) * 43758.5453 % 1) * 580 - 290, y = Math.abs(Math.sin(i * 78.233) * 12345.678 % 1) * 230 - 115, r = 1.5 + (i % 5) * 1.1; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); } g.restore(); }],
   splash: [800, 800, (p, a) => T.fxSplash(p, a.t)],
   stars: [420, 210, (p, a) => T.fxStars(p, a.t)],
   puff: [300, 300, (p, a) => T.fxPuff(p, a.t)],
@@ -533,7 +599,7 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
     if (a.o === 'CAT') { m.geometry = BODY; const op = a.opts, fq = f; m.material.map = canvasFor('cat|' + fq + key, 600, 1000, k, (p) => drawCat(p.g, { seed: op.seed || 0 }, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...op }), used); } // [KITTY-cat]
     else if (a.o === 'HORSE') { m.geometry = HORSEG; m.material.map = canvasFor(key, 1000, 880, k, (p) => T.horseSide(p, a.opts), used); }
     else if (a.o === 'BOARD') { m.geometry = BOARDG; m.material.map = canvasFor(key, 600, 800, k, (p) => drawBoard(p, a.opts), used); }
-    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = f; m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8, ...c2opts(cam, f, a) /* [CHAR2] overrides mode/phase/talk */ }), used); }
+    else { m.geometry = BODY; const op = a.opts; const talking = TALKER[shotAt(f).id] === a.o && !['dazed', 'pained'].includes(EX[op.expr]); const talk = talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null; const act = acting(EX[op.expr] || 'smile', f, (op.seed || 0) + 1); const bl = op.sleep ? 1 : act.since < 3 ? [0.5, 1, 0.5][act.since] : blink4(f, (op.seed || 0) + 5); const fq = f; m.material.map = canvasFor('ov' + (a.drive ? 'D' : '') + act.expr + act.look + (act.since < 4 ? 'b' : '') + bl + '|' + fq + (talking ? 'T' + talk : '') + key, 600, 1000, k, (p) => oddverra(p.g, { seed: op.seed || 0, ...oddOf(a.o) }, { t: fq + (op.seed || 0) * 7, talk, glow: GLOW, expr: act.expr, look: op.look || act.look, browPop: act.since < 4 ? 1 : 0, blink: bl, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), hip: act.expr === 'angry' && (!op.mode || op.mode === 'stand') && op.wave === undefined, mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase, prop: op.prop, reach: op.reach, drive: a.drive, steer: a.drive ? q01(0.35 * Math.sin(fq * 0.11) + 0.12 * Math.sin(fq * 0.37)) : 0, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8, beardLoss: op.beardLoss, mask: op.mask, cigarMouth: op.cigarMouth, smoke: op.smoke, lit: op.lit, dust: op.dust, painted: op.painted, giftCol: op.giftCol, ribbonCol: op.ribbonCol, /* [CASTRO-story] pass the cast's per-shot options through */ ...c2opts(cam, f, a) /* [CHAR2] overrides mode/phase/talk */ }), used); }
     const dark = ['explain', 'night', 'office', 'hall', 'under'].includes(shotAt(f).light); m.material.color.set(L.cardTint).multiplyScalar(dark ? 0.2 : 0.34); m.material.emissiveMap = m.material.map; if (m.customDepthMaterial) { m.customDepthMaterial.map = m.material.map; m.customDepthMaterial.needsUpdate = true; } m.material.emissive.set(dark ? '#ffffff' : L.cardTint); m.material.emissiveIntensity = dark ? 1.0 : 0.86;
     m.material.needsUpdate = true;
     m.position.set(...a.pos); m.scale.setScalar(a.s || 1);
@@ -849,7 +915,7 @@ function updateMass(f, cam) { if (location.search.includes('nomass')) { if (MASS
 window.renderFrame = (f) => { const TT0 = performance.now(); try { return renderFrame0(f); } finally { if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF total ' + f + ' ' + Math.round(performance.now() - TT0) + 'ms'); } } };
 const renderFrame0 = (f) => {
   const LV = LVQ == null ? null : louvre.viewFor(LVQ === 'f' ? f : +LVQ); // [MONA-louvre]
-  const PV = PARISV == null ? (STV == null ? (THV == null ? null : theatre.viewFor(THV === 'a' ? f : +THV)) : station.view(STV === 'a' ? f : +STV)) : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris] [BOOTH-station] [BOOTH-theatre] (station / theatre views carry mod)
+  const PV = HVQ != null ? havana.viewFor(HVQ === 'a' ? f : +HVQ) : /* [CASTRO-havana] */ RFV != null ? reef.viewFor(RFV === 'a' ? f : +RFV, f) : /* [CASTRO-reef] */ PARISV == null ? (STV == null ? (THV == null ? null : theatre.viewFor(THV === 'a' ? f : +THV)) : station.view(STV === 'a' ? f : +STV)) : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris] [BOOTH-station] [BOOTH-theatre] (station / theatre views carry mod)
   let L; const sh = shotAt(f), RM = roomAt(f); L = PV ? PV.L : LV ? LV.L : RM ? rooms.lightFor(RM) : lightFor(f); const G = gradeAt(f); if (RM) G.over = rooms.gradeFor(RM); if (LV) Object.assign(G, { look: LV.look, over: LV.grade, flash: 0 }); // [MONA-louvre]
   if (PV) Object.assign(G, { look: PV.look, over: PV.grade, flash: 0 }); // [MONA-paris]
   const SA = !PV && !LV && setAt ? setAt(f) : null, SM = SA ? world[SA[0]] : null; // [MONA-sets] timeline-driven set module (louvre / paris)
@@ -858,6 +924,8 @@ const renderFrame0 = (f) => {
   const dir = applyLight(L, f);
   world.dc.visible = false; world.curRoom = null; rooms.show(world, null);
   louvre.show(world, null); paris.show(world, null); station.show(world, null); theatre.show(world, null); // [BOOTH-station] [BOOTH-theatre]
+  reef.show(world, null); reef.tick(f); // [CASTRO-reef]
+  havana.show(world, null); // [CASTRO-havana]
   worldAt(f, world, T); if (world.dc.visible) world.dc.flag.wave(f / 30);
   if (SM) SM.show(world, SA[1]);
   if (LV) louvre.applyView(world, PRACT, LV.i); // [MONA-louvre]
