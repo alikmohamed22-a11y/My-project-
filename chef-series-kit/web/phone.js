@@ -135,18 +135,18 @@ function calendar(ctx, sw, sh, o) {
   T(ctx, '‹ 2027', 40, 165, 30, 500, '#ff3b30'); T(ctx, 'June', 40, 250, 70, 800);
   const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'], cw = (sw - 60) / 7, x0 = 30, y0 = 320;
   days.forEach((d, i) => T(ctx, d, x0 + cw * i + cw / 2, y0, 24, 600, GREY, 'center')); ctx.fillStyle = LINE; ctx.fillRect(30, y0 + 20, sw - 60, 2);
-  const off = 2; // June 1 is a Wednesday
+  const off = 2, cd = o.day || 1; // June 1 is a Wednesday; cd = circled (today) day
   for (let d = 1; d <= 30; d++) { const k = d - 1 + off, cx = x0 + cw * (k % 7) + cw / 2, cy = y0 + 90 + Math.floor(k / 7) * 110;
     if (d === 30) { C(ctx, cx, cy - 10, 38, '#16161d'); T(ctx, '30', cx, cy + 2, 32, 800, '#ffd43b', 'center'); T(ctx, '👨‍🍳', cx, cy + 62, 26, 400, '#000', 'center'); continue; }
-    T(ctx, String(d), cx, cy + 2, 32, d === 1 ? 800 : 500, d === 1 ? '#ff3b30' : '#16161d', 'center');
-    if (d === 1) { ctx.save(); ctx.strokeStyle = '#ff3b30'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); const a0 = -2.2; ctx.ellipse(cx, cy - 10, 46, 40, -0.2, a0, a0 + Math.PI * 2.15 * eOut(p)); ctx.stroke(); ctx.restore(); }
+    T(ctx, String(d), cx, cy + 2, 32, d === cd ? 800 : 500, d === cd ? '#ff3b30' : d < cd ? '#b9b9c2' : '#16161d', 'center'); if (d < cd) { ctx.save(); ctx.strokeStyle = '#ff3b30'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(cx - 22, cy - 26); ctx.lineTo(cx + 22, cy + 8); ctx.moveTo(cx + 22, cy - 26); ctx.lineTo(cx - 22, cy + 8); ctx.stroke(); ctx.restore(); }
+    if (d === cd) { ctx.save(); ctx.strokeStyle = '#ff3b30'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); const a0 = -2.2; ctx.ellipse(cx, cy - 10, 46, 40, -0.2, a0, a0 + Math.PI * 2.15 * eOut(p)); ctx.stroke(); ctx.restore(); }
   }
   const y1 = y0 + 90 + 5 * 110 + 30; ctx.fillStyle = LINE; ctx.fillRect(30, y1 - 40, sw - 60, 2);
   R(ctx, 30, y1, sw - 60, 110, 22, '#fff4e0'); R(ctx, 30, y1, 12, 110, 6, '#ff8a3c'); T(ctx, 'Jun 30 · 6:00 AM', 64, y1 + 44, 24, 600, '#b8641f'); T(ctx, 'First shift at Lumière 😬', 64, y1 + 86, 30, 800, '#16161d');
-  const k2 = clamp(o.pill ?? 1); if (k2 > 0) { const s = 0.5 + 0.5 * eBack(k2); ctx.save(); ctx.translate(sw / 2, y1 + 220); ctx.scale(s, s); R(ctx, -230, -50, 460, 100, 50, '#ff3b30'); T(ctx, '⏳ 29 days left', 0, 16, 44, 800, '#fff', 'center'); ctx.restore(); }
+  const k2 = clamp(o.pill ?? 1); if (k2 > 0) { const s = 0.5 + 0.5 * eBack(k2); ctx.save(); ctx.translate(sw / 2, y1 + 220); ctx.scale(s, s); R(ctx, -230, -50, 460, 100, 50, '#ff3b30'); T(ctx, o.pillText || '⏳ 29 days left', 0, 16, 44, 800, '#fff', 'center'); ctx.restore(); }
 }
 
-const STATES = { email, resume, alarm, texts, calendar };
+export const STATES = { email, resume, alarm, texts, calendar }; // other modules may register extra states (e.g. phone_d2.js)
 // phone: {x,y,w,h,state,t, rot, glow, ...state params}
 export function drawPhone(ctx, o) {
   const w = o.w || 780, k = w / 780, hh = (o.h || 1240) / k;

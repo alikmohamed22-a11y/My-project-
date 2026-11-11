@@ -97,12 +97,12 @@ export function titleCard(ctx, t, { big = 'DAY 1', small = 'of 30', p = 1, out =
   ctx.restore();
 }
 // "29 DAYS LEFT" card
-export function daysLeftCard(ctx, t, p = 1) {
+export function daysLeftCard(ctx, t, p = 1, n = '29') {
   const k = eBack(clamp(p)); if (k <= 0) return; ctx.save(); ctx.translate(W / 2, H * 0.47); ctx.rotate(0.05 + Math.sin(t * 3) * 0.01); ctx.scale(k, k);
   ctx.fillStyle = 'rgba(10,6,25,0.45)'; ctx.beginPath(); rrPath(ctx, -430 + 14, -170 + 20, 860, 340, 50); ctx.fill();
   P(ctx, (c) => rrPath(c, -430, -170, 860, 340, 50), '#ff4d4d', 14);
   halftone(ctx, -420, -160, 840, 320, 'rgba(160,20,30,0.35)', 22, 6, 'down');
-  txt(ctx, '29', -250, 0, { font: 'Anton', weight: 400, size: 260, col: '#ffd43b', stroke: 20, scol: INK }); txt(ctx, '29', -250, 0, { font: 'Anton', weight: 400, size: 260, col: '#ffd43b' });
+  txt(ctx, n, -250, 0, { font: 'Anton', weight: 400, size: 260, col: '#ffd43b', stroke: 20, scol: INK }); txt(ctx, n, -250, 0, { font: 'Anton', weight: 400, size: 260, col: '#ffd43b' });
   txt(ctx, 'DAYS', 120, -60, { font: 'Anton', weight: 400, size: 130, col: '#fff', stroke: 16, scol: INK }); txt(ctx, 'DAYS', 120, -60, { font: 'Anton', weight: 400, size: 130, col: '#fff' });
   txt(ctx, 'LEFT', 120, 80, { font: 'Anton', weight: 400, size: 130, col: '#fff', stroke: 16, scol: INK }); txt(ctx, 'LEFT', 120, 80, { font: 'Anton', weight: 400, size: 130, col: '#fff' });
   ctx.restore();

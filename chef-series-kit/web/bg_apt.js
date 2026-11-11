@@ -321,6 +321,7 @@ function kNearStat(ctx, o) {
   rect(ctx, sx0 + 40, 1110, sx1 - sx0 - 80, 330, '#2a2f3a', 6, 14); ctx.save(); ctx.globalAlpha = 0.25; line(ctx, sx0 + 80, 1400, sx0 + 170, 1150, 14, '#fff'); ctx.restore();
   ctx.fillStyle = '#d6d0c3'; ctx.fillRect(sx0 + 6, 1480, sx1 - sx0 - 12, 60); rect(ctx, sx0, 1470, sx1 - sx0, 80, null, 5);
   // pot + kettle
+  if (!o.noPot) {
   const potDark = m > 0.35, [px, py] = KITCHEN.pot, potPath = (c) => c.roundRect(px - 100, py - 120, 200, 124, [6, 6, 30, 30]);
   P(ctx, potPath, potDark ? '#5a5560' : '#b8c3cc', 0);
   clipTo(ctx, potPath, () => { ctx.fillStyle = potDark ? '#3e3a44' : '#8f9aa5'; ctx.fillRect(px + 50, py - 130, 60, 140); ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.fillRect(px - 76, py - 120, 14, 124); });
@@ -329,6 +330,7 @@ function kNearStat(ctx, o) {
   P(ctx, (c) => { c.moveTo(860, 990); c.lineTo(830, 900); c.quadraticCurveTo(860, 860, 890, 900); c.lineTo(880, 990); c.closePath(); }, '#e2463f', 0);
   P(ctx, (c) => c.roundRect(800, 900, 110, 92, 30), '#e2463f', 6); P(ctx, (c) => { c.moveTo(810, 930); c.lineTo(770, 905); }, null, 10); P(ctx, (c) => c.arc(855, 900, 34, Math.PI, 0), null, 7); ctx.fillStyle = '#c2352f'; ctx.fillRect(870, 906, 30, 80); P(ctx, (c) => c.roundRect(800, 900, 110, 92, 30), null, 6);
   circ(ctx, 826, 926, 8, 'rgba(255,255,255,0.8)', 0);
+  }
   // sink + dishes + cups + dish soap
   ell(ctx, 1060, 1006, 120, 12, '#8f9aa5', 5);
   const tap = (c) => { c.moveTo(1020, 1002); c.lineTo(1020, 900); c.quadraticCurveTo(1020, 860, 1060, 860); c.lineTo(1100, 860); c.lineTo(1100, 880); };
@@ -370,7 +372,7 @@ function kGrade(ctx, o) {
   else { keyGrad(ctx, 'multiply', [[0, `rgba(150,170,140,${m * 0.75})`], [1, `rgba(170,180,160,${m * 0.45})`]], 'v'); keyGrad(ctx, 'screen', [[0, `rgba(90,110,80,${m * 0.3})`], [0.5, 'rgba(0,0,0,0)']], 'v'); }
   vignette2(ctx, 0.35 + m * 0.2, m > 0.3 ? '20,26,18' : '40,20,10');
 }
-const kKey = (o) => `${Math.round(clamp(o.mess || 0) * 20)}|${o.ceilingEgg ? 1 : 0}|${o.time || 'day'}`;
+const kKey = (o) => `${Math.round(clamp(o.mess || 0) * 20)}|${o.ceilingEgg ? 1 : 0}|${o.time || 'day'}|${o.noPot ? 1 : 0}`;
 defSet('apt_kitchen', {
   resolve: (o) => o.view === 'doorway' ? 'apt_kitchen_door' : null, skey: kKey,
   layers: [
