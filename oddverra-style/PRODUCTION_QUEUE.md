@@ -14,4 +14,6 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 |---|---|---|---|---|
 | Lincoln/Booth | The Man Who Saved Lincoln's Son Was His Killer's Brother | #history | Nov 10, 12:45 PM | Robert Lincoln was also there when Garfield AND McKinley were shot 😳 Coincidence? |
 | Castro beard | The CIA Tried to Make Castro's Beard Fall Out | #history | Nov 11, 12:45 PM | Plot #4 was literally an exploding seashell 🐚 Which plan was the dumbest? |
-| Teddy bear | A President Refused to Shoot a Bear… So We Got Teddy Bears | #history | Nov 12, 12:45 PM | Holt Collier, the guide who tracked that bear, was a legend 🐻 Would you have bought one of the first teddy bears? |
+| Teddy bear | A President Refused to Shoot a Bear… So We Got Teddy Bears | #history | POSTED Nov 11 | Holt Collier, the guide who tracked that bear, was a legend 🐻 Would you have bought one of the first teddy bears? |
+| Statue of Liberty | The Statue of Liberty Was Supposed to Stand in Egypt | #history | Nov 12, 12:45 PM | She was also an official lighthouse until about 1902 🗽 Did you know she started out copper-brown, not green? |
+| Ketchup | Ketchup Was Once Sold as Medicine | #history | Nov 13, 12:45 PM | Some of those "tomato pills" had no tomato in them at all 🍅 Would you have bought them? |
