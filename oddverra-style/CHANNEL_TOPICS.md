@@ -23,6 +23,7 @@ Also made (check whether posted):
 - Edwin Booth saved Lincoln's son (Robert Lincoln at three assassinations): delivered 2026-11-10
 
 - CIA plots against Castro's beard (thallium, cigars, seashell, diving suit): delivered 2026-11-10
+- Teddy bear origin (TR refuses the tied bear, Berryman cartoon, Michtoms' Teddy's Bear): delivered 2026-11-11
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
 
