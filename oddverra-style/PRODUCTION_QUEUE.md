@@ -7,7 +7,7 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 1 | The teddy bear exists because a president refused to shoot a bear (Roosevelt, 1902) | delivered 2026-11-11 |
 | 2 | Einstein was offered the presidency of Israel (1952) and said no | CANCELLED by user (Nov 11), do not post or redo |
 | 3 | The Statue of Liberty was first designed as a lighthouse for Egypt (Bartholdi, Suez) | delivered 2026-11-11 |
-| 4 | Ketchup was sold as medicine (Dr. John Cook Bennett, 1830s) | facts verified (Mental Floss, PopSci); voice 67 s, captions, music done; sets + cast building |
+| 4 | Ketchup was sold as medicine (Dr. John Cook Bennett, 1830s) | delivered 2026-11-12 |
 
 ## Posting plan (newest last)
 | Video | Title | Hashtag | Post (LA time) | Pinned comment |

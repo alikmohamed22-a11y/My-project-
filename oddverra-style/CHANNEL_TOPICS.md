@@ -25,6 +25,7 @@ Also made (check whether posted):
 - CIA plots against Castro's beard (thallium, cigars, seashell, diving suit): delivered 2026-11-10
 - Teddy bear origin (TR refuses the tied bear, Berryman cartoon, Michtoms' Teddy's Bear): delivered 2026-11-11
 - Statue of Liberty meant for Egypt (Bartholdi, Suez, Port Said; Liberty an official lighthouse 1886–1902): delivered 2026-11-11
+- Ketchup sold as medicine (Bennett 1835, Miles vs Phelps tomato pills, fizzled by 1850): delivered 2026-11-12
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
