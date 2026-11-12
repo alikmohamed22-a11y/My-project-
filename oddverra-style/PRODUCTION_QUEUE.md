@@ -27,3 +27,5 @@ From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy
 - Render RS=2 (2160x3840, 2x supersampling); shadow map 4096 when it shows no artifacts.
 - Encode 1080x1920 deliverables straight from frames or a high-quality master: x264 preset slower, two-pass 5.5M (maxrate 8M), AAC 192k, +faststart, under 50 MB.
 - QA the whole video: full-length contact sheet (1 frame / 2 s), mpdecimate stutter check (no runs of 3+ repeated frames outside intended holds), stills at every shot boundary for popping, clipping and unintended camera jumps.
+
+User confirmed (Nov 12): all delivered videos through Hollywood sign are scheduled on YouTube.
