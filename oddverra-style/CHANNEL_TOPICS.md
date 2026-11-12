@@ -32,6 +32,8 @@ Also made (check whether posted):
 - Napoleon wasn't short (Gillray cartoons, French inches): delivered 2026-11-12
 - Bubble Wrap invented as wallpaper: in production
 - Lincoln the wrestler: in production
+- Cleopatra closer to the Moon landing than the pyramids: in production
+- Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
