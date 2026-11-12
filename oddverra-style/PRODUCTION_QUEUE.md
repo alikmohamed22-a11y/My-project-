@@ -30,3 +30,4 @@ From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy
 
 User confirmed (Nov 12): all delivered videos through Hollywood sign are scheduled on YouTube.
 | Napoleon height | Napoleon Wasn't Short. A Cartoonist Tricked You. | #history | Sat Nov 14, 9:30 AM | His "five foot two" was in French inches — about 5'7" in ours 📏 Did you grow up thinking he was tiny? |
+| Vikings horned helmets | Vikings Never Wore Horned Helmets. An Opera Did. | #Vikings | Sun Nov 15, 12:45 PM | The only near-complete Viking helmet ever found (Gjermundbu, 1943) has an eye guard, not horns 🪖 Did you grow up drawing Vikings with horns? |
