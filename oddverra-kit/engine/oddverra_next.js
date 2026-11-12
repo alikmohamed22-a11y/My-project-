@@ -691,6 +691,7 @@ export function oddverra(g, o, op = {}) {
   // op.tummy (both hands clutch the belly), op.count (free hand holds up a gold coin), op.point (near arm points forward/up, for a pointer stick).
   const kchBeardSkip = (Y, th) => (BRD === 'burns' ? Y > 50 || Math.abs(th) < 1.12 || Math.cos(th + HY) < 0.05 || AH > 0.7 : BRD === 'chops' ? Y > 92 || Math.abs(th) < 0.78 || (Y > 70 && Math.abs(th) < 1.0) : false);
   const kchArm = (s, S, ad) => {
+    if (op.grapple) { const k = op.grapple, E = ad(S, s * AL * 0.14, AL * (0.5 - 0.2 * k), AL * 0.5 * k); return [S, E, ad(E, s * AL * 0.02, -AL * 0.18 * k, AL * 0.75 * k)]; } // [LN-cast] wrestling tie-up: both arms forward at shoulder height
     if (op.tummy) { const E = ad(S, s * AL * 0.5, AL * 0.58, AL * 0.3); return [S, E, [s * TW * 0.28, shY + AL * 1.0, AL * 0.7]]; }
     if (op.cross && !(HOLD[op.prop] && s === PA)) { const E = ad(S, s * AL * 0.36, AL * 0.6, AL * 0.3); return [S, E, [-s * TW * 0.72, shY + AL * (s > 0 ? 0.56 : 0.66), AL * (s > 0 ? 0.85 : 0.7)]]; }
     if (op.count && s === -PA) { const E = ad(S, s * AL * 0.48, AL * 0.62, AL * 0.3); return [S, E, ad(E, -s * AL * 0.1, -AL * 0.62, AL * 0.4)]; }
