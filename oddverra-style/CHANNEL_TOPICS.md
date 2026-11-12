@@ -28,7 +28,8 @@ Also made (check whether posted):
 - Ketchup sold as medicine (Bennett 1835, Miles vs Phelps tomato pills, fizzled by 1850): delivered 2026-11-12
 - Play-Doh invented as wallpaper cleaner (Kutol, Kay Zufall, 1956 off-white): delivered 2026-11-12
 - Titanic baker Charles Joughin (bread to boats, 'a drop of liqueur', 50 deck chairs, rode the stern): delivered 2026-11-12
-- Hollywood sign was HOLLYWOODLAND: in production
+- Hollywood sign was HOLLYWOODLAND (1923 ad, H fell 1944, LAND removed 1949, 1978 rebuild): delivered 2026-11-12
+- Napoleon wasn't short (Gillray cartoons, French inches): in production
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.

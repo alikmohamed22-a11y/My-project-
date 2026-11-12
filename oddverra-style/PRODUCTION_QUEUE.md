@@ -21,3 +21,4 @@ From Nov 12: TWO posts a day, 12:45 PM and 6:30 PM LA. Next slots: Titanic baker
 | Ketchup | Ketchup Was Once Sold as Medicine | #history | Thu Nov 12, 6:30 PM | Some of those "tomato pills" had no tomato in them at all 🍅 Would you have bought them? |
 | Play-Doh | Play-Doh Was Invented to Clean Your Walls | #history | Fri Nov 13, 12:45 PM | It only came in off-white at first 🤍 What was your favorite Play-Doh color as a kid? |
 | Titanic baker | The Titanic's Baker Survived the Freezing Ocean… After a Drink | #Titanic | Fri Nov 13, 6:30 PM | He testified he only had 'a drop of liqueur' — and that he barely got his head wet. Do you believe his story? 🍞🧊 |
+| Hollywood sign | The Hollywood Sign Was Originally an Ad for Houses (HOLLYWOODLAND) | #history | Sat Nov 14, 12:45 PM | It was meant to last just 18 months 😳 Which letter would you have bought? |
