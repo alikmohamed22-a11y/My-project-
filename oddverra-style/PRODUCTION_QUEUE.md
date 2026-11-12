@@ -29,3 +29,4 @@ From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy
 - QA the whole video: full-length contact sheet (1 frame / 2 s), mpdecimate stutter check (no runs of 3+ repeated frames outside intended holds), stills at every shot boundary for popping, clipping and unintended camera jumps.
 
 User confirmed (Nov 12): all delivered videos through Hollywood sign are scheduled on YouTube.
+| Napoleon height | Napoleon Wasn't Short. A Cartoonist Tricked You. | #history | Sat Nov 14, 9:30 AM | His "five foot two" was in French inches — about 5'7" in ours 📏 Did you grow up thinking he was tiny? |

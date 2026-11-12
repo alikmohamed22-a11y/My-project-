@@ -29,7 +29,9 @@ Also made (check whether posted):
 - Play-Doh invented as wallpaper cleaner (Kutol, Kay Zufall, 1956 off-white): delivered 2026-11-12
 - Titanic baker Charles Joughin (bread to boats, 'a drop of liqueur', 50 deck chairs, rode the stern): delivered 2026-11-12
 - Hollywood sign was HOLLYWOODLAND (1923 ad, H fell 1944, LAND removed 1949, 1978 rebuild): delivered 2026-11-12
-- Napoleon wasn't short (Gillray cartoons, French inches): in production
+- Napoleon wasn't short (Gillray cartoons, French inches): delivered 2026-11-12
+- Bubble Wrap invented as wallpaper: in production
+- Lincoln the wrestler: in production
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
