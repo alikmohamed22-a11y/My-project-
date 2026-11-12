@@ -1,0 +1,73 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUBBLE WRAP WAS
+Dialogue: 0,0:00:00.77,0:00:01.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SUPPOSED TO GO
+Dialogue: 0,0:00:01.57,0:00:02.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ON YOUR {\c&H0038D8FF&}WALLS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.21,0:00:04.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1957{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.49,0:00:05.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN NEW JERSEY
+Dialogue: 0,0:00:05.43,0:00:06.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TWO ENGINEERS
+Dialogue: 0,0:00:06.49,0:00:07.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALFRED FIELDING AND
+Dialogue: 0,0:00:07.35,0:00:08.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MARC CHAVANNES
+Dialogue: 0,0:00:08.23,0:00:09.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SEALED{\c&H00FFFFFF&} TWO PLASTIC
+Dialogue: 0,0:00:09.33,0:00:10.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHOWER CURTAINS TOGETHER
+Dialogue: 0,0:00:10.91,0:00:11.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEIR BIG IDEA
+Dialogue: 0,0:00:12.09,0:00:13.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TEXTURED {\c&H0038D8FF&}WALLPAPER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.67,0:00:14.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MODERN
+Dialogue: 0,0:00:14.57,0:00:15.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUBBLY
+Dialogue: 0,0:00:15.74,0:00:17.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NOBODY{\c&H00FFFFFF&} BOUGHT IT
+Dialogue: 0,0:00:17.40,0:00:18.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THEY TRIED
+Dialogue: 0,0:00:18.00,0:00:18.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AGAIN
+Dialogue: 0,0:00:18.94,0:00:20.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GREENHOUSE{\c&H00FFFFFF&} INSULATION
+Dialogue: 0,0:00:20.44,0:00:21.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BUBBLES{\c&H00FFFFFF&} TO KEEP
+Dialogue: 0,0:00:21.00,0:00:22.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE PLANTS WARM
+Dialogue: 0,0:00:22.10,0:00:23.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT {\c&H0038D8FF&}FLOPPED{\c&H00FFFFFF&} TOO
+Dialogue: 0,0:00:23.72,0:00:24.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TWO {\c&H0038D8FF&}FAILURES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.98,0:00:25.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY STARTED A
+Dialogue: 0,0:00:25.56,0:00:26.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COMPANY ANYWAY
+Dialogue: 0,0:00:26.76,0:00:27.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SEALED{\c&H00FFFFFF&} {\c&H0038D8FF&}AIR{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:27.52,0:00:28.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1960{\c&H00FFFFFF&} AND KEPT
+Dialogue: 0,0:00:28.90,0:00:29.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HUNTING FOR A
+Dialogue: 0,0:00:29.62,0:00:30.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}USE
+Dialogue: 0,0:00:30.57,0:00:31.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN {\c&H0038D8FF&}IBM{\c&H00FFFFFF&} LAUNCHED
+Dialogue: 0,0:00:31.99,0:00:33.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A NEW COMPUTER
+Dialogue: 0,0:00:33.37,0:00:34.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}1401{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.85,0:00:35.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BIG
+Dialogue: 0,0:00:35.39,0:00:35.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DELICATE
+Dialogue: 0,0:00:36.05,0:00:36.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND IT HAD
+Dialogue: 0,0:00:36.39,0:00:36.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO BE SHIPPED
+Dialogue: 0,0:00:36.85,0:00:37.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALL OVER THE
+Dialogue: 0,0:00:37.55,0:00:38.17,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COUNTRY
+Dialogue: 0,0:00:38.29,0:00:38.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HOW DO YOU
+Dialogue: 0,0:00:38.61,0:00:39.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PROTECT A COMPUTER
+Dialogue: 0,0:00:40.16,0:00:40.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU WRAP IT
+Dialogue: 0,0:00:40.70,0:00:41.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}BUBBLES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.90,0:00:43.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}IBM{\c&H00FFFFFF&} BECAME BUBBLE
+Dialogue: 0,0:00:43.06,0:00:44.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WRAP'S FIRST BIG
+Dialogue: 0,0:00:44.12,0:00:45.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PACKAGING {\c&H0038D8FF&}CUSTOMER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.26,0:00:46.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND SOON THE
+Dialogue: 0,0:00:46.10,0:00:47.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHOLE WORLD WAS
+Dialogue: 0,0:00:47.04,0:00:48.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WRAPPING FRAGILE STUFF
+Dialogue: 0,0:00:48.10,0:00:48.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}BUBBLES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.33,0:00:49.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TODAY
+Dialogue: 0,0:00:49.79,0:00:50.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THERE'S EVEN A
+Dialogue: 0,0:00:50.43,0:00:51.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUBBLE WRAP {\c&H0038D8FF&}APPRECIATION{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.37,0:00:52.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DAY
+Dialogue: 0,0:00:52.23,0:00:52.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE LAST {\c&H0038D8FF&}MONDAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.85,0:00:53.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF JANUARY
+Dialogue: 0,0:00:54.27,0:00:55.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO NEXT TIME
+Dialogue: 0,0:00:55.13,0:00:55.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU {\c&H0038D8FF&}POP{\c&H00FFFFFF&} ONE
+Dialogue: 0,0:00:55.97,0:00:56.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}REMEMBER
+Dialogue: 0,0:00:57.04,0:00:57.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE WORLD'S MOST
+Dialogue: 0,0:00:57.72,0:00:59.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SATISFYING{\c&H00FFFFFF&} SOUND CAME
+Dialogue: 0,0:00:59.16,0:00:59.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FROM A {\c&H0038D8FF&}WALLPAPER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.92,0:01:01.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NOBODY{\c&H00FFFFFF&} {\c&H0038D8FF&}WANTED{\c&H00FFFFFF&}

@@ -8,6 +8,7 @@ import { LIB_ODD, libOpts } from './liberty_cast.js'; // [LIB-cast]
 import { KCH_ODD, kchOpts, drawTommy, kchTestActs } from './ketchup_cast.js'; // [KCH-cast]
 import { PD_ODD, pdOpts, drawDoughy, pdTestActs } from './playdoh_cast.js'; // [PD-cast]
 import { HW_ODD, hwOpts, drawLilH, drawMule, drawBigLet, hwTestActs } from './hollywood_cast.js'; // [HW-cast]
+import { BW_ODD, bwOpts, drawPoppy, bwTestActs } from './bw_cast.js'; // [BW-cast]
 import { JG_ODD, jgOpts, jgTestActs } from './joughin_cast.js'; // [JG-cast]
 import { buildRooms } from './rooms.js'; // [KITTY-rooms]
 import { buildDC } from './dc.js'; // [KITTY-dc]
@@ -26,6 +27,7 @@ import { buildPills } from './pills.js'; // [KCH-sets2]
 import { buildHomes } from './doh_homes.js'; // [PD-sets1]
 import { buildWorks } from './doh_works.js'; // [PD-sets2]
 import { buildHW } from './hw_sets.js'; // [HW-sets]
+import { buildBW } from './bw_sets.js'; // [BW-sets] (story: examples/bubblewrap/story_bubblewrap.js)
 import { buildTitanic } from './titanic_sets.js'; // [JG-sets]
 import { buildNapoleon } from './napoleon_sets.js'; // [NAP-sets] (story: examples/napoleon/story_napoleon.js)
 import { NAP_ODD, napOpts, napTestActs } from './napoleon_cast.js'; // [NAP-cast]
@@ -338,6 +340,7 @@ const homes = buildHomes({ THREE, toon, mkTex, PT, NOND, scene, macro, camera })
 const titanic = buildTitanic({ THREE, toon, mkTex, PT, NOND, scene, macro, camera }); world.titanic = titanic; const napoleon = buildNapoleon({ THREE, toon, mkTex, PT, NOND, scene, macro, camera }); world.napoleon = napoleon; const NPV = (location.search.match(/npview=(\d+|a)/) || [])[1]; /* [NAP-sets] ?npview=N */ const TIV = (location.search.match(/tiview=(\d+|a)/) || [])[1]; // [JG-sets] galley / deck / cabin / home at x=-24000, stern x=-26000, ocean x=-28000 (hidden until shown); ?tiview=N test view
 const works = buildWorks({ THREE, toon, mkTex, PT, NOND, scene, macro, camera }); world.works = works; const DWV = (location.search.match(/dwview=(\d+|a)/) || [])[1]; // [PD-sets2] factory / toystore / playroom at x=-21500, z=0..1200 (hidden until shown); ?dwview=N test view
 const hw = buildHW({ THREE, toon, mkTex, PT, NOND, scene, macro, camera }); world.hw = hw; const HWV = (location.search.match(/hwview=(\d+|a)/) || [])[1]; // [HW-sets] hill (-34000,0,0) / office (-36500,0,0) / gala (-36500,0,600) (hidden until shown); ?hwview=N test view
+const bw = buildBW({ THREE, toon, mkTex, PT, NOND, scene, macro, camera }); world.bw = bw; const BWV = (location.search.match(/bwview=(\d+|a)/) || [])[1]; // [BW-sets] garage/living/green (-40000,0,0/600/1200) / factory/computer/modern (-42500,0,0/600/1200) (hidden until shown); ?bwview=N test view
 // ---------- lighting practicals: lanterns hung on the road's telegraph poles, lit only in dark presets ----------
 const LANT = []; // world-space bulb positions per set: { set, p:[x,y,z] }
 { const glassM = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffc477).multiplyScalar(3.2), fog: false }), capM = toon({ color: 0x1d1b22 });
@@ -538,6 +541,7 @@ Object.assign(ODD, LIB_ODD); // [LIB-cast] Bartholdi / Khedive / Egypt / Paris /
 Object.assign(ODD, KCH_ODD); const KCT = (location.search.match(/kchcast=(\d+)/) || [])[1]; // [KCH-cast] 1830s Ohio cast; ?kchcast=N cast test lineup in front of the camera
 Object.assign(ODD, PD_ODD); Object.assign(ODD, JG_ODD); Object.assign(ODD, NAP_ODD); /* [NAP-cast] */ const NPT = (location.search.match(/npcast=(\d+)/) || [])[1]; const JGT = (location.search.match(/jgcast=(\d+)/) || [])[1]; /* [JG-cast] */ const PDT = (location.search.match(/pdcast=(\d+)/) || [])[1]; // [PD-cast] Play-Doh cast + DOUGHY; ?pdcast=N cast test lineup in front of the camera
 Object.assign(ODD, HW_ODD); const HWT = (location.search.match(/hwcast=(\d+)/) || [])[1]; // [HW-cast] Hollywood cast + LILH + MULE + BIGLET; ?hwcast=N lineup
+Object.assign(ODD, BW_ODD); const BWT = (location.search.match(/bwcast=(\d+)/) || [])[1]; // [BW-cast] Bubble Wrap cast + POPPY; ?bwcast=N lineup
 const oddOf = (n) => {
   if (ODD[n]) return ODD[n];
   const v = +(n.replace(/\D/g, '')) || 0;
@@ -669,12 +673,12 @@ function c2gait(f, a) { // planted feet: phase = distance / stride; stride ampli
 function c2light(cam, L) { // key light: sun direction projected to the camera's screen x; colours from the light preset
   const el = (L.el ?? 50) * Math.PI / 180, az = (L.az ?? 0) * Math.PI / 180, d = C2.a.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).transformDirection(cam.matrixWorldInverse);
   return { lightDir: Math.max(-1, Math.min(1, d.x / Math.max(0.25, Math.hypot(d.x, d.z)))), keyCol: L.sunCol, rimCol: L.sky, ambient: (L.hemiI ?? 1) / ((L.hemiI ?? 1) + (L.sunI ?? 1) * 1.5) }; }
-const c2opts = (cam, f, a) => ({ ...C2.L, view: c2view(cam, f, a), ...c2gait(f, a), talk: null, say: a.opts.say, sayEnv: a.opts.sayEnv, frame: f, ...libOpts(a.opts) /* [LIB-cast] */, ...kchOpts(a.opts) /* [KCH-cast] */, ...pdOpts(a.opts) /* [PD-cast] */, ...jgOpts(a.opts) /* [JG-cast] */, ...napOpts(a.opts) /* [NAP-cast] */, ...hwOpts(a.opts) /* [HW-cast] */ }); // talk: null = no narrator lip-sync
+const c2opts = (cam, f, a) => ({ ...C2.L, view: c2view(cam, f, a), ...c2gait(f, a), talk: null, say: a.opts.say, sayEnv: a.opts.sayEnv, frame: f, ...libOpts(a.opts) /* [LIB-cast] */, ...kchOpts(a.opts) /* [KCH-cast] */, ...pdOpts(a.opts) /* [PD-cast] */, ...jgOpts(a.opts) /* [JG-cast] */, ...napOpts(a.opts) /* [NAP-cast] */, ...hwOpts(a.opts) /* [HW-cast] */, ...bwOpts(a.opts) /* [BW-cast] */ }); // talk: null = no narrator lip-sync
 
 function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for (const c of cardMeshes) c.visible = false; for (const c of blobMeshes) c.visible = false; for (const c of fxMeshes) c.visible = false; return; }
   GLOW = ['explain', 'night', 'office'].includes(shotAt(f).light) ? 1 : 0;
   const used = new Set();
-  const acts = NPT != null ? napTestActs(+NPT, cam, +((location.search.match(/npgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [NAP-cast] */ : HWT != null ? hwTestActs(+HWT, cam, +((location.search.match(/hwgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [HW-cast] */ : JGT != null ? jgTestActs(+JGT, cam, +((location.search.match(/jggy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [JG-cast] */ : PDT != null ? pdTestActs(+PDT, cam, +((location.search.match(/pdgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [PD-cast] */ : KCT != null ? kchTestActs(+KCT, cam, +((location.search.match(/kchgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [KCH-cast] */ : c2acts(f), fxs = NPT != null || KCT != null || PDT != null || JGT != null || HWT != null ? [] : fxAt(f); C2.L = c2light(cam, L); // [CHAR2] cached actorsAt + per-frame card light
+  const acts = BWT != null ? bwTestActs(+BWT, cam, +((location.search.match(/bwgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [BW-cast] */ : NPT != null ? napTestActs(+NPT, cam, +((location.search.match(/npgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [NAP-cast] */ : HWT != null ? hwTestActs(+HWT, cam, +((location.search.match(/hwgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [HW-cast] */ : JGT != null ? jgTestActs(+JGT, cam, +((location.search.match(/jggy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [JG-cast] */ : PDT != null ? pdTestActs(+PDT, cam, +((location.search.match(/pdgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [PD-cast] */ : KCT != null ? kchTestActs(+KCT, cam, +((location.search.match(/kchgy=(-?[0-9.]+)/) || [])[1] || 0), f) /* [KCH-cast] */ : c2acts(f), fxs = NPT != null || KCT != null || PDT != null || JGT != null || HWT != null || BWT != null /* [BW-cast] */ ? [] : fxAt(f); C2.L = c2light(cam, L); // [CHAR2] cached actorsAt + per-frame card light
   let ci = 0, bi = 0;
   for (const a of acts) {
     const m = getMesh(cardMeshes, ci++, mkCard);
@@ -682,7 +686,7 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
     const k = (a.k || 2) * Math.min(RS, 2);
     const qq = (v) => v == null ? v : Math.round(v * 3) / 3;
     const key = isCrowd ? JSON.stringify([a.o, a.opts.seed, a.opts.expr, qq(a.opts.cheer), qq(a.opts.wave), a.opts.mode]) : JSON.stringify([a.o, a.opts]);
-    if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD' && a.o !== 'CAT' && a.o !== 'BEAR' && a.o !== 'TOMMY' /* [KCH-cast] */ && a.o !== 'DOUGHY' /* [PD-cast] */ && a.o !== 'LILH' && a.o !== 'MULE' && a.o !== 'BIGLET' /* [HW-cast] */) { // [TEDDY-cast] BEAR
+    if (USE3D && a.o !== 'HORSE' && a.o !== 'BOARD' && a.o !== 'CAT' && a.o !== 'BEAR' && a.o !== 'TOMMY' /* [KCH-cast] */ && a.o !== 'DOUGHY' /* [PD-cast] */ && a.o !== 'LILH' && a.o !== 'MULE' && a.o !== 'BIGLET' /* [HW-cast] */ && a.o !== 'POPPY' /* [BW-cast] */) { // [TEDDY-cast] BEAR
       const op = a.opts, id = a.o + ':' + (op.seed || 0) + ':' + ci;
       let ch = chars3d.get(id); if (!ch) { ch = makeChar({ seed: op.seed || 0, ...oddOf(a.o) }, grad); scene.add(ch); chars3d.set(id, ch); }
       ch.userData.used = f; ch.visible = true; m.visible = false;
@@ -692,6 +696,7 @@ function placeActors(f, cam, L) { if (location.search.includes('nocards')) { for
       ch.update({ t: f + (op.seed || 0) * 7, expr: act.expr, look: act.look, blink: bl, talk: talking ? (ENV[Math.min(ENV.length - 1, f + 1)] || 0) : null, wave: op.wave, cheer: op.cheer ?? (act.expr === 'excited' && (!op.mode || op.mode === 'stand') && op.wave === undefined && !a.drive ? 1 : undefined), mode: op.mode === 'march' ? 'run' : op.mode, phase: op.phase || 0, drive: a.drive, tilt: (op.headTilt || 0) + (hsh(act.beat, 9) - 0.5) * 8 });
       continue;
     }
+    if (a.o === 'POPPY') { m.geometry = BODY; const op = a.opts, fq = f; m.material.map = canvasFor('poppy|' + fq + key, 600, 1000, k, (p) => drawPoppy(p.g, {}, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...C2.L, ...op }), used); } else // [BW-cast]
     if (a.o === 'LILH') { m.geometry = BODY; const op = a.opts, fq = f; m.material.map = canvasFor('lilh|' + fq + key, 600, 1000, k, (p) => drawLilH(p.g, {}, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...C2.L, ...op }), used); } else // [HW-cast]
     if (a.o === 'BIGLET') { m.geometry = BODY; const op = a.opts, fq = f; m.material.map = canvasFor('biglet|' + key, 600, 1000, k, (p) => drawBigLet(p.g, {}, { t: fq, ...C2.L, ...op }), used); } else // [HW-cast]
     if (a.o === 'MULE') { m.geometry = HORSEG; const op = a.opts, fq = f; m.material.map = canvasFor('mule|' + fq + key, 1000, 880, k, (p) => drawMule(p.g, {}, { t: fq, blink: blink4(f, (op.seed || 0) + 5), ...C2.L, ...op }), used); } else // [HW-cast]
@@ -1017,7 +1022,7 @@ function updateMass(f, cam) { if (location.search.includes('nomass')) { if (MASS
 window.renderFrame = (f) => { const TT0 = performance.now(); try { return renderFrame0(f); } finally { if (location.search.includes('prof')) { renderer.getContext().finish(); console.warn('PROF total ' + f + ' ' + Math.round(performance.now() - TT0) + 'ms'); } } };
 const renderFrame0 = (f) => {
   const LV = LVQ == null ? null : louvre.viewFor(LVQ === 'f' ? f : +LVQ); // [MONA-louvre]
-  const PV = NPV != null ? napoleon.viewFor(NPV === 'a' ? f : +NPV, f) : /* [NAP-sets] */ HWV != null ? hw.viewFor(HWV === 'a' ? f : +HWV, f) : /* [HW-sets] */ TIV != null ? titanic.viewFor(TIV === 'a' ? f : +TIV, f) : /* [JG-sets] */ DHV != null ? homes.viewFor(DHV === 'a' ? f : +DHV, f) : /* [PD-sets1] */ DWV != null ? works.viewFor(DWV === 'a' ? f : +DWV, f) : /* [PD-sets2] */ OHV != null ? ohio.viewFor(OHV === 'a' ? f : +OHV, f) : /* [KCH-sets1] */ PLV != null ? pills.viewFor(PLV === 'a' ? f : +PLV, f) : /* [KCH-sets2] */ HBV != null ? harbor.viewFor(HBV === 'a' ? f : +HBV, f) : /* [LIB-harbor] */ EGV != null ? egypt.viewFor(EGV === 'a' ? f : +EGV, f) : /* [LIB-egypt] */ EIV != null ? princeton.viewFor(EIV === 'a' ? f : +EIV, f) : /* [EIN-sets] */ SWV != null ? swamp.viewFor(SWV === 'a' ? f : +SWV, f) : /* [TEDDY-swamp] */ BKV != null ? brooklyn.viewFor(BKV === 'a' ? f : +BKV, f) : /* [TEDDY-brooklyn] */ HVQ != null ? havana.viewFor(HVQ === 'a' ? f : +HVQ) : /* [CASTRO-havana] */ RFV != null ? reef.viewFor(RFV === 'a' ? f : +RFV, f) : /* [CASTRO-reef] */ PARISV == null ? (STV == null ? (THV == null ? null : theatre.viewFor(THV === 'a' ? f : +THV)) : station.view(STV === 'a' ? f : +STV)) : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris] [BOOTH-station] [BOOTH-theatre]
+  const PV = BWV != null ? bw.viewFor(BWV === 'a' ? f : +BWV, f) : /* [BW-sets] */ NPV != null ? napoleon.viewFor(NPV === 'a' ? f : +NPV, f) : /* [NAP-sets] */ HWV != null ? hw.viewFor(HWV === 'a' ? f : +HWV, f) : /* [HW-sets] */ TIV != null ? titanic.viewFor(TIV === 'a' ? f : +TIV, f) : /* [JG-sets] */ DHV != null ? homes.viewFor(DHV === 'a' ? f : +DHV, f) : /* [PD-sets1] */ DWV != null ? works.viewFor(DWV === 'a' ? f : +DWV, f) : /* [PD-sets2] */ OHV != null ? ohio.viewFor(OHV === 'a' ? f : +OHV, f) : /* [KCH-sets1] */ PLV != null ? pills.viewFor(PLV === 'a' ? f : +PLV, f) : /* [KCH-sets2] */ HBV != null ? harbor.viewFor(HBV === 'a' ? f : +HBV, f) : /* [LIB-harbor] */ EGV != null ? egypt.viewFor(EGV === 'a' ? f : +EGV, f) : /* [LIB-egypt] */ EIV != null ? princeton.viewFor(EIV === 'a' ? f : +EIV, f) : /* [EIN-sets] */ SWV != null ? swamp.viewFor(SWV === 'a' ? f : +SWV, f) : /* [TEDDY-swamp] */ BKV != null ? brooklyn.viewFor(BKV === 'a' ? f : +BKV, f) : /* [TEDDY-brooklyn] */ HVQ != null ? havana.viewFor(HVQ === 'a' ? f : +HVQ) : /* [CASTRO-havana] */ RFV != null ? reef.viewFor(RFV === 'a' ? f : +RFV, f) : /* [CASTRO-reef] */ PARISV == null ? (STV == null ? (THV == null ? null : theatre.viewFor(THV === 'a' ? f : +THV)) : station.view(STV === 'a' ? f : +STV)) : paris.view(PARISV === 'a' ? f : +PARISV); // [MONA-paris] [BOOTH-station] [BOOTH-theatre]
   let L; const sh = shotAt(f), RM = roomAt(f); L = PV ? PV.L : LV ? LV.L : RM ? rooms.lightFor(RM) : lightFor(f); const G = gradeAt(f); if (RM) G.over = rooms.gradeFor(RM); if (LV) Object.assign(G, { look: LV.look, over: LV.grade, flash: 0 }); // [MONA-louvre]
   if (PV) Object.assign(G, { look: PV.look, over: PV.grade, flash: 0 }); // [MONA-paris]
   const SA = !PV && !LV && setAt ? setAt(f) : null, SM = SA ? world[SA[0]] : null; // [MONA-sets] timeline-driven set module (louvre / paris)
@@ -1040,6 +1045,7 @@ const renderFrame0 = (f) => {
   hw.show(world, null); hw.tick(f); // [HW-sets]
   titanic.show(world, null); titanic.tick(f); // [JG-sets]
   napoleon.show(world, null); napoleon.tick(f); // [NAP-sets]
+  bw.show(world, null); bw.tick(f); // [BW-sets]
   worldAt(f, world, T); if (world.dc.visible) world.dc.flag.wave(f / 30);
   if (SM) SM.show(world, SA[1]);
   if (LV) louvre.applyView(world, PRACT, LV.i); // [MONA-louvre]

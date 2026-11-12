@@ -1,0 +1,10 @@
+Bubble Wrap was supposed to go on your walls.
+In 1957, in New Jersey, two engineers, Alfred Fielding and Marc Chavannes, sealed two plastic shower curtains together. Their big idea? Textured wallpaper. Modern! Bubbly! ...Nobody bought it.
+So they tried again: greenhouse insulation. Bubbles to keep the plants warm. That flopped too.
+Two failures. They started a company anyway, Sealed Air, in 1960, and kept hunting for a use.
+Then IBM launched a new computer: the 1401. Big, delicate, and it had to be shipped all over the country.
+How do you protect a computer? You wrap it in bubbles.
+IBM became Bubble Wrap's first big packaging customer, and soon the whole world was wrapping fragile stuff in bubbles.
+Today there's even a Bubble Wrap Appreciation Day, the last Monday of January.
+So next time you pop one, remember: the world's most satisfying sound came from a wallpaper nobody wanted.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2; silenceremove + atempo 1.05; splice.py beat pauses -> 62.87 s, 1887 frames)
