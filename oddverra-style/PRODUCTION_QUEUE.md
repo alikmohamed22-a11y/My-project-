@@ -11,7 +11,7 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | delivered 2026-11-12 (65.2 s, -14.2 LUFS) |
 
 ## Posting plan (newest last)
-From Nov 12: TWO posts a day, 12:45 PM and 6:30 PM LA. Next slots: Titanic baker Fri Nov 13 6:30 PM, Hollywood sign Sat Nov 14 12:45 PM. Deliver files under 50 MB (1080p).
+From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy (if not posted) + Liberty 12:45 + Ketchup 6:30. Fri Nov 13: Play-Doh 9:30, Titanic baker 12:45, Hollywood 6:30. Sat Nov 14: Napoleon 9:30, Bubble Wrap 12:45, Lincoln wrestler 6:30. Deliver files under 50 MB (1080p).
 | Video | Title | Hashtag | Post (LA time) | Pinned comment |
 |---|---|---|---|---|
 | Lincoln/Booth | The Man Who Saved Lincoln's Son Was His Killer's Brother | #history | Nov 10, 12:45 PM | Robert Lincoln was also there when Garfield AND McKinley were shot 😳 Coincidence? |
