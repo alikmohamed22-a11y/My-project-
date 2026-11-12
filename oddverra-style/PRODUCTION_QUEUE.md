@@ -8,7 +8,7 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 2 | Einstein was offered the presidency of Israel (1952) and said no | CANCELLED by user (Nov 11), do not post or redo |
 | 3 | The Statue of Liberty was first designed as a lighthouse for Egypt (Bartholdi, Suez) | delivered 2026-11-11 |
 | 4 | Ketchup was sold as medicine (Dr. John Cook Bennett, 1830s) | delivered 2026-11-12 |
-| 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | facts verified (Smithsonian, The Strong); voice 65 s done; sets + cast + story building |
+| 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | delivered 2026-11-12 (65.2 s, -14.2 LUFS) |
 
 ## Posting plan (newest last)
 From Nov 12: TWO posts a day, 12:45 PM and 6:30 PM LA. Next slots: Titanic baker Fri Nov 13 6:30 PM, Hollywood sign Sat Nov 14 12:45 PM. Deliver files under 50 MB (1080p).
