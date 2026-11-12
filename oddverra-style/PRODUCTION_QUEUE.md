@@ -8,6 +8,7 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 2 | Einstein was offered the presidency of Israel (1952) and said no | CANCELLED by user (Nov 11), do not post or redo |
 | 3 | The Statue of Liberty was first designed as a lighthouse for Egypt (Bartholdi, Suez) | delivered 2026-11-11 |
 | 4 | Ketchup was sold as medicine (Dr. John Cook Bennett, 1830s) | delivered 2026-11-12 |
+| 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | facts verified (Smithsonian, The Strong); voice 65 s done; sets + cast + story building |
 
 ## Posting plan (newest last)
 | Video | Title | Hashtag | Post (LA time) | Pinned comment |
@@ -17,3 +18,4 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | Teddy bear | A President Refused to Shoot a Bear… So We Got Teddy Bears | #history | Wed Nov 11, 12:45 PM | Holt Collier, the guide who tracked that bear, was a legend 🐻 Would you have bought one of the first teddy bears? |
 | Statue of Liberty | The Statue of Liberty Was Supposed to Stand in Egypt | #history | Thu Nov 12, 12:45 PM | She was also an official lighthouse until about 1902 🗽 Did you know she started out copper-brown, not green? |
 | Ketchup | Ketchup Was Once Sold as Medicine | #history | Fri Nov 13, 12:45 PM | Some of those "tomato pills" had no tomato in them at all 🍅 Would you have bought them? |
+| Play-Doh | Play-Doh Was Invented to Clean Your Walls | #history | Sat Nov 14, 12:45 PM | It only came in off-white at first 🤍 What was your favorite Play-Doh color as a kid? |
