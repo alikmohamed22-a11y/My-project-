@@ -715,6 +715,33 @@ export function oddverra(g, o, op = {}) {
       cel(g, ellP(tX(cx, shY + 30), shY + 30, 9, 8), '#d8b048', 2, 2, 2, 0); } };
   const kchCollar = () => { if (!o.hoodie) return; const hc = o.shirt, W0 = NW + 26, hp = polyPath([...arcPts(ncx, shY + 6, W0, Math.PI * 0.98, Math.PI * 2.02, 14, 34), ...arcPts(ncx, shY + 10, NW + 4, Math.PI * 2.0, Math.PI * 1.0, 10, 14)]);
     cel(g, hp, mixc(hc, '#000000', 0.06), 3, 5, 4, 3, twill(hc)); taper(g, arcPts(ncx, shY + 10, NW + 10, Math.PI * 1.05, Math.PI * 1.95, 10, 18), 1.8, mixc(hc, INK, 0.45), 0.2); };
+  const cleoHat = () => { // [CLEO-cast] o.wesekh (broad gold collar), hats 'diadem' (gold band + uraeus) / 'nemes' (striped royal headcloth) / 'headcloth' (worker's plain cloth); helmet glass in cleoHelm
+    const ac = Math.abs(Math.cos(HY)), fr = Math.cos(HY) > 0.05, ux = hcx + Math.sin(HY) * HW * 0.92;
+    if (o.wesekh && !BACKB) { const R0 = NW + 6, rows = [[o.wesekh, 0], ['#2fa8a0', 9], ['#d8b048', 17], ['#c0302c', 25], ['#e8c050', 33]]; const cy0 = shY - 6;
+      const outer = arcPts(ncx, cy0, R0 + 44, Math.PI * 0.02, Math.PI * 0.98, 18, 40), inner = arcPts(ncx, cy0, R0, Math.PI * 0.98, Math.PI * 0.02, 14, 16);
+      const P = polyPath([...outer, ...inner]); cel(g, P, o.wesekh, 2.8, 4, 3, 0); g.save(); g.clip(P);
+      for (const [c, d] of rows.slice(1)) taper(g, arcPts(ncx, cy0, R0 + 4 + d, Math.PI * 0.04, Math.PI * 0.96, 18, 16 + d * 0.62), 5.5, c, 0.1);
+      for (let k = 0; k < 15; k++) { const a = Math.PI * (0.06 + 0.88 * k / 14), x = ncx + Math.cos(a) * (R0 + 42), y = cy0 + Math.sin(a) * 39; cel(g, ellP(x, y, 3.2, 4.6), '#2fa8a0', 1, 0, 0, 0); }
+      g.restore(); }
+    if (o.hat === 'diadem') { const by = hy - HH * 0.5, w = HW * 1.0; const band = polyPath([...arcPts(hcx, by + HH * 0.55, w * 1.0, Math.PI * 1.08, Math.PI * 1.92, 14, HH * 0.62), ...arcPts(hcx, by + HH * 0.55 + 9 * fz, w * 1.02, Math.PI * 1.92, Math.PI * 1.08, 14, HH * 0.62)]);
+      cel(g, band, '#e2b23a', 2.4, 3, 2, 0); taper(g, arcPts(hcx, by + HH * 0.55 + 2 * fz, w * 0.9, Math.PI * 1.2, Math.PI * 1.55, 8, HH * 0.6), 2.2 * fz, 'rgba(255,250,210,0.8)', 0.3);
+      if (fr) { const ty = by - 2 * fz, k = fz * Math.max(0.55, ac); const cob = smooth([[ux - 9 * k, ty + 10 * fz], [ux - 12 * k, ty - 10 * fz], [ux - 4 * k, ty - 30 * fz], [ux + 6 * k, ty - 32 * fz], [ux + 12 * k, ty - 12 * fz], [ux + 9 * k, ty + 10 * fz]], 4);
+        cel(g, cob, '#e8b838', 2.4, 3, 2, 0); cel(g, ellP(ux, ty - 14 * fz, 4 * k, 5 * fz), '#c0302c', 1.4, 0, 0, 0); cel(g, ellP(ux, ty + 2 * fz, 5 * k, 5 * fz), '#2fa8a0', 1.4, 0, 0, 0); } }
+    if (o.hat === 'nemes' || o.hat === 'headcloth') { const nm = o.hat === 'nemes', c1 = o.hatCol || (nm ? '#2f4fa8' : '#efe6d0'), c2 = nm ? '#e2b23a' : mixc(c1, INK, 0.12), by = hy - HH * 0.42, w = HW * 1.12;
+      const P = new Path2D(); P.moveTo(hcx - w * 1.02, hy + HH * (nm ? 1.25 : 0.55)); P.lineTo(hcx - w * 1.18, hy + HH * (nm ? 1.25 : 0.6)); P.bezierCurveTo(hcx - w * 1.2, hy - HH * 0.2, hcx - w * 1.05, hy - HH * 1.15, hcx, hy - HH * 1.16); P.bezierCurveTo(hcx + w * 1.05, hy - HH * 1.15, hcx + w * 1.2, hy - HH * 0.2, hcx + w * 1.18, hy + HH * (nm ? 1.25 : 0.6)); P.lineTo(hcx + w * 1.02, hy + HH * (nm ? 1.25 : 0.55));
+      P.bezierCurveTo(hcx + w * 0.95, hy - HH * 0.1, hcx + w * 0.9, by + HH * 0.1, hcx, by + HH * 0.05); P.bezierCurveTo(hcx - w * 0.9, by + HH * 0.1, hcx - w * 0.95, hy - HH * 0.1, hcx - w * 1.02, hy + HH * (nm ? 1.25 : 0.55)); P.closePath();
+      cel(g, P, c1, 3.4, 8, 5, 3); g.save(); g.clip(P); if (nm) for (let k = -14; k <= 14; k++) { const x = hcx + k * w * 0.085; taper(g, [[hcx + (x - hcx) * 0.3, hy - HH * 1.2], [x * 1 + (x - hcx) * 0.25, hy + HH * 1.3]], 5 * fz, c2, 0.05); }
+      else taper(g, [[hcx - w * 0.9, hy - HH * 0.6], [hcx, hy - HH * 0.9], [hcx + w * 0.9, hy - HH * 0.6]], 3 * fz, c2, 0.2); g.restore();
+      const band = polyPath([...arcPts(hcx, by + HH * 0.5, w * 0.95, Math.PI * 1.06, Math.PI * 1.94, 14, HH * 0.55), ...arcPts(hcx, by + HH * 0.5 + 10 * fz, w * 0.97, Math.PI * 1.94, Math.PI * 1.06, 14, HH * 0.55)]); cel(g, band, nm ? '#e2b23a' : mixc(c1, INK, 0.2), 2.2, 2, 1, 0);
+      if (nm && fr) { const ty = by - 4 * fz, k = fz * Math.max(0.55, ac); cel(g, smooth([[ux - 8 * k, ty + 8 * fz], [ux - 11 * k, ty - 10 * fz], [ux, ty - 28 * fz], [ux + 11 * k, ty - 10 * fz], [ux + 8 * k, ty + 8 * fz]], 4), '#e8b838', 2.2, 2, 2, 0); cel(g, ellP(ux, ty - 10 * fz, 3.5 * k, 4.5 * fz), '#c0302c', 1.2, 0, 0, 0); } }
+    if (o.astro && !BACKB) { const bx = ncx, byy = shY + 40; const box = new Path2D(); box.roundRect(bx - 34, byy, 68, 44, 8); cel(g, box, '#d8dce4', 2.4, 3, 2, 0); for (const [x, c] of [[-18, '#c0302c'], [0, '#2a6ad0'], [18, '#e8b838']]) cel(g, ellP(bx + x, byy + 16, 5, 5), c, 1.2, 0, 0, 0); taper(g, [[bx - 22, byy + 32], [bx + 22, byy + 32]], 3, '#8a90a0', 0.2);
+      for (const s of [-1, 1]) taper(g, [[ncx + s * 26, shY + 2], [ncx + s * 36, shY + 40]], 6, '#b8bcc8', 0.3); } };
+  const cleoHelm = () => { if (o.hat !== 'helmet') return; const cxh = hcx, cyh = hy + HH * 0.08, R = HW * 1.42, Ry = HH * 1.36; // [CLEO-cast] astronaut bubble helmet (over the face)
+    const ring = ellP(cxh, cyh, R, Ry), inner = ellP(cxh, cyh, R - 9 * fz, Ry - 9 * fz); g.save(); g.fillStyle = 'rgba(190,225,255,0.16)'; g.fill(inner); g.restore();
+    g.save(); g.clip(inner); g.fillStyle = 'rgba(232,178,58,0.38)'; g.fillRect(cxh - R, cyh - Ry, 2 * R, Ry * 0.62); taper(g, [[cxh - R, cyh - Ry * 0.38], [cxh + R, cyh - Ry * 0.38]], 3 * fz, 'rgba(160,110,20,0.6)', 0.1); g.restore();
+    g.lineWidth = 14 * fz; g.strokeStyle = INK; g.stroke(ring); g.lineWidth = 8 * fz; g.strokeStyle = '#f4f4f2'; g.stroke(ring);
+    taper(g, arcPts(cxh, cyh, R * 0.8, Math.PI * 1.15, Math.PI * 1.42, 8, Ry * 0.8), 8 * fz, 'rgba(255,255,255,0.85)', 0.4); taper(g, arcPts(cxh, cyh, R * 0.66, Math.PI * 1.18, Math.PI * 1.3, 6, Ry * 0.66), 4 * fz, 'rgba(255,255,255,0.7)', 0.4);
+    const nk = new Path2D(); nk.roundRect(cxh - R * 0.62, cyh + Ry * 0.86, R * 1.24, 16 * fz, 6 * fz); cel(g, nk, '#c8ccd6', 2.6, 2, 1, 0); };
   const napHat = () => { if (o.hat !== 'bicorne' && o.hat !== 'bearskin') return; const K = o.hatK || 1, x0 = hcx - SN * 4 * fz, ac = Math.abs(Math.cos(HY)), as = Math.abs(Math.sin(HY)); // [NAP-cast]
     if (o.hat === 'bicorne') { const hk = o.hatCol || '#1e1c24', bY = hy - HH * 0.56, w = HW * K * (1.6 * ac + 0.62 * as), h = 80 * fz * K, tip = 34 * fz * K;
       const P = new Path2D(); P.moveTo(x0 - w, bY - tip); P.bezierCurveTo(x0 - w * 0.86, bY - h * 0.8, x0 - w * 0.3, bY - h * 1.14, x0, bY - h * 1.1); P.bezierCurveTo(x0 + w * 0.3, bY - h * 1.14, x0 + w * 0.86, bY - h * 0.8, x0 + w, bY - tip);
@@ -1230,6 +1257,7 @@ export function oddverra(g, o, op = {}) {
   libHat(); // [LIB-cast]
   kchHat(); // [KCH-cast]
   napHat(); // [NAP-cast] bicorne (worn sideways) / grenadier bearskin
+  cleoHat(); // [CLEO-cast] wesekh collar / diadem / nemes / headcloth / astronaut chest box
   einHat(); // [EIN-cast] press card / cap badge
   if (!BACKH) { // ---------- face (local frame: head centre, unit = fz px) ----------
   const E = expr, red = '#e0303a', w = HW / fz; let PNC = null; // [TEDDY-cast] PNC: pince-nez cord anchor
@@ -1394,6 +1422,7 @@ export function oddverra(g, o, op = {}) {
   if (exciteE) for (const [sx, sy, rr0] of [[-w - 14, -66, 10], [w + 10, -84, 8], [w + 20, -22, 6]]) { g.beginPath(); for (let k = 0; k < 8; k++) { const rr = k % 2 ? rr0 * 0.32 : rr0, an = k * Math.PI / 4; g.lineTo(sx + rr * Math.cos(an), sy + rr * Math.sin(an)); } g.closePath(); g.fillStyle = '#ffe14a'; g.fill(); g.lineWidth = 1.8; g.strokeStyle = INK; g.stroke(); }
   g.restore();
   } // face
+  cleoHelm(); // [CLEO-cast] bubble helmet over the face
   g.translate(cx, shY); g.rotate(-tilt); g.translate(-cx, -shY);
   for (const a of arms) if (!farArm(a) && raisedLate(a)) drawArm(a);
   if ((op.ear || op.raise) && !BACKH) drawProps(true); // [EIN-cast] [LIB-cast] raised prop over the head
