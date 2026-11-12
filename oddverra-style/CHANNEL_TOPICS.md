@@ -27,7 +27,7 @@ Also made (check whether posted):
 - Statue of Liberty meant for Egypt (Bartholdi, Suez, Port Said; Liberty an official lighthouse 1886–1902): delivered 2026-11-11
 - Ketchup sold as medicine (Bennett 1835, Miles vs Phelps tomato pills, fizzled by 1850): delivered 2026-11-12
 - Play-Doh invented as wallpaper cleaner (Kutol, Kay Zufall, 1956 off-white): delivered 2026-11-12
-- Titanic baker Charles Joughin: in production
+- Titanic baker Charles Joughin (bread to boats, 'a drop of liqueur', 50 deck chairs, rode the stern): delivered 2026-11-12
 - Hollywood sign was HOLLYWOODLAND: in production
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 

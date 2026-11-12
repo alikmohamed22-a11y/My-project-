@@ -4,7 +4,7 @@ cd /root/shorts/joughin
 mkdir -p out
 SP=/tmp/claude-0/-home-user-My-project-/5013cad0-c1cd-5679-af03-9cd8e9e7d838/scratchpad
 echo "RENDERING $(date)" > chain_status.txt
-for pass in $(seq 1 40); do
+for pass in $(seq 1 60); do
   if [ -d frames ]; then
     python3 - <<'PY'
 import os
@@ -23,7 +23,7 @@ PY
   n=$(ls frames 2>/dev/null | grep -c '^f[0-9]*\.jpg$')
   echo "pass $pass: $n/1830 frames $(date)"
   [ "$n" -ge 1830 ] && break
-  RESUME=1 RS=1.5 WORKERS=2 nice node render.mjs frames "0-1829" 2>&1 | grep -vE "willReadFrequently" | tail -n 40
+  RESUME=1 RS=1.5 WORKERS=2 nice timeout 1200 node render.mjs frames "0-1829" 2>&1 | grep -vE "willReadFrequently" | tail -n 40
 done
 n=$(ls frames | grep -c '^f[0-9]*\.jpg$')
 if [ "$n" -lt 1830 ]; then echo "FAILED frames $n" > chain_status.txt; exit 1; fi
