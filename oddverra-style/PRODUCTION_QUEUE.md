@@ -22,3 +22,8 @@ From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy
 | Play-Doh | Play-Doh Was Invented to Clean Your Walls | #history | Fri Nov 13, 12:45 PM | It only came in off-white at first 🤍 What was your favorite Play-Doh color as a kid? |
 | Titanic baker | The Titanic's Baker Survived the Freezing Ocean… After a Drink | #Titanic | Fri Nov 13, 6:30 PM | He testified he only had 'a drop of liqueur' — and that he barely got his head wet. Do you believe his story? 🍞🧊 |
 | Hollywood sign | The Hollywood Sign Was Originally an Ad for Houses (HOLLYWOODLAND) | #history | Sat Nov 14, 12:45 PM | It was meant to last just 18 months 😳 Which letter would you have bought? |
+
+## Quality rules (from Nov 12, user asked for best 3D quality, no lag)
+- Render RS=2 (2160x3840, 2x supersampling); shadow map 4096 when it shows no artifacts.
+- Encode 1080x1920 deliverables straight from frames or a high-quality master: x264 preset slower, two-pass 5.5M (maxrate 8M), AAC 192k, +faststart, under 50 MB.
+- QA the whole video: full-length contact sheet (1 frame / 2 s), mpdecimate stutter check (no runs of 3+ repeated frames outside intended holds), stills at every shot boundary for popping, clipping and unintended camera jumps.
