@@ -33,5 +33,7 @@ mkdir -p "$SP"
 nice ffmpeg -v error -y -i out/joughin_4k_captions.mp4 -c:v libx264 -b:v 12M -maxrate 16M -bufsize 24M -preset slow -pix_fmt yuv420p -movflags +faststart -c:a copy "$SP/Joughin_4k_captions_small.mp4"
 nice ffmpeg -v error -y -i out/joughin_4k.mp4 -c:v libx264 -b:v 12M -maxrate 16M -bufsize 24M -preset slow -pix_fmt yuv420p -movflags +faststart -c:a copy "$SP/Joughin_4k_small.mp4"
 nice ffmpeg -v error -y -i out/joughin_4k_captions.mp4 -vf "scale=1080:1920:flags=lanczos" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -movflags +faststart -c:a copy "$SP/Joughin_1080p_captions.mp4"
+nice ffmpeg -v error -y -i out/joughin_4k_captions.mp4 -vf "scale=1080:1920:flags=lanczos" -c:v libx264 -preset slow -b:v 5M -maxrate 7M -bufsize 10M -pix_fmt yuv420p -movflags +faststart -c:a copy "$SP/Joughin_captions.mp4"
+nice ffmpeg -v error -y -i out/joughin_4k.mp4 -vf "scale=1080:1920:flags=lanczos" -c:v libx264 -preset slow -b:v 5M -maxrate 7M -bufsize 10M -pix_fmt yuv420p -movflags +faststart -c:a copy "$SP/Joughin_no_captions.mp4"
 ls -la "$SP"/Joughin_* out/
-if [ -s out/joughin_4k_captions.mp4 ] && [ -s "$SP/Joughin_1080p_captions.mp4" ]; then rm -rf frames; echo DONE > chain_status.txt; else echo "FAILED copies" > chain_status.txt; fi
+if [ -s out/joughin_4k_captions.mp4 ] && [ -s "$SP/Joughin_1080p_captions.mp4" ] && [ -s "$SP/Joughin_captions.mp4" ] && [ -s "$SP/Joughin_no_captions.mp4" ]; then rm -rf frames; echo DONE > chain_status.txt; else echo "FAILED copies" > chain_status.txt; fi

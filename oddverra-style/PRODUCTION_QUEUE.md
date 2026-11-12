@@ -11,11 +11,12 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | facts verified (Smithsonian, The Strong); voice 65 s done; sets + cast + story building |
 
 ## Posting plan (newest last)
+From Nov 12: TWO posts a day, 12:45 PM and 6:30 PM LA. Next slots: Titanic baker Fri Nov 13 6:30 PM, Hollywood sign Sat Nov 14 12:45 PM. Deliver files under 50 MB (1080p).
 | Video | Title | Hashtag | Post (LA time) | Pinned comment |
 |---|---|---|---|---|
 | Lincoln/Booth | The Man Who Saved Lincoln's Son Was His Killer's Brother | #history | Nov 10, 12:45 PM | Robert Lincoln was also there when Garfield AND McKinley were shot 😳 Coincidence? |
 | Castro beard | The CIA Tried to Make Castro's Beard Fall Out | #history | Nov 11, 12:45 PM | Plot #4 was literally an exploding seashell 🐚 Which plan was the dumbest? |
 | Teddy bear | A President Refused to Shoot a Bear… So We Got Teddy Bears | #history | Wed Nov 11, 12:45 PM | Holt Collier, the guide who tracked that bear, was a legend 🐻 Would you have bought one of the first teddy bears? |
 | Statue of Liberty | The Statue of Liberty Was Supposed to Stand in Egypt | #history | Thu Nov 12, 12:45 PM | She was also an official lighthouse until about 1902 🗽 Did you know she started out copper-brown, not green? |
-| Ketchup | Ketchup Was Once Sold as Medicine | #history | Fri Nov 13, 12:45 PM | Some of those "tomato pills" had no tomato in them at all 🍅 Would you have bought them? |
-| Play-Doh | Play-Doh Was Invented to Clean Your Walls | #history | Sat Nov 14, 12:45 PM | It only came in off-white at first 🤍 What was your favorite Play-Doh color as a kid? |
+| Ketchup | Ketchup Was Once Sold as Medicine | #history | Thu Nov 12, 6:30 PM | Some of those "tomato pills" had no tomato in them at all 🍅 Would you have bought them? |
+| Play-Doh | Play-Doh Was Invented to Clean Your Walls | #history | Fri Nov 13, 12:45 PM | It only came in off-white at first 🤍 What was your favorite Play-Doh color as a kid? |
