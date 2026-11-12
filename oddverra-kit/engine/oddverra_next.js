@@ -1176,6 +1176,10 @@ export function oddverra(g, o, op = {}) {
       if (hyc > 0.05) for (const s of [-1, 1]) { const a = HY + s * 0.32, X = hx + HW * 0.62 * Math.sin(a); if (Math.cos(a) > 0) taper(g, [[X, bY - 92 * fz], [X + s * 3 * fz * hyc, bY - 60 * fz]], 2.4, mixc(hk, '#000000', 0.45), 0.3); }
       taper(g, [[hx + HW * 0.5 * hys, bY - 104 * fz], [hx + HW * 0.12 * hys, bY - 96 * fz], [hx - HW * 0.45 * hys, bY - 100 * fz]], 2.6, mixc(hk, '#000000', 0.45), 0.4);
       g.restore(); bandBow(HW * 0.73, bY - 13 * fz, mixc(hk, '#c8b090', 0.35)); }); }
+  if (o.hat === 'toque') { const hk = o.hatCol || '#fbf8f2', bY = hy - HH * 0.6, bw = HW * 0.8, bh = 44 * fz, fc = mixc(hk, INK, 0.3); /* [JG-cast] baker's toque: pleated band + puffy crown */
+    for (const [dx, dy, rx, ry] of [[-0.55, 1.0, 0.62, 0.5], [0.55, 1.0, 0.62, 0.5], [0, 1.45, 0.72, 0.55], [-0.3, 1.2, 0.6, 0.5], [0.3, 1.2, 0.6, 0.5]]) cel(g, ellP(hx + dx * bw, bY - bh - dy * bw * 0.62, rx * bw, ry * bw * 0.85), hk, 3.0, 8, 5, 3);
+    const band = new Path2D(); band.moveTo(hx - bw, bY); band.lineTo(hx - bw * 1.04, bY - bh); band.quadraticCurveTo(hx, bY - bh - 8 * fz, hx + bw * 1.04, bY - bh); band.lineTo(hx + bw, bY); band.quadraticCurveTo(hx, bY + 10 * fz, hx - bw, bY); band.closePath(); cel(g, band, hk, 3.0, 8, 4, 2);
+    g.save(); g.clip(band); for (let i = -3; i <= 3; i++) { const a = i * 0.38 + HY; if (Math.cos(a) < 0.1) continue; const X = hx + bw * Math.sin(a); taper(g, [[X, bY - bh + 4], [X, bY - 2]], 1.6, rgba(fc, 0.6), 0.2); } g.restore(); }
   if (o.hat === 'surgcap') { const hk = o.hatCol || '#8ac0b0', bY = hy - HH * 0.6;
     const dm = new Path2D(); dm.moveTo(hx - HW * 0.92, bY); dm.bezierCurveTo(hx - HW * 1.0, bY - 120 * fz, hx + HW * 1.0, bY - 120 * fz, hx + HW * 0.92, bY); dm.quadraticCurveTo(hx, bY + 14 * fz, hx - HW * 0.92, bY); dm.closePath(); cel(g, dm, hk, 3.0, 10, 5, 3);
     g.save(); g.clip(dm); const fc = mixc(hk, INK, 0.35);
