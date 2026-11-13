@@ -10,6 +10,7 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 4 | Ketchup was sold as medicine (Dr. John Cook Bennett, 1830s) | delivered 2026-11-12 |
 | 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | delivered 2026-11-12 (65.2 s, -14.2 LUFS) |
 | 6 | Lamborghini started as a tractor maker (Ferruccio's 1948 tractors from army surplus, the Ferrari clutch story, 1963 / 350 GT / Miura; Lamborghini Trattori still sells tractors) | in production (render queued after Vikings; 49.5 s) |
+| 7 | Nintendo started as a playing-card company (Fusajiro Yamauchi, Kyoto 1889, hanafuda; 1960s taxi, instant rice, reportedly short-stay hotels; Yokoi's grabber arm, Game & Watch 1980, Famicom 1983, NES 1985; hanafuda still sold) | in production (render queued after Lamborghini; 61.9 s) |
 
 ## Posting plan (newest last)
 From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy (if not posted) + Liberty 12:45 + Ketchup 6:30. Fri Nov 13: Play-Doh 9:30, Titanic baker 12:45, Hollywood 6:30. Sat Nov 14: Napoleon 9:30, Bubble Wrap 12:45, Lincoln wrestler 6:30. Deliver files under 50 MB (1080p).
@@ -36,3 +37,4 @@ User confirmed (Nov 12): all delivered videos through Hollywood sign are schedul
 | Bubble Wrap (delivered Nov 13) | Bubble Wrap Was Supposed to Be Wallpaper | #history | Sat Nov 14, 12:45 PM | Before IBM saved it, Bubble Wrap also flopped as greenhouse insulation 🫧 Be honest: do you pop it every time? |
 | Lincoln wrestler (delivered Nov 13) | Abraham Lincoln Is in the Wrestling Hall of Fame (Seriously) | #Lincoln | Sat Nov 14, 6:30 PM | Lincoln's only recorded loss came in 1832, to a soldier named Thompson. Some sources call him Hank, others Lorenzo Dow. History still can't agree on his first name. 🤼 |
 | Cleopatra (delivered Nov 13) | Cleopatra Lived Closer to the Moon Landing Than to the Pyramids | #history | Sun Nov 15, 9:30 AM | The Great Pyramid was already ~2,500 years old when Cleopatra was born. She's closer to Apollo 11 than to Khufu's builders 🌙🔺 What "ancient" thing surprised you most? |
+| Nintendo playing cards | Nintendo Started as a Playing Card Company in 1889 | #Nintendo | Mon Nov 16, 9:30 AM | Before Game & Watch, Nintendo ran a taxi company, sold instant rice and reportedly even tried short-stay hotels 🎴 Which side business surprised you most? |

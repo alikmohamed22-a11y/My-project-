@@ -35,6 +35,7 @@ Also made (check whether posted):
 - Cleopatra closer to the Moon landing than the pyramids: delivered 2026-11-13
 - Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
 - Lamborghini started as a tractor maker (Ferruccio's surplus-built tractors, the Ferrari clutch story, Miura; Lamborghini Trattori still exists under SDF): in production (Sun Nov 15 6:30 PM)
+- Nintendo started as a playing-card company (Fusajiro Yamauchi, Kyoto 1889, hanafuda; 1960s taxi / instant rice / reportedly short-stay hotels; Yokoi's Ultra Hand, Game & Watch 1980, Famicom 1983, NES 1985; still sells hanafuda): in production (Mon Nov 16 9:30 AM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 - Chef Résumé Day 3 (Instagram; risotto: drill-spoon, grape-juice "jam", delivery plated as homemade, 27 days left): delivered 2026-11-13
 
