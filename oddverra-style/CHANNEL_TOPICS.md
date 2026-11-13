@@ -32,7 +32,7 @@ Also made (check whether posted):
 - Napoleon wasn't short (Gillray cartoons, French inches): delivered 2026-11-12
 - Bubble Wrap invented as wallpaper (Fielding & Chavannes 1957, greenhouse flop, Sealed Air 1960, IBM 1401): delivered 2026-11-13
 - Lincoln the wrestler (Armstrong 1831, ~300 matches, lost once to Thompson 1832, Wrestling HoF 1992): delivered 2026-11-13
-- Cleopatra closer to the Moon landing than the pyramids: in production
+- Cleopatra closer to the Moon landing than the pyramids: delivered 2026-11-13
 - Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
 - Lamborghini started as a tractor maker (Ferruccio's surplus-built tractors, the Ferrari clutch story, Miura; Lamborghini Trattori still exists under SDF): in production (Sun Nov 15 6:30 PM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
