@@ -31,7 +31,7 @@ Also made (check whether posted):
 - Hollywood sign was HOLLYWOODLAND (1923 ad, H fell 1944, LAND removed 1949, 1978 rebuild): delivered 2026-11-12
 - Napoleon wasn't short (Gillray cartoons, French inches): delivered 2026-11-12
 - Bubble Wrap invented as wallpaper (Fielding & Chavannes 1957, greenhouse flop, Sealed Air 1960, IBM 1401): delivered 2026-11-13
-- Lincoln the wrestler: in production
+- Lincoln the wrestler (Armstrong 1831, ~300 matches, lost once to Thompson 1832, Wrestling HoF 1992): delivered 2026-11-13
 - Cleopatra closer to the Moon landing than the pyramids: in production
 - Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
 - Lamborghini started as a tractor maker (Ferruccio's surplus-built tractors, the Ferrari clutch story, Miura; Lamborghini Trattori still exists under SDF): in production (Sun Nov 15 6:30 PM)
