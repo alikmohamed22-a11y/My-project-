@@ -9,6 +9,7 @@ Rule: before starting a topic, check `CHANNEL_TOPICS.md` and this file, and neve
 | 3 | The Statue of Liberty was first designed as a lighthouse for Egypt (Bartholdi, Suez) | delivered 2026-11-11 |
 | 4 | Ketchup was sold as medicine (Dr. John Cook Bennett, 1830s) | delivered 2026-11-12 |
 | 5 | Play-Doh was invented as wallpaper cleaner (Kutol, Kay Zufall, 1956) | delivered 2026-11-12 (65.2 s, -14.2 LUFS) |
+| 6 | Lamborghini started as a tractor maker (Ferruccio's 1948 tractors from army surplus, the Ferrari clutch story, 1963 / 350 GT / Miura; Lamborghini Trattori still sells tractors) | in production (render queued after Vikings; 49.5 s) |
 
 ## Posting plan (newest last)
 From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy (if not posted) + Liberty 12:45 + Ketchup 6:30. Fri Nov 13: Play-Doh 9:30, Titanic baker 12:45, Hollywood 6:30. Sat Nov 14: Napoleon 9:30, Bubble Wrap 12:45, Lincoln wrestler 6:30. Deliver files under 50 MB (1080p).
@@ -31,3 +32,4 @@ From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy
 User confirmed (Nov 12): all delivered videos through Hollywood sign are scheduled on YouTube.
 | Napoleon height | Napoleon Wasn't Short. A Cartoonist Tricked You. | #history | Sat Nov 14, 9:30 AM | His "five foot two" was in French inches — about 5'7" in ours 📏 Did you grow up thinking he was tiny? |
 | Vikings horned helmets | Vikings Never Wore Horned Helmets. An Opera Did. | #Vikings | Sun Nov 15, 12:45 PM | The only near-complete Viking helmet ever found (Gjermundbu, 1943) has an eye guard, not horns 🪖 Did you grow up drawing Vikings with horns? |
+| Lamborghini tractors | Lamborghini Started as a Tractor Company | #cars | Sun Nov 15, 6:30 PM | Ferruccio's first tractors were built from leftover WWII army hardware 🚜 Would you rather own the Miura or a brand-new Lamborghini tractor? |

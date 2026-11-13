@@ -34,6 +34,7 @@ Also made (check whether posted):
 - Lincoln the wrestler: in production
 - Cleopatra closer to the Moon landing than the pyramids: in production
 - Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
+- Lamborghini started as a tractor maker (Ferruccio's surplus-built tractors, the Ferrari clutch story, Miura; Lamborghini Trattori still exists under SDF): in production (Sun Nov 15 6:30 PM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
