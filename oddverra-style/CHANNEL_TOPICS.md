@@ -30,7 +30,7 @@ Also made (check whether posted):
 - Titanic baker Charles Joughin (bread to boats, 'a drop of liqueur', 50 deck chairs, rode the stern): delivered 2026-11-12
 - Hollywood sign was HOLLYWOODLAND (1923 ad, H fell 1944, LAND removed 1949, 1978 rebuild): delivered 2026-11-12
 - Napoleon wasn't short (Gillray cartoons, French inches): delivered 2026-11-12
-- Bubble Wrap invented as wallpaper: in production
+- Bubble Wrap invented as wallpaper (Fielding & Chavannes 1957, greenhouse flop, Sealed Air 1960, IBM 1401): delivered 2026-11-13
 - Lincoln the wrestler: in production
 - Cleopatra closer to the Moon landing than the pyramids: in production
 - Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
