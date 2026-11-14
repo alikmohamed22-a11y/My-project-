@@ -36,6 +36,7 @@ Also made (check whether posted):
 - Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): delivered 2026-11-13
 - Lamborghini started as a tractor maker (Ferruccio's surplus-built tractors, the Ferrari clutch story, Miura; Lamborghini Trattori still exists under SDF): in production (Sun Nov 15 6:30 PM)
 - Nintendo started as a playing-card company (Fusajiro Yamauchi, Kyoto 1889, hanafuda; 1960s taxi / instant rice / reportedly short-stay hotels; Yokoi's Ultra Hand, Game & Watch 1980, Famicom 1983, NES 1985; still sells hanafuda): in production (Mon Nov 16 9:30 AM)
+- Pringles can designer partly buried in one (Fredric Baur, P&G chemist; saddle-shaped hyperbolic-paraboloid chips, tube patent filed 1966, 1968 Indiana launch; died 2008 at 89, kids reportedly debated the flavor and chose Original; rest of the ashes in an urn beside it): in production (Mon Nov 16 6:30 PM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 - Chef Résumé Day 3 (Instagram; risotto: drill-spoon, grape-juice "jam", delivery plated as homemade, 27 days left): delivered 2026-11-13
 - Chef Résumé Day 4 (Instagram; answers viewer comments: online cooking class, the teacher is the head chef, "Not Sam", onion juice, sobbing unmuted, "wrong number", 26 days left): delivered 2026-11-14
