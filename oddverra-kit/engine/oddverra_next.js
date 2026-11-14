@@ -1212,6 +1212,18 @@ export function oddverra(g, o, op = {}) {
       const band = new Path2D(); band.rect(hx - HW, bY - 16 * fz, HW * 2, 14 * fz); g.save(); g.clip(dm); g.fillStyle = mixc(hk, '#7a5a8a', 0.3); g.fill(band); g.restore();
       bandBow(HW * 0.8, bY - 9 * fz, mixc(hk, '#9a7aa8', 0.45));
       taper(g, arcPts(hx - HW * 0.1 * SG, bY - 20 * fz, HW * 0.55, SG > 0 ? Math.PI * 1.15 : Math.PI * 1.6, SG > 0 ? Math.PI * 1.4 : Math.PI * 1.85, 5, 50 * fz), 4, 'rgba(255,255,255,0.28)', 0.3); }); }
+  if (o.hat === 'crown') { /* [OX-cast] gold crown: band, five points with pearls, jewels */ const hk = o.hatCol || '#e8b830', bY = hy - HH * 0.6, w = HW * 0.8, h = 26 * fz, pk = 36 * fz, P = [[hx - w, bY + 4 * fz]];
+    for (let i = 0; i <= 8; i++) P.push([hx - w + 2 * w * i / 8, bY - h - (i % 2 ? 0 : pk)]); P.push([hx + w, bY + 4 * fz]); cel(g, polyPath(P), hk, 3.2, 8, 3, 3);
+    cel(g, polyPath([[hx - w, bY + 4 * fz], [hx - w, bY - h * 0.7], [hx + w, bY - h * 0.7], [hx + w, bY + 4 * fz]]), mixc(hk, '#8a4a10', 0.3), 2.6, 4, 2, 2);
+    for (let i = 0; i <= 8; i += 2) cel(g, ellP(hx - w + 2 * w * i / 8, bY - h - pk - 4 * fz, 7 * fz, 7 * fz), '#f6f2ea', 2, 0, 0, 0);
+    for (let i = -1; i <= 1; i++) cel(g, ellP(hx + i * w * 0.55, bY - h * 0.32, 8 * fz, 7 * fz), i ? '#2a5ad8' : '#d8283a', 2, 0, 0, 0);
+    taper(g, [[hx - w * 0.8, bY - h * 0.9], [hx - w * 0.2, bY - h * 0.9]], 3 * fz, 'rgba(255,255,230,0.55)', 0.3); }
+  if (o.hat === 'plume') { /* [OX-cast] Mexica-style feather headdress: a fan of long feathers on a beaded band (o.featherCol) */ const hk = o.hatCol || '#c8302a', bY = hy - HH * 0.58, fc = o.featherCol || '#2fb87a';
+    for (let i = -4; i <= 4; i++) { const a = -Math.PI / 2 + i * 0.21, L = (128 - Math.abs(i) * 10) * fz, bx = hx + i * HW * 0.15, by = bY - 12 * fz, tx = bx + Math.cos(a) * L, ty = by + Math.sin(a) * L, nx = -Math.sin(a), ny = Math.cos(a), wd = 16 * fz, mx = bx + Math.cos(a) * L * 0.55, my = by + Math.sin(a) * L * 0.55;
+      const fp = new Path2D(); fp.moveTo(bx, by); fp.quadraticCurveTo(mx + nx * wd, my + ny * wd, tx, ty); fp.quadraticCurveTo(mx - nx * wd, my - ny * wd, bx, by);
+      cel(g, fp, i % 2 ? mixc(fc, '#1a5aa8', 0.55) : fc, 2.6, 3, 2, 1); taper(g, [[bx, by], [tx, ty]], 2 * fz, 'rgba(255,255,255,0.35)', 0.3); cel(g, ellP(tx - Math.cos(a) * 16 * fz, ty - Math.sin(a) * 16 * fz, 6 * fz, 6 * fz), '#e8402a', 1.6, 0, 0, 0); }
+    cel(g, polyPath([[hx - HW * 0.86, bY + 4 * fz], [hx - HW * 0.84, bY - 18 * fz], [hx + HW * 0.84, bY - 18 * fz], [hx + HW * 0.86, bY + 4 * fz]]), hk, 2.6, 4, 2, 2);
+    for (let i = -2; i <= 2; i++) cel(g, ellP(hx + i * HW * 0.32, bY - 7 * fz, 7 * fz, 7 * fz), '#e8c040', 1.6, 0, 0, 0); }
   if (o.hat === 'fedora') { const hk = o.hatCol || '#4a4038', bY = hy - HH * 0.62;
     const crown = () => { // top: front-view M pinch blends into a profile slope (high at the back, pinched low at the front)
       const top = []; for (let i = 0; i <= 16; i++) { const u = -1 + i / 8, uf = u * (Math.sign(HY) || 1), hf = 96 + 18 * Math.sin(Math.PI * Math.min(1, Math.abs(u) / 0.9)) - 4 * (1 - Math.abs(u)), hs = 106 - 9 * uf - 8 * Math.exp(-(((uf - 0.55) / 0.28) ** 2)); top.push([hx + u * HW * 0.66, bY - (hf + (hs - hf) * AH) * fz]); }
