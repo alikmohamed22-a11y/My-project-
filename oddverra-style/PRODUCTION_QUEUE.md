@@ -32,7 +32,7 @@ From Nov 13: THREE posts a day, 9:30 AM, 12:45 PM, 6:30 PM LA. Thu Nov 12: Teddy
 
 User confirmed (Nov 12): all delivered videos through Hollywood sign are scheduled on YouTube.
 | Napoleon height | Napoleon Wasn't Short. A Cartoonist Tricked You. | #history | Sat Nov 14, 9:30 AM | His "five foot two" was in French inches — about 5'7" in ours 📏 Did you grow up thinking he was tiny? |
-| Vikings horned helmets | Vikings Never Wore Horned Helmets. An Opera Did. | #Vikings | Sun Nov 15, 12:45 PM | The only near-complete Viking helmet ever found (Gjermundbu, 1943) has an eye guard, not horns 🪖 Did you grow up drawing Vikings with horns? |
+| Vikings horned helmets (delivered Nov 13) | Vikings Never Wore Horned Helmets. An Opera Did. | #Vikings | Sun Nov 15, 12:45 PM | The only near-complete Viking helmet ever found (Gjermundbu, 1943) has an eye guard, not horns 🪖 Did you grow up drawing Vikings with horns? |
 | Lamborghini tractors | Lamborghini Started as a Tractor Company | #cars | Sun Nov 15, 6:30 PM | Ferruccio's first tractors were built from leftover WWII army hardware 🚜 Would you rather own the Miura or a brand-new Lamborghini tractor? |
 | Bubble Wrap (delivered Nov 13) | Bubble Wrap Was Supposed to Be Wallpaper | #history | Sat Nov 14, 12:45 PM | Before IBM saved it, Bubble Wrap also flopped as greenhouse insulation 🫧 Be honest: do you pop it every time? |
 | Lincoln wrestler (delivered Nov 13) | Abraham Lincoln Is in the Wrestling Hall of Fame (Seriously) | #Lincoln | Sat Nov 14, 6:30 PM | Lincoln's only recorded loss came in 1832, to a soldier named Thompson. Some sources call him Hank, others Lorenzo Dow. History still can't agree on his first name. 🤼 |

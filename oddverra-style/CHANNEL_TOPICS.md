@@ -33,7 +33,7 @@ Also made (check whether posted):
 - Bubble Wrap invented as wallpaper (Fielding & Chavannes 1957, greenhouse flop, Sealed Air 1960, IBM 1401): delivered 2026-11-13
 - Lincoln the wrestler (Armstrong 1831, ~300 matches, lost once to Thompson 1832, Wrestling HoF 1992): delivered 2026-11-13
 - Cleopatra closer to the Moon landing than the pyramids: delivered 2026-11-13
-- Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): in production (Sun Nov 15 12:45 PM)
+- Vikings never wore horned helmets (Doepler, 1876 Wagner Ring): delivered 2026-11-13
 - Lamborghini started as a tractor maker (Ferruccio's surplus-built tractors, the Ferrari clutch story, Miura; Lamborghini Trattori still exists under SDF): in production (Sun Nov 15 6:30 PM)
 - Nintendo started as a playing-card company (Fusajiro Yamauchi, Kyoto 1889, hanafuda; 1960s taxi / instant rice / reportedly short-stay hotels; Yokoi's Ultra Hand, Game & Watch 1980, Famicom 1983, NES 1985; still sells hanafuda): in production (Mon Nov 16 9:30 AM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
