@@ -1,0 +1,15 @@
+The Eiffel Tower was supposed to be torn down. In 1909.
+Gustave Eiffel built it for the 1889 World's Fair in Paris. Three hundred meters of iron, the tallest structure on Earth.
+But his permit only ran for twenty years. After that, the city could pull it down.
+And plenty of Parisians wanted that. In 1887, famous artists signed a protest calling it useless and monstrous. A giant black factory chimney.
+So how do you save a tower everyone hates?
+You see, Eiffel made it useful. He put a weather station at the top, and dropped objects down a cable to study air resistance.
+Then came radio. In 1898, a wireless signal flew from the tower to the Pantheon. Eiffel even paid for the army's radio experiments himself.
+Suddenly, the ugly tower was the perfect antenna. So in 1910, Paris renewed his permit instead of tearing it down.
+And in 1914, its antenna caught German radio messages that helped France at the Battle of the Marne.
+Here's the twist. The tower that was meant to last twenty years still carries antennas today. In 2022, a new one made it six meters taller.
+The tower Paris wanted gone was saved by something nobody can see. Radio waves.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.15 s, -42 dB) + atempo 1.24;
+ splice.py beat pauses -> 63.06 s, 1892 frames. Sets ef_sets.js at origins (-76000,0,0) and (-78500,0,0/800/1600). Chain waits on nintendo.)
+Sources: toureiffel.paris (radio / artists' protest / science pages), history.com "eiffel-tower-survival", snexplores.org "how science saved
+the Eiffel Tower", fr.wikisource "Protestation des artistes contre la tour de M. Eiffel" (Le Temps, 14 Feb 1887), 2022 DAB+ antenna news (330 m).
