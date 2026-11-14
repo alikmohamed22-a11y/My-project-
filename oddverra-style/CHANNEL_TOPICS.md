@@ -38,6 +38,7 @@ Also made (check whether posted):
 - Nintendo started as a playing-card company (Fusajiro Yamauchi, Kyoto 1889, hanafuda; 1960s taxi / instant rice / reportedly short-stay hotels; Yokoi's Ultra Hand, Game & Watch 1980, Famicom 1983, NES 1985; still sells hanafuda): in production (Mon Nov 16 9:30 AM)
 - Chef Résumé Day 2 (Instagram; cereal, sous vide in the tub, pizza on the fan): delivered 2026-11-11
 - Chef Résumé Day 3 (Instagram; risotto: drill-spoon, grape-juice "jam", delivery plated as homemade, 27 days left): delivered 2026-11-13
+- Chef Résumé Day 4 (Instagram; answers viewer comments: online cooking class, the teacher is the head chef, "Not Sam", onion juice, sobbing unmuted, "wrong number", 26 days left): delivered 2026-11-14
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
 
