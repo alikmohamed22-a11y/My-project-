@@ -1,0 +1,77 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE HOLLYWOOD SIGN
+Dialogue: 0,0:00:00.93,0:00:01.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS AN {\c&H0038D8FF&}AD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:01.83,0:00:02.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR {\c&H0038D8FF&}HOUSES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.42,0:00:04.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1923{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.58,0:00:05.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A NEW NEIGHBORHOOD
+Dialogue: 0,0:00:05.14,0:00:05.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE HILLS
+Dialogue: 0,0:00:05.72,0:00:06.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NEEDED {\c&H0038D8FF&}BUYERS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.88,0:00:07.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ITS NAME
+Dialogue: 0,0:00:07.78,0:00:08.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HOLLYWOODLAND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.93,0:00:09.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ITS BACKERS
+Dialogue: 0,0:00:09.71,0:00:10.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INCLUDING THE PUBLISHER
+Dialogue: 0,0:00:10.45,0:00:10.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF THE LOS
+Dialogue: 0,0:00:10.91,0:00:11.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ANGELES TIMES
+Dialogue: 0,0:00:11.87,0:00:13.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PAID {\c&H0038D8FF&}$21,000{\c&H00FFFFFF&} FOR
+Dialogue: 0,0:00:13.71,0:00:14.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A GIANT {\c&H0038D8FF&}BILLBOARD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.19,0:00:16.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MULES{\c&H00FFFFFF&} DRAGGED TELEPHONE
+Dialogue: 0,0:00:16.09,0:00:16.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}POLES AND SHEET
+Dialogue: 0,0:00:16.83,0:00:17.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}METAL UP THE
+Dialogue: 0,0:00:17.41,0:00:17.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MOUNTAIN
+Dialogue: 0,0:00:18.07,0:00:18.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EACH LETTER STOOD
+Dialogue: 0,0:00:18.79,0:00:19.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}50{\c&H00FFFFFF&} FEET TALL
+Dialogue: 0,0:00:19.95,0:00:21.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WRAPPED IN {\c&H0038D8FF&}4,000{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.19,0:00:21.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LIGHT BULBS THAT
+Dialogue: 0,0:00:21.83,0:00:22.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FLASHED
+Dialogue: 0,0:00:22.77,0:00:23.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HOLLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.66,0:00:24.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WOOD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.51,0:00:25.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LAND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.70,0:00:26.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT WAS SUPPOSED
+Dialogue: 0,0:00:26.08,0:00:26.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO LAST {\c&H0038D8FF&}18{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.88,0:00:27.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MONTHS
+Dialogue: 0,0:00:28.15,0:00:28.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NOBODY{\c&H00FFFFFF&} TOOK IT
+Dialogue: 0,0:00:28.75,0:00:29.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DOWN
+Dialogue: 0,0:00:29.94,0:00:30.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE REAL ESTATE
+Dialogue: 0,0:00:30.42,0:00:31.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COMPANY WENT {\c&H0038D8FF&}BUST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.68,0:00:32.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE SIGN
+Dialogue: 0,0:00:32.10,0:00:32.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ROTTED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:33.11,0:00:34.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY {\c&H0038D8FF&}1944{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.37,0:00:34.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}H{\c&H00FFFFFF&} HAD
+Dialogue: 0,0:00:34.97,0:00:35.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BLOWN OVER
+Dialogue: 0,0:00:36.56,0:00:37.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1949{\c&H00FFFFFF&}
+Dialogue: 0,0:00:37.74,0:00:38.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE CHAMBER OF
+Dialogue: 0,0:00:38.24,0:00:39.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COMMERCE AGREED TO
+Dialogue: 0,0:00:39.04,0:00:39.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FIX IT ON
+Dialogue: 0,0:00:39.74,0:00:40.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE {\c&H0038D8FF&}CONDITION{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.30,0:00:42.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CHOP OFF {\c&H0038D8FF&}LAND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.13,0:00:43.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY THE {\c&H0038D8FF&}70S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.95,0:00:44.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT WAS FALLING
+Dialogue: 0,0:00:44.47,0:00:45.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}APART AGAIN
+Dialogue: 0,0:00:45.66,0:00:47.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO IN {\c&H0038D8FF&}1978{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.32,0:00:48.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CELEBRITIES{\c&H00FFFFFF&} REBUILT IT
+Dialogue: 0,0:00:48.40,0:00:49.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE LETTER AT
+Dialogue: 0,0:00:49.02,0:00:49.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A TIME
+Dialogue: 0,0:00:49.58,0:00:51.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT {\c&H0038D8FF&}$27,000{\c&H00FFFFFF&} EACH
+Dialogue: 0,0:00:52.23,0:00:52.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A ROCK STAR
+Dialogue: 0,0:00:52.81,0:00:53.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BOUGHT AN {\c&H0038D8FF&}O{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.04,0:00:54.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A COWBOY SINGER
+Dialogue: 0,0:00:54.84,0:00:55.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BOUGHT AN {\c&H0038D8FF&}L{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.15,0:00:56.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TODAY
+Dialogue: 0,0:00:56.53,0:00:57.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S THE MOST
+Dialogue: 0,0:00:57.05,0:00:58.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FAMOUS{\c&H00FFFFFF&} SIGN ON
+Dialogue: 0,0:00:58.07,0:00:58.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EARTH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.36,0:01:00.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HOLLYWOOD KEPT THE
+Dialogue: 0,0:01:00.00,0:01:00.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DREAM{\c&H00FFFFFF&}
+Dialogue: 0,0:01:00.95,0:01:01.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT JUST DROPPED
+Dialogue: 0,0:01:01.71,0:01:02.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}LAND{\c&H00FFFFFF&}

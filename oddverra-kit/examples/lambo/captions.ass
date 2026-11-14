@@ -1,0 +1,65 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LAMBORGHINI{\c&H00FFFFFF&} EXISTS BECAUSE
+Dialogue: 0,0:00:01.57,0:00:02.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF A {\c&H0038D8FF&}TRACTOR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.21,0:00:02.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLUTCH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.27,0:00:03.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AFTER WORLD WAR
+Dialogue: 0,0:00:03.93,0:00:04.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TWO
+Dialogue: 0,0:00:04.39,0:00:05.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN ITALIAN MECHANIC
+Dialogue: 0,0:00:05.33,0:00:06.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NAMED FERRUCCIO {\c&H0038D8FF&}LAMBORGHINI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.71,0:00:07.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUILT {\c&H0038D8FF&}TRACTORS{\c&H00FFFFFF&} OUT
+Dialogue: 0,0:00:07.99,0:00:08.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF LEFTOVER ARMY
+Dialogue: 0,0:00:08.83,0:00:09.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SURPLUS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.75,0:00:11.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FARMERS LOVED THEM
+Dialogue: 0,0:00:11.09,0:00:11.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE GOT {\c&H0038D8FF&}RICH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:12.03,0:00:12.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RICH{\c&H00FFFFFF&} ENOUGH TO
+Dialogue: 0,0:00:12.55,0:00:13.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DRIVE {\c&H0038D8FF&}FERRARIS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.67,0:00:14.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:14.15,0:00:14.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AS THE STORY
+Dialogue: 0,0:00:14.71,0:00:15.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GOES
+Dialogue: 0,0:00:15.33,0:00:16.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS FERRARI'S {\c&H0038D8FF&}CLUTCH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.27,0:00:17.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}KEPT {\c&H0038D8FF&}FAILING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.21,0:00:18.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO HIS MECHANICS
+Dialogue: 0,0:00:18.03,0:00:18.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OPENED IT UP
+Dialogue: 0,0:00:18.73,0:00:19.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND FOUND A
+Dialogue: 0,0:00:19.33,0:00:20.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLUTCH{\c&H00FFFFFF&} MUCH LIKE
+Dialogue: 0,0:00:20.09,0:00:20.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE ONES IN
+Dialogue: 0,0:00:20.53,0:00:21.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS OWN {\c&H0038D8FF&}TRACTORS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.75,0:00:22.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FERRUCCIO COMPLAINED TO
+Dialogue: 0,0:00:22.79,0:00:24.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ENZO{\c&H00FFFFFF&} FERRARI HIMSELF
+Dialogue: 0,0:00:24.41,0:00:25.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}ENZO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.07,0:00:25.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}REPORTEDLY
+Dialogue: 0,0:00:25.89,0:00:26.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOLD HIM TO
+Dialogue: 0,0:00:26.33,0:00:27.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STICK TO {\c&H0038D8FF&}TRACTORS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.74,0:00:28.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BIG {\c&H0038D8FF&}MISTAKE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.30,0:00:30.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1963{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.34,0:00:31.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FERRUCCIO FOUNDED HIS
+Dialogue: 0,0:00:31.22,0:00:32.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OWN CAR COMPANY
+Dialogue: 0,0:00:32.32,0:00:33.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}350{\c&H00FFFFFF&} GT
+Dialogue: 0,0:00:33.28,0:00:35.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ARRIVED IN {\c&H0038D8FF&}1964{\c&H00FFFFFF&}
+Dialogue: 0,0:00:35.22,0:00:35.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN
+Dialogue: 0,0:00:35.58,0:00:36.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1966{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.96,0:00:37.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}MIURA{\c&H00FFFFFF&} SHOCKED
+Dialogue: 0,0:00:37.80,0:00:38.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE WORLD
+Dialogue: 0,0:00:38.62,0:00:39.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S THE {\c&H0038D8FF&}TWIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.52,0:00:40.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU CAN STILL
+Dialogue: 0,0:00:40.14,0:00:41.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUY A {\c&H0038D8FF&}BRAND-NEW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.04,0:00:41.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LAMBORGHINI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.02,0:00:42.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TRACTOR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.56,0:00:43.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO ONE OF
+Dialogue: 0,0:00:43.20,0:00:43.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MOST FAMOUS
+Dialogue: 0,0:00:43.88,0:00:44.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SUPERCAR NAMES ON
+Dialogue: 0,0:00:44.90,0:00:45.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EARTH WAS BORN
+Dialogue: 0,0:00:45.80,0:00:46.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FROM A BAD
+Dialogue: 0,0:00:46.42,0:00:47.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLUTCH{\c&H00FFFFFF&} AND A
+Dialogue: 0,0:00:47.28,0:00:48.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BRUISED {\c&H0038D8FF&}EGO{\c&H00FFFFFF&}

@@ -1,0 +1,14 @@
+Before Nintendo made video games, it made playing cards. Back in 1889.
+In Kyoto, Japan, a craftsman named Fusajiro Yamauchi opened a shop making hanafuda: little flower cards, painted by hand.
+Card players loved them, and the business kept going for decades.
+But by the 1960s, his great-grandson Hiroshi wanted more than cards. A lot more.
+So the company tried a taxi service. Instant rice. And, reportedly, even short-stay hotels.
+The taxis ran into labor trouble. The rice flopped.
+So how did a card company end up in video games?
+You see, a young engineer named Gunpei Yokoi built an extending grabber arm, just for fun. The boss saw it, and turned it into a hit toy.
+Toys led to electronics. In 1980, Yokoi's Game and Watch put a tiny game in your pocket.
+Then, in 1983, the Famicom launched in Japan. And in 1985, the NES reached America.
+Here's the twist. Nintendo never stopped making those flower cards. You can still buy them today.
+So the company behind your favorite games is still, quietly, a card maker from 1889.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.2;
+ splice.py beat pauses -> 61.85 s, 1856 frames. Sets nt_sets.js at origins (-70000,0,0/800/1600) and (-72500,0,0).)

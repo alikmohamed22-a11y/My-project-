@@ -1,0 +1,89 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}EIFFEL{\c&H00FFFFFF&} TOWER
+Dialogue: 0,0:00:00.83,0:00:01.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS SUPPOSED TO
+Dialogue: 0,0:00:01.55,0:00:02.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BE TORN DOWN
+Dialogue: 0,0:00:02.41,0:00:03.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1909{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.63,0:00:04.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GUSTAVE {\c&H0038D8FF&}EIFFEL{\c&H00FFFFFF&} BUILT
+Dialogue: 0,0:00:04.55,0:00:04.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT FOR THE
+Dialogue: 0,0:00:04.91,0:00:06.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1889{\c&H00FFFFFF&} WORLD'S FAIR
+Dialogue: 0,0:00:06.29,0:00:07.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN PARIS
+Dialogue: 0,0:00:07.09,0:00:08.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}300{\c&H00FFFFFF&} METERS OF
+Dialogue: 0,0:00:08.23,0:00:08.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IRON
+Dialogue: 0,0:00:08.73,0:00:09.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}TALLEST{\c&H00FFFFFF&} STRUCTURE
+Dialogue: 0,0:00:09.55,0:00:10.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ON EARTH
+Dialogue: 0,0:00:10.39,0:00:10.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT HIS {\c&H0038D8FF&}PERMIT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.93,0:00:11.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONLY RAN FOR
+Dialogue: 0,0:00:11.61,0:00:12.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}20{\c&H00FFFFFF&} YEARS
+Dialogue: 0,0:00:12.41,0:00:13.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AFTER THAT
+Dialogue: 0,0:00:13.07,0:00:13.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE CITY COULD
+Dialogue: 0,0:00:13.41,0:00:14.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PULL IT DOWN
+Dialogue: 0,0:00:14.07,0:00:14.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND PLENTY OF
+Dialogue: 0,0:00:14.81,0:00:15.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PARISIANS WANTED THAT
+Dialogue: 0,0:00:15.89,0:00:17.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN 1887
+Dialogue: 0,0:00:17.07,0:00:17.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAMOUS ARTISTS SIGNED
+Dialogue: 0,0:00:17.99,0:00:18.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A PROTEST CALLING
+Dialogue: 0,0:00:18.79,0:00:19.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT {\c&H0038D8FF&}USELESS{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:19.69,0:00:20.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MONSTROUS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.43,0:00:21.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A GIANT BLACK
+Dialogue: 0,0:00:21.23,0:00:22.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FACTORY {\c&H0038D8FF&}CHIMNEY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:22.44,0:00:22.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO HOW DO
+Dialogue: 0,0:00:22.98,0:00:23.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU {\c&H0038D8FF&}SAVE{\c&H00FFFFFF&} A
+Dialogue: 0,0:00:23.46,0:00:24.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOWER EVERYONE HATES
+Dialogue: 0,0:00:24.76,0:00:25.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:25.34,0:00:25.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EIFFEL{\c&H00FFFFFF&} MADE IT
+Dialogue: 0,0:00:25.90,0:00:26.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}USEFUL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.28,0:00:26.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE PUT A
+Dialogue: 0,0:00:26.92,0:00:27.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WEATHER{\c&H00FFFFFF&} STATION AT
+Dialogue: 0,0:00:27.56,0:00:28.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE TOP AND
+Dialogue: 0,0:00:28.18,0:00:29.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DROPPED OBJECTS DOWN
+Dialogue: 0,0:00:29.04,0:00:29.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A CABLE TO
+Dialogue: 0,0:00:29.56,0:00:30.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STUDY {\c&H0038D8FF&}AIR{\c&H00FFFFFF&} RESISTANCE
+Dialogue: 0,0:00:30.78,0:00:31.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN CAME {\c&H0038D8FF&}RADIO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.86,0:00:32.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1898{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.88,0:00:33.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}WIRELESS{\c&H00FFFFFF&} SIGNAL
+Dialogue: 0,0:00:33.64,0:00:34.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FLEW FROM THE
+Dialogue: 0,0:00:34.26,0:00:34.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOWER TO THE
+Dialogue: 0,0:00:34.80,0:00:35.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PANTHEON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:35.46,0:00:36.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EIFFEL{\c&H00FFFFFF&} EVEN {\c&H0038D8FF&}PAID{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.12,0:00:36.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR THE {\c&H0038D8FF&}ARMY'S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.78,0:00:38.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RADIO{\c&H00FFFFFF&} EXPERIMENTS HIMSELF
+Dialogue: 0,0:00:38.52,0:00:38.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SUDDENLY
+Dialogue: 0,0:00:38.72,0:00:39.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE UGLY TOWER
+Dialogue: 0,0:00:39.50,0:00:40.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS THE PERFECT
+Dialogue: 0,0:00:40.22,0:00:40.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ANTENNA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.84,0:00:42.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO IN {\c&H0038D8FF&}1910{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.18,0:00:42.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PARIS {\c&H0038D8FF&}RENEWED{\c&H00FFFFFF&} HIS
+Dialogue: 0,0:00:42.92,0:00:43.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PERMIT{\c&H00FFFFFF&} INSTEAD OF
+Dialogue: 0,0:00:43.76,0:00:44.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TEARING IT DOWN
+Dialogue: 0,0:00:44.50,0:00:45.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND IN {\c&H0038D8FF&}1914{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.58,0:00:46.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ITS {\c&H0038D8FF&}ANTENNA{\c&H00FFFFFF&} CAUGHT
+Dialogue: 0,0:00:46.38,0:00:47.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GERMAN{\c&H00FFFFFF&} {\c&H0038D8FF&}RADIO{\c&H00FFFFFF&} MESSAGES
+Dialogue: 0,0:00:47.40,0:00:48.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT HELPED FRANCE
+Dialogue: 0,0:00:48.26,0:00:48.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AT THE BATTLE
+Dialogue: 0,0:00:48.72,0:00:49.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF THE {\c&H0038D8FF&}MARNE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.67,0:00:50.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S THE {\c&H0038D8FF&}TWIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.51,0:00:50.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE TOWER THAT
+Dialogue: 0,0:00:50.95,0:00:51.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS MEANT TO
+Dialogue: 0,0:00:51.39,0:00:52.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LAST {\c&H0038D8FF&}20{\c&H00FFFFFF&} YEARS
+Dialogue: 0,0:00:52.29,0:00:53.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STILL CARRIES {\c&H0038D8FF&}ANTENNAS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.49,0:00:53.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TODAY
+Dialogue: 0,0:00:53.87,0:00:55.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}2022{\c&H00FFFFFF&}
+Dialogue: 0,0:00:55.22,0:00:55.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A NEW ONE
+Dialogue: 0,0:00:55.68,0:00:56.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MADE IT 6
+Dialogue: 0,0:00:56.28,0:00:57.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}METERS {\c&H0038D8FF&}TALLER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:57.33,0:00:57.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE TOWER PARIS
+Dialogue: 0,0:00:57.99,0:00:58.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WANTED {\c&H0038D8FF&}GONE{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:58.87,0:00:59.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SAVED{\c&H00FFFFFF&} BY SOMETHING
+Dialogue: 0,0:00:59.67,0:01:00.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NOBODY CAN SEE
+Dialogue: 0,0:01:01.16,0:01:01.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RADIO{\c&H00FFFFFF&} {\c&H0038D8FF&}WAVES{\c&H00FFFFFF&}

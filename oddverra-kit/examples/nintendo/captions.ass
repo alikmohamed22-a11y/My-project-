@@ -1,0 +1,85 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEFORE {\c&H0038D8FF&}NINTENDO{\c&H00FFFFFF&} MADE
+Dialogue: 0,0:00:01.07,0:00:02.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}VIDEO GAMES
+Dialogue: 0,0:00:02.05,0:00:02.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT MADE PLAYING
+Dialogue: 0,0:00:02.59,0:00:03.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CARDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.44,0:00:04.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BACK IN {\c&H0038D8FF&}1889{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.20,0:00:05.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}KYOTO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.60,0:00:06.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JAPAN
+Dialogue: 0,0:00:06.24,0:00:06.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A CRAFTSMAN NAMED
+Dialogue: 0,0:00:06.94,0:00:08.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FUSAJIRO{\c&H00FFFFFF&} YAMAUCHI OPENED
+Dialogue: 0,0:00:08.34,0:00:09.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A SHOP MAKING
+Dialogue: 0,0:00:09.04,0:00:09.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HANAFUDA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.82,0:00:10.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LITTLE FLOWER {\c&H0038D8FF&}CARDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.74,0:00:12.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PAINTED BY HAND
+Dialogue: 0,0:00:12.14,0:00:12.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CARD PLAYERS LOVED
+Dialogue: 0,0:00:12.94,0:00:13.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEM
+Dialogue: 0,0:00:13.30,0:00:13.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE BUSINESS
+Dialogue: 0,0:00:13.82,0:00:14.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}KEPT GOING FOR
+Dialogue: 0,0:00:14.52,0:00:15.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DECADES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.22,0:00:15.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT BY THE
+Dialogue: 0,0:00:15.68,0:00:16.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1960S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.60,0:00:17.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS GREAT-GRANDSON {\c&H0038D8FF&}HIROSHI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.96,0:00:18.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WANTED MORE THAN
+Dialogue: 0,0:00:18.74,0:00:19.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CARDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.36,0:00:20.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A LOT MORE
+Dialogue: 0,0:00:20.24,0:00:20.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE COMPANY
+Dialogue: 0,0:00:20.98,0:00:21.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TRIED A {\c&H0038D8FF&}TAXI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.64,0:00:22.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SERVICE
+Dialogue: 0,0:00:22.32,0:00:23.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INSTANT {\c&H0038D8FF&}RICE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.26,0:00:23.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND
+Dialogue: 0,0:00:23.58,0:00:24.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.42,0:00:25.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVEN SHORT-STAY HOTELS
+Dialogue: 0,0:00:25.78,0:00:26.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE TAXIS RAN
+Dialogue: 0,0:00:26.50,0:00:27.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INTO LABOR TROUBLE
+Dialogue: 0,0:00:27.48,0:00:28.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}RICE{\c&H00FFFFFF&} {\c&H0038D8FF&}FLOPPED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.50,0:00:29.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO {\c&H0038D8FF&}HOW{\c&H00FFFFFF&} DID
+Dialogue: 0,0:00:29.54,0:00:30.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A CARD COMPANY
+Dialogue: 0,0:00:30.26,0:00:30.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}END UP IN
+Dialogue: 0,0:00:30.78,0:00:31.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}VIDEO GAMES
+Dialogue: 0,0:00:31.88,0:00:32.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:32.34,0:00:32.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A YOUNG ENGINEER
+Dialogue: 0,0:00:32.92,0:00:34.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NAMED GUNPEI {\c&H0038D8FF&}YOKOI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.08,0:00:34.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUILT AN EXTENDING
+Dialogue: 0,0:00:34.84,0:00:35.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GRABBER{\c&H00FFFFFF&} ARM
+Dialogue: 0,0:00:35.64,0:00:36.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JUST FOR FUN
+Dialogue: 0,0:00:36.32,0:00:36.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE BOSS SAW
+Dialogue: 0,0:00:36.88,0:00:37.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT AND TURNED
+Dialogue: 0,0:00:37.38,0:00:37.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT INTO A
+Dialogue: 0,0:00:37.92,0:00:38.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIT {\c&H0038D8FF&}TOY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.10,0:00:39.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOYS LED TO
+Dialogue: 0,0:00:39.46,0:00:40.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ELECTRONICS
+Dialogue: 0,0:00:40.26,0:00:41.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1980{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.34,0:00:41.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}YOKOI'S{\c&H00FFFFFF&} {\c&H0038D8FF&}GAME{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:41.98,0:00:42.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WATCH{\c&H00FFFFFF&} PUT A
+Dialogue: 0,0:00:42.58,0:00:43.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TINY {\c&H0038D8FF&}GAME{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:43.26,0:00:43.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOUR POCKET
+Dialogue: 0,0:00:43.92,0:00:45.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN IN {\c&H0038D8FF&}1983{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.48,0:00:46.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}FAMICOM{\c&H00FFFFFF&} LAUNCHED
+Dialogue: 0,0:00:46.30,0:00:47.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN JAPAN
+Dialogue: 0,0:00:47.02,0:00:48.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND IN {\c&H0038D8FF&}1985{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.24,0:00:49.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}NES{\c&H00FFFFFF&} REACHED
+Dialogue: 0,0:00:49.22,0:00:49.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AMERICA
+Dialogue: 0,0:00:49.94,0:00:50.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S THE {\c&H0038D8FF&}TWIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.06,0:00:51.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NINTENDO{\c&H00FFFFFF&} NEVER STOPPED
+Dialogue: 0,0:00:51.92,0:00:52.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MAKING THOSE FLOWER
+Dialogue: 0,0:00:52.72,0:00:53.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CARDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.26,0:00:53.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU CAN STILL
+Dialogue: 0,0:00:53.76,0:00:54.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUY THEM {\c&H0038D8FF&}TODAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.36,0:00:55.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE COMPANY
+Dialogue: 0,0:00:55.61,0:00:56.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEHIND YOUR FAVORITE
+Dialogue: 0,0:00:56.39,0:00:57.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GAMES IS STILL
+Dialogue: 0,0:00:57.65,0:00:58.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}QUIETLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:58.31,0:00:58.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A CARD {\c&H0038D8FF&}MAKER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:58.93,0:01:00.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FROM {\c&H0038D8FF&}1889{\c&H00FFFFFF&}

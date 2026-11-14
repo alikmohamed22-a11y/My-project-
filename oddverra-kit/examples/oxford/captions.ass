@@ -1,0 +1,83 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OXFORD{\c&H00FFFFFF&} UNIVERSITY IS
+Dialogue: 0,0:00:01.19,0:00:01.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OLDER THAN THE
+Dialogue: 0,0:00:01.89,0:00:03.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}AZTEC{\c&H00FFFFFF&} {\c&H0038D8FF&}EMPIRE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.36,0:00:03.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOUNDS WRONG
+Dialogue: 0,0:00:03.94,0:00:04.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LET'S CHECK THE
+Dialogue: 0,0:00:04.36,0:00:04.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DATES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.94,0:00:05.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN A LITTLE
+Dialogue: 0,0:00:05.24,0:00:06.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ENGLISH TOWN CALLED
+Dialogue: 0,0:00:06.06,0:00:06.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OXFORD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.80,0:00:07.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TEACHING EXISTED IN
+Dialogue: 0,0:00:07.62,0:00:08.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOME FORM BY
+Dialogue: 0,0:00:08.36,0:00:09.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1096{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.52,0:00:09.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN
+Dialogue: 0,0:00:09.88,0:00:11.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1167{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.18,0:00:12.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}KING HENRY II BANNED
+Dialogue: 0,0:00:12.34,0:00:13.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ENGLISH STUDENTS FROM
+Dialogue: 0,0:00:13.16,0:00:14.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STUDYING IN {\c&H0038D8FF&}PARIS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.34,0:00:15.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MANY CAME HOME
+Dialogue: 0,0:00:15.20,0:00:16.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}OXFORD{\c&H00FFFFFF&} {\c&H0038D8FF&}GREW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.00,0:00:16.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAST
+Dialogue: 0,0:00:17.34,0:00:18.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SCHOLARS IN ROBES
+Dialogue: 0,0:00:18.24,0:00:19.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CANDLELIT HALLS
+Dialogue: 0,0:00:19.30,0:00:20.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ARGUMENTS IN {\c&H0038D8FF&}LATIN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.70,0:00:21.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MEANWHILE
+Dialogue: 0,0:00:21.40,0:00:22.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ACROSS THE ATLANTIC
+Dialogue: 0,0:00:22.30,0:00:23.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TENOCHTITLAN{\c&H00FFFFFF&} DIDN'T EXIST
+Dialogue: 0,0:00:23.46,0:00:24.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YET
+Dialogue: 0,0:00:24.09,0:00:25.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AROUND {\c&H0038D8FF&}1325{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.47,0:00:26.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}MEXICA{\c&H00FFFFFF&} FOUNDED
+Dialogue: 0,0:00:26.23,0:00:26.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEIR CITY ON
+Dialogue: 0,0:00:26.85,0:00:27.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN ISLAND IN
+Dialogue: 0,0:00:27.53,0:00:28.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A LAKE
+Dialogue: 0,0:00:28.09,0:00:28.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE {\c&H0038D8FF&}AZTEC{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.57,0:00:29.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EMPIRE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.09,0:00:29.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT BEGAN WHEN
+Dialogue: 0,0:00:29.71,0:00:30.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE TRIPLE ALLIANCE
+Dialogue: 0,0:00:30.43,0:00:32.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FORMED IN {\c&H0038D8FF&}1428{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.41,0:00:33.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY THEN
+Dialogue: 0,0:00:33.11,0:00:33.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OXFORD{\c&H00FFFFFF&} HAD BEEN
+Dialogue: 0,0:00:33.59,0:00:34.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TEACHING FOR OVER
+Dialogue: 0,0:00:34.33,0:00:35.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}300{\c&H00FFFFFF&} YEARS
+Dialogue: 0,0:00:35.88,0:00:36.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO HOW IS
+Dialogue: 0,0:00:36.52,0:00:37.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT POSSIBLE
+Dialogue: 0,0:00:37.28,0:00:37.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:37.74,0:00:38.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WE FILE EVERYTHING
+Dialogue: 0,0:00:38.62,0:00:39.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OLD{\c&H00FFFFFF&} UNDER ONE
+Dialogue: 0,0:00:39.52,0:00:40.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WORD
+Dialogue: 0,0:00:40.06,0:00:40.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ANCIENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.60,0:00:41.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT HISTORY {\c&H0038D8FF&}OVERLAPS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.84,0:00:43.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN STRANGE WAYS
+Dialogue: 0,0:00:43.31,0:00:44.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S ANOTHER ONE
+Dialogue: 0,0:00:44.07,0:00:44.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHEN THE GREAT
+Dialogue: 0,0:00:44.47,0:00:45.17,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PYRAMID{\c&H00FFFFFF&} WAS BEING
+Dialogue: 0,0:00:45.17,0:00:45.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUILT
+Dialogue: 0,0:00:45.81,0:00:46.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WOOLLY {\c&H0038D8FF&}MAMMOTHS{\c&H00FFFFFF&} WERE
+Dialogue: 0,0:00:46.59,0:00:47.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STILL {\c&H0038D8FF&}ALIVE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.37,0:00:47.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE LAST ONES
+Dialogue: 0,0:00:47.93,0:00:48.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SURVIVED ON {\c&H0038D8FF&}WRANGEL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.77,0:00:49.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ISLAND IN THE
+Dialogue: 0,0:00:49.53,0:00:50.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ARCTIC UNTIL AROUND
+Dialogue: 0,0:00:50.45,0:00:51.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}4,000{\c&H00FFFFFF&} YEARS AGO
+Dialogue: 0,0:00:52.27,0:00:52.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CENTURIES AFTER THE
+Dialogue: 0,0:00:52.81,0:00:53.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PYRAMID{\c&H00FFFFFF&} WAS {\c&H0038D8FF&}FINISHED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.15,0:00:54.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO WHEN SOMETHING
+Dialogue: 0,0:00:54.87,0:00:56.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOUNDS {\c&H0038D8FF&}ANCIENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.03,0:00:56.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CHECK THE {\c&H0038D8FF&}DATES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:57.15,0:00:57.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BECAUSE {\c&H0038D8FF&}OXFORD{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:57.85,0:00:58.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALREADY {\c&H0038D8FF&}OLD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:58.91,0:00:59.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEFORE THE {\c&H0038D8FF&}AZTEC{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.71,0:01:00.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EMPIRE{\c&H00FFFFFF&} WAS EVEN
+Dialogue: 0,0:01:00.63,0:01:01.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BORN{\c&H00FFFFFF&}

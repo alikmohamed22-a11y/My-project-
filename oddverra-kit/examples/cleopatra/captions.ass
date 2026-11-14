@@ -1,0 +1,80 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLEOPATRA{\c&H00FFFFFF&} LIVED CLOSER
+Dialogue: 0,0:00:01.23,0:00:01.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO THE {\c&H0038D8FF&}MOON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:01.85,0:00:03.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LANDING THAN TO
+Dialogue: 0,0:00:03.14,0:00:04.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}PYRAMIDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.24,0:00:04.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOUNDS WRONG
+Dialogue: 0,0:00:05.08,0:00:05.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LET'S DO THE
+Dialogue: 0,0:00:05.48,0:00:06.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MATH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.12,0:00:06.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE GREAT {\c&H0038D8FF&}PYRAMID{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.70,0:00:07.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF GIZA WAS
+Dialogue: 0,0:00:07.40,0:00:08.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FINISHED AROUND {\c&H0038D8FF&}2560{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.96,0:00:09.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BC
+Dialogue: 0,0:00:09.98,0:00:10.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PHARAOH {\c&H0038D8FF&}KHUFU{\c&H00FFFFFF&} WANTED
+Dialogue: 0,0:00:10.84,0:00:11.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A TOMB AND
+Dialogue: 0,0:00:11.64,0:00:12.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE WANTED IT
+Dialogue: 0,0:00:12.32,0:00:12.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BIG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.20,0:00:14.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THOUSANDS OF WORKERS
+Dialogue: 0,0:00:14.36,0:00:15.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GIANT RAMPS
+Dialogue: 0,0:00:15.46,0:00:16.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}VERY HEAVY ROCKS
+Dialogue: 0,0:00:16.82,0:00:17.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NOW
+Dialogue: 0,0:00:17.20,0:00:18.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAST-FORWARD
+Dialogue: 0,0:00:18.06,0:00:18.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVERY MARKER ON
+Dialogue: 0,0:00:18.80,0:00:19.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THIS ROAD IS
+Dialogue: 0,0:00:19.38,0:00:20.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}CENTURY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.24,0:00:20.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}KEEP GOING
+Dialogue: 0,0:00:21.02,0:00:21.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}KEEP GOING
+Dialogue: 0,0:00:22.08,0:00:23.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLEOPATRA{\c&H00FFFFFF&} IS BORN
+Dialogue: 0,0:00:23.02,0:00:24.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}69{\c&H00FFFFFF&} BC
+Dialogue: 0,0:00:24.62,0:00:25.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT'S ABOUT {\c&H0038D8FF&}2,500{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.72,0:00:26.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YEARS AFTER THE
+Dialogue: 0,0:00:26.88,0:00:27.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PYRAMID{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.56,0:00:28.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO HER
+Dialogue: 0,0:00:28.14,0:00:28.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}PYRAMIDS{\c&H00FFFFFF&} WEREN'T
+Dialogue: 0,0:00:28.78,0:00:29.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NEW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.04,0:00:29.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY WERE {\c&H0038D8FF&}ANCIENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.98,0:00:31.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOURIST ATTRACTIONS
+Dialogue: 0,0:00:31.56,0:00:32.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GREEK{\c&H00FFFFFF&} TRAVELERS LIKE
+Dialogue: 0,0:00:32.20,0:00:33.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HERODOTUS{\c&H00FFFFFF&} HAD VISITED
+Dialogue: 0,0:00:33.18,0:00:34.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEM FOUR CENTURIES
+Dialogue: 0,0:00:34.18,0:00:34.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEFORE SHE WAS
+Dialogue: 0,0:00:34.94,0:00:35.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BORN
+Dialogue: 0,0:00:35.66,0:00:36.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}CLEOPATRA{\c&H00FFFFFF&} WASN'T
+Dialogue: 0,0:00:36.50,0:00:37.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVEN {\c&H0038D8FF&}EGYPTIAN{\c&H00FFFFFF&} BY
+Dialogue: 0,0:00:37.28,0:00:37.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BLOOD
+Dialogue: 0,0:00:37.92,0:00:38.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER FAMILY WAS
+Dialogue: 0,0:00:38.52,0:00:39.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MACEDONIAN{\c&H00FFFFFF&} {\c&H0038D8FF&}GREEK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.88,0:00:40.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHE WAS REPORTEDLY
+Dialogue: 0,0:00:40.56,0:00:41.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE FIRST IN
+Dialogue: 0,0:00:41.24,0:00:41.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER DYNASTY TO
+Dialogue: 0,0:00:41.96,0:00:43.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ACTUALLY LEARN {\c&H0038D8FF&}EGYPTIAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.58,0:00:43.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NOW
+Dialogue: 0,0:00:43.92,0:00:45.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAST-FORWARD AGAIN
+Dialogue: 0,0:00:45.16,0:00:45.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALL THE WAY
+Dialogue: 0,0:00:45.58,0:00:46.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}1969{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.42,0:00:48.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}APOLLO{\c&H00FFFFFF&} {\c&H0038D8FF&}11{\c&H00FFFFFF&} LANDS
+Dialogue: 0,0:00:48.22,0:00:49.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ON THE {\c&H0038D8FF&}MOON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.10,0:00:49.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT'S ONLY ABOUT
+Dialogue: 0,0:00:49.72,0:00:50.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}2,000{\c&H00FFFFFF&} YEARS
+Dialogue: 0,0:00:51.10,0:00:52.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}2,500{\c&H00FFFFFF&} YEARS BACK
+Dialogue: 0,0:00:52.56,0:00:53.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}2,000{\c&H00FFFFFF&} FORWARD
+Dialogue: 0,0:00:53.86,0:00:54.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLEOPATRA{\c&H00FFFFFF&} IS CLOSER
+Dialogue: 0,0:00:54.84,0:00:55.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO THE {\c&H0038D8FF&}ASTRONAUTS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:55.70,0:00:56.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAN TO THE
+Dialogue: 0,0:00:56.73,0:00:57.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PYRAMID{\c&H00FFFFFF&} BUILDERS
+Dialogue: 0,0:00:57.41,0:00:59.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHICH MEANS THE
+Dialogue: 0,0:00:59.02,0:00:59.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PYRAMIDS{\c&H00FFFFFF&} WERE {\c&H0038D8FF&}OLDER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.92,0:01:01.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}CLEOPATRA{\c&H00FFFFFF&} THAN
+Dialogue: 0,0:01:01.46,0:01:02.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLEOPATRA{\c&H00FFFFFF&} IS TO
+Dialogue: 0,0:01:02.52,0:01:03.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}YOU{\c&H00FFFFFF&}

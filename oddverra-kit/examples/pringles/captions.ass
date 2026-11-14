@@ -1,0 +1,84 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MAN WHO
+Dialogue: 0,0:00:00.61,0:00:01.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DESIGNED THE {\c&H0038D8FF&}PRINGLES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:01.41,0:00:02.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CAN{\c&H00FFFFFF&} IS {\c&H0038D8FF&}BURIED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.23,0:00:02.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN ONE
+Dialogue: 0,0:00:02.87,0:00:03.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WELL
+Dialogue: 0,0:00:03.57,0:00:04.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PARTLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.43,0:00:05.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE {\c&H0038D8FF&}1950S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.75,0:00:06.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PROCTER AND GAMBLE
+Dialogue: 0,0:00:06.35,0:00:07.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GAVE A CHEMIST
+Dialogue: 0,0:00:07.03,0:00:08.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NAMED FREDRIC {\c&H0038D8FF&}BAUR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.13,0:00:09.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A JOB
+Dialogue: 0,0:00:09.01,0:00:09.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FIX THE POTATO
+Dialogue: 0,0:00:09.71,0:00:10.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CHIP{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.27,0:00:10.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BAGS OF CHIPS
+Dialogue: 0,0:00:10.81,0:00:11.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WERE {\c&H0038D8FF&}GREASY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.77,0:00:12.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HALF FULL OF
+Dialogue: 0,0:00:12.29,0:00:12.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}AIR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:12.77,0:00:13.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND PACKED WITH
+Dialogue: 0,0:00:13.51,0:00:14.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BROKEN {\c&H0038D8FF&}CRUMBS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.65,0:00:15.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO {\c&H0038D8FF&}BAUR'S{\c&H00FFFFFF&} TEAM
+Dialogue: 0,0:00:15.51,0:00:16.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MADE EVERY {\c&H0038D8FF&}CHIP{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.39,0:00:17.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE EXACT SAME
+Dialogue: 0,0:00:17.31,0:00:17.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHAPE
+Dialogue: 0,0:00:17.89,0:00:19.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A CURVED {\c&H0038D8FF&}SADDLE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.15,0:00:20.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MATHEMATICIANS CALL IT
+Dialogue: 0,0:00:20.01,0:00:21.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}HYPERBOLIC{\c&H00FFFFFF&} {\c&H0038D8FF&}PARABOLOID{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.53,0:00:22.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S {\c&H0038D8FF&}STURDY{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:22.61,0:00:24.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT {\c&H0038D8FF&}STACKS{\c&H00FFFFFF&} PERFECTLY
+Dialogue: 0,0:00:24.34,0:00:24.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN
+Dialogue: 0,0:00:24.68,0:00:25.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BAUR{\c&H00FFFFFF&} DESIGNED A
+Dialogue: 0,0:00:25.48,0:00:26.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TALL {\c&H0038D8FF&}TUBE{\c&H00FFFFFF&} TO
+Dialogue: 0,0:00:26.32,0:00:26.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HOLD THE STACK
+Dialogue: 0,0:00:26.96,0:00:27.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE FILED THE
+Dialogue: 0,0:00:27.74,0:00:29.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PATENT{\c&H00FFFFFF&} IN {\c&H0038D8FF&}1966{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.58,0:00:30.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND IN {\c&H0038D8FF&}1968{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.74,0:00:31.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE CHIPS LAUNCHED
+Dialogue: 0,0:00:31.38,0:00:32.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}INDIANA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.78,0:00:33.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BAUR{\c&H00FFFFFF&} WAS SO
+Dialogue: 0,0:00:33.44,0:00:34.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PROUD{\c&H00FFFFFF&} OF THAT
+Dialogue: 0,0:00:34.08,0:00:34.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.54,0:00:35.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE TOLD HIS
+Dialogue: 0,0:00:35.08,0:00:35.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAMILY HE WANTED
+Dialogue: 0,0:00:35.72,0:00:36.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO BE {\c&H0038D8FF&}BURIED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.24,0:00:36.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN IT
+Dialogue: 0,0:00:36.74,0:00:37.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY CHUCKLED
+Dialogue: 0,0:00:37.59,0:00:38.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE {\c&H0038D8FF&}MEANT{\c&H00FFFFFF&} IT
+Dialogue: 0,0:00:38.84,0:00:39.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:39.32,0:00:39.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHEN HE DIED
+Dialogue: 0,0:00:39.80,0:00:40.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}2008{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.96,0:00:41.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AT {\c&H0038D8FF&}89{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.82,0:00:42.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS KIDS KEPT
+Dialogue: 0,0:00:42.54,0:00:43.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}PROMISE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.32,0:00:43.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ON THE WAY
+Dialogue: 0,0:00:43.64,0:00:44.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO THE FUNERAL
+Dialogue: 0,0:00:44.08,0:00:44.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HOME
+Dialogue: 0,0:00:44.56,0:00:45.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY STOPPED AT
+Dialogue: 0,0:00:45.08,0:00:45.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}DRUGSTORE{\c&H00FFFFFF&} FOR
+Dialogue: 0,0:00:45.78,0:00:46.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}CAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:46.68,0:00:47.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&} ARGUED
+Dialogue: 0,0:00:47.94,0:00:48.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT THE {\c&H0038D8FF&}FLAVOR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.13,0:00:49.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY WENT WITH
+Dialogue: 0,0:00:49.65,0:00:50.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ORIGINAL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.66,0:00:51.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOME OF HIS
+Dialogue: 0,0:00:51.04,0:00:51.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ASHES WENT INTO
+Dialogue: 0,0:00:51.84,0:00:52.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}CAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.44,0:00:53.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE REST INTO
+Dialogue: 0,0:00:53.14,0:00:53.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN {\c&H0038D8FF&}URN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.76,0:00:54.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BURIED{\c&H00FFFFFF&} RIGHT BESIDE
+Dialogue: 0,0:00:54.66,0:00:55.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT
+Dialogue: 0,0:00:55.44,0:00:56.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TALK ABOUT BEING
+Dialogue: 0,0:00:56.06,0:00:56.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BURIED{\c&H00FFFFFF&} IN YOUR
+Dialogue: 0,0:00:56.70,0:00:57.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WORK{\c&H00FFFFFF&}

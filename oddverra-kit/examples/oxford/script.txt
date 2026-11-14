@@ -1,0 +1,20 @@
+Oxford University is older than the Aztec Empire.
+Sounds wrong? Let's check the dates.
+In a little English town called Oxford, teaching existed in some form by 1096.
+Then, in 1167, King Henry the Second banned English students from studying in Paris. Many came home, and Oxford grew fast.
+Scholars in robes. Candlelit halls. Arguments in Latin.
+Meanwhile, across the Atlantic, Tenochtitlan didn't exist yet.
+Around 1325, the Mexica founded their city on an island in a lake.
+And the Aztec Empire? It began when the Triple Alliance formed, in 1428.
+By then, Oxford had been teaching for over 300 years.
+So how is that possible?
+You see, we file everything old under one word: ancient. But history overlaps in strange ways.
+Here's another one. When the Great Pyramid was being built, woolly mammoths were still alive.
+The last ones survived on Wrangel Island, in the Arctic, until around 4,000 years ago. Centuries after the pyramid was finished.
+So when something sounds ancient, check the dates.
+Because Oxford was already old... before the Aztec Empire was even born.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.2;
+ splice.py beat pauses -> 62.59 s, 1878 frames. Sets ox_sets.js at origins (-100000,0,0/800/1600) and (-102500,0,0/800).
+ Sources: ox.ac.uk "History" (teaching in some form 1096, rapid growth from 1167 after Henry II's Paris ban); Britannica
+ "Tenochtitlan" (founded c. 1325) and "Aztec" (Triple Alliance 1428); Britannica "Great Pyramid of Giza" (Khufu, 4th dynasty,
+ c. 2560 BC); Wrangel Island mammoths to ~4,000 years ago (Quaternary Science Reviews 2019; Cell 2024, Dehasque et al.).)
