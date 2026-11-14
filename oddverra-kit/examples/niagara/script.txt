@@ -1,0 +1,19 @@
+The first person to go over Niagara Falls in a barrel was a sixty-three-year-old schoolteacher.
+You see, Annie Edson Taylor was a widow, and she needed money.
+Her plan? Get famous by riding over the Horseshoe Falls. In a barrel.
+She had one built of oak and iron, with an anvil in the bottom, and her lucky pillow inside.
+But first, a test run. A cat went over. And the cat survived!
+So on October twenty-fourth, nineteen-oh-one, her birthday, Annie climbed in.
+Friends pumped in air with a bicycle pump, and let her go.
+The barrel tipped over the edge... and vanished into the mist.
+About twenty minutes later, they hauled it to shore and opened it up. Annie was alive! Just a small cut on her head.
+Her verdict, reportedly: "No one ought ever do that again."
+Here's the twist. She'd been telling people she was in her forties.
+And the fortune? Her manager reportedly ran off with the barrel. Years later, she died poor.
+But she got her fame. The first person over Niagara in a barrel... and the first to say: don't.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 57.54 s, 1727 frames. Sets ng_sets.js at origins (-94000,0,0) falls and (-96500,0,0/800/1600) home/shop/street.
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat caption_keys.txt)" "sixty-three-year-old=>63-year-old".
+ Mix: mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS.)
+Sources: Wikipedia "Annie Edson Taylor"; History.com "First barrel ride down Niagara Falls" (Oct 24); encyclopedia.com; GenealogyBank blog;
+Mental Floss; Oakwood Cemetery (oakwoodniagara.org); several outlets for the 100/200-lb anvil and the quote's wording.

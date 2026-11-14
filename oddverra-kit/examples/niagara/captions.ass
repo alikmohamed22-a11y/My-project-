@@ -1,0 +1,86 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE FIRST PERSON
+Dialogue: 0,0:00:00.73,0:00:01.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO GO OVER
+Dialogue: 0,0:00:01.35,0:00:02.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NIAGARA{\c&H00FFFFFF&} FALLS IN
+Dialogue: 0,0:00:02.19,0:00:02.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}BARREL{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:02.83,0:00:04.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}63-YEAR-OLD{\c&H00FFFFFF&} {\c&H0038D8FF&}SCHOOLTEACHER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.01,0:00:05.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:05.63,0:00:06.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ANNIE EDSON TAYLOR
+Dialogue: 0,0:00:06.39,0:00:07.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS A {\c&H0038D8FF&}WIDOW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:07.21,0:00:07.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND SHE NEEDED
+Dialogue: 0,0:00:07.83,0:00:08.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MONEY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.41,0:00:09.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER PLAN
+Dialogue: 0,0:00:09.09,0:00:09.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GET {\c&H0038D8FF&}FAMOUS{\c&H00FFFFFF&} BY
+Dialogue: 0,0:00:09.89,0:00:10.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RIDING OVER THE
+Dialogue: 0,0:00:10.65,0:00:11.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HORSESHOE{\c&H00FFFFFF&} FALLS
+Dialogue: 0,0:00:11.73,0:00:12.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN A {\c&H0038D8FF&}BARREL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:12.61,0:00:13.17,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHE HAD ONE
+Dialogue: 0,0:00:13.17,0:00:13.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUILT OF {\c&H0038D8FF&}OAK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.79,0:00:14.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}IRON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.51,0:00:15.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITH AN {\c&H0038D8FF&}ANVIL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.09,0:00:15.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE BOTTOM
+Dialogue: 0,0:00:15.75,0:00:16.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND HER LUCKY
+Dialogue: 0,0:00:16.47,0:00:17.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PILLOW{\c&H00FFFFFF&} INSIDE
+Dialogue: 0,0:00:17.66,0:00:18.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT FIRST
+Dialogue: 0,0:00:18.30,0:00:19.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A TEST RUN
+Dialogue: 0,0:00:19.04,0:00:19.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}CAT{\c&H00FFFFFF&} WENT
+Dialogue: 0,0:00:19.52,0:00:19.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OVER
+Dialogue: 0,0:00:19.94,0:00:20.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE {\c&H0038D8FF&}CAT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.44,0:00:21.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SURVIVED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.51,0:00:22.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO ON OCTOBER
+Dialogue: 0,0:00:22.27,0:00:23.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}24TH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.13,0:00:23.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1901{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.05,0:00:24.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER {\c&H0038D8FF&}BIRTHDAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.75,0:00:25.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ANNIE CLIMBED IN
+Dialogue: 0,0:00:25.93,0:00:26.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FRIENDS PUMPED IN
+Dialogue: 0,0:00:26.63,0:00:27.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AIR WITH A
+Dialogue: 0,0:00:27.13,0:00:27.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BICYCLE {\c&H0038D8FF&}PUMP{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.93,0:00:28.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND LET HER
+Dialogue: 0,0:00:28.47,0:00:28.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GO
+Dialogue: 0,0:00:28.71,0:00:29.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}BARREL{\c&H00FFFFFF&} TIPPED
+Dialogue: 0,0:00:29.67,0:00:30.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OVER THE {\c&H0038D8FF&}EDGE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.67,0:00:31.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND VANISHED INTO
+Dialogue: 0,0:00:31.43,0:00:32.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}MIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.52,0:00:33.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT {\c&H0038D8FF&}TWENTY{\c&H00FFFFFF&} MINUTES
+Dialogue: 0,0:00:33.16,0:00:33.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LATER
+Dialogue: 0,0:00:33.72,0:00:34.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY HAULED IT
+Dialogue: 0,0:00:34.18,0:00:34.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO SHORE AND
+Dialogue: 0,0:00:34.82,0:00:35.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OPENED IT UP
+Dialogue: 0,0:00:35.80,0:00:36.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ANNIE WAS {\c&H0038D8FF&}ALIVE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.78,0:00:37.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JUST A SMALL
+Dialogue: 0,0:00:37.38,0:00:37.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CUT{\c&H00FFFFFF&} ON HER
+Dialogue: 0,0:00:37.86,0:00:38.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HEAD
+Dialogue: 0,0:00:38.46,0:00:39.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER VERDICT
+Dialogue: 0,0:00:39.12,0:00:39.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}REPORTEDLY
+Dialogue: 0,0:00:39.86,0:00:40.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NO ONE OUGHT
+Dialogue: 0,0:00:40.42,0:00:41.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVER DO THAT
+Dialogue: 0,0:00:41.22,0:00:41.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}AGAIN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.08,0:00:42.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S THE {\c&H0038D8FF&}TWIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.98,0:00:43.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHE'D BEEN TELLING
+Dialogue: 0,0:00:43.58,0:00:44.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PEOPLE SHE WAS
+Dialogue: 0,0:00:44.18,0:00:45.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN HER {\c&H0038D8FF&}FORTIES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.16,0:00:45.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE {\c&H0038D8FF&}FORTUNE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.92,0:00:47.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER {\c&H0038D8FF&}MANAGER{\c&H00FFFFFF&} REPORTEDLY
+Dialogue: 0,0:00:47.02,0:00:47.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RAN OFF WITH
+Dialogue: 0,0:00:47.76,0:00:48.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}BARREL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.48,0:00:49.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YEARS LATER
+Dialogue: 0,0:00:49.22,0:00:50.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHE DIED {\c&H0038D8FF&}POOR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.63,0:00:51.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT SHE GOT
+Dialogue: 0,0:00:51.21,0:00:51.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER {\c&H0038D8FF&}FAME{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.85,0:00:52.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE FIRST PERSON
+Dialogue: 0,0:00:52.59,0:00:53.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OVER {\c&H0038D8FF&}NIAGARA{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:53.47,0:00:54.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}BARREL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.29,0:00:54.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE FIRST
+Dialogue: 0,0:00:54.87,0:00:55.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO SAY
+Dialogue: 0,0:00:55.55,0:00:56.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DON'T{\c&H00FFFFFF&}

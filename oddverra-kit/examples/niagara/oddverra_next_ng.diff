@@ -1,0 +1,4 @@
+1312c1312
+<   einFace(fm, ey, w); // [EIN-cast] age lines
+---
+>   einFace(fm, ey, w); /* [EIN-cast] age lines */ if (o.bandage) { /* [NG-cast] sticking-plaster cross on the forehead */ const bm = fm(w * 0.24, -44); if (bm.c > 0.15) { g.save(); g.translate(bm.x, -44); for (const ra of [-0.55, 0.55]) { g.save(); g.rotate(ra); cel(g, polyPath([[-17, -6], [17, -6], [17, 6], [-17, 6]]), '#f6e8d2', 2.4, 2, 2, 0); g.restore(); } g.restore(); } }

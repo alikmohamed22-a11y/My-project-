@@ -1,0 +1,4 @@
+20c20
+<     const shot = (f) => p.evaluate((f) => { window.renderFrame(f); const c = document.querySelector('canvas'); const t = document.createElement('canvas'); t.width = 24; t.height = 42; const g = t.getContext('2d'); g.drawImage(c, 0, 0, 24, 42); const d = g.getImageData(0, 0, 24, 42).data; let m = 0; for (let i = 0; i < d.length; i += 4) m += d[i] + d[i + 1] + d[i + 2]; return [c.toDataURL('image/jpeg', 0.95), m / (d.length / 4) / 3]; }, f);
+---
+>     const JQ = +(process.env.JPGQ || 0.95); /* [NG] JPGQ */ const shot = (f) => p.evaluate(([f, JQ]) => { window.renderFrame(f); const c = document.querySelector('canvas'); const t = document.createElement('canvas'); t.width = 24; t.height = 42; const g = t.getContext('2d'); g.drawImage(c, 0, 0, 24, 42); const d = g.getImageData(0, 0, 24, 42).data; let m = 0; for (let i = 0; i < d.length; i += 4) m += d[i] + d[i + 1] + d[i + 2]; return [c.toDataURL('image/jpeg', JQ), m / (d.length / 4) / 3]; }, [f, JQ]);

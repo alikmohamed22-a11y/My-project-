@@ -1343,7 +1343,7 @@ export function oddverra(g, o, op = {}) {
     if (sadE) { g.beginPath(); g.moveTo(ex + s * 9, ey + 13); g.quadraticCurveTo(ex + s * 15, ey + 25, ex + s * 10, ey + 29); g.quadraticCurveTo(ex + s * 4, ey + 25, ex + s * 9, ey + 13); g.fillStyle = '#9fd8ff'; g.fill(); g.lineWidth = 1.8; g.strokeStyle = INK; g.stroke(); }
     g.restore();
   }
-  einFace(fm, ey, w); // [EIN-cast] age lines
+  einFace(fm, ey, w); /* [EIN-cast] age lines */ if (o.bandage) { /* [NG-cast] sticking-plaster cross on the forehead */ const bm = fm(w * 0.24, -44); if (bm.c > 0.15) { g.save(); g.translate(bm.x, -44); for (const ra of [-0.55, 0.55]) { g.save(); g.rotate(ra); cel(g, polyPath([[-17, -6], [17, -6], [17, 6], [-17, 6]]), '#f6e8d2', 2.4, 2, 2, 0); g.restore(); } g.restore(); } }
   if (o.glasses) { const rims = [-1, 1].map((s) => { const m = fm(s * w * 0.38, ey, kF); return { s, m }; }).filter((q) => q.m.c > 0.18);
     const HRN = o.glasses === 'horn'; // [CASTRO-cast] horn-rimmed
     if (o.glasses === 'pincenez') { for (const { m } of rims) { const lp = ellP(m.x, ey + 1, 14.5 * m.sx, 13.5); g.fillStyle = 'rgba(215,232,255,0.16)'; g.fill(lp); g.lineWidth = 2.8; g.strokeStyle = INK; g.stroke(lp); g.lineWidth = 1.1; g.strokeStyle = '#c8a850'; g.stroke(lp); g.beginPath(); g.ellipse(m.x - 4 * m.sx, ey - 4, 8 * m.sx, 8, 0, Math.PI * 1.05, Math.PI * 1.5); g.lineWidth = 1.8; g.strokeStyle = 'rgba(255,255,255,0.85)'; g.stroke(); } // [TEDDY-cast] pince-nez (no temples) + cord
