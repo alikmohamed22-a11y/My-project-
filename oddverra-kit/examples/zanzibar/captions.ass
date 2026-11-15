@@ -1,0 +1,105 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}SHORTEST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:00.55,0:00:01.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WAR{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:01.03,0:00:01.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HISTORY STARTED
+Dialogue: 0,0:00:01.87,0:00:02.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND ENDED
+Dialogue: 0,0:00:02.69,0:00:03.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEFORE 10
+Dialogue: 0,0:00:03.47,0:00:03.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE
+Dialogue: 0,0:00:03.71,0:00:04.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MORNING
+Dialogue: 0,0:00:04.67,0:00:05.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ZANZIBAR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.31,0:00:06.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AUGUST 25TH
+Dialogue: 0,0:00:06.31,0:00:07.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1896{\c&H00FFFFFF&}
+Dialogue: 0,0:00:07.61,0:00:08.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SULTAN HAMAD
+Dialogue: 0,0:00:08.19,0:00:08.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BIN THUWAINI
+Dialogue: 0,0:00:08.87,0:00:09.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DIED{\c&H00FFFFFF&} SUDDENLY
+Dialogue: 0,0:00:09.97,0:00:10.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITHIN HOURS
+Dialogue: 0,0:00:11.07,0:00:11.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}KHALID{\c&H00FFFFFF&} BIN
+Dialogue: 0,0:00:11.31,0:00:12.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BARGHASH MOVED
+Dialogue: 0,0:00:12.05,0:00:12.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INTO THE
+Dialogue: 0,0:00:12.43,0:00:12.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PALACE{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:12.97,0:00:13.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DECLARED HIMSELF
+Dialogue: 0,0:00:13.69,0:00:14.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SULTAN
+Dialogue: 0,0:00:14.33,0:00:15.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITHOUT BRITAIN'S
+Dialogue: 0,0:00:15.07,0:00:15.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}APPROVAL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.01,0:00:16.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BRITAIN
+Dialogue: 0,0:00:16.37,0:00:16.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHICH RAN
+Dialogue: 0,0:00:16.79,0:00:17.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ZANZIBAR{\c&H00FFFFFF&} AS
+Dialogue: 0,0:00:17.41,0:00:18.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A PROTECTORATE
+Dialogue: 0,0:00:18.19,0:00:18.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SENT AN
+Dialogue: 0,0:00:18.65,0:00:19.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ULTIMATUM{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.45,0:00:19.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BE OUT
+Dialogue: 0,0:00:19.79,0:00:20.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY 9 AM
+Dialogue: 0,0:00:20.65,0:00:20.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ON THE
+Dialogue: 0,0:00:20.87,0:00:21.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}27TH
+Dialogue: 0,0:00:21.69,0:00:22.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}KHALID{\c&H00FFFFFF&} BARRICADED
+Dialogue: 0,0:00:22.55,0:00:23.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIMSELF INSIDE
+Dialogue: 0,0:00:23.59,0:00:24.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITH GUARDS
+Dialogue: 0,0:00:24.59,0:00:24.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CANNONS
+Dialogue: 0,0:00:25.01,0:00:25.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE
+Dialogue: 0,0:00:25.33,0:00:26.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ROYAL YACHT
+Dialogue: 0,0:00:26.03,0:00:26.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}GLASGOW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.77,0:00:27.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}9 O'CLOCK
+Dialogue: 0,0:00:27.21,0:00:27.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CAME
+Dialogue: 0,0:00:28.10,0:00:28.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE {\c&H0038D8FF&}STAYED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.46,0:00:29.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AT 2
+Dialogue: 0,0:00:29.42,0:00:29.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MINUTES{\c&H00FFFFFF&} PAST
+Dialogue: 0,0:00:29.88,0:00:30.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}9
+Dialogue: 0,0:00:30.70,0:00:31.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ROYAL NAVY
+Dialogue: 0,0:00:31.02,0:00:31.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHIPS OPENED
+Dialogue: 0,0:00:31.68,0:00:32.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FIRE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.28,0:00:32.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}GLASGOW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.66,0:00:33.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FIRED BACK
+Dialogue: 0,0:00:33.40,0:00:33.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND WAS
+Dialogue: 0,0:00:33.82,0:00:34.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}QUICKLY {\c&H0038D8FF&}SUNK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.68,0:00:35.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HER CREW
+Dialogue: 0,0:00:35.04,0:00:35.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS {\c&H0038D8FF&}RESCUED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.08,0:00:36.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY ABOUT
+Dialogue: 0,0:00:36.40,0:00:37.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}9:40{\c&H00FFFFFF&}
+Dialogue: 0,0:00:37.26,0:00:37.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}PALACE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:37.68,0:00:38.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS WRECKED
+Dialogue: 0,0:00:38.28,0:00:38.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE
+Dialogue: 0,0:00:38.74,0:00:39.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FLAG{\c&H00FFFFFF&} CAME
+Dialogue: 0,0:00:39.24,0:00:39.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DOWN
+Dialogue: 0,0:00:40.27,0:00:40.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AROUND {\c&H0038D8FF&}500{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.91,0:00:41.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PEOPLE ON
+Dialogue: 0,0:00:41.59,0:00:42.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE ZANZIBARI
+Dialogue: 0,0:00:42.19,0:00:42.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SIDE WERE
+Dialogue: 0,0:00:42.67,0:00:43.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}KILLED{\c&H00FFFFFF&} OR
+Dialogue: 0,0:00:43.21,0:00:43.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WOUNDED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.79,0:00:44.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE BRITISH
+Dialogue: 0,0:00:44.25,0:00:44.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SAILOR WAS
+Dialogue: 0,0:00:44.79,0:00:45.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HURT
+Dialogue: 0,0:00:45.75,0:00:46.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE WHOLE
+Dialogue: 0,0:00:46.15,0:00:46.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WAR{\c&H00FFFFFF&} LASTED
+Dialogue: 0,0:00:46.81,0:00:47.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOMEWHERE BETWEEN
+Dialogue: 0,0:00:47.63,0:00:48.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}38{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:48.43,0:00:49.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}45{\c&H00FFFFFF&} {\c&H0038D8FF&}MINUTES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.97,0:00:50.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:50.65,0:00:51.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}KHALID{\c&H00FFFFFF&} HIMSELF
+Dialogue: 0,0:00:51.11,0:00:51.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HAD {\c&H0038D8FF&}ESCAPED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.79,0:00:52.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO THE
+Dialogue: 0,0:00:52.33,0:00:53.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GERMAN{\c&H00FFFFFF&} {\c&H0038D8FF&}CONSULATE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.57,0:00:54.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WEEKS LATER
+Dialogue: 0,0:00:54.21,0:00:54.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE LEFT
+Dialogue: 0,0:00:54.53,0:00:55.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY {\c&H0038D8FF&}BOAT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:55.21,0:00:55.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STRAIGHT FROM
+Dialogue: 0,0:00:55.73,0:00:56.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ITS {\c&H0038D8FF&}GARDEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.15,0:00:56.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND HIS
+Dialogue: 0,0:00:56.87,0:00:57.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SUPPORTERS
+Dialogue: 0,0:00:57.88,0:00:58.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY WERE
+Dialogue: 0,0:00:58.22,0:00:58.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&} MADE
+Dialogue: 0,0:00:58.96,0:00:59.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}PAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.44,0:00:59.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR THE
+Dialogue: 0,0:00:59.80,0:01:00.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SHELLS{\c&H00FFFFFF&} FIRED
+Dialogue: 0,0:01:00.40,0:01:01.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AT THEM
