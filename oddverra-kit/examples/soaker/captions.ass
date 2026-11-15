@@ -1,0 +1,90 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MOST FAMOUS
+Dialogue: 0,0:00:00.81,0:00:01.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WATER GUN EVER
+Dialogue: 0,0:00:01.80,0:00:02.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MADE WAS INVENTED
+Dialogue: 0,0:00:02.68,0:00:03.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY A {\c&H0038D8FF&}NASA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.34,0:00:04.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SPACECRAFT ENGINEER
+Dialogue: 0,0:00:04.64,0:00:05.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY {\c&H0038D8FF&}ACCIDENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.90,0:00:06.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LONNIE{\c&H00FFFFFF&} {\c&H0038D8FF&}JOHNSON{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:06.68,0:00:07.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}NUCLEAR{\c&H00FFFFFF&} ENGINEER
+Dialogue: 0,0:00:07.56,0:00:08.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHO WORKED FOR
+Dialogue: 0,0:00:08.18,0:00:08.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE AIR FORCE
+Dialogue: 0,0:00:08.74,0:00:09.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND FOR {\c&H0038D8FF&}NASA'S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.70,0:00:10.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JET PROPULSION LAB
+Dialogue: 0,0:00:10.86,0:00:11.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE HELPED POWER
+Dialogue: 0,0:00:11.46,0:00:12.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}GALILEO{\c&H00FFFFFF&} PROBE
+Dialogue: 0,0:00:12.36,0:00:13.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}JUPITER{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:13.24,0:00:13.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LATER WORKED ON
+Dialogue: 0,0:00:13.94,0:00:14.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CASSINI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.56,0:00:15.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BOUND FOR {\c&H0038D8FF&}SATURN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.53,0:00:16.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT IN {\c&H0038D8FF&}1982{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.75,0:00:17.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AT HOME
+Dialogue: 0,0:00:17.39,0:00:17.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE WAS BUILDING
+Dialogue: 0,0:00:17.83,0:00:18.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A HEAT PUMP
+Dialogue: 0,0:00:18.41,0:00:19.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT USED PLAIN
+Dialogue: 0,0:00:19.13,0:00:19.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WATER INSTEAD OF
+Dialogue: 0,0:00:19.97,0:00:20.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FREON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.51,0:00:20.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE HOOKED A
+Dialogue: 0,0:00:20.95,0:00:21.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TEST {\c&H0038D8FF&}NOZZLE{\c&H00FFFFFF&} TO
+Dialogue: 0,0:00:21.61,0:00:22.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS BATHROOM SINK
+Dialogue: 0,0:00:22.37,0:00:23.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND A JET
+Dialogue: 0,0:00:23.05,0:00:23.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF WATER {\c&H0038D8FF&}BLASTED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.81,0:00:24.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RIGHT ACROSS THE
+Dialogue: 0,0:00:24.61,0:00:25.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ROOM INTO THE
+Dialogue: 0,0:00:25.37,0:00:25.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TUB{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.10,0:00:26.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS FIRST THOUGHT
+Dialogue: 0,0:00:26.90,0:00:27.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THIS WOULD MAKE
+Dialogue: 0,0:00:27.48,0:00:28.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN {\c&H0038D8FF&}AMAZING{\c&H00FFFFFF&} WATER
+Dialogue: 0,0:00:28.46,0:00:28.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GUN
+Dialogue: 0,0:00:28.74,0:00:29.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO HE BUILT
+Dialogue: 0,0:00:29.34,0:00:29.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE OUT OF
+Dialogue: 0,0:00:29.98,0:00:31.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PVC{\c&H00FFFFFF&} PIPE
+Dialogue: 0,0:00:31.02,0:00:31.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PLEXIGLAS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.72,0:00:32.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND AN EMPTY
+Dialogue: 0,0:00:32.16,0:00:33.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SODA{\c&H00FFFFFF&} BOTTLE
+Dialogue: 0,0:00:33.12,0:00:33.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOY COMPANIES WEREN'T
+Dialogue: 0,0:00:33.82,0:00:34.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO SURE
+Dialogue: 0,0:00:34.58,0:00:35.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT TOOK HIM
+Dialogue: 0,0:00:35.06,0:00:35.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}YEARS{\c&H00FFFFFF&} TO FIND
+Dialogue: 0,0:00:35.76,0:00:36.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A MAKER
+Dialogue: 0,0:00:36.64,0:00:37.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:37.02,0:00:38.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1990{\c&H00FFFFFF&}
+Dialogue: 0,0:00:38.02,0:00:38.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A COMPANY CALLED
+Dialogue: 0,0:00:38.66,0:00:39.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LARAMI{\c&H00FFFFFF&} LAUNCHED IT
+Dialogue: 0,0:00:39.58,0:00:40.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AS THE POWER
+Dialogue: 0,0:00:40.20,0:00:40.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DRENCHER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.78,0:00:41.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A YEAR LATER
+Dialogue: 0,0:00:41.52,0:00:41.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT GOT A
+Dialogue: 0,0:00:41.92,0:00:42.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NEW NAME
+Dialogue: 0,0:00:42.46,0:00:43.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}SUPER{\c&H00FFFFFF&} {\c&H0038D8FF&}SOAKER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.74,0:00:44.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT {\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&} SOLD
+Dialogue: 0,0:00:44.58,0:00:46.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}$200{\c&H00FFFFFF&} MILLION WORTH
+Dialogue: 0,0:00:46.24,0:00:47.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1991{\c&H00FFFFFF&} ALONE
+Dialogue: 0,0:00:47.62,0:00:48.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND BECAME ONE
+Dialogue: 0,0:00:48.48,0:00:49.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF THE {\c&H0038D8FF&}BEST-SELLING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.24,0:00:50.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOYS OF ALL
+Dialogue: 0,0:00:50.06,0:00:50.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TIME
+Dialogue: 0,0:00:50.66,0:00:51.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}YEARS{\c&H00FFFFFF&} LATER
+Dialogue: 0,0:00:51.26,0:00:51.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE TOOK {\c&H0038D8FF&}HASBRO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.94,0:00:52.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}ARBITRATION{\c&H00FFFFFF&} OVER
+Dialogue: 0,0:00:52.88,0:00:53.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}UNPAID {\c&H0038D8FF&}ROYALTIES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.98,0:00:54.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}2013{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.96,0:00:55.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE WON NEARLY
+Dialogue: 0,0:00:55.96,0:00:57.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}$73{\c&H00FFFFFF&} MILLION
+Dialogue: 0,0:00:57.65,0:00:58.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MAN WHO
+Dialogue: 0,0:00:58.31,0:00:58.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HELPED SEND A
+Dialogue: 0,0:00:58.87,0:00:59.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PROBE TO {\c&H0038D8FF&}JUPITER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.71,0:01:00.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IS BEST KNOWN
+Dialogue: 0,0:01:00.82,0:01:01.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR {\c&H0038D8FF&}SOAKING{\c&H00FFFFFF&} YOUR
+Dialogue: 0,0:01:01.56,0:01:02.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LITTLE {\c&H0038D8FF&}BROTHER{\c&H00FFFFFF&}
