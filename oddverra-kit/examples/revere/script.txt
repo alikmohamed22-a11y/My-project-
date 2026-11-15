@@ -1,0 +1,16 @@
+Paul Revere never shouted, "The British are coming!" In fact, he never even made it to Concord.
+April eighteenth, seventeen seventy-five. British troops are about to march out of Boston to seize the colonists' weapons.
+Revere's job: warn the countryside. But quietly. The ride was meant to be secret.
+And most colonists still considered themselves British!
+So he reportedly warned, "The Regulars are coming out."
+Even the two lanterns in the Old North Church weren't for Revere. They signaled patriots across the river, in Charlestown.
+And he wasn't alone. William Dawes rode out by another route, and Samuel Prescott joined them on the road.
+Then, near Lincoln, a British patrol caught them. Revere was captured. Prescott escaped, and reached Concord.
+You see, Revere became famous mostly because of a poem. In eighteen sixty-one, Longfellow's "Paul Revere's Ride" got a lot wrong. No Dawes. No Prescott. No capture.
+The rider who actually made it? Almost nobody remembers his name.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.1;
+ splice.py beat pauses -> 58.30 s, 1749 frames. Sets rv_sets.js at origins (-112000,0,0/800/1600) and (-114500,0,0/800).)
+Sources: Paul Revere House (paulreverehouse.org: "Paul Revere's Midnight Rides"; "What did PR actually say?" podcast citing a Lexington
+sergeant's deposition: "the regulars are coming out"); Revere's 1798 letter to Jeremy Belknap (Massachusetts Historical Society:
+lanterns arranged with Col. Conant as a signal for Charlestown); Wikipedia "Paul Revere's Midnight Ride" (capture near Lincoln, Prescott
+reached Concord); Wikipedia "Paul Revere's Ride" (Longfellow, written 1860, Atlantic Monthly Jan 1861).
