@@ -3,8 +3,8 @@
 // space (feet at 0, top of hair at -100, y up = negative) and scaled by o.h/100. t is in frames @30fps.
 // v2: pose blending (pose2/mix), joint overrides (o.rig), secondary motion, expression cross-fades,
 // smoother visemes + jaw, saccades, blink-on-turn, textures/AO/tapered interior lines. v1 API unchanged.
-export const CAST = ['SAM', 'SAM_SOOT', 'SAM_CHEF', 'HEADCHEF', 'ROOMMATE', 'MOM'];
-export const REL_H = { SAM: 1, SAM_SOOT: 1, SAM_CHEF: 1, HEADCHEF: 1.1, ROOMMATE: 1.12, MOM: 0.92 };
+export const CAST = ['SAM', 'SAM_SOOT', 'SAM_CHEF', 'HEADCHEF', 'ROOMMATE', 'MOM', 'TEACHER'];
+export const REL_H = { SAM: 1, SAM_SOOT: 1, SAM_CHEF: 1, HEADCHEF: 1.1, ROOMMATE: 1.12, MOM: 0.92, TEACHER: 0.98 };
 export const POSES = ['stand', 'walk', 'sit', 'cheer', 'point', 'facepalm', 'shrug', 'hold', 'holdUp', 'phone', 'armsCrossed', 'nod',
   'lookUp', 'salute', 'bow', 'tiptoe', 'crackEgg', 'stir', 'fanSmoke', 'typing', 'fall', 'proudChest'];
 
@@ -176,6 +176,18 @@ const DEF = {
     sleeve: { c: '#2f9488', s: '#216d64', len: 1, cuff: 1, tx: 'rib', ta: 0.1 },
     pants: { c: '#5a3a60', s: '#432a48', len: 1, tx: 'speck', ta: 0.1 },
     shoes: { type: 'flat', c: '#7a3b2c', s: '#5b2a1f', sole: '#3a2422' },
+  },
+  // Ep5: the in-person cooking-class teacher (invented: "Chef Bea" of the invented Whisk & Co. school)
+  TEACHER: {
+    relH: 0.98, skin: '#9a6141', skinS: '#7a4a30', blush: '#c8705a', blushL: '#a8503e', lips: '#a8404e', defExpr: 'happy', lash: 1,
+    iris: '#5a3a24', nail: '#e8a04a', crease: '#6e4028',
+    head: { R: 12.2, cy: -81, W: 1.0, low: 1.08, taper: 0.28, sq: 0.85, top: 1, eyeA: 0.48, eyeY: 0.06, erx: 0.225, ery: 0.29, noseY: 0.4, mouthY: 0.7, nose: 'button', brW: 0.12, brCol: '#1f1720', ears: 1, glasses: 1, earring: 1 },
+    hair: { c: '#241a22', s: '#160f15', hi: '#4a3644', line: (a) => { const A = Math.abs(a); let e = A < HP ? 0.8 - 0.9 * Math.pow(A / HP, 1.3) : lerp(-0.1, -0.9, Math.pow((A - HP) / HP, 0.8)); return e + 0.06 * Math.abs(Math.sin(a * 7)); }, vol: { r: 1.32, amp: 0.13, n: 16, ext: 0.7, cy: -0.08, mode: 'curly' }, locks: 14 },
+    body: { neckW: 4.6, shY: -64, sx: 9.6, sd: 6.4, hemY: -33, hemX: 10.6, hemD: 7.2, hipY: -38, hipX: 4.2, legW: 7.0, armW: 5.8, ua: 12.6, fa: 12.0, thigh: 16.8, shin: 16.6, footY: -3.2, sitY: -22 },
+    top: { type: 'chefDB', c: '#2b9c8f', s: '#1f7469', btn: '#f6f1e6', scarf: '#f2b52b', scarfS: '#c98c16', tx: 'speck', ta: 0.08, stitch: '#1a6a60' },
+    sleeve: { c: '#2b9c8f', s: '#1f7469', len: 0.8, cuff: 1, tx: 'speck', ta: 0.08 },
+    pants: { c: '#2f2b3e', s: '#221f2e', len: 1, tx: 'twill', ta: 0.12 },
+    shoes: { type: 'clog', c: '#e2453c', s: '#b52e27', sole: '#3a3546' },
   },
 };
 
