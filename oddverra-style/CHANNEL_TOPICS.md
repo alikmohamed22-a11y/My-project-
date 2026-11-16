@@ -48,6 +48,7 @@ Also made (check whether posted):
 - Chef Résumé Day 3 (Instagram; risotto: drill-spoon, grape-juice "jam", delivery plated as homemade, 27 days left): delivered 2026-11-13
 - Chef Résumé Day 4 (Instagram; answers viewer comments: online cooking class, the teacher is the head chef, "Not Sam", onion juice, sobbing unmuted, "wrong number", 26 days left): delivered 2026-11-14
 - Chef Résumé Day 5 (Instagram; a viewer dare: in-person class, the "background check" dodged by standing in front of the school's diploma, plate buttered, cheese outside, mustard fired back, bread sandwich, 25 days left): delivered 2026-11-15
+- Chef Résumé Day 6 (Instagram; family meal for 20: the "Bloop" smart speaker orders 20 chefs, a 60-second recipe video at 2x, all the pasta boiled 40 minutes into one noodle brick, "It's rustic.", "P.S. The owner is coming.", 24 days left): delivered 2026-11-16
 
 Instagram series (separate page @samfakesit, not this channel): The Chef Résumé / Sam Fakes It, Day 1 posted 2026-11-09.
 
