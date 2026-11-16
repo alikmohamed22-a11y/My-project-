@@ -55,27 +55,43 @@ def cmd_fetch(a):
 
 
 # ----------------------------------------------------------- transcribe
-def cmd_transcribe(a):
+_MODELS = {}
+
+
+def transcribe_words(video, model="small", language=None, start=None, dur=None,
+                     verbose=True):
+    """Return (words, transcript_lines, info) for a file or a slice of it."""
     import numpy as np
     from faster_whisper import WhisperModel
 
-    os.makedirs(a.out, exist_ok=True)
     # Decode with ffmpeg ourselves (avoids PyAV version issues, handles any input).
-    raw = subprocess.run(
-        ["ffmpeg", "-v", "error", "-i", a.video, "-ac", "1", "-ar", "16000",
-         "-f", "f32le", "-"], check=True, capture_output=True).stdout
+    cmd = ["ffmpeg", "-v", "error"]
+    if start is not None:
+        cmd += ["-ss", str(start)]
+    cmd += ["-i", video]
+    if dur is not None:
+        cmd += ["-t", str(dur)]
+    raw = subprocess.run(cmd + ["-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+                         check=True, capture_output=True).stdout
     audio = np.frombuffer(raw, dtype=np.float32)
-
-    model = WhisperModel(a.model, device="cpu", compute_type="int8")
-    segs, info = model.transcribe(audio, language=a.language,
-                                  word_timestamps=True, vad_filter=True)
+    if model not in _MODELS:
+        _MODELS[model] = WhisperModel(model, device="cpu", compute_type="int8")
+    segs, info = _MODELS[model].transcribe(audio, language=language,
+                                           word_timestamps=True, vad_filter=True)
     words, lines = [], []
     for s in segs:
         lines.append(f"[{fmt(s.start)} - {fmt(s.end)}] {s.text.strip()}")
-        print(lines[-1], file=sys.stderr)
+        if verbose:
+            print(lines[-1], file=sys.stderr)
         for w in s.words:
             words.append({"w": w.word.strip(), "s": round(w.start, 3),
                           "e": round(w.end, 3)})
+    return words, lines, info
+
+
+def cmd_transcribe(a):
+    os.makedirs(a.out, exist_ok=True)
+    words, lines, info = transcribe_words(a.video, a.model, a.language)
     with open(os.path.join(a.out, "words.json"), "w") as f:
         json.dump(words, f)
     with open(os.path.join(a.out, "transcript.txt"), "w") as f:
@@ -175,42 +191,55 @@ def video_filter(layout, sw, sh, crop_x, ass_path):
             f"[bg][fg]overlay=0:(H-h)/2,setsar=1,fps=30,{sub}[v]")
 
 
-def cmd_render(a):
-    sw, sh, dur = probe(a.video)
-    with open(a.words) as f:
-        words = json.load(f)
-    with open(a.clips) as f:
-        clips = json.load(f)
-    reps = dict(r.split("=", 1) for r in a.replace)
+def apply_replacements(words, replace):
+    reps = dict(r.split("=", 1) for r in replace)
     for w in words:
         core = w["w"].strip(".,!?")
         if core in reps:
             w["w"] = w["w"].replace(core, reps[core])
+    return words
+
+
+def render_clip(video, words, c, base, preset="veryfast", keep_ass=False, info=None):
+    """Render one clip dict to base + '.mp4'."""
+    sw, sh, dur = info or probe(video)
+    layout = c.get("layout", "blur")
+    end = min(c["end"], dur)
+    if sw / sh <= W / H + 0.01 or layout == "crop":
+        cap_y, hook_y = 1300, 330
+    else:
+        fg_h = W * sh / sw
+        cap_y = int(H / 2 + fg_h / 2 + 170)
+        hook_y = int(H / 2 - fg_h / 2 - 170)
+    ass_path = base + ".ass"
+    with open(ass_path, "w") as f:
+        f.write(build_ass(words, dict(c, end=end), cap_y, hook_y))
+    vf = video_filter(layout, sw, sh, c.get("crop_x", 0.5), ass_path)
+    run(["ffmpeg", "-v", "error", "-y", "-ss", str(c["start"]), "-to", str(end),
+         "-i", video, "-filter_complex", vf, "-map", "[v]", "-map", "0:a?",
+         "-c:v", "libx264", "-preset", preset, "-crf", "20", "-pix_fmt", "yuv420p",
+         "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
+         "-movflags", "+faststart", base + ".mp4"])
+    if not keep_ass:
+        os.remove(ass_path)
+    print(f"done: {base}.mp4 ({end - c['start']:.1f}s)", file=sys.stderr)
+    return base + ".mp4"
+
+
+def safe_name(s):
+    return re.sub(r"[^a-zA-Z0-9_-]+", "-", s).strip("-") or "clip"
+
+
+def cmd_render(a):
+    info = probe(a.video)
+    with open(a.words) as f:
+        words = apply_replacements(json.load(f), a.replace)
+    with open(a.clips) as f:
+        clips = json.load(f)
     os.makedirs(a.out, exist_ok=True)
-    vertical = sw / sh <= W / H + 0.01
     for i, c in enumerate(clips, 1):
-        layout = c.get("layout", "blur")
-        c["end"] = min(c["end"], dur)
-        if vertical or layout == "crop":
-            cap_y, hook_y = 1300, 330
-        else:
-            fg_h = W * sh / sw
-            cap_y = int(H / 2 + fg_h / 2 + 170)
-            hook_y = int(H / 2 - fg_h / 2 - 170)
-        name = re.sub(r"[^a-zA-Z0-9_-]+", "-", c.get("name", f"clip{i}")).strip("-")
-        base = os.path.join(a.out, f"{i:02d}-{name}")
-        ass_path = base + ".ass"
-        with open(ass_path, "w") as f:
-            f.write(build_ass(words, c, cap_y, hook_y))
-        vf = video_filter(layout, sw, sh, c.get("crop_x", 0.5), ass_path)
-        run(["ffmpeg", "-v", "error", "-y", "-ss", str(c["start"]), "-to", str(c["end"]),
-             "-i", a.video, "-filter_complex", vf, "-map", "[v]", "-map", "0:a?",
-             "-c:v", "libx264", "-preset", a.preset, "-crf", "20", "-pix_fmt", "yuv420p",
-             "-c:a", "aac", "-b:a", "160k", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
-             "-movflags", "+faststart", base + ".mp4"])
-        if not a.keep_ass:
-            os.remove(ass_path)
-        print(f"done: {base}.mp4 ({c['end'] - c['start']:.1f}s)", file=sys.stderr)
+        base = os.path.join(a.out, f"{i:02d}-{safe_name(c.get('name', f'clip{i}'))}")
+        render_clip(a.video, words, c, base, a.preset, a.keep_ass, info)
 
 
 def main():

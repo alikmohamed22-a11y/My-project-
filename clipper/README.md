@@ -39,6 +39,33 @@ python clipper.py render sources/video.mp4 --clips work/clips.json -o out --repl
   (0 = left, 0.5 = center, 1 = right).
 - Vertical sources are always filled.
 
+## Live mode: clip while the stream is still on (the fast way)
+Most clippers wait for the full stream to be uploaded and then scan it. By then the
+best moments are already everywhere. `live.py` watches the stream as it happens:
+
+- **streamlink** records from the second the streamer goes live
+- **Twitch chat** is read anonymously, with no account or token
+- chat messages are counted every 10 seconds; a spike means something just happened
+- ~30 s around each spike is cut (25 s before, 5 s after, since chat reacts late),
+  captioned with whisper, and saved to `clips/` a minute or two later
+
+```
+pip install streamlink websocket-client faster-whisper
+python live.py watch caseoh_        # leave it running; Ctrl+C to stop
+```
+Each clip comes with a `.txt` showing the stream time, how big the spike was, the
+top chat messages and the transcript, so you can write the hook and caption fast.
+
+Tuning:
+- Too many clips: raise `--mult 3` or `--cooldown 90`
+- Too few: lower `--mult 2` or `--min-msgs 5`
+- Moment cut off at the start: `--pre 35`
+- Re-clip a finished recording with new settings:
+  `python live.py process rec/caseoh_-20261119-180002 --dry-run`, then without `--dry-run`
+
+It only works while they're live: you can't rewind a stream that already ended.
+On GTA 6 launch night (Nov 19) run one `watch` per streamer.
+
 ## What makes a good clip
 1. The first 1-2 seconds must hook: a reaction, a crash, a question, a big claim.
 2. Keep it 15-60 seconds. Start right before the action and cut right after the payoff.
