@@ -73,6 +73,20 @@ Tuning:
 It only works while they're live: you can't rewind a stream that already ended.
 On GTA 6 launch night (Nov 19) run one `watch` per streamer.
 
+## Pro edit (`fx.py`)
+`python fx.py clips.json --src-dir src --words-dir tr -o final` uses the same clips.json
+plus an optional `"streamer"` name tag, and adds:
+- **Cold open:** the loudest moment plays first with "WAIT FOR IT...", then a rewind
+  whoosh into the start
+- **Jump cuts:** dead air (no talking and nothing loud) is cut, with a slight zoom
+  change on every cut (`"jumpcut": false` to turn it off)
+- **Punch-ins:** a zoom, camera shake and white flash on every loud reaction
+- **Sound effects:** a bass boom on the big moment and whooshes on the others,
+  synthesized so there are no copyright issues
+- **Animated captions:** 2 words at a time that pop in; hype words turn green and grow
+- **Visual polish:** an animated hook card, streamer name tag, white divider,
+  progress bar and a color boost
+
 ## Sources that work from the cloud session
 - Twitch VODs and clips download fine (yt-dlp). A channel's most-viewed clips
   (`https://www.twitch.tv/<channel>/clips?filter=clips&range=7d`) are moments viewers
