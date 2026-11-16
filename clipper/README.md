@@ -37,6 +37,13 @@ python clipper.py render sources/video.mp4 --clips work/clips.json -o out --repl
   This is the safe default for gameplay because nothing gets cut off.
 - `layout: "crop"`: fills the screen. `"crop_x": 0.0`-`1.0` picks the part to keep
   (0 = left, 0.5 = center, 1 = right).
+- `layout: "split"`: streamer facecam on top, gameplay below, which works best for
+  streamer clips. Needs `"cam": [x, y, w, h]`, the webcam box in source pixels
+  (Kai Cenat 1080p: `[40, 300, 336, 189]`).
+- `"trim_bottom": 150` cuts off burned-in stream captions or game subtitles so they
+  don't clash with ours.
+- Captions bleep swear words and slurs by default (`"censor": false` to turn off).
+  TikTok and Reels push down clips that show them on screen; the audio stays as is.
 - Vertical sources are always filled.
 
 ## Live mode: clip while the stream is still on (the fast way)
@@ -65,6 +72,12 @@ Tuning:
 
 It only works while they're live: you can't rewind a stream that already ended.
 On GTA 6 launch night (Nov 19) run one `watch` per streamer.
+
+## Sources that work from the cloud session
+- Twitch VODs and clips download fine (yt-dlp). A channel's most-viewed clips
+  (`https://www.twitch.tv/<channel>/clips?filter=clips&range=7d`) are moments viewers
+  already picked. Re-cut them vertically with a split cam and a hook.
+- YouTube is blocked from the cloud server, so upload those files or run `fetch` locally.
 
 ## What makes a good clip
 1. The first 1-2 seconds must hook: a reaction, a crash, a question, a big claim.

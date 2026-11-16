@@ -13,7 +13,9 @@ clips.json format:
     {"name": "wanted-5-stars", "start": 83.2, "end": 121.5,
      "hook": "HE GOT 5 STARS IN 10 SECONDS", "layout": "blur"}
   ]
-layout: "blur" (full 16:9 frame over a blurred background, best for gameplay),
+layout: "split" (streamer facecam on top, gameplay below; needs "cam": [x,y,w,h]
+        = the webcam box in source pixels), best for streamer clips,
+        "blur" (full 16:9 frame over a blurred background, best for gameplay),
         "crop" (fill the screen, crop the sides; optional "crop_x" 0..1),
         or omit for vertical sources.
 """
@@ -76,8 +78,16 @@ def transcribe_words(video, model="small", language=None, start=None, dur=None,
     audio = np.frombuffer(raw, dtype=np.float32)
     if model not in _MODELS:
         _MODELS[model] = WhisperModel(model, device="cpu", compute_type="int8")
-    segs, info = _MODELS[model].transcribe(audio, language=language,
-                                           word_timestamps=True, vad_filter=True)
+    try:
+        segs, info = _MODELS[model].transcribe(audio, language=language,
+                                               word_timestamps=True, vad_filter=True)
+        segs = list(segs)
+    except IndexError:
+        # faster-whisper's word aligner sometimes crashes on a short noisy segment;
+        # fall back to segment timings and spread the words evenly.
+        segs, info = _MODELS[model].transcribe(audio, language=language,
+                                               vad_filter=True)
+        segs = [_even_words(s) for s in segs]
     words, lines = [], []
     for s in segs:
         lines.append(f"[{fmt(s.start)} - {fmt(s.end)}] {s.text.strip()}")
@@ -87,6 +97,20 @@ def transcribe_words(video, model="small", language=None, start=None, dur=None,
             words.append({"w": w.word.strip(), "s": round(w.start, 3),
                           "e": round(w.end, 3)})
     return words, lines, info
+
+
+class _W:
+    def __init__(self, word, start, end):
+        self.word, self.start, self.end = word, start, end
+
+
+def _even_words(seg):
+    toks = seg.text.split()
+    step = (seg.end - seg.start) / max(len(toks), 1)
+    import dataclasses
+    seg = dataclasses.replace(seg, words=[_W(t, seg.start + i * step, seg.start + (i + 1) * step)
+                              for i, t in enumerate(toks)])
+    return seg
 
 
 def cmd_transcribe(a):
@@ -116,6 +140,17 @@ def ass_escape(s):
     return s.replace("\\", "").replace("{", "(").replace("}", ")")
 
 
+CENSOR = re.compile(r"^(n[i1]gg?(a|as|az|er|ers|uh)|f+u+c+k\w*|sh[i1]t\w*|b[i1]tch\w*|"
+                    r"motherf\w*|d[i1]ck\w*|puss\w*|ass(hole)?)$", re.I)
+
+
+def censor_word(w):
+    core = w.strip(".,!?'\"")
+    if not CENSOR.match(core):
+        return w
+    return w.replace(core, core[0] + "*" * (len(core) - 1))
+
+
 def chunk_words(words, max_words=3, max_gap=0.45):
     """Group words into short caption chunks (TikTok style)."""
     chunks, cur = [], []
@@ -136,6 +171,8 @@ def build_ass(words, clip, cap_y, hook_y):
     start, end = clip["start"], clip["end"]
     ws = [dict(w, s=w["s"] - start, e=w["e"] - start)
           for w in words if w["e"] > start and w["s"] < end]
+    if clip.get("censor", True):
+        ws = [dict(w, w=censor_word(w["w"])) for w in ws]
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -177,8 +214,22 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     return head + "\n".join(ev) + "\n"
 
 
-def video_filter(layout, sw, sh, crop_x, ass_path):
+SPLIT_TOP = 608  # facecam height in the split layout (1080 wide, 16:9)
+
+
+def video_filter(layout, sw, sh, crop_x, ass_path, cam=None):
     sub = f"subtitles='{ass_path}':fontsdir='{FONT_DIR}'"
+    if layout == "split":
+        # Streamer facecam on top, gameplay below.
+        x, y, w, h = cam
+        bot_h = H - SPLIT_TOP
+        gw = int(sh * W / bot_h) // 2 * 2  # gameplay crop width at full height
+        return (f"[0:v]split=2[a][b];"
+                f"[a]crop={w}:{h}:{x}:{y},scale={W}:{SPLIT_TOP}:"
+                f"force_original_aspect_ratio=increase,crop={W}:{SPLIT_TOP},"
+                f"unsharp=5:5:0.8[top];"
+                f"[b]crop={gw}:{sh}:({sw}-{gw})*{crop_x}:0,scale={W}:{bot_h}[bot];"
+                f"[top][bot]vstack,setsar=1,fps=30,{sub}[v]")
     if sw / sh <= W / H + 0.01 or layout == "crop":
         # Fill the frame; for wide sources choose which part to keep with crop_x.
         return (f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,"
@@ -203,18 +254,23 @@ def apply_replacements(words, replace):
 def render_clip(video, words, c, base, preset="veryfast", keep_ass=False, info=None):
     """Render one clip dict to base + '.mp4'."""
     sw, sh, dur = info or probe(video)
+    trim = int(c.get("trim_bottom", 0)) // 2 * 2
     layout = c.get("layout", "blur")
     end = min(c["end"], dur)
-    if sw / sh <= W / H + 0.01 or layout == "crop":
+    if layout == "split":
+        cap_y, hook_y = SPLIT_TOP + 230, SPLIT_TOP
+    elif sw / sh <= W / H + 0.01 or layout == "crop":
         cap_y, hook_y = 1300, 330
     else:
-        fg_h = W * sh / sw
+        fg_h = W * (sh - trim) / sw
         cap_y = int(H / 2 + fg_h / 2 + 170)
         hook_y = int(H / 2 - fg_h / 2 - 170)
     ass_path = base + ".ass"
     with open(ass_path, "w") as f:
         f.write(build_ass(words, dict(c, end=end), cap_y, hook_y))
-    vf = video_filter(layout, sw, sh, c.get("crop_x", 0.5), ass_path)
+    vf = video_filter(layout, sw, sh - trim, c.get("crop_x", 0.5), ass_path, c.get("cam"))
+    if trim:  # cut off burned-in stream captions / game subtitles at the bottom
+        vf = vf.replace("[0:v]", f"[0:v]crop={sw}:{sh - trim}:0:0,", 1)
     run(["ffmpeg", "-v", "error", "-y", "-ss", str(c["start"]), "-to", str(end),
          "-i", video, "-filter_complex", vf, "-map", "[v]", "-map", "0:a?",
          "-c:v", "libx264", "-preset", preset, "-crf", "20", "-pix_fmt", "yuv420p",
