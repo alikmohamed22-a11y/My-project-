@@ -1,0 +1,76 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:02.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}OCTOBER{\c&H00FFFFFF&} {\c&H0038D8FF&}1582{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.19,0:00:03.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TEN{\c&H00FFFFFF&} DAYS {\c&H0038D8FF&}VANISHED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.13,0:00:04.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FROM THE CALENDAR
+Dialogue: 0,0:00:04.39,0:00:04.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PEOPLE WENT TO
+Dialogue: 0,0:00:04.89,0:00:05.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BED ON {\c&H0038D8FF&}THURSDAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.95,0:00:07.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OCTOBER{\c&H00FFFFFF&} {\c&H0038D8FF&}4TH{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:07.01,0:00:07.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WOKE UP ON
+Dialogue: 0,0:00:07.63,0:00:08.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FRIDAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.29,0:00:09.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OCTOBER{\c&H00FFFFFF&} {\c&H0038D8FF&}15TH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.73,0:00:10.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}CULPRIT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.31,0:00:11.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE OLD {\c&H0038D8FF&}JULIAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.15,0:00:11.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CALENDAR
+Dialogue: 0,0:00:11.85,0:00:12.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ITS YEAR WAS
+Dialogue: 0,0:00:12.39,0:00:13.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT {\c&H0038D8FF&}ELEVEN{\c&H00FFFFFF&} {\c&H0038D8FF&}MINUTES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.35,0:00:14.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOO LONG
+Dialogue: 0,0:00:14.53,0:00:14.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TINY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.79,0:00:15.17,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RIGHT
+Dialogue: 0,0:00:15.17,0:00:15.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT OVER THE
+Dialogue: 0,0:00:15.69,0:00:16.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CENTURIES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.27,0:00:17.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THOSE {\c&H0038D8FF&}MINUTES{\c&H00FFFFFF&} PILED
+Dialogue: 0,0:00:17.11,0:00:17.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}UP
+Dialogue: 0,0:00:17.61,0:00:18.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY THE {\c&H0038D8FF&}1500S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:18.85,0:00:19.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EASTER{\c&H00FFFFFF&} HAD {\c&H0038D8FF&}DRIFTED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.53,0:00:20.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT {\c&H0038D8FF&}TEN{\c&H00FFFFFF&} DAYS
+Dialogue: 0,0:00:21.13,0:00:22.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO POPE GREGORY XIII
+Dialogue: 0,0:00:22.69,0:00:23.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ISSUED A PAPAL
+Dialogue: 0,0:00:23.53,0:00:24.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BULL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.07,0:00:25.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}INTER{\c&H00FFFFFF&} {\c&H0038D8FF&}GRAVISSIMAS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.39,0:00:26.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SKIP{\c&H00FFFFFF&} {\c&H0038D8FF&}TEN{\c&H00FFFFFF&} DAYS
+Dialogue: 0,0:00:26.96,0:00:27.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}ITALY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.64,0:00:28.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SPAIN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.46,0:00:28.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PORTUGAL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.72,0:00:29.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}POLAND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.38,0:00:30.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE DATES {\c&H0038D8FF&}JUMPED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.18,0:00:30.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT THE {\c&H0038D8FF&}WEEKDAYS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.82,0:00:31.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}KEPT GOING
+Dialogue: 0,0:00:31.42,0:00:32.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PLUS
+Dialogue: 0,0:00:32.15,0:00:32.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A NEW {\c&H0038D8FF&}LEAP-YEAR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.99,0:00:33.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RULE
+Dialogue: 0,0:00:33.81,0:00:34.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CENTURY YEARS ONLY
+Dialogue: 0,0:00:34.45,0:00:35.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COUNT IF THEY
+Dialogue: 0,0:00:35.07,0:00:36.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DIVIDE BY {\c&H0038D8FF&}400{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.66,0:00:37.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT NOT EVERYONE
+Dialogue: 0,0:00:37.54,0:00:38.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SWITCHED
+Dialogue: 0,0:00:38.34,0:00:38.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BRITAIN{\c&H00FFFFFF&} AND ITS
+Dialogue: 0,0:00:38.80,0:00:39.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COLONIES
+Dialogue: 0,0:00:39.42,0:00:40.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INCLUDING {\c&H0038D8FF&}AMERICA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.38,0:00:42.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAITED UNTIL {\c&H0038D8FF&}1752{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.10,0:00:43.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND LOST {\c&H0038D8FF&}ELEVEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.18,0:00:43.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DAYS
+Dialogue: 0,0:00:43.90,0:00:44.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THOSE FAMOUS "GIVE
+Dialogue: 0,0:00:44.76,0:00:45.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}US OUR {\c&H0038D8FF&}ELEVEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.26,0:00:46.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DAYS" RIOTS
+Dialogue: 0,0:00:46.24,0:00:47.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PROBABLY A {\c&H0038D8FF&}MYTH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.59,0:00:48.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RUSSIA{\c&H00FFFFFF&} HELD OUT
+Dialogue: 0,0:00:48.23,0:00:49.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}UNTIL {\c&H0038D8FF&}1918{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.99,0:00:51.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GREECE{\c&H00FFFFFF&} UNTIL {\c&H0038D8FF&}1923{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.01,0:00:52.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:52.59,0:00:53.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RUSSIA{\c&H00FFFFFF&} WAS RUNNING
+Dialogue: 0,0:00:53.19,0:00:53.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LATE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.88,0:00:54.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO ITS FAMOUS
+Dialogue: 0,0:00:54.66,0:00:56.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}OCTOBER{\c&H00FFFFFF&} {\c&H0038D8FF&}REVOLUTION{\c&H00FFFFFF&} HAPPENED
+Dialogue: 0,0:00:56.08,0:00:57.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}NOVEMBER{\c&H00FFFFFF&} BY
+Dialogue: 0,0:00:57.08,0:00:58.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVERYONE ELSE'S CALENDAR
