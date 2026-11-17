@@ -1,0 +1,79 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOUR {\c&H0038D8FF&}MICROWAVE{\c&H00FFFFFF&} EXISTS
+Dialogue: 0,0:00:01.23,0:00:02.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BECAUSE A {\c&H0038D8FF&}CANDY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.11,0:00:02.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BAR {\c&H0038D8FF&}MELTED{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:02.87,0:00:03.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A MAN'S {\c&H0038D8FF&}POCKET{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.20,0:00:05.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S {\c&H0038D8FF&}1945{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.62,0:00:06.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PERCY{\c&H00FFFFFF&} {\c&H0038D8FF&}SPENCER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.54,0:00:07.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}RAYTHEON{\c&H00FFFFFF&} ENGINEER
+Dialogue: 0,0:00:07.28,0:00:08.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHO'D BARELY GONE
+Dialogue: 0,0:00:08.10,0:00:08.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}SCHOOL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.84,0:00:09.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IS WORKING BESIDE
+Dialogue: 0,0:00:09.54,0:00:10.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}MAGNETRON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.48,0:00:10.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE TUBE THAT
+Dialogue: 0,0:00:10.96,0:00:11.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}POWERS {\c&H0038D8FF&}RADAR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.88,0:00:12.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN HE NOTICES
+Dialogue: 0,0:00:12.68,0:00:13.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOMETHING
+Dialogue: 0,0:00:13.34,0:00:13.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}CANDY{\c&H00FFFFFF&} BAR
+Dialogue: 0,0:00:13.86,0:00:14.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN HIS {\c&H0038D8FF&}POCKET{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.70,0:00:15.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MELTED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.20,0:00:15.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MOST PEOPLE WOULD
+Dialogue: 0,0:00:15.88,0:00:16.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GRAB A {\c&H0038D8FF&}NAPKIN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.82,0:00:18.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PERCY{\c&H00FFFFFF&} GRABBED {\c&H0038D8FF&}POPCORN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:18.26,0:00:18.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE HELD THE
+Dialogue: 0,0:00:18.72,0:00:19.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}KERNELS{\c&H00FFFFFF&} NEAR THE
+Dialogue: 0,0:00:19.38,0:00:20.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TUBE
+Dialogue: 0,0:00:20.20,0:00:20.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THEY {\c&H0038D8FF&}POPPED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.78,0:00:21.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALL OVER THE
+Dialogue: 0,0:00:21.48,0:00:22.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LAB
+Dialogue: 0,0:00:22.30,0:00:22.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NEXT
+Dialogue: 0,0:00:22.78,0:00:23.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE REPORTEDLY TRIED
+Dialogue: 0,0:00:23.70,0:00:24.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN {\c&H0038D8FF&}EGG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.38,0:00:25.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT {\c&H0038D8FF&}EXPLODED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.30,0:00:25.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RIGHT ON A
+Dialogue: 0,0:00:25.76,0:00:26.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}COWORKER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.76,0:00:27.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:27.24,0:00:28.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THOSE {\c&H0038D8FF&}INVISIBLE{\c&H00FFFFFF&} {\c&H0038D8FF&}MICROWAVES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.46,0:00:29.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MAKE THE {\c&H0038D8FF&}WATER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.04,0:00:30.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INSIDE FOOD {\c&H0038D8FF&}JIGGLE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.22,0:00:30.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND ALL THAT
+Dialogue: 0,0:00:30.98,0:00:32.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}JIGGLING{\c&H00FFFFFF&} IS {\c&H0038D8FF&}HEAT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.67,0:00:33.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RAYTHEON{\c&H00FFFFFF&} FILED A
+Dialogue: 0,0:00:33.37,0:00:34.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PATENT{\c&H00FFFFFF&} THAT SAME
+Dialogue: 0,0:00:34.56,0:00:35.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YEAR
+Dialogue: 0,0:00:35.12,0:00:36.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND BY {\c&H0038D8FF&}1947{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.34,0:00:36.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY WERE SELLING
+Dialogue: 0,0:00:36.88,0:00:37.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}FIRST{\c&H00FFFFFF&} {\c&H0038D8FF&}MICROWAVE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:37.84,0:00:38.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OVEN
+Dialogue: 0,0:00:38.40,0:00:39.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}RADARANGE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.48,0:00:40.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT STOOD NEARLY
+Dialogue: 0,0:00:40.14,0:00:41.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SIX{\c&H00FFFFFF&} FEET {\c&H0038D8FF&}TALL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.26,0:00:42.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WEIGHED ABOUT {\c&H0038D8FF&}750{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.62,0:00:43.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}POUNDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.22,0:00:44.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND REPORTEDLY COST
+Dialogue: 0,0:00:44.08,0:00:45.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AROUND {\c&H0038D8FF&}$5,000{\c&H00FFFFFF&}
+Dialogue: 0,0:00:46.22,0:00:47.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT TOOK 20 YEARS
+Dialogue: 0,0:00:47.46,0:00:48.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO {\c&H0038D8FF&}SHRINK{\c&H00FFFFFF&} IT
+Dialogue: 0,0:00:48.06,0:00:48.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONTO A KITCHEN
+Dialogue: 0,0:00:48.58,0:00:49.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}COUNTER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.20,0:00:50.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}AMANA{\c&H00FFFFFF&} {\c&H0038D8FF&}RADARANGE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.42,0:00:51.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1967{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.04,0:00:53.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND {\c&H0038D8FF&}PERCY'S{\c&H00FFFFFF&} {\c&H0038D8FF&}REWARD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.36,0:00:53.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}REPORTEDLY
+Dialogue: 0,0:00:53.90,0:00:54.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE SAME {\c&H0038D8FF&}$2{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.76,0:00:55.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BONUS{\c&H00FFFFFF&} {\c&H0038D8FF&}RAYTHEON{\c&H00FFFFFF&} PAID
+Dialogue: 0,0:00:55.80,0:00:56.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR EVERY {\c&H0038D8FF&}PATENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.96,0:00:58.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}$2{\c&H00FFFFFF&} FOR THE
+Dialogue: 0,0:00:58.49,0:00:59.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MACHINE THAT {\c&H0038D8FF&}POPS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:59.21,0:01:00.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOUR {\c&H0038D8FF&}POPCORN{\c&H00FFFFFF&}
