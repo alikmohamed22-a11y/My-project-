@@ -1,0 +1,30 @@
+Woolly mammoths were still alive when the Great Pyramid was being built.
+Not in Egypt, obviously. On a lonely island in the Arctic Ocean: Wrangel Island.
+About 10,000 years ago, rising seas cut it off from Siberia, and a few mammoths got stranded.
+Scientists think the herd started with no more than eight.
+Meanwhile, almost everywhere else, mammoths were dying out. But this little herd held on. It grew to a few hundred, and lasted about 6,000 years.
+And no, they weren't tiny. That's a myth. They were roughly mainland size.
+Then, around 4,000 years ago... they vanished. Fast.
+So what happened? Hunters? Nope. People reportedly showed up a few centuries too late.
+Inbreeding? Their DNA was in rough shape, but a 2024 study found the herd was slowly weeding out its worst mutations.
+You see, a small island has no backup. One sudden disaster, maybe a disease, or rain that froze their food under ice, could take out everyone at once.
+So when the last mammoth died, the Great Pyramid was already about five centuries old.
+(181 words. TTS text with numbers spelled out: work/script_tts.txt. Voice: ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, 2 takes ->
+ audio/take1.mp3 / take2.mp3, then ./voice_in.sh N (silenceremove 0.18 s -42 dB, auto atempo 1.0-1.2 toward ~60 s, faster-whisper,
+ align.py to the script, splice.py beat pauses, mkwords.py -> web/mm_words.js, audio_mammoth.py stems, mix.py, captions) -> audio/VOICE_READY.
+ Story beats are keyed to words (story_mammoth.js), so no frame numbers need editing for a new take. Sets mm_sets.js at origins
+ (-174000,0,0/800) island/giza and (-176500,0,0/800) lab/map; cast mm_cast.js (TUSKY the mammoth card on the 1000x880 card, workers,
+ overseer, scientist, hunters). Motif: Tusky's synthesised trumpet (hook, "held on", the fading last call, payoff echo).)
+Facts (checked 2026-11-18):
+ - Great Pyramid of Giza, built for Khufu, 4th dynasty; commonly dated to around 2560 BC (~4,500 years ago); Britannica places Khufu's
+   dynasty c. 2543-2436 BC and completion in the early 25th century BC, so "about 4,500 years" / "around" wording only.
+ - Wrangel Island cut off by rising seas around 10,000 years ago (some sources 10,000-12,000); mainland Siberian mammoths gone by then
+   (Science News, 27 Jun 2024; Dehasque et al., Cell 2024 "Temporal dynamics of woolly mammoth genome erosion prior to extinction").
+ - Founded by at most ~8 individuals, grew to ~200-300 within ~20 generations and stayed stable ~6,000 years; inbreeding and low
+   diversity, mildly harmful mutations accumulated but the most harmful were slowly purged; authors suggest a sudden event (e.g. disease,
+   extreme weather) ended them; extinction ~4,000 years ago; humans arrived ~400 years after (Dehasque, via Science News / Live Science).
+ - Not dwarfs: Tikhonov, Agenbroad & Vartanyan 2003 and Vartanyan et al. 2008 (Quaternary Research) found Wrangel mammoths comparable
+   in size to mainland ones (the 1993 Nature "dwarf" claim was revised).
+ - Rain-on-snow icing and drinking-water quality as possible factors: Arppe et al. 2019, Quaternary Science Reviews ("Thriving or
+   surviving?", Univ. Helsinki / Tuebingen press releases); last mammoths died out "within a very short time".
+ - Pyramid age at extinction: ~2560 BC vs ~2000 BC -> ~500+ years ("about five centuries").
