@@ -1,0 +1,28 @@
+The first speeding ticket ever was for going eight miles an hour.
+January eighteen ninety-six. Kent, England. Walter Arnold roars through the village of Paddock Wood in his brand-new horseless carriage.
+His speed? Eight miles an hour. The limit in town? Two.
+So a police constable hops on his bicycle and gives chase, reportedly for five miles.
+And he catches him!
+In court, Arnold faces four charges, including driving without a horse.
+The fine for speeding? One shilling, plus costs.
+But that same year, the law changed. The limit jumped to fourteen miles an hour, and drivers celebrated with a run from London to Brighton.
+You see, they still drive that run every November.
+All because a cop on a bicycle caught a car doing eight.
+(128 words. ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4; numbers spelled out for TTS; voice_steps.sh: silenceremove (0.18 s, -42 dB) +
+ atempo 1.15, faster-whisper small.en, splice.py aligns the ASR onto the script tokens + short beat pauses, mkwords.py -> web/cl_words.js.
+ Split-screen: story panel 1080x960 (?ph=960) over the stunt library from LIB_OFF = 12.8 s (car mid-air off mega-ramp A in the first second;
+ the clip ends on the truck-ramp approach of jump C, which loops into the opening jump).
+ Sets cl_sets.js at origins (-160000,0,0/800/1600) village/lane/court and (-162500,0,0) brighton; stunt city at (-165000,0,0).
+ Captions: CAP_N=2 captions.py, centred on the seam (Alignment 5, y = 960), "eighteen ninety-six=>1896;eight=>8;fourteen=>14;...".
+ Mix: audio_clip1.py + mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain sets -14 LUFS.)
+Facts: 28 January 1896, Walter Arnold of East Peckham, Kent, an early motor dealer (Benz agent; his firm later built "Arnold" motor carriages),
+was caught driving at about 8 mph through Paddock Wood where the limit for "locomotives" in town was 2 mph; a constable chased him on a bicycle
+(widely reported as about five miles -> "reportedly") and caught him. At Tonbridge/Tunbridge Wells petty sessions he faced four counts:
+using a locomotive without a horse, having fewer than three persons in charge, driving over 2 mph, and not showing his name and address;
+the speeding count was fined one shilling plus costs (sources give the total of all counts differently, so only "one shilling, plus costs"
+is used). The Locomotives on Highways Act 1896 raised the limit to 14 mph (local authorities could set 12) and motorists marked it with the
+14 November 1896 "Emancipation Run" from London to Brighton, commemorated every November by the London to Brighton Veteran Car Run.
+Called "the first speeding ticket" (Guinness: first person charged with speeding); strictly it was a summons, so the hook keeps the popular phrasing.
+Sources: Historic UK "Walter Arnold and the World's First Ever Speeding Ticket"; Wikipedia "Arnold (automobile)"; Guinness World Records
+"First person charged with a speeding offence"; Wikipedia "Locomotives on Highways Act 1896"; Wikipedia "London to Brighton Veteran Car Run";
+Royal Automobile Club "London to Brighton Veteran Car Run"; Motor Sport "Red flag" (Nov 1993).
