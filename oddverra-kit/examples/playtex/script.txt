@@ -1,0 +1,21 @@
+The spacesuit Neil Armstrong wore on the Moon was made by a bra company.
+In the nineteen-sixties, NASA needed a suit that could hold air, block heat, and still let an astronaut bend.
+The big aerospace firms all wanted the job.
+But one bidder was the International Latex Corporation: the company behind Playtex bras and girdles, in Dover, Delaware.
+A bra company? Building spacesuits?
+And in nineteen sixty-five, it got kicked off the project.
+So it asked for one more shot, and reportedly had just six weeks to build a new suit.
+In a head-to-head test against two rivals, NASA found its suit was by far the best.
+You see, a girdle and a spacesuit do the same tricky job: squeeze tight, and still let you move. Its joints bent like rubber accordions.
+So the seamstresses who sewed bras got to work. Up to twenty-one layers per suit. Seams within a sixty-fourth of an inch. One bad stitch could mean a leak.
+Then, in July nineteen sixty-nine, Neil Armstrong stepped onto the Moon.
+One small step for man. One giant leap for underwear.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 60.73 s, 1822 frames. Sets px_sets.js at origins (-124000,0,0/800) moon/lab and (-126500,0,0/800/1600) factory/office/blueprint.
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat caption_keys.txt)" "nineteen sixties=>1960s;nineteen sixty-five=>1965;nineteen sixty-nine=>1969;twenty-one=>21;a sixty-fourth=>1/64".
+ Mix: mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS. No logos or brand marks on screen; brand names only in narration.)
+Sources: NASA SP-4205 "Chariots for Apollo" ch. 7-5 (Feb 1965 Hamilton Standard moved to cancel the ILC contract, NASA concurred; ILC asked to enter;
+June 1965 Crew Systems Division trials, "International Latex had by far the best product"); Wikipedia "ILC Dover" (International Latex Corp., later Playtex;
+Dover, Delaware); Smithsonian NASM "Armstrong's A7L" (12 materials, as many as 21 layers); The Henry Ford "Suits for the Stars" (21 layers, Playtex seamstresses);
+Popular Science "The bra-and-girdle maker that fashioned the impossible for NASA" (seamstresses from the bra/girdle lines, tolerances under 1/64 inch);
+Fast Company / Wikipedia A7L (ILC had about six weeks to build its entry: "reportedly").

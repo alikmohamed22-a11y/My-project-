@@ -1,0 +1,77 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PAUL {\c&H0038D8FF&}REVERE{\c&H00FFFFFF&} NEVER
+Dialogue: 0,0:00:01.01,0:00:01.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHOUTED
+Dialogue: 0,0:00:01.73,0:00:02.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}BRITISH{\c&H00FFFFFF&} ARE
+Dialogue: 0,0:00:02.37,0:00:02.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COMING
+Dialogue: 0,0:00:02.91,0:00:03.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN FACT
+Dialogue: 0,0:00:03.61,0:00:04.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE NEVER EVEN
+Dialogue: 0,0:00:04.07,0:00:04.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MADE IT TO
+Dialogue: 0,0:00:04.51,0:00:05.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CONCORD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.64,0:00:06.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}APRIL 18
+Dialogue: 0,0:00:06.56,0:00:07.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1775{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.20,0:00:08.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BRITISH{\c&H00FFFFFF&} TROOPS ARE
+Dialogue: 0,0:00:08.76,0:00:09.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT TO MARCH
+Dialogue: 0,0:00:09.48,0:00:10.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OUT OF BOSTON
+Dialogue: 0,0:00:10.10,0:00:10.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO SEIZE THE
+Dialogue: 0,0:00:10.88,0:00:11.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COLONISTS' WEAPONS
+Dialogue: 0,0:00:12.37,0:00:13.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}REVERE'S{\c&H00FFFFFF&} JOB
+Dialogue: 0,0:00:13.31,0:00:14.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WARN THE COUNTRYSIDE
+Dialogue: 0,0:00:14.43,0:00:15.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT QUIETLY
+Dialogue: 0,0:00:15.25,0:00:15.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE RIDE WAS
+Dialogue: 0,0:00:15.87,0:00:16.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MEANT TO BE
+Dialogue: 0,0:00:16.33,0:00:16.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SECRET{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.97,0:00:17.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND MOST COLONISTS
+Dialogue: 0,0:00:17.69,0:00:18.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STILL CONSIDERED THEMSELVES
+Dialogue: 0,0:00:18.93,0:00:19.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BRITISH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.95,0:00:20.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO
+Dialogue: 0,0:00:20.31,0:00:21.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE REPORTEDLY WARNED
+Dialogue: 0,0:00:21.55,0:00:22.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}REGULARS{\c&H00FFFFFF&} ARE
+Dialogue: 0,0:00:22.27,0:00:23.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COMING OUT
+Dialogue: 0,0:00:23.30,0:00:23.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVEN THE TWO
+Dialogue: 0,0:00:23.90,0:00:24.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LANTERNS{\c&H00FFFFFF&} IN THE
+Dialogue: 0,0:00:24.58,0:00:25.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OLD NORTH CHURCH
+Dialogue: 0,0:00:25.36,0:00:26.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WEREN'T FOR {\c&H0038D8FF&}REVERE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.58,0:00:27.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY SIGNALED PATRIOTS
+Dialogue: 0,0:00:27.70,0:00:28.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ACROSS THE RIVER
+Dialogue: 0,0:00:28.66,0:00:29.70,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}CHARLESTOWN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.86,0:00:30.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND HE WASN'T
+Dialogue: 0,0:00:30.34,0:00:30.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALONE
+Dialogue: 0,0:00:30.66,0:00:31.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WILLIAM {\c&H0038D8FF&}DAWES{\c&H00FFFFFF&} RODE
+Dialogue: 0,0:00:31.86,0:00:32.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OUT BY ANOTHER
+Dialogue: 0,0:00:32.50,0:00:33.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ROUTE
+Dialogue: 0,0:00:33.06,0:00:33.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND SAMUEL {\c&H0038D8FF&}PRESCOTT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:33.84,0:00:34.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JOINED THEM ON
+Dialogue: 0,0:00:34.56,0:00:35.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE ROAD
+Dialogue: 0,0:00:35.61,0:00:35.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN
+Dialogue: 0,0:00:35.79,0:00:36.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NEAR {\c&H0038D8FF&}LINCOLN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.65,0:00:37.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}BRITISH{\c&H00FFFFFF&} PATROL
+Dialogue: 0,0:00:37.51,0:00:38.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CAUGHT THEM
+Dialogue: 0,0:00:38.39,0:00:39.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}REVERE{\c&H00FFFFFF&} WAS {\c&H0038D8FF&}CAPTURED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.81,0:00:40.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PRESCOTT{\c&H00FFFFFF&} ESCAPED AND
+Dialogue: 0,0:00:40.85,0:00:41.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}REACHED {\c&H0038D8FF&}CONCORD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.20,0:00:42.78,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:42.86,0:00:43.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}REVERE{\c&H00FFFFFF&} BECAME FAMOUS
+Dialogue: 0,0:00:43.86,0:00:44.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MOSTLY BECAUSE OF
+Dialogue: 0,0:00:44.82,0:00:45.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}POEM{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.72,0:00:46.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1861{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.26,0:00:48.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LONGFELLOW'S{\c&H00FFFFFF&} PAUL {\c&H0038D8FF&}REVERE'S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.54,0:00:49.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RIDE GOT A
+Dialogue: 0,0:00:49.30,0:00:50.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LOT {\c&H0038D8FF&}WRONG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.32,0:00:51.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NO {\c&H0038D8FF&}DAWES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.14,0:00:52.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NO {\c&H0038D8FF&}PRESCOTT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.02,0:00:52.88,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NO CAPTURE
+Dialogue: 0,0:00:53.27,0:00:53.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE RIDER WHO
+Dialogue: 0,0:00:53.81,0:00:54.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ACTUALLY MADE IT
+Dialogue: 0,0:00:55.13,0:00:56.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALMOST {\c&H0038D8FF&}NOBODY{\c&H00FFFFFF&} REMEMBERS
+Dialogue: 0,0:00:56.19,0:00:56.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS NAME

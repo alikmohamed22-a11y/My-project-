@@ -1,0 +1,71 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NAPOLEON{\c&H00FFFFFF&} WASN'T {\c&H0038D8FF&}SHORT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.11,0:00:02.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU WERE {\c&H0038D8FF&}TRICKED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.83,0:00:04.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BY A {\c&H0038D8FF&}CARTOONIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.97,0:00:05.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHEN HE DIED
+Dialogue: 0,0:00:05.49,0:00:06.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1821{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.89,0:00:07.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS DOCTOR MEASURED
+Dialogue: 0,0:00:07.73,0:00:08.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIM
+Dialogue: 0,0:00:08.37,0:00:09.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FIVE{\c&H00FFFFFF&} FOOT {\c&H0038D8FF&}TWO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.63,0:00:09.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TINY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.89,0:00:10.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RIGHT
+Dialogue: 0,0:00:10.55,0:00:11.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EXCEPT THOSE WERE
+Dialogue: 0,0:00:11.49,0:00:12.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FRENCH{\c&H00FFFFFF&} FEET AND
+Dialogue: 0,0:00:12.35,0:00:13.17,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INCHES AND THE
+Dialogue: 0,0:00:13.17,0:00:13.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FRENCH{\c&H00FFFFFF&} INCH WAS
+Dialogue: 0,0:00:13.95,0:00:14.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LONGER{\c&H00FFFFFF&} THAN THE
+Dialogue: 0,0:00:14.71,0:00:15.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BRITISH ONE
+Dialogue: 0,0:00:15.89,0:00:16.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CONVERT IT AND
+Dialogue: 0,0:00:16.39,0:00:17.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NAPOLEON{\c&H00FFFFFF&} WAS ABOUT
+Dialogue: 0,0:00:17.35,0:00:18.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FIVE{\c&H00FFFFFF&} FOOT {\c&H0038D8FF&}SEVEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.19,0:00:19.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}AVERAGE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.65,0:00:20.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MAYBE EVEN A
+Dialogue: 0,0:00:20.27,0:00:21.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LITTLE{\c&H00FFFFFF&} {\c&H0038D8FF&}TALL{\c&H00FFFFFF&} FOR
+Dialogue: 0,0:00:21.01,0:00:21.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A FRENCHMAN BACK
+Dialogue: 0,0:00:21.73,0:00:22.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN
+Dialogue: 0,0:00:22.35,0:00:23.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO WHERE DID
+Dialogue: 0,0:00:23.05,0:00:24.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SHORT{\c&H00FFFFFF&} COME FROM
+Dialogue: 0,0:00:24.43,0:00:24.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LONDON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.09,0:00:26.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A BRITISH {\c&H0038D8FF&}CARTOONIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.13,0:00:27.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NAMED JAMES {\c&H0038D8FF&}GILLRAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.53,0:00:28.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHO {\c&H0038D8FF&}NEVER{\c&H00FFFFFF&} EVEN
+Dialogue: 0,0:00:28.19,0:00:29.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SAW {\c&H0038D8FF&}NAPOLEON{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:29.27,0:00:29.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PERSON
+Dialogue: 0,0:00:29.99,0:00:30.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DREW HIM AS
+Dialogue: 0,0:00:30.57,0:00:31.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}TINY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.29,0:00:33.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TANTRUM-THROWING {\c&H0038D8FF&}LITTLE{\c&H00FFFFFF&} MAN
+Dialogue: 0,0:00:33.31,0:00:34.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LITTLE{\c&H00FFFFFF&} {\c&H0038D8FF&}BONEY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.47,0:00:35.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND BRITAIN {\c&H0038D8FF&}LOVED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:35.47,0:00:36.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT
+Dialogue: 0,0:00:36.11,0:00:36.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT DIDN'T HELP
+Dialogue: 0,0:00:36.69,0:00:37.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT {\c&H0038D8FF&}NAPOLEON{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:37.57,0:00:38.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OFTEN SURROUNDED BY
+Dialogue: 0,0:00:38.67,0:00:40.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS IMPERIAL {\c&H0038D8FF&}GUARD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.59,0:00:41.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GIANT{\c&H00FFFFFF&} SOLDIERS IN
+Dialogue: 0,0:00:41.39,0:00:42.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOWERING {\c&H0038D8FF&}FUR{\c&H00FFFFFF&} HATS
+Dialogue: 0,0:00:43.07,0:00:43.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND HIS TROOPS
+Dialogue: 0,0:00:43.69,0:00:44.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CALLED HIM THE
+Dialogue: 0,0:00:44.45,0:00:45.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LITTLE{\c&H00FFFFFF&} {\c&H0038D8FF&}CORPORAL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.55,0:00:46.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT THAT WAS
+Dialogue: 0,0:00:46.03,0:00:46.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}AFFECTION{\c&H00FFFFFF&}
+Dialogue: 0,0:00:46.91,0:00:47.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NOT A {\c&H0038D8FF&}MEASUREMENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.03,0:00:49.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NAPOLEON{\c&H00FFFFFF&} CONQUERED HALF
+Dialogue: 0,0:00:49.43,0:00:50.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF {\c&H0038D8FF&}EUROPE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.11,0:00:51.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT HE {\c&H0038D8FF&}NEVER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.39,0:00:52.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEAT THE {\c&H0038D8FF&}CARTOON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.83,0:00:53.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TWO{\c&H00FFFFFF&} {\c&H0038D8FF&}HUNDRED{\c&H00FFFFFF&} YEARS
+Dialogue: 0,0:00:53.63,0:00:54.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LATER
+Dialogue: 0,0:00:54.33,0:00:55.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WE STILL CALL
+Dialogue: 0,0:00:55.15,0:00:56.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BOSSY{\c&H00FFFFFF&} {\c&H0038D8FF&}SHORT{\c&H00FFFFFF&} GUYS
+Dialogue: 0,0:00:56.27,0:00:58.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}NAPOLEON{\c&H00FFFFFF&} {\c&H0038D8FF&}COMPLEX{\c&H00FFFFFF&}

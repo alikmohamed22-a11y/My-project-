@@ -1,0 +1,81 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}TITANIC'S{\c&H00FFFFFF&} CHIEF
+Dialogue: 0,0:00:01.09,0:00:02.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BAKER{\c&H00FFFFFF&} SURVIVED THE
+Dialogue: 0,0:00:02.39,0:00:03.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FREEZING{\c&H00FFFFFF&} ATLANTIC
+Dialogue: 0,0:00:03.71,0:00:04.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND HE'D BEEN
+Dialogue: 0,0:00:04.37,0:00:05.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DRINKING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.23,0:00:05.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS NAME WAS
+Dialogue: 0,0:00:05.93,0:00:07.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CHARLES {\c&H0038D8FF&}JOUGHIN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:07.29,0:00:07.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHEN THE SHIP
+Dialogue: 0,0:00:07.69,0:00:08.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIT THE {\c&H0038D8FF&}ICEBERG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.75,0:00:09.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE DIDN'T {\c&H0038D8FF&}PANIC{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.77,0:00:10.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE SENT HIS
+Dialogue: 0,0:00:10.31,0:00:11.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}13{\c&H00FFFFFF&} BAKERS UP
+Dialogue: 0,0:00:11.35,0:00:12.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO THE LIFEBOATS
+Dialogue: 0,0:00:12.07,0:00:13.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITH FOUR {\c&H0038D8FF&}LOAVES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:13.07,0:00:14.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF BREAD EACH
+Dialogue: 0,0:00:14.23,0:00:14.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN HE HELPED
+Dialogue: 0,0:00:14.97,0:00:15.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LOAD WOMEN AND
+Dialogue: 0,0:00:15.73,0:00:16.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CHILDREN INTO THE
+Dialogue: 0,0:00:16.51,0:00:17.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BOATS
+Dialogue: 0,0:00:17.25,0:00:18.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN HE WENT
+Dialogue: 0,0:00:18.19,0:00:18.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DOWN TO HIS
+Dialogue: 0,0:00:18.73,0:00:19.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CABIN FOR
+Dialogue: 0,0:00:19.83,0:00:20.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}QUOTE
+Dialogue: 0,0:00:20.25,0:00:20.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A DROP OF
+Dialogue: 0,0:00:20.77,0:00:21.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LIQUEUR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.59,0:00:22.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BACK ON DECK
+Dialogue: 0,0:00:22.45,0:00:23.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE THREW ABOUT
+Dialogue: 0,0:00:23.03,0:00:23.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}50{\c&H00FFFFFF&} DECK CHAIRS
+Dialogue: 0,0:00:23.95,0:00:25.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OVERBOARD SO PEOPLE
+Dialogue: 0,0:00:25.13,0:00:25.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WOULD HAVE SOMETHING
+Dialogue: 0,0:00:25.69,0:00:26.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO FLOAT ON
+Dialogue: 0,0:00:26.33,0:00:27.15,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AS THE SHIP
+Dialogue: 0,0:00:27.15,0:00:27.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SANK
+Dialogue: 0,0:00:27.83,0:00:28.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE CLIMBED TO
+Dialogue: 0,0:00:28.41,0:00:29.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE VERY BACK
+Dialogue: 0,0:00:29.39,0:00:30.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HELD THE RAILING
+Dialogue: 0,0:00:30.35,0:00:31.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND RODE THE
+Dialogue: 0,0:00:31.01,0:00:31.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STERN DOWN LIKE
+Dialogue: 0,0:00:31.75,0:00:32.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN {\c&H0038D8FF&}ELEVATOR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.81,0:00:33.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE SAID HIS
+Dialogue: 0,0:00:33.25,0:00:34.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HEAD BARELY GOT
+Dialogue: 0,0:00:34.13,0:00:34.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WET{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.81,0:00:35.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE SAID HE
+Dialogue: 0,0:00:35.33,0:00:36.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SPENT OVER {\c&H0038D8FF&}TWO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.25,0:00:37.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HOURS IN WATER
+Dialogue: 0,0:00:37.25,0:00:38.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BELOW {\c&H0038D8FF&}FREEZING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:38.59,0:00:39.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MORE THAN {\c&H0038D8FF&}1,500{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.63,0:00:40.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PEOPLE DIED THAT
+Dialogue: 0,0:00:40.79,0:00:41.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NIGHT
+Dialogue: 0,0:00:41.49,0:00:42.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FINALLY
+Dialogue: 0,0:00:42.05,0:00:42.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A COOK ON
+Dialogue: 0,0:00:42.63,0:00:43.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN OVERTURNED LIFEBOAT
+Dialogue: 0,0:00:43.73,0:00:44.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HELD HIS HAND
+Dialogue: 0,0:00:44.59,0:00:45.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}UNTIL ANOTHER LIFEBOAT
+Dialogue: 0,0:00:45.81,0:00:46.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PULLED HIM IN
+Dialogue: 0,0:00:46.79,0:00:47.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS ONLY INJURY
+Dialogue: 0,0:00:48.01,0:00:48.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SWOLLEN {\c&H0038D8FF&}FEET{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.13,0:00:49.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO
+Dialogue: 0,0:00:49.53,0:00:50.25,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DID THE {\c&H0038D8FF&}LIQUEUR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.25,0:00:51.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SAVE HIM
+Dialogue: 0,0:00:51.13,0:00:52.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DOCTORS SAY {\c&H0038D8FF&}NO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.07,0:00:53.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ALCOHOL ACTUALLY MAKES
+Dialogue: 0,0:00:53.55,0:00:54.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU LOSE HEAT
+Dialogue: 0,0:00:54.29,0:00:55.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FASTER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:55.15,0:00:55.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHICH MEANS THE
+Dialogue: 0,0:00:55.95,0:00:56.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LUCKIEST{\c&H00FFFFFF&} {\c&H0038D8FF&}BAKER{\c&H00FFFFFF&} IN
+Dialogue: 0,0:00:56.91,0:00:58.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HISTORY SURVIVED IN
+Dialogue: 0,0:00:58.39,0:00:59.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SPITE OF HIS
+Dialogue: 0,0:00:59.13,0:00:59.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DRINK{\c&H00FFFFFF&}

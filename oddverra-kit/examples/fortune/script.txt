@@ -1,0 +1,20 @@
+Fortune cookies aren't Chinese. They most likely came from Japan.
+Researcher Yasuko Nakamachi found an eighteen seventy-eight Japanese book showing a baker making tsujiura senbei: fortune crackers, with the fortune tucked in the fold.
+And family bakeries near Kyoto still bake them by hand today.
+So how did they end up in America?
+You see, Japanese immigrants likely brought them to California.
+In San Francisco, Makoto Hagiwara reportedly served them at the Japanese Tea Garden. But in Los Angeles, Seiichi Kito claimed them too.
+In nineteen eighty-three, a mock court in San Francisco "ruled" for San Francisco. Los Angeles was not impressed.
+Then came World War Two. Japanese Americans were forced into internment camps, and their bakeries closed.
+Chinese American bakeries took over making the cookies, and that's reportedly why we link them to China.
+Here's the twist. In China itself, fortune cookies are barely known. A company that tried selling them there in nineteen ninety-two reportedly gave up. Too American.
+So the cookie that predicts your future... got its own past wrong.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 59.21 s, 1777 frames. Sets fc_sets.js at origins (-130000,0,0/800/1600) kyoto/garden/court and (-132500,0,0/800) study/bakery.
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat caption_keys.txt)" 'ruled=>"ruled"'.
+ Mix: mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS; no 4K masters.)
+Sources: Jennifer 8. Lee, "Solving a Riddle Wrapped in a Mystery Inside a Cookie", New York Times, Jan 16 2008 (Nakamachi, 1878 illustration,
+Hogyokudo near Kyoto, tsujiura senbei); Wikipedia "Fortune cookie" (slip wedged into the bend; Hagiwara / Japanese Tea Garden; Kito / Fugetsu-do;
+1983 Court of Historical Review ruling for SF, LA condemned it; WWII internment and the shift to Chinese-American makers; 1992 Wonton Food gave up in
+China as "too American"); Wikipedia "Court of Historical Review" (a mock court, purely symbolic); History.com (Jennifer 8. Lee on Chinese makers
+filling the gap); National Geographic "The Fortune Cookie's Fortune".

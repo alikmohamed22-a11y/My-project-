@@ -1,0 +1,14 @@
+Mount Rushmore was never finished. The presidents were supposed to have bodies.
+In 1927, sculptor Gutzon Borglum started carving four presidents into a South Dakota mountain.
+His plan: carve them down to the waist. Add a giant history inscription. And behind the heads, a Hall of Records.
+Workers dangled over the cliff in bosun chairs. About 90% of the rock came off with dynamite.
+Jefferson started on Washington's right. The rock was cracked, so they blasted him off and moved him to the left.
+So why do we only get heads?
+You see, the money kept running out. Then, in March 1941, Borglum died.
+His son Lincoln wrapped up the faces, and that October, the work stopped. No bodies. No inscription. Just a 70-foot tunnel to nowhere.
+And in 14 years of blasting, not one worker died.
+Here's the twist. In 1998, history panels were finally sealed in a vault at that tunnel's entrance.
+But the presidents? They're still waiting on their bodies.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.12;
+ splice.py beat pauses -> 57.51 s, 1726 frames. Sets rs_sets.js at origins (-88000,0,0/800) and (-90500,0,0).)
+Sources: NPS Mount Rushmore pages (Carving History, The Workers, Hall of Records, Memorial History); history.com; eos.org; Saturday Evening Post.

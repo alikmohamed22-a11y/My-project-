@@ -1,0 +1,78 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FORTUNE{\c&H00FFFFFF&} COOKIES AREN'T
+Dialogue: 0,0:00:01.05,0:00:01.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CHINESE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:01.93,0:00:02.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY MOST LIKELY
+Dialogue: 0,0:00:02.47,0:00:03.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CAME FROM {\c&H0038D8FF&}JAPAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.95,0:00:05.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RESEARCHER YASUKO {\c&H0038D8FF&}NAKAMACHI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.23,0:00:06.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOUND AN {\c&H0038D8FF&}1878{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.69,0:00:07.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JAPANESE {\c&H0038D8FF&}BOOK{\c&H00FFFFFF&} SHOWING
+Dialogue: 0,0:00:07.83,0:00:08.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}BAKER{\c&H00FFFFFF&} MAKING
+Dialogue: 0,0:00:08.57,0:00:09.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TSUJIURA{\c&H00FFFFFF&} {\c&H0038D8FF&}SENBEI{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.77,0:00:10.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FORTUNE{\c&H00FFFFFF&} {\c&H0038D8FF&}CRACKERS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.69,0:00:11.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITH THE {\c&H0038D8FF&}FORTUNE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.23,0:00:11.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TUCKED IN THE
+Dialogue: 0,0:00:11.71,0:00:12.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FOLD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:12.36,0:00:13.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND FAMILY BAKERIES
+Dialogue: 0,0:00:13.20,0:00:14.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NEAR {\c&H0038D8FF&}KYOTO{\c&H00FFFFFF&} STILL
+Dialogue: 0,0:00:14.14,0:00:14.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BAKE THEM BY
+Dialogue: 0,0:00:14.72,0:00:15.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HAND{\c&H00FFFFFF&} {\c&H0038D8FF&}TODAY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.65,0:00:16.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO HOW DID
+Dialogue: 0,0:00:16.37,0:00:16.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY END UP
+Dialogue: 0,0:00:16.77,0:00:17.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}AMERICA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.75,0:00:18.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:18.57,0:00:19.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JAPANESE {\c&H0038D8FF&}IMMIGRANTS{\c&H00FFFFFF&} LIKELY
+Dialogue: 0,0:00:19.39,0:00:19.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BROUGHT THEM TO
+Dialogue: 0,0:00:19.95,0:00:20.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CALIFORNIA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.71,0:00:21.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN SAN {\c&H0038D8FF&}FRANCISCO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.97,0:00:23.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MAKOTO {\c&H0038D8FF&}HAGIWARA{\c&H00FFFFFF&} REPORTEDLY
+Dialogue: 0,0:00:23.11,0:00:23.81,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SERVED THEM AT
+Dialogue: 0,0:00:23.81,0:00:24.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE JAPANESE TEA
+Dialogue: 0,0:00:24.55,0:00:25.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GARDEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.01,0:00:25.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT IN LOS
+Dialogue: 0,0:00:25.37,0:00:26.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ANGELES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.25,0:00:27.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SEIICHI {\c&H0038D8FF&}KITO{\c&H00FFFFFF&} CLAIMED
+Dialogue: 0,0:00:27.03,0:00:27.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEM TOO
+Dialogue: 0,0:00:27.45,0:00:28.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1983{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.07,0:00:29.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}MOCK{\c&H00FFFFFF&} COURT
+Dialogue: 0,0:00:29.61,0:00:30.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN SAN {\c&H0038D8FF&}FRANCISCO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.49,0:00:31.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}"RULED"{\c&H00FFFFFF&} FOR SAN
+Dialogue: 0,0:00:31.55,0:00:32.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FRANCISCO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:32.31,0:00:33.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LOS {\c&H0038D8FF&}ANGELES{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:33.19,0:00:34.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NOT {\c&H0038D8FF&}IMPRESSED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.64,0:00:35.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN CAME WORLD
+Dialogue: 0,0:00:35.44,0:00:36.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WAR{\c&H00FFFFFF&} TWO
+Dialogue: 0,0:00:36.22,0:00:37.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JAPANESE AMERICANS WERE
+Dialogue: 0,0:00:37.22,0:00:38.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FORCED INTO {\c&H0038D8FF&}INTERNMENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:38.30,0:00:38.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CAMPS
+Dialogue: 0,0:00:38.86,0:00:39.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THEIR BAKERIES
+Dialogue: 0,0:00:39.46,0:00:40.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLOSED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.56,0:00:41.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CHINESE{\c&H00FFFFFF&} {\c&H0038D8FF&}AMERICAN{\c&H00FFFFFF&} BAKERIES
+Dialogue: 0,0:00:41.64,0:00:42.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}TOOK{\c&H00FFFFFF&} OVER MAKING
+Dialogue: 0,0:00:42.28,0:00:43.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE COOKIES
+Dialogue: 0,0:00:43.02,0:00:43.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THAT'S REPORTEDLY
+Dialogue: 0,0:00:43.90,0:00:44.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHY WE LINK
+Dialogue: 0,0:00:44.54,0:00:45.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEM TO {\c&H0038D8FF&}CHINA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.62,0:00:46.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S THE {\c&H0038D8FF&}TWIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:46.48,0:00:47.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}CHINA{\c&H00FFFFFF&} ITSELF
+Dialogue: 0,0:00:47.78,0:00:48.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FORTUNE{\c&H00FFFFFF&} COOKIES ARE
+Dialogue: 0,0:00:48.44,0:00:49.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BARELY{\c&H00FFFFFF&} KNOWN
+Dialogue: 0,0:00:49.32,0:00:49.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A COMPANY THAT
+Dialogue: 0,0:00:49.86,0:00:50.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TRIED SELLING THEM
+Dialogue: 0,0:00:50.54,0:00:51.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THERE IN {\c&H0038D8FF&}1992{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.60,0:00:53.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}REPORTEDLY GAVE UP
+Dialogue: 0,0:00:53.06,0:00:53.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TOO {\c&H0038D8FF&}AMERICAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.60,0:00:55.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE COOKIE
+Dialogue: 0,0:00:55.04,0:00:55.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT PREDICTS YOUR
+Dialogue: 0,0:00:55.66,0:00:56.77,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FUTURE{\c&H00FFFFFF&} GOT ITS
+Dialogue: 0,0:00:56.77,0:00:57.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OWN {\c&H0038D8FF&}PAST{\c&H00FFFFFF&} {\c&H0038D8FF&}WRONG{\c&H00FFFFFF&}

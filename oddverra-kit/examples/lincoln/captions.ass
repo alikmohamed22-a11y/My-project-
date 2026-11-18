@@ -1,0 +1,76 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABRAHAM {\c&H0038D8FF&}LINCOLN{\c&H00FFFFFF&} IS
+Dialogue: 0,0:00:00.99,0:00:01.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE {\c&H0038D8FF&}WRESTLING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:01.61,0:00:02.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HALL{\c&H00FFFFFF&} OF {\c&H0038D8FF&}FAME{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.05,0:00:03.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NO
+Dialogue: 0,0:00:03.23,0:00:03.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}REALLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:04.64,0:00:06.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1831{\c&H00FFFFFF&} NEW SALEM
+Dialogue: 0,0:00:06.22,0:00:07.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ILLINOIS {\c&H0038D8FF&}LINCOLN{\c&H00FFFFFF&} IS
+Dialogue: 0,0:00:07.58,0:00:08.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}22{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.46,0:00:09.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}6-FOOT-4{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.42,0:00:10.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND CLERKING IN
+Dialogue: 0,0:00:10.08,0:00:10.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A LITTLE GENERAL
+Dialogue: 0,0:00:10.60,0:00:11.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STORE
+Dialogue: 0,0:00:11.44,0:00:12.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS BOSS BRAGS
+Dialogue: 0,0:00:12.28,0:00:13.00,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THAT HIS LANKY
+Dialogue: 0,0:00:13.00,0:00:14.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLERK{\c&H00FFFFFF&} CAN OUT-WRESTLE
+Dialogue: 0,0:00:14.16,0:00:15.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ANYBODY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.36,0:00:16.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BAD{\c&H00FFFFFF&} {\c&H0038D8FF&}IDEA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.72,0:00:17.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE LOCAL {\c&H0038D8FF&}GANG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.58,0:00:18.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE CLARY'S GROVE
+Dialogue: 0,0:00:18.26,0:00:18.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BOYS
+Dialogue: 0,0:00:18.86,0:00:20.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SEND THEIR {\c&H0038D8FF&}CHAMPION{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.30,0:00:21.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}JACK{\c&H00FFFFFF&} {\c&H0038D8FF&}ARMSTRONG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.36,0:00:22.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE WHOLE VILLAGE
+Dialogue: 0,0:00:22.24,0:00:23.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CROWDS AROUND
+Dialogue: 0,0:00:23.32,0:00:23.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY LOCK UP
+Dialogue: 0,0:00:23.90,0:00:24.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE {\c&H0038D8FF&}DUST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:25.12,0:00:25.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHO {\c&H0038D8FF&}WON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.12,0:00:26.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ACCOUNTS {\c&H0038D8FF&}DIFFER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.26,0:00:28.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOME SAY {\c&H0038D8FF&}LINCOLN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.26,0:00:28.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOME SAY A
+Dialogue: 0,0:00:28.84,0:00:29.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DRAW{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.02,0:00:30.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOME SAY {\c&H0038D8FF&}ARMSTRONG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.40,0:00:31.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOUGHT {\c&H0038D8FF&}DIRTY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.78,0:00:32.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT AFTERWARD
+Dialogue: 0,0:00:32.90,0:00:33.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ARMSTRONG{\c&H00FFFFFF&} BECAME ONE
+Dialogue: 0,0:00:33.48,0:00:34.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF {\c&H0038D8FF&}LINCOLN'S{\c&H00FFFFFF&} BEST
+Dialogue: 0,0:00:34.36,0:00:35.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FRIENDS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:35.46,0:00:36.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LINCOLN{\c&H00FFFFFF&} REPORTEDLY TOLD
+Dialogue: 0,0:00:36.22,0:00:37.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A CROWD
+Dialogue: 0,0:00:37.06,0:00:37.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}"I'M THE BIG
+Dialogue: 0,0:00:37.62,0:00:38.18,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BUCK{\c&H00FFFFFF&} OF THIS
+Dialogue: 0,0:00:38.18,0:00:39.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LICK."{\c&H00FFFFFF&} {\c&H0038D8FF&}LEGEND{\c&H00FFFFFF&} SAYS
+Dialogue: 0,0:00:39.75,0:00:40.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HE WRESTLED ABOUT
+Dialogue: 0,0:00:40.57,0:00:42.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}300{\c&H00FFFFFF&} MATCHES AND
+Dialogue: 0,0:00:42.41,0:00:44.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LOST ONLY {\c&H0038D8FF&}ONCE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:44.57,0:00:45.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1832{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.51,0:00:46.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DURING THE BLACK
+Dialogue: 0,0:00:46.29,0:00:47.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HAWK WAR
+Dialogue: 0,0:00:47.09,0:00:47.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A SOLDIER NAMED
+Dialogue: 0,0:00:47.71,0:00:49.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}THOMPSON{\c&H00FFFFFF&} THREW HIM
+Dialogue: 0,0:00:49.62,0:00:50.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LINCOLN{\c&H00FFFFFF&} WENT ON
+Dialogue: 0,0:00:50.22,0:00:50.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TO BECOME THE
+Dialogue: 0,0:00:50.84,0:00:52.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}16TH{\c&H00FFFFFF&} {\c&H0038D8FF&}PRESIDENT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.53,0:00:53.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1992{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.77,0:00:54.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE NATIONAL {\c&H0038D8FF&}WRESTLING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.67,0:00:55.31,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HALL{\c&H00FFFFFF&} OF {\c&H0038D8FF&}FAME{\c&H00FFFFFF&}
+Dialogue: 0,0:00:55.31,0:00:56.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HONORED HIM AS
+Dialogue: 0,0:00:56.11,0:00:57.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN {\c&H0038D8FF&}OUTSTANDING{\c&H00FFFFFF&} {\c&H0038D8FF&}AMERICAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:58.05,0:00:58.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE ONLY
+Dialogue: 0,0:00:58.47,0:00:59.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MAN WHO EVER
+Dialogue: 0,0:00:59.01,0:00:59.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEAT HIM
+Dialogue: 0,0:01:00.13,0:01:00.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HISTORY CAN'T EVEN
+Dialogue: 0,0:01:00.91,0:01:01.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AGREE ON HIS
+Dialogue: 0,0:01:01.45,0:01:02.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FIRST {\c&H0038D8FF&}NAME{\c&H00FFFFFF&}

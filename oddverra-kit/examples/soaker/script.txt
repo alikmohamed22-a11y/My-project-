@@ -1,0 +1,17 @@
+The most famous water gun ever made was invented by a NASA spacecraft engineer... by accident.
+Lonnie Johnson was a nuclear engineer who worked for the Air Force, and for NASA's Jet Propulsion Lab.
+He helped power the Galileo probe to Jupiter, and later worked on Cassini, bound for Saturn.
+But in 1982, at home, he was building a heat pump that used plain water instead of Freon.
+He hooked a test nozzle to his bathroom sink... and a jet of water blasted right across the room, into the tub.
+His first thought? This would make an amazing water gun.
+So he built one, out of PVC pipe, Plexiglas, and an empty soda bottle.
+Toy companies weren't so sure. It took him years to find a maker.
+You see, in 1990, a company called Larami launched it as the Power Drencher. A year later, it got a new name: the Super Soaker.
+It reportedly sold $200 million worth in 1991 alone, and became one of the best-selling toys of all time.
+Years later, he took Hasbro to arbitration over unpaid royalties. In 2013, he won nearly $73 million.
+The man who helped send a probe to Jupiter... is best known for soaking your little brother.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.2;
+ splice.py beat pauses -> 63.63 s, 1910 frames. Sets sk_sets.js at origins (-106000,0,0/800/1600) and (-108500,0,0/800/1600).
+ Facts: JPL 1979-82 (Galileo nuclear power), Air Force 1982-87, JPL 1987-91 (Cassini); 1982 heat-pump nozzle at the bathroom sink;
+ prototype of PVC pipe, Plexiglas and a soda bottle; patent 4,591,071 (1986); Larami deal 1989, Power Drencher 1990, renamed 1991;
+ ~$200M sales in 1991 (reportedly; Wikipedia); Nov 2013 arbitration award of ~$73M (reported $72.9M) in unpaid royalties from Hasbro.)

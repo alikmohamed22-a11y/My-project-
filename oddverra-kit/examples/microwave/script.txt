@@ -1,0 +1,22 @@
+Your microwave exists because a candy bar melted in a man's pocket.
+It's nineteen forty-five. Percy Spencer, a Raytheon engineer who'd barely gone to school, is working beside a magnetron, the tube that powers radar.
+Then he notices something. The candy bar in his pocket? Melted.
+Most people would grab a napkin. Percy grabbed popcorn.
+He held the kernels near the tube... and they popped all over the lab!
+Next, he reportedly tried an egg. It exploded, right on a coworker.
+You see, those invisible microwaves make the water inside food jiggle, and all that jiggling is heat.
+Raytheon filed a patent that same year. And by nineteen forty-seven, they were selling the first microwave oven: the Radarange.
+It stood nearly six feet tall, weighed about seven hundred fifty pounds, and reportedly cost around five thousand dollars.
+It took twenty years to shrink it onto a kitchen counter: the Amana Radarange, in nineteen sixty-seven.
+And Percy's reward? Reportedly, the same two-dollar bonus Raytheon paid for every patent.
+Two dollars... for the machine that pops your popcorn.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 61.38 s, 1842 frames. Sets mw_sets.js at origins (-148000,0,0/800/1600) kitchen/lab/inside and (-150500,0,0/800) show/k67.
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat work/caption_keys.txt)" "nineteen forty-five=>1945;seven hundred fifty=>750;five thousand dollars=>$5,000;two-dollar=>$2;two dollars=>$2;twenty years=>20 years".
+ Mix: audio_microwave.py + mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS.)
+Facts: Spencer left school young (about age 12 / after fifth grade; self-taught); 1945 candy bar melted near an active magnetron (brand varies by
+account: Mr. Goodbar, a peanut bar, a Payday: kept generic); popcorn popped; an egg reportedly burst on a skeptical colleague; US patent 2,495,429
+"Method of Treating Foodstuffs" filed Oct 8, 1945 (granted Jan 24, 1950); 1947 Radarange nearly 6 ft, ~750 lb, ~$5,000 (reportedly; water-cooled);
+1967 Amana countertop Radarange, $495; Raytheon's standard $2 patent gratuity (widely reported, no primary document found -> "reportedly").
+Sources: History.com "Microwave Oven Invention"; IEEE Spectrum "A Brief History of the Microwave Oven"; Univ. of Maine library guide "Percy Spencer";
+Google Patents US2495429; APS News "This Month in Physics History" (Oct 2015); The Takeout "The original microwave ovens were gigantic".
