@@ -1,0 +1,14 @@
+715a716,724
+>   const pxAstro = () => { /* [PX-cast] astronaut chest box + hose stubs (from [CLEO-cast]) */
+>     if (o.astro && !BACKB) { const bx = ncx, byy = shY + 40; const box = new Path2D(); box.roundRect(bx - 34, byy, 68, 44, 8); cel(g, box, '#d8dce4', 2.4, 3, 2, 0); for (const [x, c] of [[-18, '#c0302c'], [0, '#2a6ad0'], [18, '#e8b838']]) cel(g, ellP(bx + x, byy + 16, 5, 5), c, 1.2, 0, 0, 0); taper(g, [[bx - 22, byy + 32], [bx + 22, byy + 32]], 3, '#8a90a0', 0.2);
+>       for (const s of [-1, 1]) taper(g, [[ncx + s * 26, shY + 2], [ncx + s * 36, shY + 40]], 6, '#b8bcc8', 0.3); } };
+>   const pxHelm = () => { if (o.hat !== 'helmet') return; const cxh = hcx, cyh = hy + HH * 0.08, R = HW * 1.42, Ry = HH * 1.36; /* [PX-cast] astronaut bubble helmet over the face (from [CLEO-cast]) */
+>     const ring = ellP(cxh, cyh, R, Ry), inner = ellP(cxh, cyh, R - 9 * fz, Ry - 9 * fz); g.save(); g.fillStyle = 'rgba(190,225,255,0.16)'; g.fill(inner); g.restore();
+>     g.save(); g.clip(inner); g.fillStyle = 'rgba(232,178,58,0.38)'; g.fillRect(cxh - R, cyh - Ry, 2 * R, Ry * 0.62); taper(g, [[cxh - R, cyh - Ry * 0.38], [cxh + R, cyh - Ry * 0.38]], 3 * fz, 'rgba(160,110,20,0.6)', 0.1); g.restore();
+>     g.lineWidth = 14 * fz; g.strokeStyle = INK; g.stroke(ring); g.lineWidth = 8 * fz; g.strokeStyle = '#f4f4f2'; g.stroke(ring);
+>     taper(g, arcPts(cxh, cyh, R * 0.8, Math.PI * 1.15, Math.PI * 1.42, 8, Ry * 0.8), 8 * fz, 'rgba(255,255,255,0.85)', 0.4); taper(g, arcPts(cxh, cyh, R * 0.66, Math.PI * 1.18, Math.PI * 1.3, 6, Ry * 0.66), 4 * fz, 'rgba(255,255,255,0.7)', 0.4);
+>     const nk = new Path2D(); nk.roundRect(cxh - R * 0.62, cyh + Ry * 0.86, R * 1.24, 16 * fz, 6 * fz); cel(g, nk, '#c8ccd6', 2.6, 2, 1, 0); };
+944a954
+>   pxAstro(); // [PX-cast]
+1403a1414
+>   pxHelm(); // [PX-cast] bubble helmet over the face

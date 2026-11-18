@@ -1,0 +1,29 @@
+Velcro exists because of a dog that kept getting covered in burrs.
+In nineteen forty-one, Swiss engineer George de Mestral came home from a hunting trip, and his dog was full of them.
+Most people would just pick them off. George put one under a microscope.
+You see, every burr is covered in tiny hooks. And hooks grab anything with a loop... like fur. Or fabric.
+So George had an idea. A fake burr! Hooks on one strip, loops on the other.
+But making it was a nightmare. Cotton hooks wore out fast.
+Nylon worked, reportedly once it was sewn under hot infrared light. Then the loops had to be cut just right.
+It took him nearly a decade.
+He named it after two French words: velours, for velvet, and crochet, for hook. Velcro!
+It was patented in the mid-fifties. But the fashion world reportedly turned up its nose. It looked cheap.
+Then NASA came calling. On the Apollo missions, it kept tools and snacks from floating away.
+So next time you hear that sound... thank a dog who just wouldn't stay out of the weeds.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, 2 takes; numbers spelled out for TTS. STATUS Nov 18: the ElevenLabs connector timed out /
+ returned "Bad Request" for every call in this session, so no take exists yet. When the takes are saved as audio/take1.mp3 (+ take2.mp3), run
+ audio/voice_prep.sh <best take>: silenceremove (0.18 s, -42 dB) + atempo 1.15, faster-whisper word times, splice.py beat pauses -> voice.wav +
+ work/words.json, work/beats.py -> web/vc_beats.js (every shot boundary, camera beat, board and SFX hit is keyed to an anchor word, so the
+ timeline re-times itself), captions, stems + mix, then work/VOICE_OK. finish_chain.sh waits for clip1 AND VOICE_OK before rendering.
+ Stills were checked against words_estimate.json (an even-paced 60 s estimate).
+ Sets vc_sets.js at origins (-168000,0,0/800/1600) meadow/study/micro and (-170500,0,0/800/1600) mill/runway/capsule; cast vc_cast.js
+ (VCDOG the pointer, BURRY the living burr sidekick, George outdoors/indoors, a Lyon weaver, model, critics, astronaut).
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat work/caption_keys.txt)" "$(cat work/caption_subs.txt)".
+ Mix: audio_velcro.py stems, mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS.)
+Facts: 1941 walk/hunting trip, burrs on trousers and dog's fur, microscope hooks (Velcro Companies "Our story"; NIHF blog, which also says the
+ dog was an Irish pointer; History.com; Wikipedia "George de Mestral"; APS News gives 1948, an outlier). Cotton wore out, nylon worked, Lyon
+ weaver (Velcro; WIPO; Wikipedia); "sewn under hot infrared light" only in Wikipedia -> said as "reportedly". Nearly a decade (History.com
+ "nearly a decade"; Wikipedia "ten years"; WIPO "nearly eight years"). Swiss application CH295638 filed 1951, granted 1954 (WIPO, Velcro) /
+ 1955 (Wikipedia), US and France 1955 (WIPO; NIHF May 13, 1955) -> "mid-fifties". Name velours + crochet (Wikipedia, WIPO, History.com).
+ Fashion: WIPO "insufficiently aesthetic", Wikipedia "left-over bits of cheap fabric" -> "reportedly". NASA/Apollo: WIPO and Velcro
+ (Apollo 11 tools), History.com (Apollo 15-17 snack pouches and drink bags).
