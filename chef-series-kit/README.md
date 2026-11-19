@@ -6,7 +6,7 @@ A flat 2D comedy pipeline for "Day N of 30" episodes. It draws with pure Canvas 
 | File | What it does |
 |---|---|
 | `web/engine.js` | The engine. Layered parallax camera (snap, crash, whip and rack-focus moves), impact frames, and captions burned in from `words_*.json`. |
-| `web/cast2d.js` | The cast: SAM, SAM_SOOT, SAM_CHEF, HEADCHEF, ROOMMATE and MOM. Includes an acting rig (pose blending, head turn, squash/jump, mouth shapes). |
+| `web/cast2d.js` | The cast: SAM, SAM_SOOT, SAM_CHEF, HEADCHEF, ROOMMATE, MOM, TEACHER (Ep5), OWNER and SAM_SUIT (Ep8). Includes an acting rig (pose blending, head turn, squash/jump, mouth shapes). |
 | `web/bg*.js` | The sets: apartment, kitchen (with mess and the ceiling egg), Lumière exterior, dining room, office, photo montage and title cards. |
 | `web/phone.js` | Phone screens: email, résumé, alarm, texts and calendar. |
 | `web/fx.js` | Effects. |

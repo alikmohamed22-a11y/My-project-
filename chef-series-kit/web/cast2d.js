@@ -3,8 +3,8 @@
 // space (feet at 0, top of hair at -100, y up = negative) and scaled by o.h/100. t is in frames @30fps.
 // v2: pose blending (pose2/mix), joint overrides (o.rig), secondary motion, expression cross-fades,
 // smoother visemes + jaw, saccades, blink-on-turn, textures/AO/tapered interior lines. v1 API unchanged.
-export const CAST = ['SAM', 'SAM_SOOT', 'SAM_CHEF', 'HEADCHEF', 'ROOMMATE', 'MOM', 'TEACHER'];
-export const REL_H = { SAM: 1, SAM_SOOT: 1, SAM_CHEF: 1, HEADCHEF: 1.1, ROOMMATE: 1.12, MOM: 0.92, TEACHER: 0.98 };
+export const CAST = ['SAM', 'SAM_SOOT', 'SAM_CHEF', 'HEADCHEF', 'ROOMMATE', 'MOM', 'TEACHER', 'OWNER', 'SAM_SUIT'];
+export const REL_H = { SAM: 1, SAM_SOOT: 1, SAM_CHEF: 1, HEADCHEF: 1.1, ROOMMATE: 1.12, MOM: 0.92, TEACHER: 0.98, OWNER: 1.0, SAM_SUIT: 1 };
 export const POSES = ['stand', 'walk', 'sit', 'cheer', 'point', 'facepalm', 'shrug', 'hold', 'holdUp', 'phone', 'armsCrossed', 'nod',
   'lookUp', 'salute', 'bow', 'tiptoe', 'crackEgg', 'stir', 'fanSmoke', 'typing', 'fall', 'proudChest'];
 
@@ -189,6 +189,28 @@ const DEF = {
     pants: { c: '#2f2b3e', s: '#221f2e', len: 1, tx: 'twill', ta: 0.12 },
     shoes: { type: 'clog', c: '#e2453c', s: '#b52e27', sole: '#3a3546' },
   },
+  // Ep8: the owner of Lumière (invented: "Mr. Augustin Belleforte"). Silhouette = wide egg body on short legs, a tall silver
+  // swept-up pompadour and a huge white handlebar moustache; navy suit, gold tie + pocket square (matches his Day 7 back view).
+  OWNER: {
+    relH: 1.0, skin: '#e7b28c', skinS: '#c98e68', blush: '#ec8b7c', blushL: '#d4646a', defExpr: 'neutral',
+    iris: '#3f6f9a', nail: '#f3d2bd', crease: '#b87e5c', lidAdd: 0.1,
+    head: { R: 12.8, cy: -78, W: 1.04, low: 1.22, taper: 0.12, sq: 0.7, top: 0.98, eyeA: 0.44, eyeY: 0.08, erx: 0.2, ery: 0.26, noseY: 0.42, mouthY: 0.8, nose: 'round', brW: 0.24, brCol: '#f4f2f6', ears: 1, stache: '#f7f6fa', stacheW: 2.3, stacheT: 2.4, lines: 1 },
+    hair: { c: '#dcd8e4', s: '#aaa5b8', hi: '#ffffff', line: (a) => { const A = Math.abs(a); return A < HP ? lerp(0.66, 0.0, Math.pow(A / HP, 1.2)) : lerp(0.0, -1.0, Math.pow((A - HP) / HP, 0.8)); }, vol: { r: 1.42, amp: 0.1, n: 5, ext: 0.1, cy: -0.5, mode: 'wavy' }, locks: 8 },
+    body: { neckW: 6.4, shY: -62, sx: 12.6, sd: 8, hemY: -27, hemX: 17.2, hemD: 11, hipY: -27, hipX: 5.6, legW: 8.4, armW: 6.6, ua: 12, fa: 11.6, thigh: 12.4, shin: 12, footY: -3.6, sitY: -17 },
+    top: { type: 'suit', c: '#1f2a4d', s: '#151d38', lap: '#2a3866', shirt: '#fbfaf6', shirtS: '#d9d6ce', tie: '#e6b84a', tieS: '#b98a26', pocket: '#e6b84a', btn: '#e6b84a', vy: 0.52, vw: 3.6, tx: 'twill', ta: 0.08, stitch: '#3a4878' },
+    sleeve: { c: '#1f2a4d', s: '#151d38', len: 1, cuff: 1, tx: 'twill', ta: 0.08 },
+    pants: { c: '#1f2a4d', s: '#151d38', len: 1, tx: 'twill', ta: 0.08 },
+    shoes: { type: 'flat', c: '#5a2e1c', s: '#3e1e12', sole: '#2a1a14' },
+  },
+  // Ep8: Sam in a rented suit three sizes too big + rain boots; the red tie hangs to his knees (tieStain = sauce)
+  SAM_SUIT: {
+    ...SAMBASE,
+    body: { ...SAMBASE.body, sx: 12.2, sd: 6.6, hemY: -22, hemX: 13.4, hemD: 8.2 },
+    top: { type: 'suit', c: '#4a4f5c', s: '#363a45', lap: '#5a606e', shirt: '#f6f1e6', shirtS: '#d8cdbb', tie: '#e2453c', tieS: '#b52e27', btn: '#c9c3b6', vy: 0.5, vw: 4.4, tieLen: 1.5, tieW: 1.5, tx: 'twill', ta: 0.1, stitch: '#6a7080', baggy: 1 },
+    sleeve: { c: '#4a4f5c', s: '#363a45', len: 1.42, wide: 3.0, tx: 'twill', ta: 0.1 },
+    pants: { c: '#4a4f5c', s: '#363a45', len: 1, tx: 'twill', ta: 0.1 },
+    shoes: { type: 'boot', c: '#f5c518', s: '#c99a0a', sole: '#3a3546' },
+  },
 };
 
 // ---------------------------------------------------------------- expressions
@@ -215,6 +237,8 @@ const EX = {
   wince: { b: [[0.4, 1.5, 0.2], [0.4, 1.5, 0.2]], e: { squint: 1 }, m: { w: 4.0, c: 0.7, top: -0.4, bot: 2.5, cl: 1, sk: -0.7 }, roll: -0.05 },
   dreamy: { b: [[1.5, 0.7, 0.6], [1.5, 0.7, 0.6]], e: { o: 1, lt: 0.4, look: [0.35, -0.65], spark: 1 }, m: { w: 2.6, c: -1.1, top: 0.25, bot: 0.25 }, blush: 1.3, roll: -0.06, pitch: -0.04 },
   determined: { b: [[-0.5, -1.5, 0.2], [-0.5, -1.5, 0.2]], e: { o: 1, lt: 0.16, lb: 0.16, spark: 1 }, m: { w: 3.4, c: -0.3, top: 0.05, bot: 0.05, sk: -0.4 }, pitch: 0.04 },
+  laugh: { b: [[1.6, 0.4, 0.6], [1.6, 0.4, 0.6]], e: { happy: 1 }, m: { w: 5.2, c: -2.4, top: -1.0, bot: 4.6, teeth: 1, tongue: 1, rnd: 0.25 }, pitch: -0.08, blush: 1.2 },
+  dazed: { b: [[1.0, 0.8, 0.2], [-0.2, -0.4, 0]], e: { o: 1.0, p: 0.45, dead: 1, look: [0.2, -0.3] }, m: { w: 3.6, c: -0.9, top: 0.1, bot: 1.2, sk: -0.6, sq: 0.6 }, roll: 0.1, blush: 0.6 },
   mortified: { b: [[1.8, 2.0, 0], [1.8, 2.0, 0]], e: { o: 1.06, p: 0.5 }, m: { w: 3.0, c: 0.9, top: 0.3, bot: 1.4, sq: 0.8 }, blush: 1.7, sweat: 0.6, gloom: 1, pitch: 0.05 },
 };
 export const EXPRS = Object.keys(EX);
@@ -517,10 +541,14 @@ function drawShoe(ctx, st, l) {
   const { r, S, C } = st, sh = C.shoes, A = l.ank;
   const sa = Math.abs(r.sn), dir = r.sn >= 0 ? 1 : -1, back = r.cs < -0.3;
   const gy = A.y - r.B.footY;
-  const cx = A.x + r.sn * 1.8, hl = lerp(3.4, 5.4, sa) * (sh.type === 'clog' ? 1.08 : 1);
+  const cx = A.x + r.sn * 1.8, hl = lerp(3.4, 5.4, sa) * (sh.type === 'clog' ? 1.08 : sh.type === 'boot' ? 1.18 : 1);
   const tilt = cl(l.lift > 0.3 ? -l.lift * 0.05 * dir : 0, -0.6, 0.6);
   ctx.save(); ctx.translate(cx, gy); ctx.rotate(tilt);
   if (l.tip > 0.01) { const tx = hl * 0.9 * dir; ctx.translate(tx, 0); ctx.rotate(-dir * 0.5 * l.tip * sa); ctx.translate(-tx, 0); }
+  if (sh.type === 'boot') { // tall rain boot: shaft up the shin over the trouser, chunky foot
+    const shaft = along([A, l.knee], 0.62); G(ctx, S, [{ pts: shaft.map((p) => P(p.x - cx, p.y - gy)), w: r.B.legW + 3.2, c: sh.c, s: sh.s }]);
+    const top = shaft[shaft.length - 1]; G(ctx, S, [{ pts: [P(top.x - cx - (r.B.legW + 3.4) * 0.5, top.y - gy + 0.6), P(top.x - cx + (r.B.legW + 3.4) * 0.5, top.y - gy + 0.6)], w: 1.8, c: sh.s }]);
+  }
   if (sh.type === 'slide') {
     const sole = rrect(-hl - 0.4, -1.3, 2 * hl + 0.8, 1.6, 0.8);
     const foot = spl([[-hl * 0.8 * dir, -1.2], [-hl * 0.5 * dir, -3.4], [hl * 0.3 * dir, -2.8], [hl * 0.95 * dir, -1.4], [0, -0.9]]);
@@ -528,7 +556,7 @@ function drawShoe(ctx, st, l) {
     const band = spl([[(-hl * 0.15) * dir - 2.1 * (1 - sa), -1.2], [(hl * 0.05) * dir, -3.6], [(hl * 0.55) * dir + 2.1 * (1 - sa), -2.7], [(hl * 0.5) * dir, -1.2]]);
     G(ctx, S, [{ p: band, c: sh.c, s: sh.s }]);
   } else {
-    const ht = sh.type === 'flat' ? 2.8 : sh.type === 'clog' ? 4.4 : 4.6;
+    const ht = sh.type === 'flat' ? 2.8 : sh.type === 'clog' ? 4.4 : sh.type === 'boot' ? 5.4 : 4.6;
     const pts = sa < 0.2 || back
       ? [[-hl, -0.2], [-hl * 1.02, -ht * 0.6], [-hl * 0.55, -ht], [hl * 0.55, -ht], [hl * 1.02, -ht * 0.6], [hl, -0.2], [0, 0.15]]
       : [[-hl * dir, -0.2], [-hl * 1.0 * dir, -ht * 0.8], [-hl * 0.55 * dir, -ht * 1.02], [-hl * 0.05 * dir, -ht * 0.92], [hl * 0.6 * dir, -ht * 0.62], [hl * 1.03 * dir, -ht * 0.3], [hl * dir, -0.2], [0, 0.1]];
@@ -770,6 +798,31 @@ function drawTorso(ctx, st) {
       for (const s of [-1, 1]) { const px = cX(hm - 7) + s * 5.6 * cs; G(ctx, S, [{ p: rrect(px - 2.2 * cs, hm - 8.5, 4.4 * cs, 4, 0.6), c: T.c, s: T.s, o: 0.6, tx: 'rib', ta: 0.1, tu: TX.u }]); stitch(ctx, S, [P(px - 2.2 * cs, hm - 7.6), P(px + 2.2 * cs, hm - 7.6)], T.stitch, 0.25); }
     }
     line(ctx, S, [P(-30, hm - 2.2), P(30, hm - 2.2)], 0.5);
+  } else if (T.type === 'suit') {
+    if (fwd) {
+      const vy = lerp(sh, hm, T.vy ?? 0.55), x0 = cX(sh), xv = cX(vy), w0 = (T.vw ?? 3.6) * cs;
+      const shirt = new Path2D(); shirt.moveTo(x0 - w0, sh - 2.5); shirt.quadraticCurveTo(x0, sh + 1.2, x0 + w0, sh - 2.5); shirt.lineTo(xv, vy + 0.5); shirt.closePath();
+      ctx.fillStyle = T.shirt; ctx.fill(shirt); shade(ctx, shirt, T.shirtS, -S.sd * 0.8, 0); ctx.lineWidth = S.lw; ctx.stroke(shirt);
+      // tie: knot under the collar, blade down the V (and past it when tieLen > 1)
+      const tl = T.tieLen ?? 1, tw = (T.tieW ?? 1) * 1.6 * Math.max(0.5, cs), ky = sh - 0.6, ty = lerp(sh, hm, Math.min(0.97, (T.vy ?? 0.55) * 0.95 * tl)), tsw = cl(sec.x * 0.25, -1.2, 1.2) + (T.baggy ? Math.sin(st.t * 0.17) * 0.5 : 0);
+      const tip = P(cX(ty) + tsw, ty + tw * 1.1);
+      const blade = poly([[x0 - tw * 0.55, ky + 1.6], [x0 + tw * 0.55, ky + 1.6], [tip.x + tw, ty], [tip.x, tip.y], [tip.x - tw, ty]]);
+      G(ctx, S, [{ p: blade, c: T.tie, s: T.tieS, o: 0.7, oy: 0 }, { p: poly([[x0 - tw * 0.8, ky - 0.6], [x0 + tw * 0.8, ky - 0.6], [x0 + tw * 0.5, ky + 1.8], [x0 - tw * 0.5, ky + 1.8]]), c: T.tie, s: T.tieS, o: 0.5, oy: 0 }]);
+      const stn = o.tieStain ?? T.tieStain; if (stn) { ctx.save(); ctx.clip(blade); ctx.globalAlpha = stn; ctx.fillStyle = '#f2e3b8'; ctx.beginPath(); ctx.ellipse(tip.x, tip.y - tw * 1.2, tw * 1.6, tw * 1.9, 0, 0, TAU); ctx.fill(); ctx.fillStyle = '#e8d29a'; ctx.beginPath(); ctx.ellipse(tip.x + tw * 0.4, tip.y - tw * 2.6, tw * 0.5, tw * 0.6, 0, 0, TAU); ctx.fill(); ctx.restore(); }
+      // shirt collar points
+      for (const s of [-1, 1]) G(ctx, S, [{ p: poly([[x0 + s * 0.3, sh - 1.6], [x0 + s * (w0 * 0.9), sh - 2.6], [x0 + s * w0 * 0.55, sh + 1.6]]), c: T.shirt, s: T.shirtS, o: 0.4 }]);
+      // lapels
+      for (const s of [-1, 1]) { const lp = poly([[x0 + s * w0, sh - 2.5], [xv, vy + 0.5], [lerp(x0, xv, 0.55) + s * (w0 * 0.5 + 2.6 * cs), lerp(sh, vy, 0.5)], [x0 + s * (w0 + 1.6 * cs), sh + 2.2], [x0 + s * (w0 + 0.6 * cs), sh - 1.2]]); G(ctx, S, [{ p: lp, c: T.lap, s: T.s, o: 0.5, oy: 0 }]); }
+      // front edge + buttons
+      line(ctx, S, [P(xv, vy + 0.5), P(cX(hm) + 0.4 * cs, hm + 1)], 0.6);
+      for (const by of [vy + 3.2, vy + 8]) if (by < hm - 1.5) { const bx = cX(by) + 0.9 * cs; const bp = ell(bx, by, 0.85 * Math.max(0.4, cs), 0.85); ctx.fillStyle = T.btn; ctx.fill(bp); ctx.lineWidth = S.lw * 0.45; ctx.strokeStyle = INK; ctx.stroke(bp); }
+      // pockets (+ pocket square)
+      const px = x0 - 7.0 * cs, py = sh + 7.2;
+      if (T.pocket) G(ctx, S, [{ p: poly([[px - 1.8 * cs, py], [px - 0.9 * cs, py - 2.2], [px, py - 1.2], [px + 1.0 * cs, py - 2.4], [px + 1.8 * cs, py]]), c: T.pocket, s: T.tieS, o: 0.4 }]);
+      line(ctx, S, [P(px - 2.4 * cs, py), P(px + 2.4 * cs, py)], 0.5);
+      for (const s of [-1, 1]) { const qx = cX(hm - 6) + s * 6.4 * cs; line(ctx, S, [P(qx - 2.6 * cs, hm - 6.5), P(qx + 2.6 * cs, hm - 6.5)], 0.5); }
+      if (T.baggy) { for (const s of [-1, 1]) line(ctx, S, [P(cX(sh + 4) + s * 7.5 * cs, sh + 4), P(cX(sh + 12) + s * 6 * cs, sh + 13), P(cX(sh + 18) + s * 7.4 * cs, sh + 20)], 0.4, T.s); }
+    } else if (backV) { line(ctx, S, [P(bX(sh + 8), sh + 8), P(bX(hm), hm)], 0.45, T.s); }
   }
   ctx.restore();
   if (T.type === 'chef' || T.type === 'chefDB') {
@@ -1057,12 +1110,12 @@ function drawFace(ctx, st, hpts, hp, py, m, jaw) {
     drawMouth(ctx, st, m, C, mu);
     ctx.restore();
     if (H.stache) {
-      const y = my - R * 0.12, w = R * 0.32 * (0.55 + 0.45 * cs);
-      ctx.strokeStyle = INK; ctx.lineWidth = R * 0.05 + 2 * S.lw * 0.55;
-      const path = (s) => { ctx.beginPath(); ctx.moveTo(mx, y - R * 0.02); ctx.quadraticCurveTo(mx + s * w * 0.6, y - R * 0.09, mx + s * w, y); ctx.quadraticCurveTo(mx + s * w * 1.25, y + R * 0.02, mx + s * w * 1.15, y - R * 0.12); };
+      const y = my - R * 0.12, w = R * 0.32 * (H.stacheW || 1) * (0.55 + 0.45 * cs), tk = H.stacheT || 1;
+      ctx.strokeStyle = INK; ctx.lineWidth = R * 0.05 * tk + 2 * S.lw * 0.55;
+      const path = (s) => { ctx.beginPath(); ctx.moveTo(mx, y - R * 0.02); ctx.quadraticCurveTo(mx + s * w * 0.6, y - R * 0.09, mx + s * w, y); ctx.quadraticCurveTo(mx + s * w * 1.25, y + R * 0.02, mx + s * w * 1.1, y - R * 0.12 * (H.stacheW > 1 ? 2.4 : 1)); };
       for (const s of [-1, 1]) { path(s); ctx.stroke(); }
-      ctx.strokeStyle = H.stache; ctx.lineWidth = R * 0.05; for (const s of [-1, 1]) { path(s); ctx.stroke(); }
-      ctx.strokeStyle = '#8a827b'; ctx.lineWidth = R * 0.015; for (const s of [-1, 1]) { path(s); ctx.stroke(); }
+      ctx.strokeStyle = H.stache; ctx.lineWidth = R * 0.05 * tk; for (const s of [-1, 1]) { path(s); ctx.stroke(); }
+      ctx.strokeStyle = tk > 1 ? '#c9c6d4' : '#8a827b'; ctx.lineWidth = R * 0.015 * tk; for (const s of [-1, 1]) { path(s); ctx.stroke(); }
       ctx.strokeStyle = INK;
     }
   }
