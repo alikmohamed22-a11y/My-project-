@@ -1,0 +1,23 @@
+The first computer bug... was an actual bug.
+September ninth, nineteen forty-seven. Harvard University.
+The Mark Two is a giant computer: a room full of thousands of clicking switches called relays.
+And today, something is wrong.
+So the operators go hunting. Panel by panel. Relay by relay.
+Until, in Relay number seventy, Panel F, they find it. A moth! Trapped in the switch.
+They pull it out, tape it into the logbook, and write: "First actual case of bug being found."
+Grace Hopper was on that team, and she loved telling this story. Though reportedly, she wasn't the one who found it.
+But why does it say "actual"?
+You see, engineers were already calling glitches "bugs." Thomas Edison did it back in the eighteen-seventies.
+So the note was a joke. For once, the bug was a real bug.
+And that moth is still taped in the logbook, now at the Smithsonian.
+The most famous bug in computer history... and it never wrote a single line of code.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 1 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 56.77 s, 1703 frames. Sets mt_sets.js at origins (-142000,0,0/800) lab/relay and (-144500,0,0/800/1600) desk/edison/museum.
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat caption_keys.txt)" "Mark Two=>Mark II;number seventy=>#70".
+ Mix: mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS. Motif SFX: relay clicks + moth flutter.)
+Facts: 9 Sept 1947, 15:45, Harvard Mark II, "Relay #70 Panel F (moth) in relay. First actual case of bug being found." (logbook page);
+Smithsonian NMAH object nmah_334663 "Log Book With Computer Bug", accession 1994.0191 (transferred from the Naval Surface Warfare Center);
+the museum notes the log book was probably not Hopper's; Hopper was on the team and popularized the story; operators (reportedly incl.
+William "Bill" Burke) found it; "bug" already engineering slang: Edison's 1878 letters ("'Bugs' - as such little faults and difficulties are called").
+Sources: si.edu/object/log-book-computer-bug:nmah_334663; Wikipedia "Software bug" / "Harvard Mark II"; Naval History and Heritage Command;
+Atlas Obscura "Who coined the term bug? Thomas Edison"; Edison Papers (Rutgers).

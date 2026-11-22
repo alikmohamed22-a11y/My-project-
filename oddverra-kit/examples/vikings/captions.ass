@@ -1,0 +1,71 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:01.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVERY {\c&H0038D8FF&}HORNED{\c&H00FFFFFF&} VIKING
+Dialogue: 0,0:00:01.01,0:00:01.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HELMET YOU'VE EVER
+Dialogue: 0,0:00:01.87,0:00:03.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SEEN IS {\c&H0038D8FF&}WRONG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.68,0:00:04.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ARCHAEOLOGISTS HAVE FOUND
+Dialogue: 0,0:00:04.68,0:00:05.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}VIKING SHIPS
+Dialogue: 0,0:00:05.78,0:00:06.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SWORDS
+Dialogue: 0,0:00:06.26,0:00:07.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND GRAVES
+Dialogue: 0,0:00:07.04,0:00:07.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT NOT ONE
+Dialogue: 0,0:00:07.84,0:00:08.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HORNED{\c&H00FFFFFF&} HELMET FROM
+Dialogue: 0,0:00:08.64,0:00:09.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE VIKING AGE
+Dialogue: 0,0:00:09.56,0:00:10.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MOST COMPLETE
+Dialogue: 0,0:00:10.28,0:00:11.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}VIKING HELMET EVER
+Dialogue: 0,0:00:11.22,0:00:12.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOUND TURNED UP
+Dialogue: 0,0:00:12.04,0:00:12.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN NORWAY IN
+Dialogue: 0,0:00:12.76,0:00:14.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1943{\c&H00FFFFFF&} AT A
+Dialogue: 0,0:00:14.16,0:00:15.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FARM CALLED {\c&H0038D8FF&}GJERMUNDBU{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.44,0:00:16.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S A ROUNDED
+Dialogue: 0,0:00:16.04,0:00:16.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IRON CAP WITH
+Dialogue: 0,0:00:16.94,0:00:17.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A GUARD AROUND
+Dialogue: 0,0:00:17.52,0:00:18.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE EYES
+Dialogue: 0,0:00:18.26,0:00:19.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NO{\c&H00FFFFFF&} {\c&H0038D8FF&}HORNS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.20,0:00:19.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO WHERE DID
+Dialogue: 0,0:00:19.84,0:00:20.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}HORNS{\c&H00FFFFFF&} COME
+Dialogue: 0,0:00:20.48,0:00:20.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FROM
+Dialogue: 0,0:00:20.94,0:00:21.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:21.50,0:00:23.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1876{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.04,0:00:23.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RICHARD {\c&H0038D8FF&}WAGNER{\c&H00FFFFFF&} STAGED
+Dialogue: 0,0:00:23.98,0:00:24.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HIS GIANT {\c&H0038D8FF&}OPERA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:24.94,0:00:25.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CYCLE
+Dialogue: 0,0:00:25.60,0:00:26.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE RING OF
+Dialogue: 0,0:00:26.10,0:00:26.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE NIBELUNG
+Dialogue: 0,0:00:26.76,0:00:27.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AT THE VERY
+Dialogue: 0,0:00:27.34,0:00:28.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FIRST BAYREUTH FESTIVAL
+Dialogue: 0,0:00:28.56,0:00:30.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}COSTUME{\c&H00FFFFFF&} DESIGNER
+Dialogue: 0,0:00:30.10,0:00:31.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CARL EMIL {\c&H0038D8FF&}DOEPLER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.10,0:00:31.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PUT {\c&H0038D8FF&}HORNS{\c&H00FFFFFF&} ON
+Dialogue: 0,0:00:31.80,0:00:32.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE HELMETS
+Dialogue: 0,0:00:32.56,0:00:33.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PAINTERS HAD TOYED
+Dialogue: 0,0:00:33.38,0:00:33.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WITH THE IDEA
+Dialogue: 0,0:00:33.82,0:00:34.50,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEFORE
+Dialogue: 0,0:00:34.50,0:00:35.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT THE {\c&H0038D8FF&}OPERA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:35.12,0:00:36.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MADE IT {\c&H0038D8FF&}STICK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.32,0:00:36.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOON
+Dialogue: 0,0:00:36.88,0:00:37.76,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HORNS{\c&H00FFFFFF&} MEANT VIKING
+Dialogue: 0,0:00:37.76,0:00:38.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EVERYWHERE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:38.78,0:00:39.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HERE'S THE {\c&H0038D8FF&}TWIST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.96,0:00:40.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HORNED{\c&H00FFFFFF&} HELMETS REALLY
+Dialogue: 0,0:00:40.80,0:00:41.72,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}DID EXIST IN
+Dialogue: 0,0:00:41.72,0:00:42.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SCANDINAVIA
+Dialogue: 0,0:00:42.60,0:00:43.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}VEKSØ{\c&H00FFFFFF&} HELMETS
+Dialogue: 0,0:00:43.66,0:00:44.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FROM {\c&H0038D8FF&}DENMARK{\c&H00FFFFFF&} AROUND
+Dialogue: 0,0:00:44.54,0:00:45.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}900{\c&H00FFFFFF&} BC
+Dialogue: 0,0:00:45.88,0:00:47.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ABOUT 1,700 YEARS
+Dialogue: 0,0:00:47.14,0:00:48.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BEFORE THE VIKINGS
+Dialogue: 0,0:00:48.54,0:00:49.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE MOST
+Dialogue: 0,0:00:49.24,0:00:50.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAMOUS VIKING LOOK
+Dialogue: 0,0:00:50.24,0:00:51.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN HISTORY IS
+Dialogue: 0,0:00:51.63,0:00:52.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BASICALLY AN {\c&H0038D8FF&}OPERA{\c&H00FFFFFF&}
+Dialogue: 0,0:00:52.63,0:00:53.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}COSTUME{\c&H00FFFFFF&}

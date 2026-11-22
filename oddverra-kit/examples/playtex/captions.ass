@@ -1,0 +1,79 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}SPACESUIT{\c&H00FFFFFF&} NEIL
+Dialogue: 0,0:00:00.91,0:00:01.79,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ARMSTRONG{\c&H00FFFFFF&} WORE ON
+Dialogue: 0,0:00:01.79,0:00:02.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}MOON{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:02.43,0:00:02.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MADE BY A
+Dialogue: 0,0:00:02.99,0:00:03.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BRA{\c&H00FFFFFF&} COMPANY
+Dialogue: 0,0:00:04.15,0:00:05.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE {\c&H0038D8FF&}1960S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.41,0:00:06.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NASA{\c&H00FFFFFF&} NEEDED A
+Dialogue: 0,0:00:06.05,0:00:06.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SUIT THAT COULD
+Dialogue: 0,0:00:06.53,0:00:07.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HOLD {\c&H0038D8FF&}AIR{\c&H00FFFFFF&}
+Dialogue: 0,0:00:07.37,0:00:08.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BLOCK {\c&H0038D8FF&}HEAT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:08.11,0:00:08.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND STILL LET
+Dialogue: 0,0:00:08.65,0:00:09.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AN ASTRONAUT {\c&H0038D8FF&}BEND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.85,0:00:10.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE BIG {\c&H0038D8FF&}AEROSPACE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.61,0:00:11.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FIRMS{\c&H00FFFFFF&} ALL WANTED
+Dialogue: 0,0:00:11.63,0:00:12.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE JOB
+Dialogue: 0,0:00:12.43,0:00:13.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT ONE BIDDER
+Dialogue: 0,0:00:13.01,0:00:13.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS THE INTERNATIONAL
+Dialogue: 0,0:00:13.99,0:00:15.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LATEX{\c&H00FFFFFF&} CORPORATION
+Dialogue: 0,0:00:15.29,0:00:16.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE COMPANY BEHIND
+Dialogue: 0,0:00:16.01,0:00:16.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}PLAYTEX{\c&H00FFFFFF&} {\c&H0038D8FF&}BRAS{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:16.97,0:00:17.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GIRDLES{\c&H00FFFFFF&} IN {\c&H0038D8FF&}DOVER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.97,0:00:18.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}DELAWARE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:18.93,0:00:19.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}BRA{\c&H00FFFFFF&} COMPANY
+Dialogue: 0,0:00:19.69,0:00:21.27,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUILDING {\c&H0038D8FF&}SPACESUITS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:21.51,0:00:22.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND IN {\c&H0038D8FF&}1965{\c&H00FFFFFF&}
+Dialogue: 0,0:00:22.85,0:00:23.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT GOT {\c&H0038D8FF&}KICKED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.41,0:00:24.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OFF THE PROJECT
+Dialogue: 0,0:00:24.84,0:00:25.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO IT ASKED
+Dialogue: 0,0:00:25.28,0:00:25.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR ONE MORE
+Dialogue: 0,0:00:25.94,0:00:26.96,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SHOT{\c&H00FFFFFF&} AND {\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.96,0:00:27.82,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HAD JUST {\c&H0038D8FF&}SIX{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.82,0:00:28.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}WEEKS{\c&H00FFFFFF&} TO BUILD
+Dialogue: 0,0:00:28.52,0:00:29.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A NEW SUIT
+Dialogue: 0,0:00:29.08,0:00:29.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN A {\c&H0038D8FF&}HEAD-TO-HEAD{\c&H00FFFFFF&}
+Dialogue: 0,0:00:29.92,0:00:30.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TEST AGAINST TWO
+Dialogue: 0,0:00:30.80,0:00:31.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RIVALS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.70,0:00:32.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NASA{\c&H00FFFFFF&} FOUND ITS
+Dialogue: 0,0:00:32.26,0:00:32.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SUIT WAS BY
+Dialogue: 0,0:00:32.94,0:00:34.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FAR THE {\c&H0038D8FF&}BEST{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.38,0:00:34.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:34.86,0:00:35.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}GIRDLE{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:35.40,0:00:36.14,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}SPACESUIT{\c&H00FFFFFF&} DO
+Dialogue: 0,0:00:36.14,0:00:36.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE SAME TRICKY
+Dialogue: 0,0:00:36.80,0:00:37.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}JOB
+Dialogue: 0,0:00:37.46,0:00:38.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SQUEEZE{\c&H00FFFFFF&} TIGHT AND
+Dialogue: 0,0:00:38.40,0:00:39.02,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}STILL LET YOU
+Dialogue: 0,0:00:39.02,0:00:39.44,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}MOVE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:39.44,0:00:40.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ITS {\c&H0038D8FF&}JOINTS{\c&H00FFFFFF&} BENT
+Dialogue: 0,0:00:40.28,0:00:41.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LIKE RUBBER {\c&H0038D8FF&}ACCORDIONS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.89,0:00:42.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE {\c&H0038D8FF&}SEAMSTRESSES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.87,0:00:43.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WHO SEWED {\c&H0038D8FF&}BRAS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.67,0:00:44.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GOT TO WORK
+Dialogue: 0,0:00:44.63,0:00:45.49,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}UP TO {\c&H0038D8FF&}21{\c&H00FFFFFF&}
+Dialogue: 0,0:00:45.49,0:00:46.63,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LAYERS{\c&H00FFFFFF&} PER SUIT
+Dialogue: 0,0:00:46.63,0:00:48.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SEAMS WITHIN {\c&H0038D8FF&}1/64{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.09,0:00:48.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF AN {\c&H0038D8FF&}INCH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.85,0:00:49.55,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE BAD {\c&H0038D8FF&}STITCH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.55,0:00:50.17,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}COULD MEAN A
+Dialogue: 0,0:00:50.17,0:00:50.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}LEAK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.00,0:00:51.98,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEN IN {\c&H0038D8FF&}JULY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.98,0:00:53.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1969{\c&H00FFFFFF&}
+Dialogue: 0,0:00:53.30,0:00:54.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NEIL {\c&H0038D8FF&}ARMSTRONG{\c&H00FFFFFF&} {\c&H0038D8FF&}STEPPED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:54.32,0:00:55.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONTO THE {\c&H0038D8FF&}MOON{\c&H00FFFFFF&}
+Dialogue: 0,0:00:55.66,0:00:56.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE SMALL {\c&H0038D8FF&}STEP{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.54,0:00:57.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR MAN
+Dialogue: 0,0:00:57.06,0:00:58.45,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE {\c&H0038D8FF&}GIANT{\c&H00FFFFFF&} {\c&H0038D8FF&}LEAP{\c&H00FFFFFF&}
+Dialogue: 0,0:00:58.45,0:00:59.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR {\c&H0038D8FF&}UNDERWEAR{\c&H00FFFFFF&}

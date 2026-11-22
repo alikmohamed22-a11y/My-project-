@@ -1,0 +1,23 @@
+The first American alarm clock could only ring at one time. Four A.M.
+It was seventeen eighty-seven, in Concord, New Hampshire.
+A young clockmaker named Levi Hutchins wanted to be up and working before the sun. Every single day.
+So he built himself a clock, in a pine cabinet, with a mirror on the door.
+Inside, one extra gear rang a bell at four o'clock. Every morning.
+Want to sleep in? Too bad. Want to wake up at five? Impossible.
+You see, Levi never patented it, and never tried to mass-produce it. He built it just for himself.
+It took about sixty years before a French clockmaker, Antoine Redier, patented an alarm you could actually set, in eighteen forty-seven.
+Finally, you could pick your own wake-up time.
+So America's first alarm clock had no snooze, no settings... and just one opinion about when you should get up.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, 2 takes of this exact text; numbers spelled out for TTS. prep_voice.sh: silenceremove (0.18 s, -42 dB)
+ + atempo 1.15, asr_al.py (faster-whisper small.en, then forced onto the script tokens with difflib so story anchors always resolve),
+ splice_al.py (0.2-0.3 s pauses after sentences), gen_words.py -> web/al_words.js; the story, audio cues and captions are all anchored on
+ words, so no hand-typed frame numbers. Sets al_sets.js at origins (-180000,0,0/800) town/bedroom and (-182500,0,0/800/1600) shop/works/paris;
+ cast al_cast.js (ROOSTY the rooster sidekick). Captions CAP_N=3 with caption_keys.txt. Mix: audio_alarm.py stems, mix.py (music -6 dB,
+ SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS. The chain waits for mammoth, then for audio/take1.mp3, then runs prep_voice.sh.)
+Facts: Levi Hutchins (b. Harvard, MA, 17 Aug 1761, d. Concord 13 Jun 1855; apprenticed to Simon Willard 1777; clock partnership with brother
+ Abel in Concord from 1786): built the clock in 1787, a pine cabinet about 29 x 14 in with a mirror on the door, a brass movement with an
+ extra gear that rang a bell at 4 a.m., not adjustable; he wanted to be up before dawn; never patented it or tried to make it in quantity
+ (Wikipedia "Levi Hutchins"; NH Magazine "Invented Here"; History.com "Who invented the alarm clock?"; Concord Monitor; Cow Hampshire blog;
+ his 1865 Autobiography confirms the family's "early to bed and early to rise" habit, rising at four in winter). Antoine Redier (1817-1892),
+ Paris, patented an adjustable mechanical alarm clock in 1847, about 60 years later (History.com; Atlas Obscura "A 2,000-Year History of
+ Alarm Clocks"; Bibliotheca Alexandrina SCIplanet). Age not stated in the voiceover (NH Magazine says 26; he turned 26 in Aug 1787).

@@ -1,0 +1,76 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.97,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE FIRST COMPUTER
+Dialogue: 0,0:00:00.97,0:00:01.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BUG{\c&H00FFFFFF&} WAS AN
+Dialogue: 0,0:00:01.87,0:00:03.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ACTUAL{\c&H00FFFFFF&} {\c&H0038D8FF&}BUG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:03.41,0:00:04.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SEPTEMBER 9TH
+Dialogue: 0,0:00:04.33,0:00:05.33,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1947{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.51,0:00:06.65,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HARVARD{\c&H00FFFFFF&} UNIVERSITY
+Dialogue: 0,0:00:06.84,0:00:07.62,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MARK II IS
+Dialogue: 0,0:00:07.62,0:00:08.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A GIANT COMPUTER
+Dialogue: 0,0:00:08.98,0:00:09.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A ROOM FULL
+Dialogue: 0,0:00:09.58,0:00:10.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF THOUSANDS OF
+Dialogue: 0,0:00:10.40,0:00:11.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CLICKING SWITCHES CALLED
+Dialogue: 0,0:00:11.42,0:00:12.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RELAYS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:12.16,0:00:12.90,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND TODAY
+Dialogue: 0,0:00:12.96,0:00:13.94,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SOMETHING IS {\c&H0038D8FF&}WRONG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:14.31,0:00:15.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE OPERATORS
+Dialogue: 0,0:00:15.05,0:00:16.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}GO {\c&H0038D8FF&}HUNTING{\c&H00FFFFFF&}
+Dialogue: 0,0:00:16.23,0:00:17.11,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PANEL BY PANEL
+Dialogue: 0,0:00:17.11,0:00:18.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RELAY BY RELAY
+Dialogue: 0,0:00:18.29,0:00:18.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}UNTIL
+Dialogue: 0,0:00:19.01,0:00:20.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN RELAY {\c&H0038D8FF&}#70{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.21,0:00:20.95,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}PANEL {\c&H0038D8FF&}F{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.99,0:00:21.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY FIND IT
+Dialogue: 0,0:00:21.93,0:00:23.09,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}MOTH{\c&H00FFFFFF&} {\c&H0038D8FF&}TRAPPED{\c&H00FFFFFF&}
+Dialogue: 0,0:00:23.09,0:00:24.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE SWITCH
+Dialogue: 0,0:00:24.09,0:00:24.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY PULL IT
+Dialogue: 0,0:00:24.47,0:00:24.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OUT
+Dialogue: 0,0:00:24.89,0:00:25.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TAPE IT INTO
+Dialogue: 0,0:00:25.35,0:00:26.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}LOGBOOK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:26.03,0:00:26.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND WRITE
+Dialogue: 0,0:00:26.75,0:00:27.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FIRST {\c&H0038D8FF&}ACTUAL{\c&H00FFFFFF&} CASE
+Dialogue: 0,0:00:27.57,0:00:28.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF {\c&H0038D8FF&}BUG{\c&H00FFFFFF&} BEING
+Dialogue: 0,0:00:28.35,0:00:28.75,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FOUND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.75,0:00:30.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}GRACE{\c&H00FFFFFF&} {\c&H0038D8FF&}HOPPER{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:30.05,0:00:30.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ON THAT TEAM
+Dialogue: 0,0:00:30.83,0:00:31.43,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND SHE LOVED
+Dialogue: 0,0:00:31.43,0:00:32.51,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TELLING THIS STORY
+Dialogue: 0,0:00:32.51,0:00:33.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THOUGH {\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&}
+Dialogue: 0,0:00:33.49,0:00:34.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SHE WASN'T THE
+Dialogue: 0,0:00:34.07,0:00:34.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ONE WHO {\c&H0038D8FF&}FOUND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:34.57,0:00:35.07,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT
+Dialogue: 0,0:00:35.08,0:00:35.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT WHY DOES
+Dialogue: 0,0:00:35.68,0:00:36.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT SAY {\c&H0038D8FF&}ACTUAL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:37.16,0:00:37.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:37.88,0:00:38.68,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ENGINEERS WERE ALREADY
+Dialogue: 0,0:00:38.68,0:00:40.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}CALLING GLITCHES {\c&H0038D8FF&}BUGS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:40.50,0:00:41.16,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THOMAS {\c&H0038D8FF&}EDISON{\c&H00FFFFFF&} DID
+Dialogue: 0,0:00:41.16,0:00:41.58,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT BACK IN
+Dialogue: 0,0:00:41.58,0:00:42.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}1870S{\c&H00FFFFFF&}
+Dialogue: 0,0:00:42.80,0:00:43.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE NOTE
+Dialogue: 0,0:00:43.54,0:00:44.42,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAS A {\c&H0038D8FF&}JOKE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:44.44,0:00:45.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}FOR ONCE
+Dialogue: 0,0:00:45.10,0:00:45.74,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}BUG{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:45.74,0:00:46.84,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}REAL{\c&H00FFFFFF&} {\c&H0038D8FF&}BUG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.04,0:00:47.52,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THAT {\c&H0038D8FF&}MOTH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:47.52,0:00:48.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IS STILL TAPED
+Dialogue: 0,0:00:48.34,0:00:49.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN THE {\c&H0038D8FF&}LOGBOOK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:49.22,0:00:49.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}NOW AT THE
+Dialogue: 0,0:00:49.60,0:00:50.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}SMITHSONIAN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:50.58,0:00:51.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE MOST {\c&H0038D8FF&}FAMOUS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:51.34,0:00:52.24,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BUG{\c&H00FFFFFF&} IN COMPUTER
+Dialogue: 0,0:00:52.24,0:00:53.04,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HISTORY
+Dialogue: 0,0:00:53.16,0:00:53.64,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND IT NEVER
+Dialogue: 0,0:00:53.64,0:00:54.46,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WROTE A SINGLE
+Dialogue: 0,0:00:54.46,0:00:55.48,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}LINE OF {\c&H0038D8FF&}CODE{\c&H00FFFFFF&}

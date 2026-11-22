@@ -1,0 +1,31 @@
+1169a1170,1193
+>   if (o.hat === 'viking') { /* [VK-cast] Viking-age iron cap (Gjermundbu style: brow band, front ridge, rivets, top knob); o.horns = 1876 opera horns */ const hk = o.hatCol || '#7e7c86', bY = hy - HH * 0.34, R = HW * 1.05, fx = hx + R * 0.86 * Math.sin(HY);
+>     const horn = (s2) => { const spread = Math.max(0.35, Math.abs(Math.cos(HY))), bx = hx + s2 * R * 0.84 * spread + R * 0.18 * Math.sin(HY), by = bY - 62 * fz, L = o.hornK || 1, C = [];
+>       for (let i = 0; i <= 14; i++) { const t = i / 14, x = bx + s2 * (78 * t + 30 * t * t) * fz * L * spread, y = by - (30 * t + 120 * t * t) * fz * L; C.push([x, y]); }
+>       const Lft = [], Rt = []; C.forEach(([x, y], i) => { const t = i / 14, w2 = (20 * (1 - t) + 2) * fz * L, a = i < 14 ? Math.atan2(C[i + 1][1] - y, C[i + 1][0] - x) : Math.atan2(y - C[i - 1][1], x - C[i - 1][0]); Lft.push([x - Math.sin(a) * w2, y + Math.cos(a) * w2]); Rt.push([x + Math.sin(a) * w2, y - Math.cos(a) * w2]); });
+>       const hp = polyPath([...Lft, ...Rt.reverse()]); cel(g, hp, o.hornCol || '#efe2c2', 3.4, 8, 4, 3);
+>       g.save(); g.clip(hp); for (let k = 1; k < 5; k++) { const c0 = C[k * 3 - 1]; taper(g, [[c0[0] - 22 * fz, c0[1] + 6 * fz], [c0[0] + 22 * fz, c0[1] - 6 * fz]], 2, rgba('#9a8060', 0.55), 0.2); } g.restore();
+>       taper(g, C.slice(1, 10).map(([x, y]) => [x - s2 * 6 * fz, y - 4 * fz]), 3, 'rgba(255,255,255,0.35)', 0.2); };
+>     if (o.horns && BACKH) { horn(-1); horn(1); }
+>     const dm = new Path2D(); dm.moveTo(hx - R, bY); dm.bezierCurveTo(hx - R * 1.04, bY - 150 * fz, hx + R * 1.04, bY - 150 * fz, hx + R, bY); dm.quadraticCurveTo(hx, bY + 14 * fz, hx - R, bY); dm.closePath();
+>     cel(g, dm, hk, 3.6, 12, 4, 4, o.rusty ? null : null);
+>     g.save(); g.clip(dm); const bc = mixc(hk, '#2b1d4a', 0.18);
+>     const rim = new Path2D(); rim.moveTo(hx - R * 1.1, bY - 18 * fz); rim.quadraticCurveTo(hx, bY - 6 * fz, hx + R * 1.1, bY - 18 * fz); rim.lineTo(hx + R * 1.1, bY + 20 * fz); rim.lineTo(hx - R * 1.1, bY + 20 * fz); rim.closePath(); g.fillStyle = bc; g.fill(rim);
+>     if (!BACKH || true) { const rb = new Path2D(); rb.rect(fx - 9 * fz, bY - 140 * fz, 18 * fz, 140 * fz); g.fillStyle = bc; g.fill(rb); line(g, [[fx - 9 * fz, bY - 130 * fz], [fx - 9 * fz, bY - 8 * fz]], 1.6); line(g, [[fx + 9 * fz, bY - 130 * fz], [fx + 9 * fz, bY - 8 * fz]], 1.6); }
+>     for (let k = -3; k <= 3; k++) { const X = hx + k * R * 0.28, Y = bY - 8 * fz - Math.abs(k) * 1.5 * fz; g.beginPath(); g.arc(X, Y, 3.2 * fz, 0, TAU); g.fillStyle = lt(hk, 0.35); g.fill(); }
+>     for (const yy of [0.25, 0.5, 0.75]) { g.beginPath(); g.arc(fx, bY - 120 * fz * yy - 10 * fz, 3 * fz, 0, TAU); g.fillStyle = lt(hk, 0.35); g.fill(); }
+>     if (o.rusty) { g.globalCompositeOperation = 'multiply'; for (let k = 0; k < 14; k++) { g.fillStyle = 'rgba(170,90,50,0.35)'; g.beginPath(); g.ellipse(hx + (hsh(k, 3) - 0.5) * R * 1.8, bY - hsh(k, 5) * 100 * fz, (6 + hsh(k, 7) * 12) * fz, (4 + hsh(k, 9) * 8) * fz, 0, 0, TAU); g.fill(); } g.globalCompositeOperation = 'source-over'; }
+>     taper(g, arcPts(hx - R * 0.15 * SG, bY - 40 * fz, R * 0.62, SG > 0 ? Math.PI * 1.12 : Math.PI * 1.58, SG > 0 ? Math.PI * 1.42 : Math.PI * 1.88, 6, 60 * fz), 5, 'rgba(255,255,255,0.32)', 0.3);
+>     g.restore(); line(g, [[hx - R * 1.0, bY - 2 * fz], [hx, bY + 7 * fz], [hx + R * 1.0, bY - 2 * fz]], 2.4);
+>     cel(g, ellP(fx * 0.85 + hx * 0.15, bY - 112 * fz, 9 * fz, 7 * fz), mixc(hk, '#ffffff', 0.1), 2.4, 2, 2, 0);
+>     if (o.horns && !BACKH) { horn(-1); horn(1); } }
+>   if (o.hat === 'beret') { /* [VK-cast] soft velvet beret, tilted */ const hk = o.hatCol || '#1e1a26', bY = hy - HH * 0.66, X = hx + 8 * fz * SG;
+>     cel(g, ellP(X + 14 * fz * SG, bY - 26 * fz, HW * 1.2, 40 * fz, -0.1 * SG), hk, 3.4, 10, 4, 3);
+>     cel(g, polyPath([[hx - HW * 0.86, bY + 2 * fz], [hx - HW * 0.84, bY - 14 * fz], [hx + HW * 0.84, bY - 14 * fz], [hx + HW * 0.86, bY + 2 * fz]]), mixc(hk, '#3a2a4a', 0.4), 2.6, 4, 2, 2);
+>     taper(g, arcPts(X, bY - 30 * fz, HW * 0.8, Math.PI * 1.15, Math.PI * 1.45, 6, 30 * fz), 4, 'rgba(255,255,255,0.22)', 0.3); }
+1282a1307,1311
+>   if (o.hat === 'viking' && o.guard) { /* [VK-cast] spectacle guard: iron rings around the eyes + nasal */ const gc = o.hatCol || '#7e7c86'; const rims = [-1, 1].map((s2) => ({ s: s2, m: fm(s2 * w * 0.38, ey, kF) })).filter((q) => q.m.c > 0.18);
+>     for (const { m } of rims) { const op = ellP(m.x, ey - 1, 19 * m.sx, 17), ip = ellP(m.x, ey - 1, 13.5 * m.sx, 12.5); const ring = new Path2D(); ring.addPath(op); ring.addPath(ip); g.fillStyle = gc; g.fill(ring, 'evenodd'); g.lineWidth = 2.4; g.strokeStyle = INK; g.stroke(op); g.lineWidth = 1.8; g.stroke(ip);
+>       taper(g, arcPts(m.x - 3, ey - 3, 17 * m.sx, Math.PI * 1.15, Math.PI * 1.5, 5, 15), 2.4, 'rgba(255,255,255,0.45)', 0.2); }
+>     const nm2 = fm(0, 14), np = polyPath([[nm2.x - 5, -40], [nm2.x + 5, -40], [nm2.x + 4, 30], [nm2.x - 4, 30]]); cel(g, np, gc, 2.2, 2, 2, 0);
+>     const bp = polyPath([[-w * 0.62, -16], [w * 0.62, -16], [w * 0.6, -8], [-w * 0.6, -8]].map(([x, y]) => [fm(x, y).x, y])); cel(g, bp, gc, 2.2, 2, 2, 0); }

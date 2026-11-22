@@ -1,0 +1,21 @@
+In October 1582, ten days vanished from the calendar. People went to bed on Thursday, October 4th... and woke up on Friday, October 15th.
+The culprit? The old Julian calendar. Its year was about eleven minutes too long.
+Tiny, right? But over the centuries, those minutes piled up. By the 1500s, Easter had drifted about ten days.
+So Pope Gregory the Thirteenth issued a papal bull, Inter gravissimas: skip ten days!
+In Italy, Spain, Portugal and Poland, the dates jumped, but the weekdays kept going.
+Plus, a new leap-year rule: century years only count if they divide by four hundred.
+But not everyone switched. Britain and its colonies, including America, waited until 1752, and lost eleven days. Those famous "give us our eleven days" riots? Probably a myth.
+Russia held out until 1918. Greece, until 1923.
+You see, Russia was running late. So its famous October Revolution... happened in November, by everyone else's calendar.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 59.67 s, 1791 frames. Sets gc_sets.js at origins (-154000,0,0/800/1600) bed/cosmos/hall and (-156500,0,0/800/1600)
+ map/london/petro. Engine hooks: hook_gc.py (adds the [GC] lines next to the [RV] ones in main.js). Test stills: tst.sh (WORKERS=1, <= 6 frames,
+ flock on the shared testrender.lock, >= 4 GB available).
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat caption_keys.txt)" "gregory the thirteenth=>Gregory XIII".
+ Mix: audio_calendar.py stems, mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS.)
+Sources: Britannica "Ten Days That Vanished: The Switch to the Gregorian Calendar" (Oct 4 -> Oct 15, 1582; Italy, Spain, Portugal, Poland);
+Britannica "Julian calendar" (year too long by 11 min 14 s; ~10-day drift by the 1500s); Britannica / Wikipedia "Gregorian calendar"
+(Inter gravissimas, Feb 24 1582; century years leap only if divisible by 400; weekdays unchanged); Britannica "Did a Calendar Change Cause
+Riots in England?" and R. Poole, "Give us our eleven days!", Past & Present 1995 (riots largely a myth, Hogarth's 1755 election painting);
+Calendar (New Style) Act 1750 (Britain and colonies: Sept 2 1752 -> Sept 14); Wikipedia "Old Style and New Style dates" (Russia Jan 31 ->
+Feb 14 1918; Greece 1923); Britannica / Wikipedia "October Revolution" (25 October O.S. = 7 November N.S. 1917).

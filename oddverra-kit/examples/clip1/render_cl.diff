@@ -1,0 +1,12 @@
+15c15
+<   const RS = +(process.env.RS || 1); const p = await b.newPage({ viewport: { width: Math.round(1080 * RS), height: Math.round(1920 * RS) } });
+---
+>   const RS = +(process.env.RS || 1); const PH = +(process.env.PH || 960); /* [CL] half-height story panel */ const p = await b.newPage({ viewport: { width: Math.round(1080 * RS), height: Math.round(PH * RS) } });
+17c17
+<   await p.goto(`http://localhost:${port}/index.html${process.env.Q || ''}${process.env.RS ? ((process.env.Q || '').includes('?') ? '&' : '?') + 'rs=' + process.env.RS : ''}`); await p.waitForFunction('window.ready', { timeout: 900000 });
+---
+>   await p.goto(`http://localhost:${port}/index.html?ph=${PH}${(process.env.Q || '').replace(/^\?/, '&')}${process.env.RS ? '&rs=' + process.env.RS : ''}`); await p.waitForFunction('window.ready', { timeout: 900000 });
+20c20
+<     const JQ = +(process.env.JPGQ || 0.95); /* [NG] JPGQ */ const shot = (f) => p.evaluate(([f, JQ]) => { window.renderFrame(f); const c = document.querySelector('canvas'); const t = document.createElement('canvas'); t.width = 24; t.height = 42; const g = t.getContext('2d'); g.drawImage(c, 0, 0, 24, 42); const d = g.getImageData(0, 0, 24, 42).data; let m = 0; for (let i = 0; i < d.length; i += 4) m += d[i] + d[i + 1] + d[i + 2]; return [c.toDataURL('image/jpeg', JQ), m / (d.length / 4) / 3]; }, [f, JQ]);
+---
+>     const JQ = +(process.env.JPGQ || 0.95); /* [NG] JPGQ */ const shot = (f) => p.evaluate(([f, JQ]) => { window.renderFrame(f); const c = document.querySelector('canvas'); const t = document.createElement('canvas'); t.width = 24; t.height = 21; const g = t.getContext('2d'); g.drawImage(c, 0, 0, 24, 21); const d = g.getImageData(0, 0, 24, 21).data; let m = 0; for (let i = 0; i < d.length; i += 4) m += d[i] + d[i + 1] + d[i + 2]; return [c.toDataURL('image/jpeg', JQ), m / (d.length / 4) / 3]; }, [f, JQ]);

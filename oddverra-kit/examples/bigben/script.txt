@@ -1,0 +1,23 @@
+Big Ben isn't the tower. It's the bell inside it.
+The tower was simply called the Clock Tower. In twenty twelve, it was renamed Elizabeth Tower, for the Queen's Diamond Jubilee.
+So why "Big Ben"? Nobody's totally sure. Maybe Sir Benjamin Hall, the big man in charge of the works. Or maybe Ben Caunt, a heavyweight boxer.
+But the bell had a rough start.
+In eighteen fifty-seven, the first great bell cracked during testing.
+So it was broken up, and recast at Whitechapel.
+The new bell rang out in eighteen fifty-nine. And within months... it cracked too!
+You see, instead of starting over, they turned the bell a quarter-turn, so the hammer hits fresh metal, and gave it a lighter hammer.
+And the crack? It's still there. It's reportedly part of why Big Ben sounds the way it does.
+Even the clock is fine-tuned with old pennies. Add one to the pendulum, and it gains about two-fifths of a second a day.
+So the most famous bell on Earth is a cracked one... and most people still think it's a tower.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2 (take 1 had a stray "But" at the start); numbers spelled out for TTS;
+ silenceremove (0.18 s, -42 dB) + atempo 1.1; splice.py beat pauses -> 59.03 s, 1771 frames. Sets bb_sets.js at origins
+ (-136000,0,0/800) tower/belfry and (-138500,0,0/800/1600) yard/foundry/clock; cast bb_cast.js (BONGO the bell sidekick).
+ Captions: CAP_N=3 python3 captions.py work/words.json work/captions.ass "$(cat work/caption_keys.txt)"
+   "twenty twelve=>2012;eighteen fifty-seven=>1857;eighteen fifty-nine=>1859;two-fifths=>2/5;quarter turn=>quarter-turn".
+ Mix: audio_bigben.py stems, mix.py (music -6 dB, SFX <= -6 dB under voice); finish_chain.sh sets -14 LUFS.)
+Facts: UK Parliament (Big Ben pages, Commons news 26 Jun 2012 "Clock Tower to be renamed Elizabeth Tower", plaque 12 Sep 2012;
+ Great Clock adjustments 2015: each old penny ~2/5 s a day); first bell (Warners, Stockton 1856) cracked in trials in New Palace Yard
+ 1857, broken up and recast by George Mears at Whitechapel (Grace's Guide, Wellcome Collection, Stockton heritage); new bell first
+ rang 11 Jul 1859, cracked that September, turned (Parliament: a quarter turn) with a lighter hammer in 1863 (Airy); Parliament says
+ the crack gives its distinctive sound (written "reportedly"); name origin disputed, Hall vs Caunt (History.com, Ian Visits 1856
+ Hertford Mercury, Wikipedia).

@@ -1,0 +1,80 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,2,0,1,10,5,2,60,60,560,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.07,0:00:00.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BIG{\c&H00FFFFFF&} {\c&H0038D8FF&}BEN{\c&H00FFFFFF&} ISN'T
+Dialogue: 0,0:00:00.91,0:00:01.73,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}TOWER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:01.73,0:00:02.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S THE {\c&H0038D8FF&}BELL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:02.29,0:00:03.35,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INSIDE IT
+Dialogue: 0,0:00:03.49,0:00:04.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}TOWER{\c&H00FFFFFF&} WAS
+Dialogue: 0,0:00:04.13,0:00:04.85,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SIMPLY CALLED THE
+Dialogue: 0,0:00:04.85,0:00:05.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CLOCK{\c&H00FFFFFF&} {\c&H0038D8FF&}TOWER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:05.67,0:00:06.61,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}2012{\c&H00FFFFFF&}
+Dialogue: 0,0:00:06.61,0:00:07.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT WAS RENAMED
+Dialogue: 0,0:00:07.19,0:00:08.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}ELIZABETH{\c&H00FFFFFF&} {\c&H0038D8FF&}TOWER{\c&H00FFFFFF&} FOR
+Dialogue: 0,0:00:08.37,0:00:09.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE QUEEN'S {\c&H0038D8FF&}DIAMOND{\c&H00FFFFFF&}
+Dialogue: 0,0:00:09.21,0:00:09.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}JUBILEE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:10.31,0:00:11.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO WHY {\c&H0038D8FF&}BIG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.21,0:00:11.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:11.87,0:00:13.39,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}NOBODY'S{\c&H00FFFFFF&} TOTALLY SURE
+Dialogue: 0,0:00:13.41,0:00:14.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}MAYBE SIR BENJAMIN
+Dialogue: 0,0:00:14.41,0:00:15.01,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}HALL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:15.01,0:00:15.41,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}BIG{\c&H00FFFFFF&} MAN
+Dialogue: 0,0:00:15.41,0:00:15.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN CHARGE OF
+Dialogue: 0,0:00:15.91,0:00:16.57,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE WORKS
+Dialogue: 0,0:00:16.57,0:00:17.47,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OR MAYBE {\c&H0038D8FF&}BEN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:17.47,0:00:18.03,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CAUNT{\c&H00FFFFFF&}
+Dialogue: 0,0:00:18.03,0:00:19.23,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}HEAVYWEIGHT{\c&H00FFFFFF&} {\c&H0038D8FF&}BOXER{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.51,0:00:19.99,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}BUT THE {\c&H0038D8FF&}BELL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:19.99,0:00:20.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HAD A {\c&H0038D8FF&}ROUGH{\c&H00FFFFFF&}
+Dialogue: 0,0:00:20.67,0:00:21.37,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}START
+Dialogue: 0,0:00:21.53,0:00:22.83,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IN {\c&H0038D8FF&}1857{\c&H00FFFFFF&}
+Dialogue: 0,0:00:22.83,0:00:23.53,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE FIRST GREAT
+Dialogue: 0,0:00:23.53,0:00:24.69,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BELL{\c&H00FFFFFF&} {\c&H0038D8FF&}CRACKED{\c&H00FFFFFF&} DURING
+Dialogue: 0,0:00:24.69,0:00:25.29,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}TESTING
+Dialogue: 0,0:00:25.29,0:00:25.89,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO IT WAS
+Dialogue: 0,0:00:25.89,0:00:26.67,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BROKEN{\c&H00FFFFFF&} UP AND
+Dialogue: 0,0:00:26.67,0:00:27.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}RECAST{\c&H00FFFFFF&} AT {\c&H0038D8FF&}WHITECHAPEL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:27.93,0:00:28.91,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE NEW {\c&H0038D8FF&}BELL{\c&H00FFFFFF&}
+Dialogue: 0,0:00:28.91,0:00:29.59,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}RANG OUT IN
+Dialogue: 0,0:00:29.59,0:00:30.87,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}1859{\c&H00FFFFFF&}
+Dialogue: 0,0:00:30.87,0:00:31.93,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND WITHIN {\c&H0038D8FF&}MONTHS{\c&H00FFFFFF&}
+Dialogue: 0,0:00:31.95,0:00:33.19,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT {\c&H0038D8FF&}CRACKED{\c&H00FFFFFF&} {\c&H0038D8FF&}TOO{\c&H00FFFFFF&}
+Dialogue: 0,0:00:33.52,0:00:34.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}YOU SEE
+Dialogue: 0,0:00:34.12,0:00:34.80,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}INSTEAD OF STARTING
+Dialogue: 0,0:00:34.80,0:00:35.36,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OVER
+Dialogue: 0,0:00:35.36,0:00:35.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THEY TURNED THE
+Dialogue: 0,0:00:35.92,0:00:36.92,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BELL{\c&H00FFFFFF&} A {\c&H0038D8FF&}QUARTER-TURN{\c&H00FFFFFF&}
+Dialogue: 0,0:00:36.92,0:00:37.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE HAMMER
+Dialogue: 0,0:00:37.66,0:00:38.56,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}HITS {\c&H0038D8FF&}FRESH{\c&H00FFFFFF&} METAL
+Dialogue: 0,0:00:38.56,0:00:39.30,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND GAVE IT
+Dialogue: 0,0:00:39.30,0:00:40.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}LIGHTER{\c&H00FFFFFF&} HAMMER
+Dialogue: 0,0:00:40.50,0:00:41.26,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND THE {\c&H0038D8FF&}CRACK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:41.26,0:00:42.22,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S {\c&H0038D8FF&}STILL{\c&H00FFFFFF&} THERE
+Dialogue: 0,0:00:42.22,0:00:43.10,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT'S {\c&H0038D8FF&}REPORTEDLY{\c&H00FFFFFF&} PART
+Dialogue: 0,0:00:43.10,0:00:43.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OF WHY {\c&H0038D8FF&}BIG{\c&H00FFFFFF&}
+Dialogue: 0,0:00:43.66,0:00:44.54,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}BEN{\c&H00FFFFFF&} {\c&H0038D8FF&}SOUNDS{\c&H00FFFFFF&} THE
+Dialogue: 0,0:00:44.54,0:00:45.40,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}WAY IT DOES
+Dialogue: 0,0:00:45.66,0:00:46.34,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}EVEN THE {\c&H0038D8FF&}CLOCK{\c&H00FFFFFF&}
+Dialogue: 0,0:00:46.34,0:00:47.38,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IS FINE-TUNED WITH
+Dialogue: 0,0:00:47.38,0:00:48.32,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}OLD {\c&H0038D8FF&}PENNIES{\c&H00FFFFFF&}
+Dialogue: 0,0:00:48.32,0:00:48.86,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}ADD ONE TO
+Dialogue: 0,0:00:48.86,0:00:49.60,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}THE {\c&H0038D8FF&}PENDULUM{\c&H00FFFFFF&} AND
+Dialogue: 0,0:00:49.60,0:00:50.20,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}IT GAINS ABOUT
+Dialogue: 0,0:00:50.20,0:00:51.08,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}2/5{\c&H00FFFFFF&} OF A
+Dialogue: 0,0:00:51.08,0:00:52.12,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SECOND A DAY
+Dialogue: 0,0:00:52.37,0:00:53.13,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}SO THE MOST
+Dialogue: 0,0:00:53.13,0:00:54.05,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}FAMOUS{\c&H00FFFFFF&} {\c&H0038D8FF&}BELL{\c&H00FFFFFF&} ON
+Dialogue: 0,0:00:54.05,0:00:54.71,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}EARTH{\c&H00FFFFFF&} IS A
+Dialogue: 0,0:00:54.71,0:00:55.21,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}CRACKED{\c&H00FFFFFF&} ONE
+Dialogue: 0,0:00:55.21,0:00:56.28,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}AND MOST {\c&H0038D8FF&}PEOPLE{\c&H00FFFFFF&}
+Dialogue: 0,0:00:56.28,0:00:57.06,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}{\c&H0038D8FF&}STILL{\c&H00FFFFFF&} THINK IT'S
+Dialogue: 0,0:00:57.06,0:00:57.66,Cap,,0,0,0,,{\fscx80\fscy80\t(0,90,\fscx106\fscy106)\t(90,160,\fscx100\fscy100)}A {\c&H0038D8FF&}TOWER{\c&H00FFFFFF&}

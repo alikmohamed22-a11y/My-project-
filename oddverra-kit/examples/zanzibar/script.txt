@@ -1,0 +1,20 @@
+The shortest war in history started and ended before ten in the morning.
+Zanzibar, August twenty-fifth, eighteen ninety-six. Sultan Hamad bin Thuwaini died suddenly.
+Within hours, Khalid bin Barghash moved into the palace and declared himself sultan... without Britain's approval.
+Britain, which ran Zanzibar as a protectorate, sent an ultimatum: be out by nine a.m. on the twenty-seventh.
+Khalid barricaded himself inside, with guards, cannons, and the royal yacht, the Glasgow.
+Nine o'clock came. He stayed.
+At two minutes past nine, Royal Navy ships opened fire.
+The Glasgow fired back, and was quickly sunk. Her crew was rescued.
+By about nine-forty, the palace was wrecked, and the flag came down.
+Around five hundred people on the Zanzibari side were killed or wounded. One British sailor was hurt.
+The whole war lasted somewhere between thirty-eight and forty-five minutes.
+You see, Khalid himself had escaped... to the German consulate. Weeks later, he left by boat, straight from its garden.
+And his supporters? They were reportedly made to pay for the shells fired at them.
+(ElevenLabs Jesse 4N8zjn9tVNuDEBFWVHAq, eleven_v4, take 2 of 2; numbers spelled out for TTS; silenceremove (0.18 s, -42 dB) + atempo 1.15;
+ splice.py beat pauses -> 62.36 s, 1871 frames. Sets zz_sets.js at origins (-118000,0,0/800/1600) and (-120500,0,0/800).
+ Sources: Wikipedia "Anglo-Zanzibar War" (Hamad died 25 Aug 1896; ultimatum 09:00 27 Aug; fire opened 09:02, ceased ~09:40-09:46;
+ 38-45 min; ~500 Zanzibari killed or wounded, 1 British petty officer wounded; Glasgow sunk, crew rescued; Khalid to the German consulate,
+ left 2 Oct on SMS Seeadler's boat from the consulate grounds; supporters paid 300,000 rupees for the shells and looting damage),
+ Britannica (no more than 45 min; Glasgow sunk, crew rescued; supporters made to pay the cost), SA History Online (less than 3/4 hour,
+ ~500 casualties, Glasgow sunk, German consulate).)
