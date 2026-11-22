@@ -3,8 +3,8 @@
 // space (feet at 0, top of hair at -100, y up = negative) and scaled by o.h/100. t is in frames @30fps.
 // v2: pose blending (pose2/mix), joint overrides (o.rig), secondary motion, expression cross-fades,
 // smoother visemes + jaw, saccades, blink-on-turn, textures/AO/tapered interior lines. v1 API unchanged.
-export const CAST = ['SAM', 'SAM_SOOT', 'SAM_CHEF', 'HEADCHEF', 'ROOMMATE', 'MOM', 'TEACHER', 'OWNER', 'SAM_SUIT'];
-export const REL_H = { SAM: 1, SAM_SOOT: 1, SAM_CHEF: 1, HEADCHEF: 1.1, ROOMMATE: 1.12, MOM: 0.92, TEACHER: 0.98, OWNER: 1.0, SAM_SUIT: 1 };
+export const CAST = ['SAM', 'SAM_SOOT', 'SAM_CHEF', 'HEADCHEF', 'ROOMMATE', 'MOM', 'TEACHER', 'OWNER', 'SAM_SUIT', 'CRITIC'];
+export const REL_H = { SAM: 1, SAM_SOOT: 1, SAM_CHEF: 1, HEADCHEF: 1.1, ROOMMATE: 1.12, MOM: 0.92, TEACHER: 0.98, OWNER: 1.0, SAM_SUIT: 1, CRITIC: 1.14 };
 export const POSES = ['stand', 'walk', 'sit', 'cheer', 'point', 'facepalm', 'shrug', 'hold', 'holdUp', 'phone', 'armsCrossed', 'nod',
   'lookUp', 'salute', 'bow', 'tiptoe', 'crackEgg', 'stir', 'fanSmoke', 'typing', 'fall', 'proudChest'];
 
@@ -210,6 +210,19 @@ const DEF = {
     sleeve: { c: '#4a4f5c', s: '#363a45', len: 1.42, wide: 3.0, tx: 'twill', ta: 0.1 },
     pants: { c: '#4a4f5c', s: '#363a45', len: 1, tx: 'twill', ta: 0.1 },
     shoes: { type: 'boot', c: '#f5c518', s: '#c99a0a', sole: '#3a3546' },
+  },
+  // Ep9: the city's toughest food critic, "The Iron Palate" (invented). Silhouette = tall and gaunt, iron-grey hair slicked straight back
+  // into a sharp widow's peak, a gold monocle, thin pencil moustache, black three-piece suit with a blood-red tie + silver pocket square.
+  CRITIC: {
+    relH: 1.14, skin: '#e3c2a6', skinS: '#c19c80', blush: '#d89080', blushL: '#b86a5c', defExpr: 'stern', lidAdd: 0.22,
+    iris: '#6b7a86', nail: '#efd6c4', crease: '#a98266', stubble: 0.12,
+    head: { R: 10.6, cy: -87, W: 0.9, low: 1.34, taper: 0.3, sq: 0.6, top: 1.04, eyeA: 0.44, eyeY: 0.06, erx: 0.2, ery: 0.25, noseY: 0.44, mouthY: 0.86, nose: 'long', brW: 0.26, brCol: '#2a2c36', ears: 1, stache: '#3a3c48', stacheW: 0.9, stacheT: 0.9, lines: 1, monocle: 1 },
+    hair: { c: '#6e7482', s: '#4c515e', hi: '#aab0bc', line: (a) => { const A = Math.abs(a); return A < HP ? lerp(0.58, 0.1, Math.pow(A / HP, 1.1)) + 0.14 * Math.exp(-a * a * 40) : lerp(0.1, -1.0, Math.pow((A - HP) / HP, 0.8)); }, vol: { r: 1.06, amp: 0.02, n: 4, ext: 0.1, cy: 0, mode: 'wavy' }, locks: 7 },
+    body: { neckW: 4.4, shY: -70, sx: 10.2, sd: 6, hemY: -36, hemX: 9.8, hemD: 6.2, hipY: -41, hipX: 3.8, legW: 6.2, armW: 5.2, ua: 15, fa: 14.4, thigh: 19.4, shin: 19, footY: -3.6, sitY: -25 },
+    top: { type: 'suit', c: '#25222e', s: '#17151e', lap: '#34303f', shirt: '#f4f1ea', shirtS: '#d2cdc2', tie: '#a3202c', tieS: '#761521', pocket: '#d9dde6', btn: '#8a8f9c', vy: 0.5, vw: 3.0, tx: 'twill', ta: 0.07, stitch: '#3a3646' },
+    sleeve: { c: '#25222e', s: '#17151e', len: 1, cuff: 1, tx: 'twill', ta: 0.07 },
+    pants: { c: '#25222e', s: '#17151e', len: 1, tx: 'twill', ta: 0.07 },
+    shoes: { type: 'flat', c: '#141219', s: '#0b0a10', sole: '#2a2733' },
   },
 };
 
@@ -1082,6 +1095,13 @@ function drawFace(ctx, st, hpts, hp, py, m, jaw) {
   if (H.lines) {
     for (const e of eyes) { const ox = e.x + e.s * e.rx * 1.25; line(ctx, S, [P(ox, eyeY - e.ry * 0.15), P(ox + e.s * R * 0.08, eyeY - e.ry * 0.3)], 0.4); line(ctx, S, [P(ox, eyeY + e.ry * 0.15), P(ox + e.s * R * 0.08, eyeY + e.ry * 0.32)], 0.4); }
     for (const s of [-1, 1]) { const f = onFace(R * 0.55, s * 0.33); if (f.d < 0.3) continue; tline(ctx, [P(f.x, R * 0.5 + py), P(f.x + s * R * 0.05, R * 0.66 + py), P(f.x + s * R * 0.03, R * 0.8 + py)], S.lw * 0.45, C.skinS, 0.2, 0.2); }
+  }
+  if (H.monocle && eyes.length) { // gold monocle over the screen-right eye + chain
+    const e = eyes[eyes.length - 1], gy = eyeY + R * 0.02, rr = Math.max(e.rx, e.ry) * 1.35;
+    ctx.save(); ctx.fillStyle = 'rgba(210,235,255,0.25)'; ctx.beginPath(); ctx.arc(e.x, gy, rr, 0, TAU); ctx.fill();
+    ctx.strokeStyle = INK; ctx.lineWidth = S.lw * 1.25; ctx.stroke(); ctx.strokeStyle = '#e6b84a'; ctx.lineWidth = S.lw * 0.6; ctx.stroke();
+    ctx.globalAlpha = 0.7; tline(ctx, [P(e.x - rr * 0.55, gy - rr * 0.15), P(e.x - rr * 0.15, gy - rr * 0.6)], S.lw * 0.5, '#ffffff', 0.4, 0.4); ctx.globalAlpha = 1;
+    ctx.strokeStyle = '#e6b84a'; ctx.lineWidth = S.lw * 0.4; ctx.setLineDash([R * 0.05, R * 0.05]); ctx.beginPath(); ctx.moveTo(e.x + rr * 0.7, gy + rr * 0.7); ctx.quadraticCurveTo(e.x + rr * 1.2, gy + R * 0.9, e.x + rr * 0.6, R * 1.5); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); ctx.strokeStyle = INK;
   }
   if (H.glasses) {
     ctx.strokeStyle = '#8a3b2b'; ctx.lineWidth = S.lw * 0.6;

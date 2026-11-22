@@ -10,7 +10,7 @@ const FIX = { LUMIERE: 'LUMIÈRE', 'LUMIÈRE': 'LUMIÈRE', RESUME: 'RÉSUMÉ', '
 let QUOTES = [[676, 712], [1140, 1178], [1209, 1245]];
 export const CAP_Y = Math.round(H * 0.72);
 export const SAFE_Y = Math.round(H * 0.78); // bottom ~22% is covered by Instagram UI: keep key action above this
-let CHUNKS = [];
+let CHUNKS = [], MAXLEN = 15, MAXW = 3, HOLD = false;
 
 function clean(w) { // display form of a word
   let u = w.toUpperCase().replace(/,$/, '');
@@ -19,7 +19,7 @@ function clean(w) { // display form of a word
 }
 // cfg (optional, from story.CAPCONF): { file:'words_v2.json', keyY:[...], keyR:[...], quotes:[[a,b],...], fix:{RAW:'DISPLAY'} }
 export async function loadCaptions(cfg = {}) {
-  if (cfg.keyY) KEY_Y = new Set(cfg.keyY); if (cfg.keyR) KEY_R = new Set(cfg.keyR); if (cfg.quotes) QUOTES = cfg.quotes; if (cfg.fix) Object.assign(FIX, cfg.fix);
+  if (cfg.keyY) KEY_Y = new Set(cfg.keyY); if (cfg.keyR) KEY_R = new Set(cfg.keyR); if (cfg.quotes) QUOTES = cfg.quotes; if (cfg.fix) Object.assign(FIX, cfg.fix); MAXLEN = cfg.maxLen || 15; MAXW = cfg.maxWords || 3; HOLD = !!cfg.hold;
   const words = await (await fetch(cfg.file || 'words.json')).json();
   const ws = words.map((w) => ({ ...w, d: clean(w.w), raw: w.w }));
   const chunks = []; let cur = [];
@@ -28,14 +28,14 @@ export async function loadCaptions(cfg = {}) {
     const w = ws[i], prev = cur[cur.length - 1];
     const len = cur.reduce((n, x) => n + x.d.length + 1, 0) + w.d.length;
     const inQ = (f) => QUOTES.findIndex(([a, b]) => f >= a && f < b);
-    if (prev && (cur.length >= 3 || (/^[A-Z]/.test(w.raw) && !/^I'm$/.test(w.raw) && !/^[A-Z]/.test(prev.raw)) || /[.,?!]$/.test(prev.raw) || w.s - prev.e > 0.35 || len > 15 || inQ(prev.s * FPS) !== inQ(w.s * FPS))) flush();
+    if (prev && (cur.length >= MAXW || (/^[A-Z]/.test(w.raw) && !/^I'm$/.test(w.raw) && !/^[A-Z]/.test(prev.raw)) || /[.,?!]$/.test(prev.raw) || w.s - prev.e > 0.35 || len > MAXLEN || inQ(prev.s * FPS) !== inQ(w.s * FPS))) flush();
     cur.push(w);
   }
   flush();
   CHUNKS = chunks.map((c, i) => {
     const a = Math.round(c[0].s * FPS); const nx = chunks[i + 1]; const endW = c[c.length - 1].e;
-    let b = nx ? Math.round(nx[0].s * FPS) : Math.round(endW * FPS) + 18;
-    if (nx && nx[0].s - endW > 0.7) b = Math.round((endW + 0.4) * FPS);
+    let b = nx ? Math.round(nx[0].s * FPS) : HOLD ? 1e9 : Math.round(endW * FPS) + 18;
+    if (nx && nx[0].s - endW > 0.7 && !HOLD) b = Math.round((endW + 0.4) * FPS); /* hold: caption stays up until the next one (no-voice episodes) */
     const words = c.map((w) => ({ d: w.d, key: w.d.replace(/[.,?!…“”"]/g, ''), f: Math.max(a, Math.round(w.s * FPS)) }));
     const q = QUOTES.findIndex(([qa, qb]) => a >= qa && a < qb);
     if (q >= 0) {
